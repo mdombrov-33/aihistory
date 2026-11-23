@@ -42,7 +42,7 @@ PostgreSQL/Drizzle persistence is planned. Current lesson shape and validation a
 
 | Concern | Working frontend | Production integration requirement |
 | --- | --- | --- |
-| Presentation | Version-2 bundles, 13 families, 22 presets, registered local images/models and explicit beat programs | Reuse these capability rules; define a versioned persistence envelope and compatibility mapping |
+| Presentation | Version-2 bundles, 15 families, 24 presets, registered local images/models and explicit beat programs | Reuse these capability rules; define a versioned persistence envelope and compatibility mapping |
 | Position | Authored scene/beat IDs; narrative paragraph ranges; guest progress/bookmarks store scene/passage indices | Version-scoped stable chapter/scene/passage IDs and explicit revision mappings |
 | Evidence | Source lists, credits, provenance and research packets | Structured claims, retained supporting passages, ownership and claim/evidence links |
 | Media | Public bundled assets; browser speech/synth sound preview | Authorized asset IDs, ranges, ready narration and measured timing |

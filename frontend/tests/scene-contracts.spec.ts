@@ -25,7 +25,7 @@ test("the collection retires the five legacy adapters and keeps complete indepen
     expect(getStory(slug)).toBeUndefined();
     expect(getLesson(slug)).toBeUndefined();
   }
-  expect(stories.length).toBe(8);
+  expect(stories.length).toBe(9);
   for (const bundle of preparedStories) {
     expect(bundle.version).toBe(2);
     expect(getLesson(bundle.summary.slug)).toEqual(bundle.lesson);

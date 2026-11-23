@@ -231,3 +231,180 @@ test("narrow graph layouts follow dependencies without overlapping node rectangl
         );
       }
 });
+
+test("packet traces distinguish forwarding drops from destination delivery and rewind exactly", async () => {
+  const { packetTrace } = await import("../src/features/learning/packet-model");
+  const beat = preparedStories.find((b) => b.summary.slug === "a-packets-journey")!.programs[0]
+    .beats[0];
+  if (beat.type !== "traveler") throw new Error("Missing traveler");
+  for (const scenario of beat.traveler.scenarios)
+    for (let limit = 0; limit <= 8; limit++) {
+      const trace = packetTrace(beat.traveler, scenario.id, limit);
+      const forwardingCount = scenario.path.length - 2;
+      expect(trace.at(-1)!.kind).toBe(limit > forwardingCount ? "delivered" : "dropped");
+      expect(trace.length).toBeLessThanOrEqual(2 * scenario.path.length);
+      for (const [index, checkpoint] of trace.entries()) {
+        expect(checkpoint.hopLimit).toBeGreaterThanOrEqual(0);
+        expect(checkpoint.hopLimit).toBeLessThanOrEqual(limit);
+        expect(packetTrace(beat.traveler, scenario.id, limit)[index]).toEqual(checkpoint);
+        if (checkpoint.kind === "forwarded")
+          expect(checkpoint.hopLimit).toBe(trace[index - 1].hopLimit - 1);
+        if (checkpoint.kind === "received")
+          expect(checkpoint.hopLimit).toBe(trace[index - 1].hopLimit);
+      }
+    }
+  const boundary = preparedStories.find((b) => b.summary.slug === "a-packets-journey")!.programs[3]
+    .beats[0];
+  if (boundary.type !== "traveler") throw new Error("Missing boundary case");
+  expect(packetTrace(boundary.traveler, "neighbor", 0).at(-1)).toMatchObject({
+    kind: "delivered",
+    hopLimit: 0,
+  });
+  expect(packetTrace(boundary.traveler, "router", 0).at(-1)).toMatchObject({
+    kind: "dropped",
+    hopLimit: 0,
+  });
+  expect(() => packetTrace(beat.traveler, "missing", 3)).toThrow();
+  for (const invalid of [-1, 1.5, 9, Infinity])
+    expect(() => packetTrace(beat.traveler, "direct", invalid)).toThrow();
+});
+test("traveler contracts reject orphan routes and keep station labels inside narrow canvases", async () => {
+  const { travelerSchema, packetLayout } = await import("../src/features/learning/packet-model");
+  const beat = preparedStories.find((b) => b.summary.slug === "a-packets-journey")!.programs[0]
+    .beats[0];
+  if (beat.type !== "traveler") throw new Error("Missing traveler");
+  const traveler = beat.traveler;
+  const mutate = (fn: (value: typeof traveler) => void) => {
+    const copy = structuredClone(beat.traveler);
+    fn(copy);
+    return travelerSchema.safeParse(copy).success;
+  };
+  expect(
+    mutate((v) => {
+      v.scenarios[0].path[1] = "missing";
+    }),
+  ).toBe(false);
+  expect(
+    mutate((v) => {
+      v.scenarios[0].path[0] = "edge";
+    }),
+  ).toBe(false);
+  expect(
+    mutate((v) => {
+      v.scenarios[0].path.splice(1, 0, "receiver");
+    }),
+  ).toBe(false);
+  expect(
+    mutate((v) => {
+      v.locations.push(v.locations[0]);
+    }),
+  ).toBe(false);
+  expect(travelerSchema.safeParse({ ...beat.traveler, transition: "eval(code)" }).success).toBe(
+    false,
+  );
+  for (const width of [280, 320, 390, 700, 1000]) {
+    const layout = packetLayout(beat.traveler.locations, width, 300);
+    for (const point of Object.values(layout.positions)) {
+      expect(point.x - 59).toBeGreaterThanOrEqual(10);
+      expect(point.x + 59).toBeLessThanOrEqual(width - 10);
+      expect(point.y - 32).toBeGreaterThanOrEqual(0);
+      expect(point.y + 28).toBeLessThan(layout.height);
+    }
+  }
+});
+test("construction tests return counterexamples and accept equivalent correct connections", async () => {
+  const { testConstruction, diagnoseConstruction } =
+    await import("../src/features/learning/construction-model");
+  const beat = preparedStories.find((b) => b.summary.slug === "signals-and-decisions")!.programs[6]
+    .beats[0];
+  if (beat.type !== "construction") throw new Error("Missing construction");
+  const c = beat.construction;
+  const initial = testConstruction(c, c.initialEdges);
+  expect(initial.status).toBe("tested");
+  if (initial.status !== "tested") throw new Error("Expected test");
+  expect(initial.rows.filter((r) => !r.passes)).toEqual([
+    { inputs: { a: true, b: true }, expected: false, actual: true, passes: false },
+  ]);
+  const edges = [
+    { from: "a", to: "either", port: "a" },
+    { from: "b", to: "either", port: "b" },
+    { from: "a", to: "both", port: "a" },
+    { from: "b", to: "both", port: "b" },
+    { from: "both", to: "invert", port: "a" },
+    { from: "either", to: "combine", port: "a" },
+    { from: "invert", to: "combine", port: "b" },
+    { from: "combine", to: "result", port: "a" },
+  ] as const;
+  expect(testConstruction(c, [...edges])).toMatchObject({ status: "tested", passes: true });
+  const swapped = edges.map((e) =>
+    e.to === "either" ? { ...e, port: e.port === "a" ? ("b" as const) : ("a" as const) } : e,
+  );
+  expect(testConstruction(c, swapped)).toMatchObject({ status: "tested", passes: true });
+  expect(diagnoseConstruction(c, [])).toMatchObject({ status: "incomplete" });
+  expect(diagnoseConstruction(c, [{ from: "a", to: "result", port: "a" }]).status).toBe("ready");
+  const guard = preparedStories.find((b) => b.summary.slug === "signals-and-decisions")!.programs[7]
+    .beats[0];
+  if (guard.type !== "construction") throw new Error("Missing guard");
+  expect(
+    testConstruction(guard.construction, [
+      { from: "b", to: "invert", port: "a" },
+      { from: "a", to: "both", port: "a" },
+      { from: "invert", to: "both", port: "b" },
+      { from: "both", to: "result", port: "a" },
+    ]),
+  ).toMatchObject({ status: "tested", passes: true });
+});
+test("construction drafts reject invalid ports, multiple drivers, cycles and incomplete targets", async () => {
+  const { diagnoseConstruction, constructionSchema, constructionDraftSchema } =
+    await import("../src/features/learning/construction-model");
+  const beat = preparedStories.find((b) => b.summary.slug === "signals-and-decisions")!.programs[6]
+    .beats[0];
+  if (beat.type !== "construction") throw new Error("Missing construction");
+  const c = beat.construction;
+  for (const edges of [
+    [{ from: "a", to: "missing", port: "a" }],
+    [{ from: "result", to: "both", port: "a" }],
+    [{ from: "a", to: "invert", port: "b" }],
+    [
+      { from: "a", to: "result", port: "a" },
+      { from: "b", to: "result", port: "a" },
+    ],
+    [
+      { from: "both", to: "invert", port: "a" },
+      { from: "invert", to: "both", port: "a" },
+    ],
+  ] as const)
+    expect(diagnoseConstruction(c, [...edges]).status).toBe("invalid");
+  expect(constructionSchema.safeParse({ ...c, target: c.target.slice(1) }).success).toBe(false);
+  expect(
+    constructionSchema.safeParse({ ...c, target: [c.target[0], c.target[0], ...c.target.slice(2)] })
+      .success,
+  ).toBe(false);
+  expect(
+    constructionDraftSchema.safeParse({
+      version: 1,
+      edges: [],
+      inputs: { a: false },
+      javascript: "run()",
+    }).success,
+  ).toBe(false);
+  expect(constructionDraftSchema.safeParse({ version: 2, edges: [], inputs: {} }).success).toBe(
+    false,
+  );
+});
+
+test("builder drawing retains full-size nodes and separated 44px ports at every pane width", async () => {
+  const { constructionLayout } = await import("../src/features/learning/construction-model");
+  for (const width of [280, 390, 500, 580, 800]) {
+    const layout = constructionLayout(8, width);
+    for (const [i, a] of layout.positions.entries()) {
+      expect(a.x - 22).toBeGreaterThanOrEqual(0);
+      expect(a.x + 144 + 22).toBeLessThanOrEqual(layout.width);
+      expect(a.y - 22).toBeGreaterThanOrEqual(0);
+      expect(a.y + 72 + 22).toBeLessThanOrEqual(layout.height);
+      for (const b of layout.positions.slice(i + 1))
+        expect(Math.abs(a.x - b.x) >= 180 || Math.abs(a.y - b.y) >= 140).toBe(true);
+    }
+    expect(144 / 3).toBeGreaterThanOrEqual(44);
+  }
+});

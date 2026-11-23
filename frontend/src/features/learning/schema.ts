@@ -75,7 +75,7 @@ export const systemSchema = z
     nodes: z.array(systemNode).min(3).max(12),
     edges: z
       .array(z.strictObject({ from: label, to: label }))
-      .min(2)
+      .min(1)
       .max(20),
     description: explanation,
   })

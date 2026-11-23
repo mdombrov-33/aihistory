@@ -27,7 +27,7 @@ node scripts/check-docs.mjs
 
 App scripts run in `frontend/`; `cd frontend` followed by `pnpm <script>` is equivalent to the root commands above. The short [frontend development pointer](../../frontend/DEVELOPMENT.md) links back to these shared docs.
 
-Open `/screen-gallery` to inspect the 22 actual composition examples. [Authoring](lesson-authoring.md) describes the v2 story format and new-bundle checks.
+Open `/screen-gallery` to inspect the 24 actual composition examples. [Authoring](lesson-authoring.md) describes the v2 story format and new-bundle checks.
 
 Static checks, production compilation, scene/bundle contracts and the built-HTML link/media check run locally without provider keys. The browser-independent scene suite uses Playwright’s runner without launching a browser; Vitest/RTL and database integration tests remain target tooling for later milestones. Exact commands and current evidence are in the [implementation tracker](../implementation-plan.md#execution-tracker).
 
@@ -59,7 +59,7 @@ The current [package scripts](../../frontend/package.json) are authoritative for
 
 ## Starting slice
 
-Use the eight prepared lessons and 13 implemented families as the frontend baseline. The [learning engine](learning-engine.md) records the four new workbench families and exploration candidates. The next production slice persists representative existing content and connects real playback/evidence contracts. Richer decisions, relationships and new scientific models require supported extensions; they are not hidden capabilities of the current schema. The [implementation plan](../implementation-plan.md) defines remaining setup and acceptance work.
+Use the nine prepared lessons and 15 implemented families as the frontend baseline. The [learning engine](learning-engine.md) records the four new workbench families and exploration candidates. The next production slice persists representative existing content and connects real playback/evidence contracts. Richer decisions, relationships and new scientific models require supported extensions; they are not hidden capabilities of the current schema. The [implementation plan](../implementation-plan.md) defines remaining setup and acceptance work.
 
 Impeccable is installed as a local agent skill and is not a product runtime dependency. Detailed tasks/acceptance criteria live in the [implementation plan](../implementation-plan.md#execution-tracker); version candidates and unresolved compatibility gates are in its [research inputs](../implementation-plan.md#compatibility-and-local-configuration).
 

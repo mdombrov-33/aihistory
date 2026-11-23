@@ -6,7 +6,7 @@ test("discovery opens the new collection without legacy routes or missing artwor
   const errors: string[] = [];
   page.on("pageerror", (e) => errors.push(e.message));
   await page.goto("/");
-  await expect(page.locator(".story-card")).toHaveCount(8);
+  await expect(page.locator(".story-card")).toHaveCount(9);
   await expect
     .poll(() =>
       page

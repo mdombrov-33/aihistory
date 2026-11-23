@@ -2,6 +2,7 @@
 
 import { useSyncExternalStore } from "react";
 import { z } from "zod";
+import { constructionDraftSchema } from "@/features/learning/construction-model";
 
 const progressSchema = z.object({
   scene: z.number().int().min(0).max(99),
@@ -42,6 +43,7 @@ const stateSchema = z.object({
       ),
     )
     .default({}),
+  constructions: z.record(z.string().max(250), constructionDraftSchema).default({}).catch({}),
   interactions: z.record(z.string(), z.number().int().min(0).max(20)).default({}),
   creations: z.array(creationSchema),
   sound: z.object({
@@ -62,6 +64,7 @@ const initial: JourneyState = {
   bookmarks: [],
   saved: [],
   labs: {},
+  constructions: {},
   interactions: {},
   creations: [],
   sound: { master: 80, narration: 100, music: 0, environment: 0 },

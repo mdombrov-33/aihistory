@@ -22,7 +22,7 @@ The system separates content families from spatial compositions: two screens can
 
 ## Authoring a workbench
 
-For `assembly`, `experiment`, `sound` and `system`, follow the [learning engine](learning-engine.md#authoring-and-runtime-rules) and its schema. New cross-subject examples are listed there. Pair an input change with an observable result and a specific explanatory task. Provide model assumptions and supporting sources. Schematics may use original code-native geometric diagrams; mark their treatment `diagram` and retain provenance. A source image is not required inside a workbench.
+For `assembly`, `experiment`, `sound`, `system`, `traveler` and `construction`, follow the [learning engine](learning-engine.md#authoring-and-runtime-rules) and its schema. New cross-subject examples are listed there. Pair an input change with an observable result and a specific explanatory task. Provide model assumptions and supporting sources. Schematics may use original code-native geometric diagrams; mark their treatment `diagram` and retain provenance. A source image is not required inside a workbench.
 
 Use a registered computational model and validated parameters rather than emitting an executable formula. Assembly primitives describe supplied geometry, not an automatic reconstruction of hidden parts. A Boolean graph is not an electrical solver. Listening and simulation playback start deliberately; every task must retain useful text/numeric feedback. Timeless concepts use the `timeless` era facet rather than an invented historical period. Subject choices come from the shared taxonomy; extend it deliberately when needed.
 
@@ -38,6 +38,8 @@ Keep trusted instructions separate from untrusted user text, source excerpts and
 - `<output_contract>` the supported bundle schema and rejection/error behavior.
 
 Require the agent to identify missing evidence or unsuitable media rather than invent it. Delimiters help organization; source content remains untrusted and cannot authorize tools or provider spend. This guide does not connect a live composer or alter the selected workflow stack.
+
+For `traveler`, supply a registered IPv6 Hop Limit model, valid finite scenario paths and explicit assumptions. For `construction`, supply two or three inputs, one output, bounded components/typed wires and a complete target truth table. Nodes use an app-owned grid. Drafts may be incomplete but must not contain invalid references, ports, multiple drivers or cycles. Equivalent wiring is accepted by its behavior. [Construction contracts](../../frontend/src/features/learning/construction-model.ts) and [packet model](../../frontend/src/features/learning/packet-model.ts) own exact fields and limits.
 
 ## Checks
 

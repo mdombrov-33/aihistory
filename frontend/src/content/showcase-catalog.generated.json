@@ -1,5 +1,31 @@
 [
   {
+    "slug": "a-packets-journey",
+    "title": "A packet’s journey",
+    "question": "Why might the same packet arrive on one route and disappear on another?",
+    "description": "Travel with a packet, rewind each forwarding event and investigate what the IPv6 Hop Limit actually limits.",
+    "image": "/images/learning/packet.svg",
+    "imageAlt": "Original network diagram of a packet moving between labeled stations",
+    "topic": "Technology & computing",
+    "era": "timeless",
+    "period": "An explorable concept",
+    "scope": "Beginner · two chapters · reversible process travel",
+    "minutes": 8,
+    "chapters": [
+      {
+        "title": "Receive, then forward",
+        "question": "What changes at a router?"
+      },
+      {
+        "title": "Same packet, different path",
+        "question": "Does the packet reach its destination?"
+      }
+    ],
+    "sourceLabel": "Protocol source and model assumptions included",
+    "sample": true,
+    "sceneCount": 4
+  },
+  {
     "slug": "a-swing-in-time",
     "title": "A swing in time",
     "question": "What makes a pendulum return sooner—or later?",
@@ -201,14 +227,14 @@
     "slug": "signals-and-decisions",
     "title": "Signals and decisions",
     "question": "How can simple rules produce a useful decision?",
-    "description": "Toggle inputs, trace live connections and compare AND, OR and NOT in small ideal digital systems.",
+    "description": "Toggle inputs, trace AND, OR and NOT, then wire your own small networks and test every input combination.",
     "image": "/images/learning/logic.svg",
     "imageAlt": "Original geometric teaching diagram for Signals and decisions",
     "topic": "Technology & computing",
     "era": "timeless",
     "period": "An explorable concept",
-    "scope": "Beginner · two chapters · interactive workbenches",
-    "minutes": 8,
+    "scope": "Beginner · three chapters · explore, build and test",
+    "minutes": 12,
     "chapters": [
       {
         "title": "Inputs become an outcome",
@@ -217,10 +243,14 @@
       {
         "title": "Rules work together",
         "question": "How do different gates compose?"
+      },
+      {
+        "title": "Build a rule",
+        "question": "Can you make a network behave the way you intend?"
       }
     ],
     "sourceLabel": "Sources and model assumptions included",
     "sample": true,
-    "sceneCount": 6
+    "sceneCount": 8
   }
 ]

@@ -5,14 +5,14 @@
     "slug": "signals-and-decisions",
     "title": "Signals and decisions",
     "question": "How can simple rules produce a useful decision?",
-    "description": "Toggle inputs, trace live connections and compare AND, OR and NOT in small ideal digital systems.",
+    "description": "Toggle inputs, trace AND, OR and NOT, then wire your own small networks and test every input combination.",
     "image": "/images/learning/logic.svg",
     "imageAlt": "Original geometric teaching diagram for Signals and decisions",
     "topic": "Technology & computing",
     "era": "timeless",
     "period": "An explorable concept",
-    "scope": "Beginner · two chapters · interactive workbenches",
-    "minutes": 8,
+    "scope": "Beginner · three chapters · explore, build and test",
+    "minutes": 12,
     "chapters": [
       {
         "title": "Inputs become an outcome",
@@ -21,6 +21,10 @@
       {
         "title": "Rules work together",
         "question": "How do different gates compose?"
+      },
+      {
+        "title": "Build a rule",
+        "question": "Can you make a network behave the way you intend?"
       }
     ],
     "sourceLabel": "Sources and model assumptions included",
@@ -115,6 +119,30 @@
           "That separation also makes the explanation testable. An invalid connection or a cycle should be caught before a learner sees the lesson. Correct logical evaluation is still only one layer of correctness: the labels and the intended real-world application must also be examined. Keep both layers in mind when following a more complicated system."
         ],
         "kind": "journey",
+        "sources": [0, 1]
+      },
+      {
+        "id": "signals-and-decisions-7",
+        "chapter": 2,
+        "title": "Exactly one. Not both.",
+        "deck": "Exactly one. Not both.",
+        "text": [
+          "Start by testing the supplied network. It connects A and B to Either, an OR gate, and sends that result straight to the output. That works when exactly one input is ON. It also turns ON when both inputs are ON, which breaks the new goal. The test table checks every combination and gives you a concrete case to repair.",
+          "Use the connection controls or drag between ports to rewire the supplied components. Remove a wire before replacing its destination input. Both and Combine are separate AND gates; Invert supplies NOT. Spare gates may remain disconnected. The test cares about the complete input-to-output behavior, so swapping equivalent AND inputs does not make a correct solution wrong. A missing connection on the route to Result produces an incomplete draft, never a fabricated OFF."
+        ],
+        "kind": "construction",
+        "sources": [0, 1]
+      },
+      {
+        "id": "signals-and-decisions-8",
+        "chapter": 2,
+        "title": "A request with a blocker.",
+        "deck": "A request with a blocker.",
+        "text": [
+          "Begin with an empty workbench and make a different rule. Read A as a request and B as a blocker. The output should be ON only when the request is present and the blocker is absent. Predict the four outcomes before wiring. This is a Boolean exercise, not a real authentication system or a promise that a request has been authorized.",
+          "Test a complete design and inspect its input combinations. If one fails, trace the input values through your gates and compare the observed result with your intention. Editing clears the previous test result, because that result belongs to the old wiring. Your draft and input choices survive a local reload, while test feedback is recomputed only when requested. Reset returns to the supplied starting point. You can investigate and repair a design without receiving a score or following one required wiring diagram."
+        ],
+        "kind": "construction",
         "sources": [0, 1]
       }
     ]
@@ -440,6 +468,188 @@
               "date": ""
             }
           ]
+        }
+      ]
+    },
+    {
+      "sceneId": "signals-and-decisions-7",
+      "beats": [
+        {
+          "id": "signals-and-decisions-7-beat",
+          "type": "construction",
+          "composition": "construction-bench",
+          "purpose": "Exactly one. Not both.",
+          "title": "Exactly one. Not both.",
+          "sourceIndices": [0, 1],
+          "passageStart": 0,
+          "passageEnd": 1,
+          "construction": {
+            "model": "boolean",
+            "goal": "Make Result ON when exactly one of A and B is ON. Both OFF and both ON must give OFF.",
+            "hint": "Compare “at least one” with “both.” An inverter can remove the both-ON case before the final combination.",
+            "nodes": [
+              {
+                "id": "a",
+                "label": "A",
+                "kind": "input",
+                "explanation": "The first independent Boolean input."
+              },
+              {
+                "id": "b",
+                "label": "B",
+                "kind": "input",
+                "explanation": "The second independent Boolean input."
+              },
+              {
+                "id": "either",
+                "label": "Either",
+                "kind": "or",
+                "explanation": "OR is ON when at least one of its two inputs is ON."
+              },
+              {
+                "id": "both",
+                "label": "Both",
+                "kind": "and",
+                "explanation": "AND is ON only when both of its inputs are ON."
+              },
+              {
+                "id": "invert",
+                "label": "Invert",
+                "kind": "not",
+                "explanation": "NOT reverses its one input: ON becomes OFF and OFF becomes ON."
+              },
+              {
+                "id": "combine",
+                "label": "Combine",
+                "kind": "and",
+                "explanation": "This second AND gate can combine the results of other components."
+              },
+              {
+                "id": "result",
+                "label": "Result",
+                "kind": "output",
+                "explanation": "The network output that is compared with the goal."
+              }
+            ],
+            "initialEdges": [
+              {
+                "from": "a",
+                "to": "either",
+                "port": "a"
+              },
+              {
+                "from": "b",
+                "to": "either",
+                "port": "b"
+              },
+              {
+                "from": "either",
+                "to": "result",
+                "port": "a"
+              }
+            ],
+            "target": [
+              {
+                "inputs": [false, false],
+                "output": false
+              },
+              {
+                "inputs": [false, true],
+                "output": true
+              },
+              {
+                "inputs": [true, false],
+                "output": true
+              },
+              {
+                "inputs": [true, true],
+                "output": false
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "sceneId": "signals-and-decisions-8",
+      "beats": [
+        {
+          "id": "signals-and-decisions-8-beat",
+          "type": "construction",
+          "composition": "construction-bench",
+          "purpose": "A request with a blocker.",
+          "title": "A request with a blocker.",
+          "sourceIndices": [0, 1],
+          "passageStart": 0,
+          "passageEnd": 1,
+          "construction": {
+            "model": "boolean",
+            "goal": "Make Result ON only when A is ON and B is OFF. Treat A as a request and B as a blocker.",
+            "hint": "The blocker’s permission condition is the opposite of B. Combine that with the request.",
+            "nodes": [
+              {
+                "id": "a",
+                "label": "A",
+                "kind": "input",
+                "explanation": "The first independent Boolean input."
+              },
+              {
+                "id": "b",
+                "label": "B",
+                "kind": "input",
+                "explanation": "The second independent Boolean input."
+              },
+              {
+                "id": "either",
+                "label": "Either",
+                "kind": "or",
+                "explanation": "OR is ON when at least one of its two inputs is ON."
+              },
+              {
+                "id": "both",
+                "label": "Both",
+                "kind": "and",
+                "explanation": "AND is ON only when both of its inputs are ON."
+              },
+              {
+                "id": "invert",
+                "label": "Invert",
+                "kind": "not",
+                "explanation": "NOT reverses its one input: ON becomes OFF and OFF becomes ON."
+              },
+              {
+                "id": "combine",
+                "label": "Combine",
+                "kind": "and",
+                "explanation": "This second AND gate can combine the results of other components."
+              },
+              {
+                "id": "result",
+                "label": "Result",
+                "kind": "output",
+                "explanation": "The network output that is compared with the goal."
+              }
+            ],
+            "initialEdges": [],
+            "target": [
+              {
+                "inputs": [false, false],
+                "output": false
+              },
+              {
+                "inputs": [false, true],
+                "output": false
+              },
+              {
+                "inputs": [true, false],
+                "output": true
+              },
+              {
+                "inputs": [true, true],
+                "output": false
+              }
+            ]
+          }
         }
       ]
     }

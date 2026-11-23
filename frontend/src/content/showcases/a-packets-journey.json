@@ -1,0 +1,353 @@
+{
+  "version": 2,
+  "models": [],
+  "summary": {
+    "slug": "a-packets-journey",
+    "title": "A packet’s journey",
+    "question": "Why might the same packet arrive on one route and disappear on another?",
+    "description": "Travel with a packet, rewind each forwarding event and investigate what the IPv6 Hop Limit actually limits.",
+    "image": "/images/learning/packet.svg",
+    "imageAlt": "Original network diagram of a packet moving between labeled stations",
+    "topic": "Technology & computing",
+    "era": "timeless",
+    "period": "An explorable concept",
+    "scope": "Beginner · two chapters · reversible process travel",
+    "minutes": 8,
+    "chapters": [
+      {
+        "title": "Receive, then forward",
+        "question": "What changes at a router?"
+      },
+      {
+        "title": "Same packet, different path",
+        "question": "Does the packet reach its destination?"
+      }
+    ],
+    "sourceLabel": "Protocol source and model assumptions included",
+    "sample": true
+  },
+  "lesson": {
+    "preview": true,
+    "sources": [
+      {
+        "name": "Internet Engineering Task Force",
+        "title": "RFC 8200: Internet Protocol, Version 6 (IPv6) Specification, section 3",
+        "url": "https://www.rfc-editor.org/rfc/rfc8200.html#section-3",
+        "type": "Protocol specification",
+        "supports": "Hop Limit decrement and discard by forwarding nodes; destination treatment of a zero Hop Limit. The workbench omits other IPv6 processing, link behavior, transport protocols and real routing."
+      }
+    ],
+    "scenes": [
+      {
+        "id": "a-packets-journey-1",
+        "chapter": 0,
+        "title": "Follow one packet.",
+        "deck": "Follow one packet.",
+        "text": [
+          "A message can cross several links before it reaches another device. This workbench follows one IPv6 packet through a deliberately small network. Start at your device and advance one event at a time. The highlighted station tells you where the packet is; the adjacent explanation tells you what has actually happened there. A connection on the drawing is a supplied route, not a measured cable or a live view of the Internet.",
+          "At a router, receiving and forwarding are separate events. First inspect the Hop Limit that arrived, then advance to see the forwarding decision. Rewind to compare those values. Rewinding reconstructs the same teaching state; it does not send another packet, undo real traffic or alter a remote device. The display is an inspectable model rather than a network monitoring tool."
+        ],
+        "kind": "traveler",
+        "sources": [0]
+      },
+      {
+        "id": "a-packets-journey-2",
+        "chapter": 0,
+        "title": "A limit counts forwarding, not time.",
+        "deck": "A limit counts forwarding, not time.",
+        "text": [
+          "The initial Hop Limit places a bound on forwarding. Each router reduces it by one. A router discards the packet if it received zero or if its decrement reaches zero. Use a small limit and inspect the receive and discard events separately. A packet disappearing at a router has not also arrived at the destination farther along the line.",
+          "The slider is not a timeout in seconds. Neither the spacing between stations nor the duration of the token movement represents latency. This model isolates one rule so that you can account for each decrement. Real packet processing also involves other header checks, link behavior and error reporting, none of which the workbench attempts to reproduce."
+        ],
+        "kind": "traveler",
+        "sources": [0]
+      },
+      {
+        "id": "a-packets-journey-3",
+        "chapter": 1,
+        "title": "Keep the packet. Change the route.",
+        "deck": "Keep the packet. Change the route.",
+        "text": [
+          "Return to an initial Hop Limit of three, then compare Short route with Extra hops. The destination stays the same while the number of forwarding routers changes. Before stepping through the longer path, predict whether the packet will arrive. Find the first event where the longer path prevents the same packet from continuing.",
+          "Changing a scenario restarts the trace at the sender. That makes the comparison controlled: both routes begin with the limit you selected, rather than inherit a half-used limit from a previous run. The alternate path is authored for this example. This interface does not discover routes, model routing convergence or promise that adding physical distance always adds a router."
+        ],
+        "kind": "traveler",
+        "sources": [0]
+      },
+      {
+        "id": "a-packets-journey-4",
+        "chapter": 1,
+        "title": "The destination has a different job.",
+        "deck": "The destination has a different job.",
+        "text": [
+          "A forwarding router and the destination do different work. A destination normally processes a packet whose Hop Limit is zero; it is not forwarding that packet onward. This distinction matters when explaining the rule. To explore it here, compare the neighboring receiver route with a route containing a router, using an initial value of zero.",
+          "Our second pair of routes is deliberately tiny so the boundary is visible. Delivery in this model means arrival at the destination under the isolated Hop Limit rule. It does not mean that an application accepted a request, that a response returned or that a transfer is reliable. Retransmission belongs to a separate higher-level behavior. A precise model can explain one thing clearly while keeping those other questions open."
+        ],
+        "kind": "traveler",
+        "sources": [0]
+      }
+    ]
+  },
+  "assets": [
+    {
+      "src": "/images/learning/packet.svg",
+      "width": 1200,
+      "height": 800,
+      "credit": "Original project diagram · schematic network, not measured geography",
+      "record": "https://www.rfc-editor.org/rfc/rfc8200.html#section-3",
+      "license": "Original project asset created for this application",
+      "treatment": "diagram"
+    }
+  ],
+  "programs": [
+    {
+      "sceneId": "a-packets-journey-1",
+      "beats": [
+        {
+          "id": "a-packets-journey-1-beat",
+          "type": "traveler",
+          "composition": "process-traveler",
+          "purpose": "Follow one packet.",
+          "title": "Follow one packet.",
+          "sourceIndices": [0],
+          "passageStart": 0,
+          "passageEnd": 1,
+          "traveler": {
+            "model": "ipv6-hop-limit",
+            "hopLimit": 3,
+            "description": "A small IPv6 forwarding model: each router decrements Hop Limit and discards a packet when it receives zero or the decrement reaches zero. The destination does not decrement for forwarding. Routes are predefined, not computed by a routing protocol. Other header checks and error messages are omitted.",
+            "locations": [
+              {
+                "id": "sender",
+                "label": "Your device",
+                "role": "source"
+              },
+              {
+                "id": "edge",
+                "label": "Edge",
+                "role": "router"
+              },
+              {
+                "id": "relay",
+                "label": "Relay",
+                "role": "router"
+              },
+              {
+                "id": "north",
+                "label": "North",
+                "role": "router"
+              },
+              {
+                "id": "south",
+                "label": "South",
+                "role": "router"
+              },
+              {
+                "id": "receiver",
+                "label": "Receiver",
+                "role": "destination"
+              }
+            ],
+            "scenarios": [
+              {
+                "id": "direct",
+                "label": "Short route",
+                "explanation": "Two routers forward the packet before it reaches the receiver.",
+                "path": ["sender", "edge", "relay", "receiver"]
+              },
+              {
+                "id": "detour",
+                "label": "Extra hops",
+                "explanation": "A supplied detour adds two forwarding routers. The same initial Hop Limit may no longer be enough.",
+                "path": ["sender", "edge", "north", "south", "relay", "receiver"]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "sceneId": "a-packets-journey-2",
+      "beats": [
+        {
+          "id": "a-packets-journey-2-beat",
+          "type": "traveler",
+          "composition": "process-traveler",
+          "purpose": "A limit counts forwarding, not time.",
+          "title": "A limit counts forwarding, not time.",
+          "sourceIndices": [0],
+          "passageStart": 0,
+          "passageEnd": 1,
+          "traveler": {
+            "model": "ipv6-hop-limit",
+            "hopLimit": 2,
+            "description": "A small IPv6 forwarding model: each router decrements Hop Limit and discards a packet when it receives zero or the decrement reaches zero. The destination does not decrement for forwarding. Routes are predefined, not computed by a routing protocol. Other header checks and error messages are omitted.",
+            "locations": [
+              {
+                "id": "sender",
+                "label": "Your device",
+                "role": "source"
+              },
+              {
+                "id": "edge",
+                "label": "Edge",
+                "role": "router"
+              },
+              {
+                "id": "relay",
+                "label": "Relay",
+                "role": "router"
+              },
+              {
+                "id": "north",
+                "label": "North",
+                "role": "router"
+              },
+              {
+                "id": "south",
+                "label": "South",
+                "role": "router"
+              },
+              {
+                "id": "receiver",
+                "label": "Receiver",
+                "role": "destination"
+              }
+            ],
+            "scenarios": [
+              {
+                "id": "direct",
+                "label": "Short route",
+                "explanation": "Two routers forward the packet before it reaches the receiver.",
+                "path": ["sender", "edge", "relay", "receiver"]
+              },
+              {
+                "id": "detour",
+                "label": "Extra hops",
+                "explanation": "A supplied detour adds two forwarding routers. The same initial Hop Limit may no longer be enough.",
+                "path": ["sender", "edge", "north", "south", "relay", "receiver"]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "sceneId": "a-packets-journey-3",
+      "beats": [
+        {
+          "id": "a-packets-journey-3-beat",
+          "type": "traveler",
+          "composition": "process-traveler",
+          "purpose": "Keep the packet. Change the route.",
+          "title": "Keep the packet. Change the route.",
+          "sourceIndices": [0],
+          "passageStart": 0,
+          "passageEnd": 1,
+          "traveler": {
+            "model": "ipv6-hop-limit",
+            "hopLimit": 3,
+            "description": "A small IPv6 forwarding model: each router decrements Hop Limit and discards a packet when it receives zero or the decrement reaches zero. The destination does not decrement for forwarding. Routes are predefined, not computed by a routing protocol. Other header checks and error messages are omitted.",
+            "locations": [
+              {
+                "id": "sender",
+                "label": "Your device",
+                "role": "source"
+              },
+              {
+                "id": "edge",
+                "label": "Edge",
+                "role": "router"
+              },
+              {
+                "id": "relay",
+                "label": "Relay",
+                "role": "router"
+              },
+              {
+                "id": "north",
+                "label": "North",
+                "role": "router"
+              },
+              {
+                "id": "south",
+                "label": "South",
+                "role": "router"
+              },
+              {
+                "id": "receiver",
+                "label": "Receiver",
+                "role": "destination"
+              }
+            ],
+            "scenarios": [
+              {
+                "id": "direct",
+                "label": "Short route",
+                "explanation": "Two routers forward the packet before it reaches the receiver.",
+                "path": ["sender", "edge", "relay", "receiver"]
+              },
+              {
+                "id": "detour",
+                "label": "Extra hops",
+                "explanation": "A supplied detour adds two forwarding routers. The same initial Hop Limit may no longer be enough.",
+                "path": ["sender", "edge", "north", "south", "relay", "receiver"]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "sceneId": "a-packets-journey-4",
+      "beats": [
+        {
+          "id": "a-packets-journey-4-beat",
+          "type": "traveler",
+          "composition": "process-traveler",
+          "purpose": "The destination has a different job.",
+          "title": "The destination has a different job.",
+          "sourceIndices": [0],
+          "passageStart": 0,
+          "passageEnd": 1,
+          "traveler": {
+            "model": "ipv6-hop-limit",
+            "hopLimit": 0,
+            "description": "A small IPv6 forwarding model: each router decrements Hop Limit and discards a packet when it receives zero or the decrement reaches zero. The destination does not decrement for forwarding. Routes are predefined, not computed by a routing protocol. Other header checks and error messages are omitted.",
+            "locations": [
+              {
+                "id": "sender",
+                "label": "Your device",
+                "role": "source"
+              },
+              {
+                "id": "edge",
+                "label": "Edge",
+                "role": "router"
+              },
+              {
+                "id": "receiver",
+                "label": "Receiver",
+                "role": "destination"
+              }
+            ],
+            "scenarios": [
+              {
+                "id": "neighbor",
+                "label": "Neighboring receiver",
+                "explanation": "The packet reaches the destination without a forwarding router.",
+                "path": ["sender", "receiver"]
+              },
+              {
+                "id": "router",
+                "label": "Via a router",
+                "explanation": "One forwarding router sits between sender and destination.",
+                "path": ["sender", "edge", "receiver"]
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

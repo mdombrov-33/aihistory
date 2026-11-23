@@ -107,3 +107,110 @@ test("enlarged reading releases the complete sound workbench into document flow"
       .evaluate((node) => node.closest(".lesson-visual")!.clientHeight >= node.scrollHeight - 1),
   ).toBe(true);
 });
+
+test("packet traveler rewinds deterministically, resets changed scenarios and restores a checkpoint", async ({
+  page,
+}) => {
+  await page.goto("/stories/a-packets-journey/play/0");
+  const slider = page.getByRole("slider", { name: /Inspect event/ });
+  await slider.focus();
+  await slider.press("End");
+  await expect(page.locator(".traveler-lab")).toHaveAttribute("data-packet-state", "delivered");
+  await page.getByRole("button", { name: "Previous event", exact: true }).click();
+  await expect(page.locator(".traveler-lab")).toHaveAttribute("data-packet-state", "forwarded");
+  await page.getByRole("button", { name: "Next event", exact: true }).click();
+  await expect(page.locator(".lab-feedback h2")).toHaveText("Delivered to the destination");
+  await page.getByRole("button", { name: "Extra hops", exact: true }).click();
+  await expect(slider).toHaveValue("0");
+  await slider.focus();
+  await slider.press("End");
+  await expect(page.locator(".traveler-lab")).toHaveAttribute("data-packet-state", "dropped");
+  await page.reload();
+  await expect(page.locator(".traveler-lab")).toHaveAttribute("data-packet-state", "dropped");
+  const limit = page.getByRole("slider", { name: /Initial Hop Limit/ });
+  await limit.focus();
+  await limit.press("End");
+  await expect(slider).toHaveValue("0");
+  await page.getByRole("button", { name: "Reset traveler", exact: true }).click();
+  await expect(limit).toHaveValue("3");
+});
+test("logic builder supports native connection editing, counterexamples and saved drafts", async ({
+  page,
+}) => {
+  await page.goto("/stories/signals-and-decisions/play/6");
+  await page.getByRole("button", { name: "Test all cases", exact: true }).click();
+  await expect(page.locator(".lab-feedback")).toContainText(
+    "A: ON · B: ON — expected OFF, got ON.",
+  );
+  await page
+    .getByRole("button", { name: "Remove wire from either to result input A", exact: true })
+    .click();
+  await expect(page.getByRole("button", { name: "Test all cases", exact: true })).toBeDisabled();
+  await expect(page.locator(".construction-results")).toHaveCount(0);
+  const wire = async (from: string, to: string) => {
+    await page.getByLabel("Connect from", { exact: true }).selectOption(from);
+    await page.getByLabel("Connect to", { exact: true }).selectOption(to);
+    await page.getByRole("button", { name: "Add wire", exact: true }).click();
+  };
+  for (const [from, to] of [
+    ["a", "both:a"],
+    ["b", "both:b"],
+    ["both", "invert:a"],
+    ["either", "combine:a"],
+    ["invert", "combine:b"],
+    ["combine", "result:a"],
+  ])
+    await wire(from, to);
+  await page.getByRole("button", { name: "Test all cases", exact: true }).click();
+  await expect(page.locator(".lab-feedback h2")).toHaveText("Every case works");
+  await page.reload();
+  await expect(page.locator(".connection-list li")).toHaveCount(8);
+  await expect(page.locator(".construction-results")).toHaveCount(0);
+  await page.getByRole("button", { name: "Test all cases", exact: true }).click();
+  await expect(page.locator(".lab-feedback h2")).toHaveText("Every case works");
+  await wire("a", "result:a");
+  await expect(page.locator(".lab-feedback")).toContainText("already has a wire");
+  await page.getByRole("button", { name: "Reset builder", exact: true }).click();
+  await expect(page.locator(".connection-list li")).toHaveCount(3);
+});
+test("new workbenches release into readable flow on phones and enlarged text", async ({ page }) => {
+  await page.setViewportSize({ width: 390, height: 844 });
+  for (const route of ["a-packets-journey/play/0", "signals-and-decisions/play/6"]) {
+    await page.goto(`/stories/${route}`);
+    await expect(page.locator(".lab-controls")).toBeVisible();
+    expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth + 1)).toBe(
+      true,
+    );
+    expect(
+      await page
+        .locator(".learning-lab")
+        .evaluate((node) => node.closest(".lesson-visual")!.clientHeight >= node.scrollHeight - 1),
+    ).toBe(true);
+    await page.locator(".lab-feedback").scrollIntoViewIfNeeded();
+    await expect(page.locator(".lab-feedback")).toBeInViewport();
+  }
+});
+
+test("workbench controls scroll independently while the interactive stage stays visible", async ({
+  page,
+}) => {
+  for (const viewport of [
+    { width: 1600, height: 1000 },
+    { width: 390, height: 844 },
+  ]) {
+    await page.setViewportSize(viewport);
+    for (const route of ["a-packets-journey/play/0", "signals-and-decisions/play/6"]) {
+      await page.goto(`/stories/${route}`);
+      const stage = page.locator(".workbench-stage");
+      await expect(stage).toBeVisible();
+      await stage.scrollIntoViewIfNeeded();
+      const before = await stage.boundingBox();
+      await page.locator(".workbench-controls").evaluate((el) => {
+        el.scrollTop = el.scrollHeight;
+      });
+      const after = await stage.boundingBox();
+      expect(after!.y).toBeCloseTo(before!.y, 0);
+      expect(await page.locator(".interactive-workbench").evaluate((el) => el.scrollTop)).toBe(0);
+    }
+  }
+});

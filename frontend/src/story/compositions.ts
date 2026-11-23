@@ -17,6 +17,8 @@ export const compositionIds = [
   "object-gallery",
   "object-guided",
   "synthesis-board",
+  "process-traveler",
+  "construction-bench",
   "assembly-explorer",
   "experiment-bench",
   "sound-studio",
@@ -32,6 +34,24 @@ type Definition = {
   requirement: string;
 };
 export const compositions: Record<CompositionId, Definition> = {
+  "process-traveler": {
+    name: "Travel through a process",
+    purpose: "Inspect a moving entity and reconstruct each state change.",
+    families: ["traveler"],
+    layout: "split",
+    framing: "contain",
+    requirement:
+      "Registered transition model, bounded inputs, named routes and local checkpoint feedback.",
+  },
+  "construction-bench": {
+    name: "Build and test",
+    purpose: "Connect supplied components and test their behavior against a goal.",
+    families: ["construction"],
+    layout: "split",
+    framing: "contain",
+    requirement:
+      "Bounded components, typed ports, a complete target truth table and explicit draft diagnostics.",
+  },
   "assembly-explorer": {
     name: "Take it apart",
     purpose: "Explore the parts and their relationship to a whole.",

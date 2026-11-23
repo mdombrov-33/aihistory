@@ -230,14 +230,18 @@
   background: var(--foreground);
   border-color: var(--background);
 }
-.lesson-frame[data-family="assembly"],
+.lesson-frame:is([data-family="traveler"], [data-family="construction"], [data-family="assembly"]),
 .lesson-frame[data-family="experiment"],
 .lesson-frame[data-family="sound"],
 .lesson-frame[data-family="system"] {
   grid-template-columns: minmax(0, 1.5fr) minmax(330px, 1fr);
 }
 @media (max-width: 760px) {
-  .lesson-frame[data-family="assembly"],
+  .lesson-frame:is(
+    [data-family="traveler"],
+    [data-family="construction"],
+    [data-family="assembly"]
+  ),
   .lesson-frame[data-family="experiment"],
   .lesson-frame[data-family="sound"],
   .lesson-frame[data-family="system"] {
@@ -266,6 +270,8 @@
 @media (max-width: 760px), (max-height: 650px) {
   .scene-player
     .lesson-frame:is(
+      [data-family="traveler"],
+      [data-family="construction"],
       [data-family="assembly"],
       [data-family="experiment"],
       [data-family="sound"],
@@ -286,6 +292,8 @@
 }
 .scene-player[data-reading-fit="flow"]
   .lesson-frame:is(
+    [data-family="traveler"],
+    [data-family="construction"],
     [data-family="assembly"],
     [data-family="experiment"],
     [data-family="sound"],
@@ -311,4 +319,334 @@
   .lab-canvas svg text {
     font-size: 26px;
   }
+}
+
+/* Process travel uses readable HTML stations over exact geometric connections. */
+.packet-diagram {
+  position: relative;
+  flex: 0 0 auto;
+  min-height: 270px;
+}
+.packet-diagram > svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+.packet-link {
+  stroke: var(--input);
+  stroke-width: 2;
+}
+.packet-token {
+  fill: var(--primary);
+  stroke: var(--background);
+  stroke-width: 3;
+  transition:
+    cx 220ms ease-out,
+    cy 220ms ease-out;
+}
+.packet-station {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  width: 118px;
+  padding: 12px 8px;
+  border: 1px solid var(--input);
+  border-radius: 12px;
+  background: var(--background);
+  text-align: center;
+}
+.packet-station strong,
+.packet-station span {
+  display: block;
+}
+.packet-station strong {
+  font-size: 16px;
+  line-height: 1.2;
+}
+.packet-station span {
+  font-size: 13px;
+  margin-top: 4px;
+  color: var(--muted-foreground);
+}
+.packet-station[data-current="true"] {
+  border: 2px solid var(--primary);
+  background: var(--muted);
+}
+.packet-station[data-on-route="false"] {
+  border-style: dashed;
+}
+.packet-reading {
+  font-variant-numeric: tabular-nums;
+}
+.packet-reading strong {
+  color: var(--primary);
+}
+.lab-control-note {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--muted-foreground);
+}
+.construction-goal {
+  padding: 18px 26px;
+  border-bottom: 1px solid var(--line-soft);
+}
+.construction-goal p {
+  margin: 0;
+  font-size: 17px;
+  line-height: 1.45;
+}
+.build-node {
+  min-width: 118px;
+}
+.build-node .react-flow__handle {
+  width: 12px;
+  height: 12px;
+}
+.connection-form {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr);
+  gap: 12px;
+  align-items: end;
+}
+.connection-form > div {
+  min-width: 0;
+}
+.connection-form label {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 14px;
+}
+.connection-form select {
+  display: block;
+  width: 100%;
+  min-height: 44px;
+  border: 1px solid var(--input);
+  border-radius: 8px;
+  padding: 8px;
+  background: var(--background);
+  color: var(--foreground);
+  font: inherit;
+  font-size: 15px;
+}
+.learning-lab select:focus-visible {
+  outline: 3px solid var(--ring);
+  outline-offset: 3px;
+}
+.connection-form button {
+  grid-column: 1/-1;
+}
+.connection-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.connection-list li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 0;
+  border-top: 1px solid var(--line-soft);
+  font-size: 14px;
+}
+.connection-list button {
+  flex-shrink: 0;
+}
+.construction-results {
+  padding: 20px 26px;
+  overflow-x: auto;
+  flex: 0 0 auto;
+}
+.construction-results table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+  font-variant-numeric: tabular-nums;
+}
+.construction-results caption {
+  text-align: left;
+  margin-bottom: 12px;
+  font-weight: 600;
+}
+.construction-results :is(th, td) {
+  text-align: left;
+  padding: 10px 6px;
+  border-bottom: 1px solid var(--line-soft);
+}
+.learning-lab button:disabled {
+  cursor: not-allowed;
+}
+.traveler-lab[data-reduce-motion="true"] .packet-token {
+  transition: none;
+}
+@media (prefers-reduced-motion: reduce) {
+  .packet-token {
+    transition: none;
+  }
+}
+@media (max-width: 760px) {
+  .construction-goal,
+  .construction-results {
+    padding: 18px 20px;
+  }
+  .connection-form {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .construction-viewport {
+    flex: none;
+  }
+}
+
+/* Shared interaction shell: controls can scroll while the stage stays put. */
+.lesson-frame:is([data-family="traveler"], [data-family="construction"]) .lesson-visual {
+  container-type: inline-size;
+}
+.scene-player .learning-lab.interactive-workbench {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  grid-template-rows: minmax(0, 1.5fr) minmax(180px, 0.75fr);
+  overflow: hidden;
+  height: 100%;
+}
+.workbench-stage {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  min-height: 0;
+  overflow: hidden;
+}
+.workbench-stage > .packet-diagram {
+  flex: 1 1 180px;
+  height: auto;
+  min-height: 180px;
+}
+.workbench-stage > .lab-feedback {
+  flex: 0 0 auto;
+  padding: 12px 18px;
+}
+.workbench-stage > .lab-feedback h2 {
+  font-size: 20px;
+}
+.workbench-stage > .lab-feedback p {
+  font-size: 14px;
+  line-height: 1.4;
+}
+.workbench-stage .construction-goal {
+  padding: 12px 18px;
+}
+.workbench-stage .construction-goal p {
+  font-size: 15px;
+}
+.workbench-controls {
+  min-height: 0;
+  min-width: 0;
+  overflow: auto;
+  overscroll-behavior: contain;
+  padding: 16px 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  border-top: 1px solid var(--line-soft);
+  background: var(--muted);
+  scrollbar-color: var(--input) var(--muted);
+}
+.workbench-controls > * {
+  flex-shrink: 0;
+}
+.workbench-controls .lab-controls {
+  padding: 0;
+  border: 0;
+}
+.workbench-controls .lab-assumptions {
+  padding: 0;
+}
+.workbench-controls .lab-actions {
+  flex-wrap: nowrap;
+}
+.workbench-controls .lab-actions > button {
+  flex: 1;
+}
+.workbench-controls .lab-choices {
+  flex-wrap: wrap;
+}
+.workbench-controls .lab-range input {
+  height: 24px;
+}
+.workbench-controls .connection-form {
+  grid-template-columns: minmax(0, 1fr);
+}
+.workbench-controls .construction-results {
+  padding: 0;
+}
+.packet-station {
+  padding: 6px 8px;
+}
+.packet-station span {
+  margin-top: 3px;
+}
+.workbench-stage > .construction-viewport {
+  flex: 1 1 180px;
+  min-height: 150px;
+  height: auto;
+  overflow: auto;
+}
+.construction-drawing {
+  position: relative;
+}
+.build-node .react-flow__handle {
+  width: 44px;
+  height: 44px;
+  background: transparent;
+  border: 0;
+}
+.build-node .react-flow__handle::after {
+  content: "";
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border: 1px solid var(--background);
+  border-radius: 50%;
+  background: var(--foreground);
+  pointer-events: none;
+}
+@container (min-width: 680px) {
+  .scene-player .learning-lab.interactive-workbench {
+    grid-template-columns: minmax(0, 1fr) 260px;
+    grid-template-rows: minmax(0, 1fr);
+  }
+  .workbench-controls {
+    border-top: 0;
+    border-left: 1px solid var(--line-soft);
+  }
+}
+@media (max-width: 760px), (max-height: 650px) {
+  .scene-player .learning-lab.interactive-workbench {
+    height: clamp(600px, 80svh, 760px);
+  }
+}
+.scene-player[data-reading-fit="flow"] .learning-lab.interactive-workbench {
+  height: clamp(640px, 80svh, 800px);
+}
+.build-node {
+  width: 144px;
+  min-width: 144px;
+  min-height: 72px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* Short panes retain the complete response in its own scroll region. */
+.workbench-stage > .lab-feedback {
+  flex: 0 1 auto;
+  min-height: 110px;
+  max-height: 45%;
+  overflow: auto;
+  scrollbar-color: var(--input) var(--background);
+}
+.workbench-stage > .construction-viewport {
+  min-height: 0;
 }

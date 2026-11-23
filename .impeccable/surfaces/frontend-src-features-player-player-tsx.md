@@ -12,7 +12,7 @@ STORY: Read a coherent explanation, optionally listen to the same text, inspect 
 
 FIRST VIEWPORT: Strong media and readable narrative are visible together. Desktop uses a bounded frame with a reading pane; mobile, short windows and enlarged text use natural flow. Whole-screen reading fit and all actual layouts still require rendered review.
 
-FORM: Thirteen content families and 22 teaching presets over a smaller set of resilient layouts. Full-height image/narrative, narrower portrait exhibits, image-local selected detail/crop panels, large source switchers, measured maps, native objects, image-free processes/chronologies and synthesis. Initial framing keeps annotation targets reachable. Local connections use labelled schematics when the available coastline is too coarse. Camera tools expand on demand. Text overlays on artwork are deferred until a supported safe-area contract exists.
+FORM: Fifteen content families and 24 teaching presets over a smaller set of resilient layouts. Full-height image/narrative, narrower portrait exhibits, image-local selected detail/crop panels, large source switchers, measured maps, native objects, image-free processes/chronologies and synthesis. Initial framing keeps annotation targets reachable. Local connections use labelled schematics when the available coastline is too coarse. Camera tools expand on demand. Text overlays on artwork are deferred until a supported safe-area contract exists.
 
 REFERENCES: The four images in `design-explorations/player-directions/` and historical boards under `docs/visuals/` are illustrative. They are not approved pixel contracts. The former build state associated with one comp was retired; do not recreate its gates or demand new generated art merely to match it.
 

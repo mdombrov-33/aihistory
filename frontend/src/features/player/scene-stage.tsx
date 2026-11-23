@@ -585,6 +585,8 @@ export function SceneStage(props: StageProps) {
 }
 function SceneContent(props: StageProps) {
   switch (props.beat.type) {
+    case "traveler":
+    case "construction":
     case "assembly":
     case "experiment":
     case "sound":

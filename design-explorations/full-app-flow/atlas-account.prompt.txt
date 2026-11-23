@@ -1,0 +1,11 @@
+Use case: ui-mockup. Render one landscape board of FOUR complete tall mobile web app screens for HISTORY, crisp readable content, no physical phone frames. Small external labels “Sign in”, “Create a story”, “Creating”, “My space”. Show one coherent product across its account and creation journey with beautifully usable screens.
+
+ATLAS visual laws: cool chalk white and pale mineral ground, vivid ultramarine #234bd6 actions, charcoal precise contemporary sans typography and restrained copper-orange accents. Airy aligned product hierarchy with standard accessible controls. Exquisite miniature historical cutaways are the signature, used sparingly on these functional screens; do not turn forms into theatrical props or editorial pages.
+
+Sign in: HISTORY, “Keep your place in history”, Sign in/Create account tabs, Continue with Google, email and password fields, Show password, Forgot password, Sign in, Continue browsing as guest; concise account verification note for creating new stories.
+
+Create: “What do you want to understand?”, question “How did people navigate the Silk Roads?”, ready stories matched first with “The Silk Roads: routes and exchange” and “View story”; an optional “Create my own story” path shows scope and informative outline: Routes, Traveling together, Trading knowledge. A single “Create story” action, verified email state, private by default note.
+
+Creating: the confirmed question, small beautiful caravan-city cutaway forming above transparent stages “Research · Complete”, “Story · Complete”, “Visuals · In progress”, “Sound · Queued”; helpful “You can leave this page and return from My space”, View outline, Back to My space. No ETA or guaranteed result.
+
+My space: resume “Race to the Moon · Chapter 2”, exact bookmark “The Silk Roads · Chapter 3 · Finding water”, private creation with explicit Share button, personal trail “How ideas travel”, saved questions, and clear Settings access. Shared bottom navigation and tiny Concept content. No prices, fixed allowances, compulsory BYOK, or commercial claims.

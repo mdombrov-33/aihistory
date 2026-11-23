@@ -1,0 +1,399 @@
+{
+  "version": 2,
+  "summary": {
+    "slug": "great-wave-made-by-hand",
+    "title": "The Great Wave, made by hand",
+    "question": "How many kinds of work live inside one famous image?",
+    "description": "Look past an icon. Inspect boats, mountain and blue; follow the hands that turned a design into a printed sheet, then compare two other views of Fuji.",
+    "image": "/images/archive/great-wave.jpg",
+    "imageAlt": "The Great Wave, made by hand — historical collection image",
+    "topic": "Art & ideas",
+    "era": "modern",
+    "period": "Ca. 1830–32",
+    "scope": "Edo-period Japanese printmaking and the Fuji series",
+    "minutes": 12,
+    "chapters": [
+      {
+        "title": "Inside the image",
+        "question": "What changes when you look slowly?"
+      },
+      {
+        "title": "A design becomes a sheet",
+        "question": "Who made the picture possible?"
+      },
+      {
+        "title": "One mountain, many worlds",
+        "question": "How does a series change a familiar image?"
+      }
+    ],
+    "sourceLabel": "Historical objects, collection records and institutional research",
+    "sample": true
+  },
+  "assets": [
+    {
+      "src": "/images/archive/great-wave.jpg",
+      "width": 1200,
+      "height": 807,
+      "credit": "Katsushika Hokusai · Under the Wave off Kanagawa · ca. 1830–32 · The Met JP1847 · CC0",
+      "record": "https://www.metmuseum.org/art/collection/search/45434",
+      "license": "Public domain / CC0",
+      "treatment": "historical-image"
+    },
+    {
+      "src": "/images/showcase/great-wave/red-fuji.jpg",
+      "width": 1200,
+      "height": 827,
+      "credit": "Hokusai · South Wind, Clear Sky · ca. 1830–32 · The Met JP9 · CC0",
+      "record": "https://www.metmuseum.org/art/collection/search/36490",
+      "license": "Public domain / CC0",
+      "treatment": "historical-image"
+    },
+    {
+      "src": "/images/showcase/great-wave/ejiri-suruga.jpg",
+      "width": 1200,
+      "height": 807,
+      "credit": "Hokusai · Ejiri in Suruga Province · ca. 1830–32 · The Met JP2553 · CC0",
+      "record": "https://www.metmuseum.org/art/collection/search/56988",
+      "license": "Public domain / CC0",
+      "treatment": "historical-image"
+    }
+  ],
+  "models": [],
+  "lesson": {
+    "preview": true,
+    "sources": [
+      {
+        "name": "The Met",
+        "title": "Under the Wave off Kanagawa",
+        "url": "https://www.metmuseum.org/art/collection/search/45434",
+        "supports": "JP1847, ca. 1830–32; ink and color on paper, Thirty-six Views of Mount Fuji.",
+        "type": "Institutional source / collection record"
+      },
+      {
+        "name": "Asian Art Museum",
+        "title": "The Ukiyo-e Printing Process",
+        "url": "https://education.asianart.org/resources/the-ukiyo-e-woodblock-printing-process/",
+        "supports": "Publisher, artist, carver and printer; raised surfaces, color blocks, baren and kento registration.",
+        "type": "Institutional source / collection record"
+      },
+      {
+        "name": "The Met",
+        "title": "The Great Wave: Anatomy of an Icon",
+        "url": "https://www.metmuseum.org/essays/hokusai-great-wave",
+        "supports": "Research into particular impressions, mixed blue pigments and layered printing; anonymous craft workers.",
+        "type": "Institutional source / collection record"
+      },
+      {
+        "name": "The Met",
+        "title": "South Wind, Clear Sky",
+        "url": "https://www.metmuseum.org/art/collection/search/36490",
+        "supports": "JP9, ca. 1830–32, Fuji-series woodblock print; material circulation and imported blue.",
+        "type": "Institutional source / collection record"
+      },
+      {
+        "name": "The Met",
+        "title": "Ejiri in Suruga Province",
+        "url": "https://www.metmuseum.org/art/collection/search/56988",
+        "supports": "JP2553, ca. 1830–32; Fuji-series print with travelers, flying paper and distant mountain.",
+        "type": "Institutional source / collection record"
+      }
+    ],
+    "scenes": [
+      {
+        "id": "chapter-0",
+        "chapter": 0,
+        "title": "Inside the image",
+        "deck": "A familiar picture still has unfamiliar details.",
+        "text": [
+          "The curling wave is easy to recognize before you have really looked at the sheet. Stay a little longer. Narrow boats lie beneath the water, their figures bent into the hulls. Mount Fuji is small and distant. Hokusai’s composition gives the wave an enormous visual presence while keeping the mountain that anchors the series in the background. Those relationships are visible; a measured wave height or a list of casualties is not.",
+          "The Met identifies this object as a woodblock print, ink and color on paper, made around 1830–32. That description changes the question. You are not looking at a brush painting made directly on this sheet, nor a photograph of a witnessed storm. You are looking at one surviving impression of a reproducible design. The museum’s digital image lets us examine that particular sheet at another distance.",
+          "Select the boats, then Fuji. The contrast in scale organizes your attention: a small mountain becomes a stable triangle beyond the curling water, while the boats tie the foreground to human effort. This is an interpretation of a composition. It does not turn the scene into proof of a particular historical storm, a tsunami or a documented shipwreck.",
+          "The blue raises a different kind of question. The Met’s research describes indigo mixed with Prussian blue in outlines and layered printing that deepened blue in researched impressions. The local image alone cannot identify a pigment or reveal a microscopic printing sequence. It is useful to put visual observation beside material research while keeping their different kinds of evidence visible."
+        ],
+        "kind": "storyboard",
+        "sources": [0, 2]
+      },
+      {
+        "id": "chapter-1",
+        "chapter": 1,
+        "title": "A design becomes a sheet",
+        "deck": "Follow the work that a single artist’s name can hide.",
+        "text": [
+          "A familiar artist’s name can hide a coordinated production. The Asian Art Museum describes publisher, designer, carver and printer as distinct roles in ukiyo-e. A publisher commissioned and distributed a project. A designer provided the drawing. A carver cut away wood around the lines. A printer transferred ink from raised surfaces to damp paper, using a rubbing tool called a baren. These are connected forms of expertise, not a machine simply making copies of a painting.",
+          "The process shown here is a teaching diagram based on that institutional account. It does not claim an exact number of blocks, a fixed edition size or the names of the people who carved and printed this Great Wave impression. The Met’s discussion explicitly recognizes anonymous cutters and printers. Unnamed labor should remain part of the explanation even when a catalogue cannot recover the workers’ identities.",
+          "A multicolored print asks more of its makers than a single transferred outline. Separate color surfaces have to meet the same sheet in the right relationship. The Asian Art Museum describes registration marks, or kento, that help the printer position the paper. Alignment is practical knowledge: the design depends on repeated actions that must agree with one another.",
+          "The Met’s analysis also describes superimposed printing that deepened blue. That finding concerns researched impressions and includes comparison with a different privately held sheet; it is not a universal recipe established by this one museum JPEG. A process diagram can make the operation understandable without pretending to reproduce the lost original blocks or the exact sequence used on every copy.",
+          "Compare the small triangle beyond the wave with Fuji occupying most of the other sheet. Both designs belong to the Fuji series, but the mountain does different work in each composition. In one it provides a distant anchor; in the other it becomes a monumental surface of color and shape. The comparison makes a relationship visible without requiring a fictional story about what Hokusai was thinking.",
+          "A series also changes the life of a printed design. A publisher can offer related views that remain individually distinct. The Met records an advertisement for the Fuji series around New Year 1831 and notes that it expanded beyond its original thirty-six designs. The success of an image belongs to a world of production and circulation as well as to the arrangement of lines within its frame."
+        ],
+        "kind": "storyboard",
+        "sources": [0, 1, 2, 3]
+      },
+      {
+        "id": "chapter-2",
+        "chapter": 2,
+        "title": "One mountain, many worlds",
+        "deck": "Return to seeing with the making still in view.",
+        "text": [
+          "In Ejiri, motion is suggested through things the wind moves. Paper flies, clothing lifts and vegetation bends, while Fuji remains distant. The air itself is invisible. Hokusai makes it legible by arranging its effects. You can follow those visible relationships without converting the print into a weather report or claiming that it records one identified day.",
+          "The artwork offers a useful contrast with the wave: drama does not require the same dominant shape on every sheet. A recurring mountain can hold a series together while foregrounds, viewpoints and movement vary. Comparing the designs makes the differences easier to describe. The flying paper, distant triangle and bent travelers organize this view in ways that belong to this particular sheet.",
+          "A digital interface should let these sheets remain themselves. Their proportions, margins and distinct compositions are evidence worth preserving in a full-object view. At the same time, a close detail or an opening image can use a different framing to direct attention. The important distinction is to make the viewing choice clear and keep the complete source available, rather than pretending every crop is the whole artifact.",
+          "These two prints also remind us that reproducibility does not make every object interchangeable. A design, a physical impression and a later digital photograph are related things with different material histories. Comparing the compositions is a start. Questions about paper, pigments, printing or wear require the right records and, sometimes, direct examination of the object.",
+          "A digital photograph is one route into these physical sheets. A magnified detail helps us follow the cut of a line or the relation of colors; a complete view restores the composition and margins around it. Neither view alone can reveal everything about the paper, the printing or the sheet’s later condition. Those material questions need collection records, conservation research and sometimes examination of the object itself.",
+          "Return to the original question: how many kinds of work live inside one famous image? Our sources cannot supply every worker’s name or every step taken for this particular impression. They can establish a collaborative process, a series of related designs and the value of material research. That is enough to replace a familiar icon with a richer object of attention."
+        ],
+        "kind": "storyboard",
+        "sources": [0, 1, 2, 3, 4]
+      }
+    ]
+  },
+  "programs": [
+    {
+      "sceneId": "chapter-0",
+      "beats": [
+        {
+          "type": "illustrated",
+          "composition": "cinematic-opening",
+          "title": "First the wave. Then the world inside it.",
+          "purpose": "Open through the artwork before directing attention to its material production.",
+          "sourceIndices": [0],
+          "image": "/images/archive/great-wave.jpg",
+          "imageAlt": "Hokusai’s curling wave above boats with a small Mount Fuji in the distance.",
+          "caption": "Katsushika Hokusai · Under the Wave off Kanagawa · ca. 1830–32 · The Met JP1847 · CC0",
+          "imageFit": "cover",
+          "annotations": [],
+          "id": "great-wave-made-by-hand-0-0",
+          "passageStart": 0,
+          "passageEnd": 1
+        },
+        {
+          "type": "illustrated",
+          "composition": "detail-study",
+          "title": "Three details, three different questions.",
+          "purpose": "Magnify real source regions and distinguish observation from material inference.",
+          "sourceIndices": [0, 2],
+          "image": "/images/archive/great-wave.jpg",
+          "imageAlt": "The complete Great Wave print with three inspectable details.",
+          "caption": "Katsushika Hokusai · Under the Wave off Kanagawa · ca. 1830–32 · The Met JP1847 · CC0",
+          "imageFit": "contain",
+          "annotations": [
+            {
+              "id": "boats",
+              "label": "The boats",
+              "x": 75,
+              "y": 87,
+              "title": "People at another scale",
+              "body": "Long boats and small bent figures run beneath the curling water. Observe their scale without inventing a documented shipwreck.",
+              "crop": {
+                "x": 59,
+                "y": 71,
+                "width": 28,
+                "height": 28
+              }
+            },
+            {
+              "id": "fuji",
+              "label": "Distant Fuji",
+              "x": 64,
+              "y": 67,
+              "title": "Small, but the series’ anchor",
+              "body": "Fuji is a small distant triangle inside the composition. It links this dramatic view to the other designs in the series.",
+              "crop": {
+                "x": 50,
+                "y": 51,
+                "width": 28,
+                "height": 29
+              }
+            },
+            {
+              "id": "blue",
+              "label": "Printed blue",
+              "x": 35,
+              "y": 32,
+              "title": "A material question",
+              "body": "A digital view reveals shapes and color relationships. Pigment identification requires material analysis, not confident guessing from the JPEG.",
+              "crop": {
+                "x": 21,
+                "y": 17,
+                "width": 28,
+                "height": 28
+              }
+            }
+          ],
+          "reuseReason": "A guided return to the opening sheet uses precise magnified regions rather than repeating the same background.",
+          "id": "great-wave-made-by-hand-0-1",
+          "passageStart": 2,
+          "passageEnd": 3
+        }
+      ]
+    },
+    {
+      "sceneId": "chapter-1",
+      "beats": [
+        {
+          "type": "journey",
+          "composition": "process-workbench",
+          "title": "One design. Several kinds of hands.",
+          "purpose": "Explain the general production process without inventing this impression’s exact block count.",
+          "sourceIndices": [1, 2],
+          "stages": [
+            {
+              "title": "Publisher",
+              "body": "Commissions a project and organizes production and distribution.",
+              "date": ""
+            },
+            {
+              "title": "Designer",
+              "body": "Supplies a drawing that can be translated into a printable design.",
+              "date": ""
+            },
+            {
+              "title": "Carver",
+              "body": "Cuts away wood around lines and prepares surfaces that carry ink.",
+              "date": ""
+            },
+            {
+              "title": "Printer",
+              "body": "Aligns damp paper with successive inked blocks and rubs it with a baren.",
+              "date": ""
+            }
+          ],
+          "id": "great-wave-made-by-hand-1-0",
+          "passageStart": 0,
+          "passageEnd": 1
+        },
+        {
+          "type": "journey",
+          "composition": "process-workbench",
+          "title": "Color needs alignment.",
+          "purpose": "Explain registration and repeated impressions as operations rather than meaningless choices.",
+          "sourceIndices": [1, 2],
+          "stages": [
+            {
+              "title": "Ink a raised surface",
+              "body": "The parts left standing carry the printable image.",
+              "date": ""
+            },
+            {
+              "title": "Register the sheet",
+              "body": "Kento marks help locate paper consistently against successive blocks.",
+              "date": ""
+            },
+            {
+              "title": "Rub and repeat",
+              "body": "The printer transfers a color and aligns further impressions as needed.",
+              "date": ""
+            }
+          ],
+          "id": "great-wave-made-by-hand-1-1",
+          "passageStart": 2,
+          "passageEnd": 3
+        },
+        {
+          "type": "comparison",
+          "composition": "source-dialogue",
+          "title": "The mountain stays. The composition changes.",
+          "purpose": "Compare different designs in the same series rather than implying an invented before and after.",
+          "sourceIndices": [0, 3],
+          "left": {
+            "image": "/images/archive/great-wave.jpg",
+            "alt": "The Great Wave with a small distant Fuji.",
+            "label": "Under the Wave off Kanagawa",
+            "explanation": "Wave and boats dominate the foreground; Fuji is a small distant anchor."
+          },
+          "right": {
+            "image": "/images/showcase/great-wave/red-fuji.jpg",
+            "alt": "Red Fuji rising above trees beneath patterned clouds.",
+            "label": "South Wind, Clear Sky",
+            "explanation": "The mountain occupies much more of the sheet and becomes the dominant form."
+          },
+          "note": "Two distinct Fuji-series designs, ca. 1830–32. They are not stages of a single scene.",
+          "reuseReason": "The opening print returns beside a different design to compare the scale and placement of Fuji.",
+          "id": "great-wave-made-by-hand-1-2",
+          "passageStart": 4,
+          "passageEnd": 5
+        }
+      ]
+    },
+    {
+      "sceneId": "chapter-2",
+      "beats": [
+        {
+          "type": "illustrated",
+          "composition": "image-story",
+          "title": "You can see the wind without seeing the air.",
+          "purpose": "Observe how a second real print suggests motion using visible objects.",
+          "sourceIndices": [4],
+          "image": "/images/showcase/great-wave/ejiri-suruga.jpg",
+          "imageAlt": "Travelers and flying paper at Ejiri, with a small Fuji beyond.",
+          "caption": "Hokusai · Ejiri in Suruga Province · ca. 1830–32 · The Met JP2553 · CC0",
+          "imageFit": "cover",
+          "annotations": [
+            {
+              "id": "paper",
+              "label": "Flying paper",
+              "x": 58,
+              "y": 30,
+              "title": "An invisible force made visible",
+              "body": "Paper, clothing and bent vegetation suggest wind. The visible design is not proof of a dated weather event."
+            }
+          ],
+          "id": "great-wave-made-by-hand-2-0",
+          "passageStart": 0,
+          "passageEnd": 1
+        },
+        {
+          "type": "comparison",
+          "composition": "comparison-gallery",
+          "title": "Two sheets. Two kinds of stillness.",
+          "purpose": "Present the complete prints as a paired gallery without cropping their shared series relationship away.",
+          "sourceIndices": [3, 4],
+          "left": {
+            "image": "/images/showcase/great-wave/red-fuji.jpg",
+            "alt": "The large red mountain of South Wind, Clear Sky.",
+            "label": "A mountain fills the view",
+            "explanation": "Fuji dominates the sheet; clouds and trees provide smaller rhythms."
+          },
+          "right": {
+            "image": "/images/showcase/great-wave/ejiri-suruga.jpg",
+            "alt": "Ejiri’s moving travelers and distant mountain.",
+            "label": "A mountain beyond movement",
+            "explanation": "The stable distant form contrasts with foreground objects in the wind."
+          },
+          "note": "Different designs from the same series, both ca. 1830–32; visual interpretation of actual Met impressions.",
+          "reuseReason": "The two later prints return as complete sheets for comparison after their individual visual roles have been introduced.",
+          "id": "great-wave-made-by-hand-2-1",
+          "passageStart": 2,
+          "passageEnd": 3
+        },
+        {
+          "type": "journey",
+          "composition": "synthesis-board",
+          "title": "An icon is also a made thing.",
+          "purpose": "Reconnect composition, collective craft and material evidence without another repeated backdrop.",
+          "sourceIndices": [0, 1, 2, 3, 4],
+          "stages": [
+            {
+              "title": "Look",
+              "body": "Observe the boats, the mountain and the relationships between scales.",
+              "date": ""
+            },
+            {
+              "title": "Follow the hands",
+              "body": "Designer, carver, printer and publisher bring different expertise to one sheet.",
+              "date": ""
+            },
+            {
+              "title": "Keep the evidence attached",
+              "body": "Distinguish the design, this impression, material research and the digital view.",
+              "date": ""
+            }
+          ],
+          "id": "great-wave-made-by-hand-2-2",
+          "passageStart": 4,
+          "passageEnd": 5
+        }
+      ]
+    }
+  ]
+}

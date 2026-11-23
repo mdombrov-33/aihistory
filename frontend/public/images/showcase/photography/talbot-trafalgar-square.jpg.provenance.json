@@ -1,0 +1,21 @@
+{
+  "source": "https://collectionapi.metmuseum.org/api/collection/v1/iiif/289387/614838/main-image",
+  "record": "https://www.metmuseum.org/art/collection/search/289387",
+  "license": "Public domain / The Met Open Access (CC0)",
+  "licenseURL": "https://www.metmuseum.org/hubs/open-access",
+  "creator": "William Henry Fox Talbot",
+  "title": "Nelson\u2019s Column under Construction, Trafalgar Square",
+  "date": "first week of April 1844",
+  "medium": "Salted paper print from paper negative",
+  "objectNumber": "2009.279",
+  "creditLine": "Anonymous Gift and Purchase, Alfred Stieglitz Society Gifts; 2004 Benefit Fund; W. Bruce and Delaney H. Lundberg Gift; The Horace W. Goldsmith Foundation Fund, through Joyce and Robert Menschel; Susan and Thomas Dunn and Constance and Leonard Goodman Gifts, 2009",
+  "width": 1200,
+  "height": 999,
+  "downloadedAt": "2026-11-23",
+  "sha256": "36e13d971705786b9c1f2c29467b330f6472db9e0a0871fbc1a0136c80c69c52",
+  "byteSize": 195344,
+  "transformation": "Origin embedded as JPEG comment; image pixels unchanged",
+  "review": "JPEG signature checked; file dimensions checked; visually inspected with view_image",
+  "scopeCaveat": "City view with visible frame, paper and construction detail; absence of visible people alone does not establish an empty street or a precise exposure duration.",
+  "sourceSha256": "1ab5848d402a57ebfc5d74acabd8007d6e1c8efd7d2b03bcf73482d18af5cd0a"
+}

@@ -1,0 +1,134 @@
+{
+  "regions": [
+    {
+      "id": "navigation",
+      "kind": "chrome",
+      "pixelBox": {
+        "x": 0,
+        "y": 0,
+        "w": 1586,
+        "h": 55
+      },
+      "note": "Compact ink navigation with History, story, chapter context and utility controls",
+      "container": true
+    },
+    {
+      "id": "courtyard",
+      "kind": "plate",
+      "pixelBox": {
+        "x": 0,
+        "y": 55,
+        "w": 1586,
+        "h": 520
+      },
+      "note": "Luminous reconstructed caravanserai courtyard, camel at left, two-story storeroom arcade, exchange arcade at right. Regenerate without every label, icon, border or UI overlay.",
+      "bleed": true,
+      "plate": "public/images/scenes/silk-courtyard.png"
+    },
+    {
+      "id": "inspection-rail",
+      "kind": "control",
+      "pixelBox": {
+        "x": 60,
+        "y": 575,
+        "w": 1480,
+        "h": 48
+      },
+      "note": "Arrival, Exchange and Departure passage navigation",
+      "container": true
+    },
+    {
+      "id": "locator",
+      "kind": "chrome",
+      "pixelBox": {
+        "x": 31,
+        "y": 644,
+        "w": 400,
+        "h": 192
+      },
+      "note": "Data-driven geographic map projection rendered at runtime with precisely located city markers",
+      "codeDrawn": true
+    },
+    {
+      "id": "reading-title",
+      "kind": "text",
+      "pixelBox": {
+        "x": 465,
+        "y": 645,
+        "w": 650,
+        "h": 44
+      },
+      "note": "A city made exchange possible"
+    },
+    {
+      "id": "reading-copy",
+      "kind": "text",
+      "pixelBox": {
+        "x": 465,
+        "y": 695,
+        "w": 650,
+        "h": 148
+      },
+      "note": "Two substantial readable explanatory paragraphs"
+    },
+    {
+      "id": "audio",
+      "kind": "control",
+      "pixelBox": {
+        "x": 1153,
+        "y": 647,
+        "w": 403,
+        "h": 106
+      },
+      "note": "Read and Listen plus deliberate playback",
+      "container": true
+    },
+    {
+      "id": "source-link",
+      "kind": "control",
+      "pixelBox": {
+        "x": 1153,
+        "y": 798,
+        "w": 403,
+        "h": 65
+      },
+      "note": "Why merchants stopped here"
+    },
+    {
+      "id": "footer",
+      "kind": "chrome",
+      "pixelBox": {
+        "x": 0,
+        "y": 898,
+        "w": 1586,
+        "h": 94
+      },
+      "note": "Previous, chapter position and Next",
+      "container": true
+    },
+    {
+      "id": "reading-ground",
+      "kind": "chrome",
+      "pixelBox": {
+        "x": 0,
+        "y": 623,
+        "w": 1586,
+        "h": 275
+      },
+      "note": "Continuous plum reading ledge surface",
+      "container": true
+    },
+    {
+      "id": "rail-ground",
+      "kind": "chrome",
+      "pixelBox": {
+        "x": 0,
+        "y": 575,
+        "w": 1586,
+        "h": 48
+      },
+      "note": "Continuous plum passage navigation rail",
+      "container": true
+    }
+  ]
+}

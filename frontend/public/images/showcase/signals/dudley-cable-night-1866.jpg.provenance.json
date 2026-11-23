@@ -1,0 +1,21 @@
+{
+  "source": "https://collectionapi.metmuseum.org/api/collection/v1/iiif/364362/748540/main-image",
+  "record": "https://www.metmuseum.org/art/collection/search/364362",
+  "license": "Public domain / The Met Open Access (CC0)",
+  "licenseURL": "https://www.metmuseum.org/hubs/open-access",
+  "creator": "Robert Charles Dudley",
+  "title": "A Night Scene. The Cable Entangled and Nearly Broken, July 18th, 1866",
+  "date": "1865–66",
+  "medium": "Watercolor over graphite with touches of gouache (bodycolor)",
+  "objectNumber": "92.10.77",
+  "creditLine": "Gift of Cyrus W. Field, 1892",
+  "width": 1200,
+  "height": 926,
+  "downloadedAt": "2026-11-23",
+  "sha256": "de982e99bc0869d41c5350fb29a8858fc0555195e7b6b36afce3df3f8b27be2d",
+  "byteSize": 132603,
+  "sourceSha256": "49283f41c7014ca9b2fc9d45c4ffdbc808a45c89a7425aff172ec3a2c165830c",
+  "transformation": "Source origin embedded with Impeccable; image pixels unchanged",
+  "review": "JPEG signature checked; file dimensions checked; visually inspected with view_image",
+  "scopeCaveat": "Depicts the Atlantic cable expedition on 18 July 1866; not an image of the 1844 Washington–Baltimore inauguration."
+}

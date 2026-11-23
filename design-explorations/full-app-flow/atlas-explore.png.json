@@ -1,0 +1,13 @@
+{
+  "prompt": "Use case: ui-mockup. Render one landscape presentation board containing THREE complete tall mobile web screenshots for HISTORY at excellent reading resolution, no physical phone bezels. Small external captions: “Search & filters”, “Story detail”, “Immersive player”. Each screen is a plausible fully finished product surface, not a poster. The shared journey follows Race to the Moon, while discovery remains visibly multi-topic.\n\nATLAS visual laws: cool chalk white and pale mineral surfaces, ultramarine #234bd6 action controls, charcoal precise sans typography, sparing copper-orange highlights. Airy aligned hierarchy with familiar search, filters, buttons and bottom navigation. Signature imagery is exquisite sculptural miniature cutaway worlds and educational spatial exhibits; imagery must enrich usable product structure.\n\nFirst screen: HISTORY header, search “How did humans reach the Moon?”, Filters with Era and Topic, useful ready results “Race to the Moon”, “The Silk Roads”, “Florence reborn”, “Life in Edo”, each illustrated with a different miniature world, duration and story question. Show Discover/Explore/Create/My space bottom navigation and tiny Concept content.\n\nSecond: lunar module miniature banner, “Race to the Moon”, “What made the landing possible?”, 18 min · 6 chapters, sample rating count, prominent “Start as guest”, chapter list including “A rocket in stages”, “Choosing a path”, “Landing together”; inspectable Sources entry and related story.\n\nThird: readable lesson beat titled “Why separate the rocket?” with “Empty tanks become dead weight. Dropping each stage lets the remaining engine push less mass.” Central magnificent Saturn V cutaway diagram with three labeled stages, a clear “Separate stage” interactive button and visual before/after mass comparison. Chapter 2 of 6, narration play, Read/Listen toggle, captions, bookmark and next controls remain legible. The lesson teaches something concrete, beyond mood and headings.\n",
+  "tool": "image_gen.imagegen",
+  "mode": "built-in",
+  "use_case": "ui-mockup",
+  "direction": "ATLAS",
+  "round": "direction-decision",
+  "approved": false,
+  "width": 1536,
+  "height": 1024,
+  "source": "/Users/maximus/.codex/generated_images/01a2024b-ab68-7592-897e-56741feaf4a7/exec-72591aba-1065-4352-82b3-50a9ca13002f.png",
+  "disclosure": "Concept catalog and visual interface design; illustrative geography, dates, story metadata, ratings and technical values are not source-checked."
+}

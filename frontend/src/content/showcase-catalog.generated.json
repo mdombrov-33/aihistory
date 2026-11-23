@@ -1,0 +1,122 @@
+[
+  {
+    "slug": "great-wave-made-by-hand",
+    "title": "The Great Wave, made by hand",
+    "question": "How many kinds of work live inside one famous image?",
+    "description": "Look past an icon. Inspect boats, mountain and blue; follow the hands that turned a design into a printed sheet, then compare two other views of Fuji.",
+    "image": "/images/archive/great-wave.jpg",
+    "imageAlt": "The Great Wave, made by hand — historical collection image",
+    "topic": "Art & ideas",
+    "era": "modern",
+    "period": "Ca. 1830–32",
+    "scope": "Edo-period Japanese printmaking and the Fuji series",
+    "minutes": 12,
+    "chapters": [
+      {
+        "title": "Inside the image",
+        "question": "What changes when you look slowly?"
+      },
+      {
+        "title": "A design becomes a sheet",
+        "question": "Who made the picture possible?"
+      },
+      {
+        "title": "One mountain, many worlds",
+        "question": "How does a series change a familiar image?"
+      }
+    ],
+    "sourceLabel": "Historical objects, collection records and institutional research",
+    "sample": true,
+    "sceneCount": 3
+  },
+  {
+    "slug": "invention-of-photography",
+    "title": "When light learned to stay",
+    "question": "How did a passing view become something we could keep?",
+    "description": "Explore the invention of photography through early photographs and the choices behind them: fixing light, making copies, composing a scene and deciding what an image can prove.",
+    "image": "/images/showcase/photography/talbot-open-door.jpg",
+    "imageAlt": "A salted paper print of an open wooden door, a leaning broom, stonework and a hanging lantern.",
+    "topic": "Science & invention",
+    "era": "modern",
+    "period": "Ca. 1826–1846",
+    "scope": "Early photography in France and Britain",
+    "minutes": 12,
+    "chapters": [
+      {
+        "title": "Light that stays",
+        "question": "What makes an image last?"
+      },
+      {
+        "title": "One plate, many prints",
+        "question": "What changes when a picture can be copied?"
+      },
+      {
+        "title": "A picture still needs a reader",
+        "question": "What does a photograph actually establish?"
+      }
+    ],
+    "sourceLabel": "Original photographs and linked museum records",
+    "sample": true,
+    "sceneCount": 3
+  },
+  {
+    "slug": "pompeii",
+    "title": "Pompeii, beyond the ash",
+    "question": "What can a buried city really tell us about the people who lived there?",
+    "description": "Explore a city through work, volcanic deposits and the evidence of later observers. Inspect historical views and discover why Pompeii is more than a day frozen in time.",
+    "image": "/images/showcase/pompeii/princeton-street-1860s.jpg",
+    "imageAlt": "An albumen photograph of an excavated Pompeian street in the 1860s, with raised crossing stones and exposed building fronts.",
+    "topic": "People & daily life",
+    "era": "ancient",
+    "period": "AD 79 · later excavation and interpretation",
+    "scope": "Pompeii and the Bay of Naples; later records and research",
+    "minutes": 12,
+    "chapters": [
+      {
+        "title": "Before the ash",
+        "question": "How do buildings and objects reveal a working city?"
+      },
+      {
+        "title": "Burial and witnesses",
+        "question": "What survives of an event and its witnesses?"
+      },
+      {
+        "title": "Reading the ruins",
+        "question": "How do recording and research change the city we know?"
+      }
+    ],
+    "sourceLabel": "Archaeological records, ancient testimony and historical images",
+    "sample": true,
+    "sceneCount": 3
+  },
+  {
+    "slug": "shape-of-a-signal",
+    "title": "The shape of a signal",
+    "question": "How does a movement of one hand cross an ocean?",
+    "description": "Start with a real telegraph key. Follow the code, people and precarious ocean connection that turned a contact into a network.",
+    "image": "/images/showcase/signals/dudley-cable-night-1866.jpg",
+    "imageAlt": "The shape of a signal — historical collection image",
+    "topic": "Trade & connection",
+    "era": "modern",
+    "period": "1844–1866",
+    "scope": "Washington, Baltimore and the North Atlantic",
+    "minutes": 12,
+    "chapters": [
+      {
+        "title": "A movement becomes a message",
+        "question": "What does a key actually do?"
+      },
+      {
+        "title": "The distance in between",
+        "question": "How does a demonstration become a network?"
+      },
+      {
+        "title": "Keeping the connection",
+        "question": "What makes an invention last?"
+      }
+    ],
+    "sourceLabel": "Historical objects, collection records and institutional research",
+    "sample": true,
+    "sceneCount": 3
+  }
+]

@@ -1,0 +1,31 @@
+{
+  "file": "piranesi-house-of-surgeon-1804.jpg",
+  "title": "The House of the Surgeon, Pompeii: the courtyard, with an artist sketching the ruins",
+  "creator": "Francesco Piranesi, after Giovanni Battista Piranesi",
+  "date": "1804",
+  "institution": "Wellcome Collection",
+  "accessionNumber": "22267i",
+  "sourceUrl": "https://wellcomecollection.org/works/vdhdxk9v",
+  "metadataUrl": "https://api.wellcomecollection.org/catalogue/v2/works/vdhdxk9v?include=production,contributors,images,items",
+  "downloadUrl": "https://iiif.wellcomecollection.org/image/V0014382/full/full/0/default.jpg",
+  "license": "Public Domain Mark",
+  "licenseUrl": "https://creativecommons.org/share-your-work/public-domain/pdm/",
+  "licenseEvidence": "Wellcome catalogue API attaches Public Domain Mark to the digital image location V0014382.",
+  "credit": "Francesco Piranesi after Giovanni Battista Piranesi, House of the Surgeon courtyard, Pompeii, 1804. Wellcome Collection. Public Domain Mark.",
+  "width": 3100,
+  "height": 2256,
+  "bytes": 2245217,
+  "sha256": "2a55bbda5be3149f43e75538d71cccfa4ebaaa9c7ddd3e9ad518fdb64ebe27c2",
+  "verifiedAt": "2026-11-23",
+  "verification": [
+    "JPEG magic and format checked with file",
+    "Dimensions checked with sips",
+    "Opened with view_image",
+    "SHA-256 measured from downloaded file"
+  ],
+  "historicalContext": "Etching depicting an excavated courtyard and an artist sketching, published in 1804. Not an ancient image or modern photograph.",
+  "modifications": "None",
+  "sourceSha256": "154d69549a21ead5b8e40ab89da623ed0d890113b2f1aa650c12945f7f58ea4b",
+  "byteSize": 2245595,
+  "transformation": "Origin embedded as JPEG comment; image pixels unchanged"
+}

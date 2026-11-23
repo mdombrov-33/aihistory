@@ -1,0 +1,15 @@
+{
+  "source": "Natural Earth",
+  "repository": "https://github.com/nvkelso/natural-earth-vector",
+  "path": "geojson/ne_110m_land.geojson",
+  "downloadedAt": "2026-11-22",
+  "scale": "1:110m",
+  "license": "Public domain",
+  "use": "Generalized physical land geometry only. No historical borders or surveyed route. Feature properties removed.",
+  "sourceMetadata": {
+    "encoding": "utf-8",
+    "sha": "04811d72fff2701ec67587e30ad8942675b511e3",
+    "display_url": "https://github.com/nvkelso/natural-earth-vector/blob/master/geojson/ne_110m_land.geojson",
+    "display_title": "ne_110m_land.geojson"
+  }
+}

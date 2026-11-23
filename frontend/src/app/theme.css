@@ -1,0 +1,124 @@
+/* Application palette source. Artwork and its overlaid annotations use separate material roles. */
+:root {
+  --radius: 0.625rem;
+  --art-ink: #101820;
+  --art-text: #f7efdf;
+  --art-muted: #ddd0bb;
+  --art-accent: #f1c47a;
+  --art-scrim: #101820dd;
+  --art-rule: #c9b795;
+  --paper-material: #efe2c9;
+  --paper-ink: #342a24;
+  --paper-muted: #66503d;
+  --paper-line: #875f3b;
+  --paper-accent: #8b3b26;
+  --shadow-soft: 0 12px 36px #07111c1c;
+  --hero-text: var(--art-text);
+  --hero-muted: var(--art-muted);
+  --card-foreground: var(--foreground);
+  --popover-foreground: var(--foreground);
+  --secondary-foreground: var(--foreground);
+  --accent-foreground: var(--foreground);
+  --sidebar: var(--card);
+  --sidebar-foreground: var(--foreground);
+  --sidebar-primary: var(--primary);
+  --sidebar-primary-foreground: var(--primary-foreground);
+  --sidebar-accent: var(--accent);
+  --sidebar-accent-foreground: var(--foreground);
+  --sidebar-border: var(--border);
+  --sidebar-ring: var(--ring);
+  --chart-1: var(--primary);
+  --chart-2: #739ca8;
+  --chart-3: #91a386;
+  --chart-4: #c78e71;
+  --chart-5: #a1a988;
+}
+:root,
+.worlds {
+  color-scheme: dark;
+  --background: #101820;
+  --foreground: #f0e9da;
+  --card: #1a2a35;
+  --popover: #223440;
+  --primary: #e7bc75;
+  --primary-foreground: #241c11;
+  --secondary: #243744;
+  --muted: #182630;
+  --muted-foreground: #bbc8ca;
+  --accent: #304652;
+  --destructive: #ffada0;
+  --border: #526571;
+  --input: #8ca2ad;
+  --ring: #e7bc75;
+  --surface-deep: #0a131b;
+  --line-soft: #314550;
+  --map-water: #173643;
+  --map-land: #a38c67;
+  --map-edge: #d1bd97;
+}
+.parchment {
+  color-scheme: light;
+  --background: #f4efe5;
+  --foreground: #342b24;
+  --card: #eee4d5;
+  --popover: #fffbf3;
+  --primary: #903d24;
+  --primary-foreground: #fff8ee;
+  --secondary: #e6d8c3;
+  --muted: #ebe2d4;
+  --muted-foreground: #63503f;
+  --accent: #dac6aa;
+  --destructive: #a5272c;
+  --border: #bbaa94;
+  --input: #77604d;
+  --ring: #903d24;
+  --surface-deep: #e2d4bf;
+  --line-soft: #d4c6b2;
+  --map-water: #c3d4d5;
+  --map-land: #dbcaab;
+  --map-edge: #8c795a;
+}
+.forest {
+  color-scheme: dark;
+  --background: #0e2422;
+  --foreground: #eee9d9;
+  --card: #19372f;
+  --popover: #24463b;
+  --primary: #d7ba80;
+  --primary-foreground: #17291f;
+  --secondary: #284a3c;
+  --muted: #173329;
+  --muted-foreground: #bbccbc;
+  --accent: #365b49;
+  --destructive: #ffb2a0;
+  --border: #587260;
+  --input: #9db8a6;
+  --ring: #d7ba80;
+  --surface-deep: #091c18;
+  --line-soft: #335242;
+  --map-water: #183d39;
+  --map-land: #a9a17e;
+  --map-edge: #d5c9a5;
+}
+.mineral {
+  color-scheme: light;
+  --background: #edf1f3;
+  --foreground: #233444;
+  --card: #f8fafb;
+  --popover: #ffffff;
+  --primary: #2852a2;
+  --primary-foreground: #ffffff;
+  --secondary: #dce5ed;
+  --muted: #e3e9ed;
+  --muted-foreground: #4a5f70;
+  --accent: #cad9e7;
+  --destructive: #a52e39;
+  --border: #a9bac7;
+  --input: #597084;
+  --ring: #2852a2;
+  --surface-deep: #d4dfe7;
+  --line-soft: #cbd5de;
+  --map-water: #c3d6e2;
+  --map-land: #aeb9ae;
+  --map-edge: #778779;
+}

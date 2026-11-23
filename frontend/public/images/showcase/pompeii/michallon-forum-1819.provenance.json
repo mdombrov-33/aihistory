@@ -1,0 +1,29 @@
+{
+  "file": "michallon-forum-1819.jpg",
+  "title": "The Forum at Pompeii",
+  "creator": "Achille-Etna Michallon",
+  "date": "1819",
+  "institution": "National Gallery of Art, Washington",
+  "accessionNumber": "2020.15.1",
+  "sourceUrl": "https://www.nga.gov/artworks/221599-forum-pompeii",
+  "downloadUrl": "https://api.nga.gov/iiif/67a40105-e674-472c-999b-06fed2986008/full/full/0/default.jpg",
+  "license": "Public Domain",
+  "licenseEvidence": "The authoritative object record states: This object's media is free and in the public domain.",
+  "credit": "Achille-Etna Michallon, The Forum at Pompeii, 1819, National Gallery of Art, Washington. Gift of the Matthiesen Gallery and John Lishawa Ltd. in memory of E. A. Carmean Jr. and Philip Conisbee.",
+  "width": 4096,
+  "height": 2894,
+  "bytes": 3190268,
+  "sha256": "7e112be404a0ab32ed14864e37cc2d69067959477467aec66c45f6b142888962",
+  "verifiedAt": "2026-11-23",
+  "verification": [
+    "JPEG magic and format checked with file",
+    "Dimensions checked with sips",
+    "Opened with view_image",
+    "SHA-256 measured from downloaded file"
+  ],
+  "historicalContext": "Oil-on-paper view of excavated ruins in 1819. Not a reconstruction of Pompeii before AD 79.",
+  "modifications": "None",
+  "sourceSha256": "20310a15a5af34716b69017020ae10957d4fd0d769dd1b99b1b699d021985dcd",
+  "byteSize": 3190562,
+  "transformation": "Origin embedded as JPEG comment; image pixels unchanged"
+}

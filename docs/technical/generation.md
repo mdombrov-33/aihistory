@@ -1,0 +1,72 @@
+# Generation and evidence
+
+Use for agents, prompts, research, composition, provider calls, validation, and recovery. Data/provenance records live in [architecture](architecture.md); enforced tool and spending boundaries live in [security and cost](security-and-cost.md).
+
+## Workflow and shared blueprint
+
+The current frontend uses [18 composition presets across nine data families](scenes.md) and complete version-2 prepared bundles. All four showcases follow this path; legacy slug-specific builders are removed. The [authoring guide](lesson-authoring.md) describes evidence/media-first storyboarding, preset selection and validation. `/screen-gallery` supplies actual examples using the production frontend renderer.
+
+This is a content-ingestion seam, not a working generation service. An agent can author the supported JSON without changing lesson-specific React. Live research, automatic image/model acquisition, claim-linked checking, production versioning, readiness and durable jobs below remain future implementation. Model registration now exists as local bundle data; automatic model finding, rights checks and optimization do not.
+
+Use Mastra with its supported Inngest integration. Mastra defines agents/workflows; Inngest owns durable step results/retry scheduling. Implement and verify the local development integration before hosted plans; no Mastra/Inngest worker currently runs in this repo.
+
+1. **Research:** bounded search/reading, supporting passages, claims, gaps, disagreement.
+2. **Plan:** one shared blueprint containing historical scope, chronology, entities, evidence/uncertainty; learning goals and chapter connections; visual treatment, palette, typography choices, recurring assets, narrator and sound direction.
+3. **Compose/check:** scene content and narration grounded in evidence and supported components; check written claims before expensive media.
+4. **Produce media:** explicit image/audio tasks, prioritizing the opening chapter with bounded parallelism and asset reuse.
+5. **Validate/deliver:** release coherent ready chapters progressively; delivered scenes remain stable. A story is generation-complete only when every required chapter passes.
+
+Agents make investigative/creative choices within stages; application code controls progression and budgets. Writing may request more research within budget. Separate roles need not use separate models. The blueprint coordinates chapters without freezing product design.
+
+## Prompts and inputs
+
+- Keep detailed, versioned repository instructions for research, planning, writing, evidence checking, art, and narration; use typed builders rather than scattered prompt strings.
+- Specify role/purpose, inputs, evidence policy, allowed tools, constraints, output schema, and completion/error criteria.
+- Delimit input sections and source excerpts clearly with source IDs/provenance. Separate trusted instructions from untrusted user/source text; delimiters are not a security boundary.
+- Validate outputs with shared schemas. Record prompt versions on jobs; preserve the corresponding execution paths for in-flight work.
+
+## Research and source quality
+
+- Initial tools: Tavily Search + Extract. Choose queries, read actual sources, and investigate gaps under call/time/retry/spend limits.
+- Prefer relevant scholarship, archives, museums, and established references. Contextualize primary sources; age or institution alone does not establish truth.
+- Cross-check central/disputed claims against genuinely independent sources where possible. Preserve uncertainty/disagreement; do not equate a URL count with verification.
+- Treat snippets and generated summaries as leads. Retain supporting source passages through the [evidence records](architecture.md#historical-records-and-evidence).
+
+## Checks and delivery
+
+- Compare substantive written claims with retained evidence before artwork/narration production. Flag unsupported claims, contradictions, misleading quotations, and missing uncertainty; retain claim/evidence-linked findings.
+- Repair through targeted research/rewriting within fixed attempt/time/spend limits. Qualify unresolved material, remove it only if the explanation remains coherent, or block the chapter.
+- Readiness checks cover supported structures, valid navigation/IDs, resolvable evidence/assets, usable required media, complete interaction data, subtitles, and full reading text.
+- Failed chapters remain preparing/failed while ready chapters stay usable. Generation completion is distinct from the learner reaching the closing recap.
+- Schema validity, citations, model-check approval, and shared facts are not historical guarantees. Use traces and observed failures to improve checks.
+
+## Recovery and versioning
+
+- PostgreSQL owns canonical job status, approved content, asset references, spending, and allowance reservations. Inngest execution checkpoints do not replace those records.
+- Recovery reuses saved results/assets and reconciles uncertain external operations before further paid work. Use provider idempotency/reconciliation where supported; external effects are not automatically exactly-once.
+- Pin workflow, prompt, model configuration, and schema versions on jobs. Stable step IDs preserve compatible work; renaming can repeat effects.
+- For incompatible changes, route new jobs to a new version and retain old execution paths until active jobs finish. Test resumed and fresh runs when workflow code changes. Version labels alone do not preserve old semantics.
+
+## Provider defaults
+
+These are selected defaults, not verified integrations or claims of best quality. Confirm model availability, capabilities, exact SDK versions, and pricing before live use; no provider pricing quote or creation count is guaranteed by this document.
+
+| Task | Initial default |
+| --- | --- |
+| Research, planning, story composition | OpenAI `gpt-6.2-sol` |
+| Generated illustrations/reference edits | OpenAI `gpt-image-2.6-sunburst` |
+| Scripted narration | Gemini `gemini-3.8-flash-tts`; actual voice remains open |
+
+Use Mastra direct-provider integrations, optional OpenRouter for supported text models, and small media API integrations where needed. Keep models configurable by stage under supported capabilities/budgets; credentials stay server-side. Bound per-asset retries; not every scene needs a new image. Embedding defaults are in [retrieval](architecture.md#retrieval).
+
+## Follow-up answers
+
+Provide current scene, story outline, and relevant retained passages from the authorized story version. Retrieve other chapters when useful; allow bounded extra research if evidence is insufficient. Include inspectable references and uncertainty. Offer a related direction/new story for broader inquiries; never silently expand scope or regenerate the lesson. [Account and allowance checks](security-and-cost.md#identity-and-access) apply before paid work.
+
+## Tracing
+
+Use Mastra tracing from the first implementation: job/stage, model/prompt versions, source/tool calls, outputs, usage/cost estimate, timings, and failures. Restrict private diagnostic access and exclude credentials. Detailed trace storage, sampling, redaction, retention, and calibrated live evaluation remain [open](open-questions.md); routine logging is defined in [security and cost](security-and-cost.md#diagnostics).
+
+## Primary references
+
+[Mastra agents](https://mastra.ai/docs/agents/overview), [Inngest integration](https://mastra.ai/integrations/deploy/inngest), [workflow versioning](https://www.inngest.com/docs/durable-execution/guides-and-advanced/versioning), [tracing](https://mastra.ai/docs/observability/overview), [Tavily](https://docs.tavily.com/documentation/api-credits), [text model](https://developers.openai.com/api/docs/models/gpt-6.2-sol), [image model](https://developers.openai.com/api/docs/models/gpt-image-2.6-sunburst), [speech](https://aistudio.google.com/docs/speech-generation).

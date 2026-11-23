@@ -1,0 +1,496 @@
+{
+  "version": 2,
+  "summary": {
+    "slug": "invention-of-photography",
+    "title": "When light learned to stay",
+    "question": "How did a passing view become something we could keep?",
+    "description": "Explore the invention of photography through early photographs and the choices behind them: fixing light, making copies, composing a scene and deciding what an image can prove.",
+    "image": "/images/showcase/photography/talbot-open-door.jpg",
+    "imageAlt": "A salted paper print of an open wooden door, a leaning broom, stonework and a hanging lantern.",
+    "topic": "Science & invention",
+    "era": "modern",
+    "period": "Ca. 1826–1846",
+    "scope": "Early photography in France and Britain",
+    "minutes": 12,
+    "chapters": [
+      {
+        "title": "Light that stays",
+        "question": "What makes an image last?"
+      },
+      {
+        "title": "One plate, many prints",
+        "question": "What changes when a picture can be copied?"
+      },
+      {
+        "title": "A picture still needs a reader",
+        "question": "What does a photograph actually establish?"
+      }
+    ],
+    "sourceLabel": "Original photographs and linked museum records",
+    "sample": true
+  },
+  "lesson": {
+    "preview": true,
+    "sources": [
+      {
+        "name": "Harry Ransom Center",
+        "title": "The Niépce Heliograph",
+        "url": "https://www.hrc.utexas.edu/niepce-heliograph/",
+        "type": "Custodian’s object history",
+        "supports": "Earliest surviving camera photograph; the Center dates it to 1827 and describes several days of exposure. Earlier experiments did not produce stable images."
+      },
+      {
+        "name": "The Metropolitan Museum of Art",
+        "title": "Daguerre and the Invention of Photography",
+        "url": "https://www.metmuseum.org/essays/daguerre-1787-1851-and-the-invention-of-photography",
+        "type": "Museum history",
+        "supports": "Camera obscura, Niépce–Daguerre partnership and the 1839 disclosure of the unique silver-plated copper daguerreotype."
+      },
+      {
+        "name": "The Metropolitan Museum of Art",
+        "title": "William Henry Fox Talbot and the Invention of Photography",
+        "url": "https://www.metmuseum.org/essays/william-henry-fox-talbot-1800-1877-and-the-invention-of-photography",
+        "type": "Museum history",
+        "supports": "Talbot’s 1830s paper experiments, disclosure in 1839, and developed calotype patented in 1841."
+      },
+      {
+        "name": "Victoria and Albert Museum",
+        "title": "An A–Z of Photographic Processes",
+        "url": "https://www.vam.ac.uk/articles/photographic-processes",
+        "type": "Museum process reference",
+        "supports": "Paper negatives and positive prints, daguerreotype material, and differences in reproducibility and surface detail."
+      },
+      {
+        "name": "The Metropolitan Museum of Art",
+        "title": "The Pencil of Nature",
+        "url": "https://www.metmuseum.org/art/collection/search/267022",
+        "type": "Primary publication catalogue",
+        "supports": "Talbot’s illustrated publication of 1844–46, twenty-four plates, proposed applications and its commercial difficulties."
+      },
+      {
+        "name": "Getty",
+        "title": "The 19th-Century Selfie Pioneer",
+        "url": "https://www.getty.edu/news/hippolyte-bayard-19th-century-selfie-pioneer/",
+        "type": "Institutional collection interpretation",
+        "supports": "Hippolyte Bayard’s staged self-portraits, including The Drowned Man in 1840; the image is not documentary evidence of an actual death."
+      },
+      {
+        "name": "The Metropolitan Museum of Art",
+        "title": "The Oriel Window, South Gallery, Lacock Abbey",
+        "url": "https://www.metmuseum.org/art/collection/search/282004",
+        "type": "Primary object catalogue",
+        "supports": "A real, faint paper negative dated probably 1835. This is not the same image as The Open Door."
+      },
+      {
+        "name": "The Metropolitan Museum of Art",
+        "title": "Louis-Jacques-Mandé Daguerre",
+        "url": "https://www.metmuseum.org/art/collection/search/283101",
+        "type": "Primary object catalogue",
+        "supports": "Daguerreotype portrait, ca. 1844; the photographer is unidentified. It is not securely attributed as a self-portrait."
+      },
+      {
+        "name": "The Metropolitan Museum of Art",
+        "title": "The Open Door",
+        "url": "https://www.metmuseum.org/art/collection/search/283068",
+        "type": "Primary object catalogue",
+        "supports": "Salted paper print made before May 1844; a consciously composed scene, published as plate six of The Pencil of Nature."
+      },
+      {
+        "name": "The Metropolitan Museum of Art",
+        "title": "Nelson’s Column under Construction, Trafalgar Square",
+        "url": "https://www.metmuseum.org/art/collection/search/289387",
+        "type": "Primary object catalogue",
+        "supports": "Talbot’s city view from the first week of April 1844; its material and date, without a claim that an apparently quiet street was actually empty."
+      }
+    ],
+    "scenes": [
+      {
+        "id": "chapter-0",
+        "chapter": 0,
+        "title": "Light that stays",
+        "deck": "Follow optics, chemistry and the meaning of an earliest surviving image.",
+        "text": [
+          "A broom leans against a door. Light picks out a stone wall while the room behind it stays dark. William Henry Fox Talbot made this photograph before May 1844; it later appeared in The Pencil of Nature. The subject is ordinary, but the object is extraordinary: light helped produce an image that could be kept and examined elsewhere. Begin by inspecting the broom, doorway and lantern. Then ask a harder question: what had to happen between seeing this scene and holding this piece of paper?",
+          "A camera obscura could project a view before photography could preserve one. Its optical image changed with the light and disappeared when the arrangement ended. An observer might trace it, but projection alone did not make a permanent photograph. The crucial problem therefore joined optics to chemistry: find a surface that light would change, control that change long enough to record useful detail, and stop further exposure from destroying the result. A camera and a lasting photograph are related inventions, not interchangeable names for one discovery.",
+          "Joseph Nicéphore Niépce explored that problem using light-sensitive bitumen on a metal plate. The Harry Ransom Center identifies his surviving heliograph as a camera image made in 1827 and describes an exposure lasting several days. Other institutional histories place early successful results around 1826. Those differences matter less than the boundary they expose: a surviving object is not a complete record of every experiment. Treat “the first photograph” as a claim requiring a definition—first attempted, first fixed, first surviving, or first widely usable?",
+          "Talbot took another path with chemically sensitized paper. The faint object shown here is an actual paper negative of an oriel window, catalogued by The Met as probably 1835. Its dim appearance is part of the surviving evidence, not a failed image download. Brighter parts of the projected scene affected the paper more strongly, reversing the familiar distribution of light and dark. Inspect the fragile tones and physical edges. This early experiment should not be confused with Talbot’s later developed calotype process, patented in 1841.",
+          "There was no single material waiting for one inevitable inventor. Niépce, Daguerre and Talbot worked through different combinations of surfaces, exposure and chemical treatment. In 1839, Daguerre’s process was publicly explained and Talbot also disclosed his work. A useful chronology keeps experiments, announcements, patents and surviving objects separate. Select the milestones rather than compressing all of them into one birthday. The next chapter follows the practical difference that emerges from these paths: whether a photograph is one unique object or a source from which more images can be made."
+        ],
+        "kind": "composed",
+        "sources": [0, 1, 2, 6, 8]
+      },
+      {
+        "id": "chapter-1",
+        "chapter": 1,
+        "title": "One plate, many prints",
+        "deck": "Compare actual early objects without confusing different photographs.",
+        "text": [
+          "This portrait of Daguerre was made around 1844 by a photographer The Met cannot identify with confidence. Its medium is a daguerreotype: a unique image on a silver-plated copper surface. Look beyond the face to the plate and mount. The photograph is a physical thing, with material damage and a particular viewing surface, rather than an immaterial view waiting to be downloaded. Calling it a self-portrait because it depicts an inventor would add a claim the catalogue does not support.",
+          "A paper negative offers a different relationship between image and object. Place a negative in contact with sensitized paper and expose it to light: the distribution reverses again, producing a positive print. Another sheet permits another print from the same negative. That repeatability did not mean effortless or perfectly identical manufacture. Paper, chemistry, handling and exposure still mattered. But it separated the camera-made negative from the positive object a reader might receive, creating a different route for photographs to circulate.",
+          "Compare the actual window negative with The Open Door, a later positive paper print. They are deliberately different photographs; this is a comparison of formats, not a demonstration that one produced the other. The dark, faint experimental object and the legible doorway invite different kinds of inspection. Paper fibres could also affect the clarity of prints made through a paper negative. A process could therefore be attractive for making copies while presenting different surface qualities from a daguerreotype. “Better” depends on the task being asked of the picture.",
+          "Talbot’s The Pencil of Nature tested what a publication containing photographic prints could do. Issued in parts in 1844–46, its twenty-four plates explored subjects such as architecture, objects, documents and botanical specimens. Talbot and his collaborator Nicolaas Henneman connected a photographic process with the labor of making editions. The book matters because it asked practical questions about use, distribution and audiences. It was more than a sequence of technical firsts: it was an attempt to turn photographs into things people might buy, consult and compare.",
+          "The venture did not simply expand forever because its technology was important. The Met records that publication ended as sales declined. That interruption belongs inside the invention story. A repeatable image still needs materials, skilled production and enough demand to sustain its circulation. Compare a unique plate, a paper negative and a book containing positive prints as three different arrangements of work. Each can preserve a view, but each creates different possibilities for ownership, copying, access and interpretation."
+        ],
+        "kind": "composed",
+        "sources": [1, 2, 3, 4, 6, 7, 8]
+      },
+      {
+        "id": "chapter-2",
+        "chapter": 2,
+        "title": "A picture still needs a reader",
+        "deck": "Return to the image with better questions about making, use and evidence.",
+        "text": [
+          "Now return to the broom. The Open Door was not simply an unattended camera passively discovering an accidental arrangement. The Met describes Talbot’s conscious composition and its relationship to Dutch genre painting. Inspect the doorway’s deep shadow, the bright wall and the diagonal handle. The photograph records light from real things, but the photographer also chooses which things and relationships enter the frame. An apparently modest subject can be constructed with as much care as a grand scene.",
+          "Talbot’s view of Trafalgar Square offers another temptation: to turn everything absent from a photograph into a fact about the street. The catalogue dates it to the first week of April 1844 and identifies Nelson’s Column under construction. Those are supported claims. A viewer cannot establish an exact exposure time, an absence of passing people or a complete account of the neighborhood simply by looking at this reproduction. Notice the scaffolding and architectural relationships, then distinguish what the record establishes from what your imagination supplies.",
+          "Hippolyte Bayard made the distinction especially sharp in 1840 with The Drowned Man. Getty describes a staged self-portrait, accompanied by a complaint about the recognition of his photographic work. The depicted death was fictive. The lesson does not reproduce that image here, but its existence interrupts any claim that deception arrived only after digital editing. A photograph can faithfully record a person performing an invented situation. Material contact with a scene does not make the story told about that scene automatically true.",
+          "Sources become more useful when their limits remain attached to them. The portrait tells us what a daguerreotype can look like, not who certainly operated its camera. The window negative demonstrates an early paper experiment, not the source of every later print. The Open Door can support an argument about artistic composition, while the city view supports a dated study of a particular place. Compare the two positive prints and ask what changes when domestic space becomes a public streetscape. The process connects them; their purposes and evidence remain distinct.",
+          "Photography’s early history joins several problems: preserve an optical image, choose a workable material, make or distribute copies, and explain what the resulting picture means. None disappears merely because the image looks convincing. Before treating a photograph as a transparent window, ask who made it, when, by which process, and for what use. Then look again at the object itself. A broom, a metal mount, a faint negative or unfinished stonework can make that history more specific than a list of famous inventors."
+        ],
+        "kind": "composed",
+        "sources": [5, 7, 8, 9]
+      }
+    ]
+  },
+  "assets": [
+    {
+      "src": "/images/showcase/photography/talbot-open-door.jpg",
+      "width": 1200,
+      "height": 898,
+      "credit": "William Henry Fox Talbot · The Open Door · before May 1844 · The Met · public domain",
+      "record": "https://www.metmuseum.org/art/collection/search/283068",
+      "license": "Public domain / The Met Open Access (CC0)",
+      "treatment": "historical-image"
+    },
+    {
+      "src": "/images/showcase/photography/daguerre-portrait.jpg",
+      "width": 1031,
+      "height": 1200,
+      "credit": "Unknown French photographer · Daguerre · ca. 1844 · The Met · public domain",
+      "record": "https://www.metmuseum.org/art/collection/search/283101",
+      "license": "Public domain / The Met Open Access (CC0)",
+      "treatment": "historical-image"
+    },
+    {
+      "src": "/images/showcase/photography/talbot-oriel-window-negative.jpg",
+      "width": 1200,
+      "height": 877,
+      "credit": "Talbot · The Oriel Window · probably 1835 · The Met · public domain",
+      "record": "https://www.metmuseum.org/art/collection/search/282004",
+      "license": "Public domain / The Met Open Access (CC0)",
+      "treatment": "historical-image"
+    },
+    {
+      "src": "/images/showcase/photography/talbot-trafalgar-square.jpg",
+      "width": 1200,
+      "height": 999,
+      "credit": "Talbot · Trafalgar Square · April 1844 · The Met · public domain",
+      "record": "https://www.metmuseum.org/art/collection/search/289387",
+      "license": "Public domain / The Met Open Access (CC0)",
+      "treatment": "historical-image"
+    }
+  ],
+  "programs": [
+    {
+      "sceneId": "chapter-0",
+      "beats": [
+        {
+          "id": "invention-of-photography-0-0",
+          "type": "illustrated",
+          "title": "Before a camera could remember.",
+          "passageStart": 0,
+          "passageEnd": 0,
+          "image": "/images/showcase/photography/talbot-open-door.jpg",
+          "imageAlt": "A salted paper print of an open wooden door, a leaning broom, stonework and a hanging lantern.",
+          "caption": "William Henry Fox Talbot · The Open Door · before May 1844 · The Met · public domain",
+          "imageWidth": 1200,
+          "imageHeight": 898,
+          "imageFit": "cover",
+          "annotations": [
+            {
+              "id": "broom",
+              "label": "The broom",
+              "x": 42,
+              "y": 76,
+              "title": "An ordinary object, deliberately placed.",
+              "body": "Follow the diagonal broom against the door. This photograph belongs to Talbot’s later published work, not the first camera experiments."
+            },
+            {
+              "id": "light",
+              "label": "Light and shadow",
+              "x": 67,
+              "y": 38,
+              "title": "Light makes the scene legible.",
+              "body": "The bright wall and shadowed doorway organize the picture before any chemical process is explained."
+            }
+          ],
+          "sourceIndices": [0, 1, 2, 6, 8],
+          "composition": "cinematic-opening",
+          "purpose": "Before a camera could remember. Connect the source or operation with the chapter question."
+        },
+        {
+          "id": "invention-of-photography-0-4",
+          "type": "timeline",
+          "title": "Several inventions, several milestones.",
+          "passageStart": 1,
+          "passageEnd": 2,
+          "events": [
+            {
+              "date": "Probably 1835",
+              "title": "A faint window negative",
+              "body": "The Met qualifies the date of this particular early experiment."
+            },
+            {
+              "date": "Ca. 1844",
+              "title": "A portrait on a metal plate",
+              "body": "An unknown photographer depicts Daguerre. The date is later than the public disclosure of his process."
+            },
+            {
+              "date": "April 1844",
+              "title": "A view of construction",
+              "body": "Talbot photographs Trafalgar Square during the first week of April."
+            },
+            {
+              "date": "Before May 1844",
+              "title": "An arranged doorway",
+              "body": "This print later appears in The Pencil of Nature."
+            }
+          ],
+          "note": "Dates describe these particular objects, not single birthdays for entire photographic processes.",
+          "sourceIndices": [0, 1, 2, 6, 8],
+          "composition": "chronology-ribbon",
+          "purpose": "Several inventions, several milestones. Connect the source or operation with the chapter question."
+        },
+        {
+          "id": "invention-of-photography-0-3",
+          "type": "evidence",
+          "title": "A fragile experiment survives.",
+          "passageStart": 3,
+          "passageEnd": 4,
+          "image": "/images/showcase/photography/talbot-oriel-window-negative.jpg",
+          "imageAlt": "A very faint early paper negative, with pale window forms on a dark violet-brown surface.",
+          "caption": "Talbot · The Oriel Window · probably 1835 · The Met · public domain",
+          "imageWidth": 1200,
+          "imageHeight": 877,
+          "imageFit": "contain",
+          "record": {
+            "sourceIndex": 6,
+            "title": "The Oriel Window",
+            "date": "Probably 1835",
+            "material": "Paper negative",
+            "status": "source-record",
+            "interpretation": "An actual early paper negative from Talbot’s experiments. Look for the very faint window forms.",
+            "limitation": "This reproduction is faint, and its qualified date matters. It is not the negative used for The Open Door."
+          },
+          "sourceIndices": [0, 1, 2, 6, 8],
+          "composition": "document-desk",
+          "purpose": "A fragile experiment survives. Connect the source or operation with the chapter question."
+        }
+      ]
+    },
+    {
+      "sceneId": "chapter-1",
+      "beats": [
+        {
+          "id": "invention-of-photography-1-0",
+          "type": "evidence",
+          "title": "One image, one metal plate.",
+          "passageStart": 0,
+          "passageEnd": 0,
+          "image": "/images/showcase/photography/daguerre-portrait.jpg",
+          "imageAlt": "A daguerreotype portrait of Daguerre, framed by a worn metal mount.",
+          "caption": "Unknown French photographer · Daguerre · ca. 1844 · The Met · public domain",
+          "imageWidth": 1031,
+          "imageHeight": 1200,
+          "imageFit": "cover",
+          "record": {
+            "sourceIndex": 7,
+            "title": "Portrait of Louis-Jacques-Mandé Daguerre",
+            "date": "Ca. 1844",
+            "material": "Daguerreotype",
+            "status": "source-record",
+            "interpretation": "The plate and mount demonstrate the material form of a daguerreotype.",
+            "limitation": "The photographer is unknown. Depicting Daguerre does not establish that he made the portrait."
+          },
+          "sourceIndices": [1, 2, 3, 4, 6, 7, 8],
+          "composition": "portrait-study",
+          "purpose": "One image, one metal plate. Connect the source or operation with the chapter question."
+        },
+        {
+          "id": "invention-of-photography-1-1",
+          "type": "journey",
+          "title": "A negative makes another route possible.",
+          "passageStart": 1,
+          "passageEnd": 2,
+          "stages": [
+            {
+              "date": "Camera",
+              "title": "Expose the negative",
+              "body": "Light changes the sensitized paper, reversing the tones of the projected view."
+            },
+            {
+              "date": "Contact printing",
+              "title": "Expose a second sheet",
+              "body": "Light passes through the negative onto another sensitized sheet, reversing the tones again."
+            },
+            {
+              "date": "Circulation",
+              "title": "Make further positives",
+              "body": "The same negative can be used for another print. Materials and handling still affect each result."
+            }
+          ],
+          "sourceIndices": [1, 2, 3, 4, 6, 7, 8],
+          "composition": "process-workbench",
+          "purpose": "A negative makes another route possible. Connect the source or operation with the chapter question."
+        },
+        {
+          "id": "invention-of-photography-1-3",
+          "type": "evidence",
+          "title": "A photograph becomes a page.",
+          "passageStart": 3,
+          "passageEnd": 4,
+          "image": "/images/showcase/photography/talbot-open-door.jpg",
+          "imageAlt": "A salted paper print of an open wooden door, a leaning broom, stonework and a hanging lantern.",
+          "caption": "William Henry Fox Talbot · The Open Door · before May 1844 · The Met · public domain",
+          "imageWidth": 1200,
+          "imageHeight": 898,
+          "imageFit": "contain",
+          "record": {
+            "sourceIndex": 4,
+            "title": "The Pencil of Nature",
+            "date": "1844–46",
+            "material": "Publication with photographic prints",
+            "status": "source-record",
+            "interpretation": "Twenty-four plates tested practical and artistic uses of photography. The Open Door appeared as plate six.",
+            "limitation": "The image is one plate, not a scan of the complete publication. Open the collection record to examine the book’s context."
+          },
+          "sourceIndices": [1, 2, 3, 4, 6, 7, 8],
+          "composition": "document-desk",
+          "purpose": "A photograph becomes a page. Connect the source or operation with the chapter question.",
+          "reuseReason": "The positive print returns as a publication object, not as a second illustration of the same paragraph."
+        }
+      ]
+    },
+    {
+      "sceneId": "chapter-2",
+      "beats": [
+        {
+          "id": "invention-of-photography-2-0",
+          "type": "illustrated",
+          "title": "Even an ordinary scene is composed.",
+          "passageStart": 0,
+          "passageEnd": 0,
+          "image": "/images/showcase/photography/talbot-open-door.jpg",
+          "imageAlt": "A salted paper print of an open wooden door, a leaning broom, stonework and a hanging lantern.",
+          "caption": "William Henry Fox Talbot · The Open Door · before May 1844 · The Met · public domain",
+          "imageWidth": 1200,
+          "imageHeight": 898,
+          "imageFit": "contain",
+          "annotations": [
+            {
+              "id": "diagonal",
+              "label": "The diagonal",
+              "x": 40,
+              "y": 70,
+              "title": "The broom organizes a modest scene.",
+              "body": "A line through the picture leads into the relationship between bright wall and dark doorway.",
+              "crop": {
+                "x": 25,
+                "y": 55,
+                "width": 30,
+                "height": 30
+              }
+            },
+            {
+              "id": "lantern",
+              "label": "The lantern",
+              "x": 86,
+              "y": 33,
+              "title": "A chosen set of ordinary things.",
+              "body": "Inspect the lantern and the surrounding wall rather than assuming the composition was accidental.",
+              "crop": {
+                "x": 70,
+                "y": 18,
+                "width": 30,
+                "height": 30
+              }
+            }
+          ],
+          "sourceIndices": [5, 7, 8, 9],
+          "composition": "detail-study",
+          "purpose": "Even an ordinary scene is composed. Connect the source or operation with the chapter question.",
+          "reuseReason": "Return to the opening photograph for close observation of deliberate composition."
+        },
+        {
+          "id": "invention-of-photography-2-1",
+          "type": "photograph",
+          "title": "A city view has a point of view.",
+          "passageStart": 1,
+          "passageEnd": 2,
+          "image": "/images/showcase/photography/talbot-trafalgar-square.jpg",
+          "imageAlt": "Talbot’s early photograph of Trafalgar Square with Nelson’s Column under construction.",
+          "caption": "Talbot · Trafalgar Square · April 1844 · The Met · public domain",
+          "imageWidth": 1200,
+          "imageHeight": 999,
+          "imageFit": "cover",
+          "sourceUrl": "https://www.metmuseum.org/art/collection/search/289387",
+          "observation": "Look for the column under construction. The catalogue dates this view to the first week of April 1844; it does not establish that the surrounding streets were empty.",
+          "sourceIndices": [5, 7, 8, 9],
+          "composition": "image-story",
+          "purpose": "A city view has a point of view. Connect the source or operation with the chapter question.",
+          "reuseReason": "The city view introduces the gap between visible details and unsupported stories; Bayard’s separate staged work is discussed, not pictured here."
+        },
+        {
+          "id": "invention-of-photography-2-3",
+          "type": "comparison",
+          "title": "A process connects them. Their evidence differs.",
+          "passageStart": 3,
+          "passageEnd": 3,
+          "left": {
+            "image": "/images/showcase/photography/talbot-open-door.jpg",
+            "alt": "A salted paper print of an open wooden door, a leaning broom, stonework and a hanging lantern.",
+            "label": "The Open Door",
+            "explanation": "An arranged domestic subject, published in a photographic book."
+          },
+          "right": {
+            "image": "/images/showcase/photography/talbot-trafalgar-square.jpg",
+            "alt": "Talbot’s early photograph of Trafalgar Square with Nelson’s Column under construction.",
+            "label": "Trafalgar Square",
+            "explanation": "A dated city view showing construction in April 1844."
+          },
+          "note": "Both are paper positives by Talbot. This comparison makes no claim that either represents an unmediated or complete view.",
+          "sourceIndices": [5, 7, 8, 9],
+          "composition": "comparison-gallery",
+          "purpose": "A process connects them. Their evidence differs. Connect the source or operation with the chapter question."
+        },
+        {
+          "id": "photography-conclusion",
+          "title": "Light is only the beginning.",
+          "type": "journey",
+          "composition": "synthesis-board",
+          "purpose": "Connect material, copying and interpretation in a clear closing explanation.",
+          "sourceIndices": [5, 7, 8, 9],
+          "passageStart": 4,
+          "passageEnd": 4,
+          "stages": [
+            {
+              "title": "Fix the image",
+              "date": "Material",
+              "body": "A projected view needs a light-sensitive material and a way to make its image endure."
+            },
+            {
+              "title": "Make another",
+              "date": "Circulation",
+              "body": "A unique plate and a negative–positive process create different possibilities for copies."
+            },
+            {
+              "title": "Read its limits",
+              "date": "Evidence",
+              "body": "A convincing photograph still needs a maker, date, process and context."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "models": []
+}

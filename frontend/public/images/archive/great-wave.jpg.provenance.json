@@ -1,0 +1,16 @@
+{
+  "source": "https://collectionapi.metmuseum.org/api/collection/v1/iiif/45434/134438/main-image",
+  "record": "https://www.metmuseum.org/art/collection/search/45434",
+  "license": "Public domain / The Met Open Access (CC0)",
+  "creator": "Katsushika Hokusai",
+  "title": "Under the Wave off Kanagawa (The Great Wave)",
+  "date": "ca. 1830\u201332",
+  "objectNumber": "JP1847",
+  "width": 1200,
+  "height": 807,
+  "downloadedAt": "2026-11-23",
+  "sha256": "3cced333089426de69d08ab9284f1bdf32153f866e2c1f55e447f6e461770452",
+  "byteSize": 339113,
+  "sourceSha256": "a7e06182eba5205c26b4a71a06eebaead8ef2541f348a15b90174a75fc62cab0",
+  "transformation": "Source origin embedded as JPEG comment; image pixels unchanged"
+}

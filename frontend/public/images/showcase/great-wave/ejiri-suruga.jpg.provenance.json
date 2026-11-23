@@ -1,0 +1,23 @@
+{
+  "source": "https://collectionapi.metmuseum.org/api/collection/v1/iiif/56988/140178/main-image",
+  "record": "https://www.metmuseum.org/art/collection/search/56988",
+  "title": "Ejiri in Suruga Province (Sunshū Ejiri), from the series Thirty-six Views of Mount Fuji (Fugaku sanjūrokkei)",
+  "objectNumber": "JP2553",
+  "creditLine": "The Howard Mansfield Collection, Purchase, Rogers Fund, 1936",
+  "width": 1200,
+  "height": 807,
+  "scopeCaveat": "Artistic representation of wind, travelers, paper and distant Fuji; not evidence of one recorded storm or a measured wind speed.",
+  "license": "Public domain / The Met Open Access (CC0)",
+  "licenseURL": "https://www.metmuseum.org/hubs/open-access",
+  "creator": "Katsushika Hokusai",
+  "date": "ca. 1830–32",
+  "medium": "Woodblock print; ink and color on paper",
+  "culture": "Japan",
+  "period": "Edo period (1615–1868)",
+  "downloadedAt": "2026-11-23",
+  "sha256": "b3964617648728d18d4f7dbaec2a57ae1c25805939d81e8e36ff825d1a3e6f37",
+  "sourceSha256": "fef6bae9154f35bfb7085228a32ee787a0ba2d486e87c7b32d6c98bd26a5fe3b",
+  "byteSize": 234465,
+  "transformation": "Source origin embedded as JPEG comment; image pixels unchanged",
+  "review": "JPEG signature checked; file dimensions checked; visually inspected with view_image"
+}

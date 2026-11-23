@@ -1,0 +1,36 @@
+{
+  "file": "princeton-street-1860s.jpg",
+  "title": "Street, Pompeii",
+  "creator": "Unknown Italian photographer",
+  "date": "ca. 1860s",
+  "institution": "Princeton University Art Museum",
+  "accessionNumber": "x1984-58",
+  "sourceUrl": "https://artmuseum.princeton.edu/art/collections/objects/16276",
+  "manifestUrl": "https://data.artmuseum.princeton.edu/iiif/objects/16276",
+  "downloadUrl": "https://media.artmuseum.princeton.edu/iiif/3/collection/INV11029/full/max/0/default.jpg",
+  "license": "Public Domain",
+  "licenseEvidence": "The download section of this object record explicitly supports free access to images of works in the Public Domain and invites download of this image.",
+  "credit": "Italian, Street, Pompeii, ca. 1860s. Albumen print. Gift of Mrs. Mary Ogden Thompson in memory of Montgomery Kneass Ogden, Class of 1903, and Bryan Kneass Ogden, Class of 1905 (x1984-58). Princeton University Art Museum.",
+  "width": 2000,
+  "height": 1560,
+  "bytes": 418614,
+  "sha256": "9999da34384523ff6c1894b34d4ffb0abf82bc3d42e41b91f6ace9b32ea10aef",
+  "verifiedAt": "2026-11-23",
+  "verification": [
+    "JPEG magic and format checked with file",
+    "Dimensions checked with sips",
+    "Opened with view_image",
+    "SHA-256 measured from downloaded file"
+  ],
+  "historicalContext": "Albumen photograph of an excavated street at Pompeii around the 1860s. Not the city in AD 79 or a present-day site photograph. Photographer unnamed in the holding institution record.",
+  "visibleDetails": [
+    "Raised stones in foreground roadway",
+    "Basin at right",
+    "Exposed plaster or painted surface on wall at right",
+    "Ruined building fronts along street"
+  ],
+  "modifications": "None",
+  "sourceSha256": "53ebc03901c943b7f6e819789f5bd82442d65e113ad3082c7225db394ea0bad6",
+  "byteSize": 418928,
+  "transformation": "Origin embedded as JPEG comment; image pixels unchanged"
+}

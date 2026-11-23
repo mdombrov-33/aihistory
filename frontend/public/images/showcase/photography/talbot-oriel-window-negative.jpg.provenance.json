@@ -1,0 +1,21 @@
+{
+  "source": "https://collectionapi.metmuseum.org/api/collection/v1/iiif/282004/1442786/main-image",
+  "record": "https://www.metmuseum.org/art/collection/search/282004",
+  "license": "Public domain / The Met Open Access (CC0)",
+  "licenseURL": "https://www.metmuseum.org/hubs/open-access",
+  "creator": "William Henry Fox Talbot",
+  "title": "[The Oriel Window, South Gallery, Lacock Abbey]",
+  "date": "probably 1835",
+  "medium": "Paper negative",
+  "objectNumber": "1997.382.1",
+  "creditLine": "The Rubel Collection, Purchase, Ann Tenenbaum and Thomas H. Lee and Anonymous Gifts, 1997",
+  "width": 1200,
+  "height": 877,
+  "downloadedAt": "2026-11-23",
+  "sha256": "872e2e85a6ea8ee0f9f1b3b9209d5889054cc0526dd3bb38c07764b4d42bfce5",
+  "byteSize": 75962,
+  "transformation": "Origin embedded as JPEG comment; image pixels unchanged",
+  "review": "JPEG signature checked; file dimensions checked; visually inspected with view_image",
+  "scopeCaveat": "Original negative is very faint. Do not describe this as the better-known Science Museum negative or pair with a different positive as if matched.",
+  "sourceSha256": "be48ee4c09959fdae00f3fbc2f2b2a418c65bd9be9b6c00799c435fa30e33db8"
+}

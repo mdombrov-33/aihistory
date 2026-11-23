@@ -1,0 +1,13 @@
+{
+  "prompt": "Use case: ui-mockup. Create an astonishing, finished desktop history discovery web app screenshot for HISTORY, edge to edge at 1536×1024 or larger, crisp readable interface text, no device/browser frame. Curious adults find a ready visual story, continue learning, or ask their own question across any period. This is the whole product hub, not one lesson's landing page.\n\nATLAS visual laws: cool chalk white and pale mineral ground, confident ultramarine #234bd6 controls, charcoal typography, sparing copper-orange signals. Precise contemporary sans typography, strong hierarchy, airy asymmetrical grid and familiar web affordances. One signature: exquisite sculptural historical miniature cutaway worlds, like contemporary spatial museum exhibits, connected to subtle geographic routes. This is a modern product, never a physical atlas costume or beige editorial library.\n\nHeader: HISTORY, Discover, Explore, Create, My space, Sign in. A substantial real composer asks “What would you like to understand?” with example “How did ideas travel along the Silk Roads?” and “Find a story” action. Topic and era filters remain conspicuous and usable. Lead with a multi-world discovery constellation of Silk Roads caravan city, Renaissance Florence, Apollo lunar engineering, and Edo neighborhood; each is a distinct richly detailed miniature, with readable topic labels and useful story metadata, not a huge headline over one image. Lower area has varied ready-story tiles including “Florence reborn”, “Race to the Moon”, “Life in Edo”, “Across the Atlantic”, and a clear “Continue: The Silk Roads · Chapter 2 of 6” path. Include a modest Concept content disclosure. Keep query/results navigation equally obvious beside geographic exploration. Polished real UI controls and restrained navigation have as much craft as the art.\n",
+  "tool": "image_gen.imagegen",
+  "mode": "built-in",
+  "use_case": "ui-mockup",
+  "direction": "ATLAS",
+  "round": "direction-decision",
+  "approved": false,
+  "width": 1536,
+  "height": 1024,
+  "source": "/Users/maximus/.codex/generated_images/01a2024b-ab68-7592-897e-56741feaf4a7/exec-a0fdc657-8fd1-4da8-814a-a857ff2639e1.png",
+  "disclosure": "Concept catalog and visual interface design; illustrative geography, dates, story metadata, ratings and technical values are not source-checked."
+}

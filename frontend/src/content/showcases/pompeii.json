@@ -1,0 +1,498 @@
+{
+  "version": 2,
+  "summary": {
+    "slug": "pompeii",
+    "title": "Pompeii, beyond the ash",
+    "question": "What can a buried city really tell us about the people who lived there?",
+    "description": "Explore a city through work, volcanic deposits and the evidence of later observers. Inspect historical views and discover why Pompeii is more than a day frozen in time.",
+    "image": "/images/showcase/pompeii/princeton-street-1860s.jpg",
+    "imageAlt": "An albumen photograph of an excavated Pompeian street in the 1860s, with raised crossing stones and exposed building fronts.",
+    "topic": "People & daily life",
+    "era": "ancient",
+    "period": "AD 79 · later excavation and interpretation",
+    "scope": "Pompeii and the Bay of Naples; later records and research",
+    "minutes": 12,
+    "chapters": [
+      {
+        "title": "Before the ash",
+        "question": "How do buildings and objects reveal a working city?"
+      },
+      {
+        "title": "Burial and witnesses",
+        "question": "What survives of an event and its witnesses?"
+      },
+      {
+        "title": "Reading the ruins",
+        "question": "How do recording and research change the city we know?"
+      }
+    ],
+    "sourceLabel": "Archaeological records, ancient testimony and historical images",
+    "sample": true
+  },
+  "lesson": {
+    "preview": true,
+    "sources": [
+      {
+        "name": "Archaeological Park of Pompeii",
+        "title": "Bakery of Popidio Prisco",
+        "url": "https://pompeiisites.org/en/archaeological-site/bakery-of-popidio-prisco/",
+        "type": "Archaeological site record",
+        "supports": "Five lava millstones, grinding by enslaved people or animals, the oven, and the uncertain distribution of bread where a sales counter is absent."
+      },
+      {
+        "name": "Archaeological Park of Pompeii",
+        "title": "Fullery of Stephanus",
+        "url": "https://pompeiisites.org/en/archaeological-site/fullery-of-stephanus/",
+        "type": "Archaeological site record",
+        "supports": "A house converted for textile treatment and laundry, reused basins, workshops and enslaved labor. A proposed story about an individual skeleton remains supposition."
+      },
+      {
+        "name": "Archaeological Park of Pompeii",
+        "title": "The Casts",
+        "url": "https://pompeiisites.org/en/pompeii-map/analysis/the-casts/",
+        "type": "Institutional interpretation",
+        "supports": "Different eruption hazards and Fiorelli’s casting method from 1863 onward. Casts are later records of voids in volcanic deposits, not petrified bodies."
+      },
+      {
+        "name": "Dickinson College Commentaries",
+        "title": "Pliny the Younger, Letters 6.20",
+        "url": "https://dcc.dickinson.edu/pliny-letters/6-20",
+        "type": "University edition of an ancient letter",
+        "supports": "Pliny’s retrospective account of his own experience at Misenum, written to Tacitus decades later; it is not a street-level eyewitness account of Pompeii."
+      },
+      {
+        "name": "Getty Research Institute",
+        "title": "Pompeian Interiors Exposed",
+        "url": "https://www.getty.edu/news/new-exhibition-offered-look-inside-pompeiis-interiors/",
+        "type": "Institutional exhibition interpretation",
+        "supports": "Early views compared with later records show loss, restoration and protective interventions after excavation. Modern photographs on that page are not reused here."
+      },
+      {
+        "name": "Max Planck Society",
+        "title": "DNA evidence rewrites Pompeii eruption story",
+        "url": "https://www.mpg.de/23699890/dna-evidence-rewrites-pompeii-eruption-story",
+        "type": "Researchers’ institutional report · 2024",
+        "supports": "Ancient DNA contradicts some assumed sex and biological relationships attached to casts. It does not establish names, affection or all social relationships."
+      },
+      {
+        "name": "National Gallery of Art",
+        "title": "The Forum at Pompeii",
+        "url": "https://www.nga.gov/artworks/221599-forum-pompeii",
+        "type": "Primary artwork catalogue",
+        "supports": "Michallon’s painting dated 1819 records a later view of excavated ruins, not Pompeii during the eruption."
+      },
+      {
+        "name": "Wellcome Collection",
+        "title": "Courtyard of the House of the Surgeon",
+        "url": "https://wellcomecollection.org/works/vdhdxk9v",
+        "type": "Primary print catalogue",
+        "supports": "Piranesi’s 1804 etching of an excavated courtyard, including an artist in the foreground; not a depiction made in antiquity."
+      },
+      {
+        "name": "Princeton University Art Museum",
+        "title": "Street, Pompeii",
+        "url": "https://artmuseum.princeton.edu/art/collections/objects/16276",
+        "type": "Primary photograph catalogue",
+        "supports": "An actual albumen photograph of the excavated city around the 1860s by an unidentified Italian photographer. It is not a photograph of AD 79 or the site today."
+      }
+    ],
+    "scenes": [
+      {
+        "id": "chapter-0",
+        "chapter": 0,
+        "title": "Before the ash",
+        "deck": "Follow work, movement and the limits of a view of an excavated city.",
+        "text": [
+          "An empty street can make Pompeii seem like a city built to become a ruin. Start instead with the objects a working day required. The raised stones, building fronts and basin in this photograph invite questions about movement and shared space. But first date the image: an unidentified Italian photographer made it around the 1860s, long after excavation had begun. You are looking at a historical record of ruins. Reconstructing life before AD 79 requires other evidence, not simply filling every empty doorway with an invented resident.",
+          "At the Bakery of Popidio Prisco, the archaeological park identifies five lava millstones and a large oven. The upper stones turned around conical lower stones to grind grain; the park describes power supplied by enslaved people or animals. These objects let us connect a room with repeated operations: bringing grain, grinding flour and baking. They also change whose history we notice. Bread can appear in a story as an everyday convenience while the exhausting work, restricted freedom and material resources behind it remain out of sight.",
+          "The Fullery of Stephanus exposes a different transformation. A house became a place for laundering clothes and treating newly woven textiles, with basins and work areas adapted to production. The change warns against assigning one permanent function to a beautiful building. Domestic space could be reorganized around work, and the work could depend on enslaved labor. The courtyard etching shown here depicts a different house, the House of the Surgeon. It helps us inspect architectural representation; it is not a picture of Stephanus’s fullery or proof of its working arrangements.",
+          "Even a well-identified bakery leaves questions. The park notes that Popidio Prisco’s bakery lacks a sales counter and suggests possibilities including wholesale or made-to-order production and street distribution. Those are interpretations, not a surviving receipt proving one system. A missing feature can guide investigation without forcing one answer. Compare a material claim—millstones and an oven survive—with a proposed account of how bread reached customers. Keeping those levels apart makes the account more informative than confidently inventing a shopkeeper, a queue and a daily schedule.",
+          "Look again at the excavated street. A working city needs food, cleaned and treated cloth, movement and places where different activities meet. Archaeological remains make some of that work accessible, but they do not distribute attention equally. Buildings and tools can outlast the words of people who used them; an impressive decorated room can dominate an ordinary workplace in a visitor’s imagination. Carry both observations into the eruption chapter. The disaster interrupted varied lives, not a stage set inhabited only by wealthy householders."
+        ],
+        "kind": "composed",
+        "sources": [0, 1, 6, 7, 8]
+      },
+      {
+        "id": "chapter-1",
+        "chapter": 1,
+        "title": "Burial and witnesses",
+        "deck": "Separate the disaster, the written account and later techniques of recording.",
+        "text": [
+          "The eruption of Vesuvius in AD 79 was a changing sequence of hazards. The archaeological park distinguishes pumice and lapilli falling on the city, deaths associated with collapsing structures, and the later arrival of hot pyroclastic flows. That outline is already more useful than the familiar idea that everyone froze together in one instant. It also has limits: a short introductory account cannot assign one exact cause, temperature or experience to every victim. This lesson uses the year AD 79 without pretending to settle the debated calendar date.",
+          "A famous ancient account comes from somewhere else. Pliny the Younger describes his own experience with his mother at Misenum: worsening tremors, fears about buildings, departure, darkness and falling ash. His letter to Tacitus was written decades after the eruption. The distance and the act of remembering belong inside our reading of it. A vivid description of an experience at Misenum cannot simply become dialogue spoken by an imagined person in a Pompeian street. Its value increases when we preserve what its author could actually have witnessed.",
+          "Burial created conditions for later kinds of evidence. After bodies decomposed, fine volcanic deposits could preserve outlines as voids. From 1863, Giuseppe Fiorelli’s method produced plaster casts from such spaces. A cast is therefore neither a petrified human body nor an untouched sculpture made in antiquity. It records a relationship between remains, deposits, excavation and a later material procedure. The historical street photograph accompanies this explanation; it contains no cast image. The distinction lets us discuss human loss without turning victims’ remains into an unexplained spectacle.",
+          "A surviving form can be powerful without giving us a complete biography. Position, clothing, an object or an apparent embrace may encourage a viewer to supply a relationship and a final thought. Yet those additions are not all equally testable. A serious account can describe the evidence and acknowledge the deaths while leaving some names, intentions and relationships unknown. Compare that restraint with the detail of Pliny’s written testimony. Different sources answer different questions; they do not automatically join into one continuous film of the eruption.",
+          "The sequence now has two timelines. One concerns the ancient disaster and the deposits it left. The other concerns excavation, casting, recording, display and interpretation centuries later. An 1804 etching, an 1819 painting and an 1860s photograph belong to that second history. Select their dates and inspect their different surfaces. None is an ancient snapshot. Treating later images as sources in their own right makes it possible to ask not only what was buried, but how the city we think we know was made visible."
+        ],
+        "kind": "composed",
+        "sources": [2, 3, 7, 8]
+      },
+      {
+        "id": "chapter-2",
+        "chapter": 2,
+        "title": "Reading the ruins",
+        "deck": "Inspect the people and methods that make the ancient city visible.",
+        "text": [
+          "Piranesi’s etching makes the act of looking unusually visible: a draughtsman sits at the lower right of the courtyard. Inspect him, the central basin and the decorated wall. The print offers a carefully arranged view of excavated architecture in 1804. It may preserve information about exposed surfaces, but perspective, selection and the conventions of a print also shape what you see. A historical picture can be evidence of both a building’s appearance and a later way of presenting antiquity. Those are related questions, not identical ones.",
+          "Excavation is not simply the moment when destruction ends. Getty’s comparisons of early images with later records show decoration fading, stucco disappearing and protective structures being added. Exposure makes evidence available and vulnerable at the same time. A roof or mesh seen in a modern view may be part of conservation rather than an ancient architectural feature. The two works shown here depict different places and dates; they are not a matched before-and-after pair. Use them to compare modes of recording, then open Getty’s documented examples for evidence of particular changes.",
+          "Scientific work can also revise the human stories attached to remains. In a 2024 institutional report, researchers described DNA results contradicting some familiar assumptions about figures preserved in casts. An adult wearing a gold bracelet and associated with a child was genetically male and not biologically related to the child. That finding challenges the specific biological-family account attached to the scene. It does not tell us whether the two people cared for each other, how they understood themselves, or what happened between them before burial.",
+          "Replacing one unsupported certainty with another would waste the discovery. Jewelry does not by itself settle sex or gender; proximity does not establish kinship; genetic evidence does not supply a person’s name or every social bond. New methods add questions as well as answers. The source is a study of sampled remains, not a license to make blanket claims about every Pompeian. This is why interpretation should keep its evidence visible: readers need to see both the reason a claim changed and the boundary beyond which the new method cannot speak.",
+          "Pompeii is neither a perfectly preserved day nor a place emptied of knowledge. Millstones, basins, volcanic deposits, letters, casts and historical images each make particular parts of the past available. Their dates and methods matter. When you encounter a convincing reconstruction, ask which of those sources supports the scene, what the maker supplied, and which experiences remain inaccessible. The most useful return to the street is therefore not an illusion that nothing stands between us and AD 79. It is a sharper sense of what the surviving city lets us responsibly discover."
+        ],
+        "kind": "composed",
+        "sources": [4, 5, 6, 7, 8]
+      }
+    ]
+  },
+  "assets": [
+    {
+      "src": "/images/showcase/pompeii/princeton-street-1860s.jpg",
+      "width": 2000,
+      "height": 1560,
+      "credit": "Unknown Italian photographer · Street, Pompeii · ca. 1860s · Princeton University Art Museum · public domain",
+      "record": "https://artmuseum.princeton.edu/art/collections/objects/16276",
+      "license": "Public Domain",
+      "treatment": "historical-image"
+    },
+    {
+      "src": "/images/showcase/pompeii/michallon-forum-1819.jpg",
+      "width": 4096,
+      "height": 2894,
+      "credit": "Achille-Etna Michallon · The Forum at Pompeii · 1819 · National Gallery of Art · public domain",
+      "record": "https://www.nga.gov/artworks/221599-forum-pompeii",
+      "license": "Public Domain",
+      "treatment": "historical-image"
+    },
+    {
+      "src": "/images/showcase/pompeii/piranesi-house-of-surgeon-1804.jpg",
+      "width": 3100,
+      "height": 2256,
+      "credit": "Francesco Piranesi after G. B. Piranesi · House of the Surgeon · 1804 · Wellcome Collection · public domain",
+      "record": "https://wellcomecollection.org/works/vdhdxk9v",
+      "license": "Public Domain Mark",
+      "treatment": "historical-image"
+    }
+  ],
+  "programs": [
+    {
+      "sceneId": "chapter-0",
+      "beats": [
+        {
+          "id": "pompeii-0-0",
+          "type": "place",
+          "title": "A city before it became a ruin.",
+          "passageStart": 0,
+          "passageEnd": 0,
+          "image": "/images/showcase/pompeii/princeton-street-1860s.jpg",
+          "imageAlt": "An albumen photograph of an excavated Pompeian street in the 1860s, with raised crossing stones and exposed building fronts.",
+          "caption": "Unknown Italian photographer · Street, Pompeii · ca. 1860s · Princeton University Art Museum · public domain",
+          "imageWidth": 2000,
+          "imageHeight": 1560,
+          "imageFit": "cover",
+          "places": [
+            {
+              "id": "stones",
+              "label": "Raised stones",
+              "x": 36,
+              "y": 75,
+              "title": "A visible feature, then a historical question.",
+              "body": "The raised stones are visible in this 1860s photograph. Ask how movement used a shared street; this image alone does not provide a complete traffic history."
+            },
+            {
+              "id": "surface",
+              "label": "Exposed wall",
+              "x": 82,
+              "y": 38,
+              "title": "The exposed surface has its own history.",
+              "body": "An excavated wall appears beside the street. The photograph dates to the nineteenth century, so its condition cannot simply be projected back to AD 79."
+            },
+            {
+              "id": "basin",
+              "label": "The basin",
+              "x": 65,
+              "y": 51,
+              "title": "An object connects space with activity.",
+              "body": "The basin is visible beside a building front. A specific identification or use requires more than an attractive view of ruins."
+            }
+          ],
+          "sourceIndices": [0, 1, 6, 7, 8],
+          "composition": "panorama-explore",
+          "purpose": "A city before it became a ruin. Connect the source or operation with the chapter question."
+        },
+        {
+          "id": "pompeii-0-1",
+          "type": "journey",
+          "title": "Follow the work behind a loaf.",
+          "passageStart": 1,
+          "passageEnd": 2,
+          "stages": [
+            {
+              "date": "Grinding",
+              "title": "Grain becomes flour",
+              "body": "Hourglass-shaped upper millstones turn around conical lower stones; the park describes enslaved or animal power."
+            },
+            {
+              "date": "Preparation",
+              "title": "Flour becomes a dough to bake",
+              "body": "The process requires repeated work between grinding and the oven. This is an explanatory sequence, not a reconstructed individual’s shift."
+            },
+            {
+              "date": "Baking and distribution",
+              "title": "Bread reaches other people",
+              "body": "The oven survives. The precise sales arrangement remains interpretive where a counter is absent."
+            }
+          ],
+          "sourceIndices": [0, 1, 6, 7, 8],
+          "composition": "process-workbench",
+          "purpose": "Follow the work behind a loaf. Connect the source or operation with the chapter question."
+        },
+        {
+          "id": "pompeii-0-3",
+          "type": "illustrated",
+          "title": "An interpretation is not a receipt.",
+          "passageStart": 3,
+          "passageEnd": 4,
+          "image": "/images/showcase/pompeii/michallon-forum-1819.jpg",
+          "imageAlt": "Michallon’s 1819 painting of exposed reddish masonry and pale columns at the excavated Forum of Pompeii.",
+          "caption": "Achille-Etna Michallon · The Forum at Pompeii · 1819 · National Gallery of Art · public domain",
+          "imageWidth": 4096,
+          "imageHeight": 2894,
+          "imageFit": "cover",
+          "annotations": [],
+          "sourceIndices": [0, 1, 6, 7, 8],
+          "composition": "image-story",
+          "purpose": "An interpretation is not a receipt. Connect the source or operation with the chapter question."
+        }
+      ]
+    },
+    {
+      "sceneId": "chapter-1",
+      "beats": [
+        {
+          "id": "pompeii-1-0",
+          "type": "journey",
+          "title": "A disaster unfolds through changing hazards.",
+          "passageStart": 0,
+          "passageEnd": 0,
+          "stages": [
+            {
+              "date": "AD 79 · falling material",
+              "title": "Pumice and lapilli accumulate",
+              "body": "Falling volcanic material creates changing conditions; buildings can become dangerous."
+            },
+            {
+              "date": "Changing hazards",
+              "title": "Structures fail",
+              "body": "The park’s introductory account associates some deaths with collapsing structures. It does not assign one experience to everyone."
+            },
+            {
+              "date": "Later in the eruption",
+              "title": "Hot pyroclastic flows arrive",
+              "body": "These add a different hazard. This sequence is explanatory, not a minute-by-minute reconstruction."
+            }
+          ],
+          "sourceIndices": [2, 3, 7, 8],
+          "composition": "process-workbench",
+          "purpose": "A disaster unfolds through changing hazards. Connect the source or operation with the chapter question."
+        },
+        {
+          "id": "pompeii-1-1",
+          "title": "An eyewitness has a place.",
+          "purpose": "Locate the viewpoint of Pliny’s testimony away from Pompeii, without inventing a witnessed street scene.",
+          "sourceIndices": [3],
+          "passageStart": 1,
+          "passageEnd": 1,
+          "type": "atlas",
+          "composition": "map-overview",
+          "map": {
+            "note": "Approximate modern place positions for context; the connecting line is not a route or the extent of the eruption.",
+            "locations": [
+              {
+                "id": "pompeii",
+                "name": "Pompeii",
+                "coordinates": [14.49, 40.75],
+                "description": "The buried city whose archaeology is being discussed."
+              },
+              {
+                "id": "misenum",
+                "name": "Misenum",
+                "coordinates": [14.08, 40.79],
+                "description": "Pliny describes his own experience with his mother at Misenum, across the bay. His later letter is not eyewitness testimony from a Pompeian street."
+              }
+            ]
+          }
+        },
+        {
+          "id": "pompeii-1-4",
+          "type": "timeline",
+          "title": "Later records belong to another timeline.",
+          "passageStart": 2,
+          "passageEnd": 4,
+          "events": [
+            {
+              "date": "1804",
+              "title": "A courtyard etched",
+              "body": "Piranesi depicts excavated architecture and a draughtsman."
+            },
+            {
+              "date": "1819",
+              "title": "Ruins painted",
+              "body": "Michallon records the exposed Forum in oil on paper."
+            },
+            {
+              "date": "Ca. 1860s",
+              "title": "A street photographed",
+              "body": "An unnamed Italian photographer records the excavated street."
+            }
+          ],
+          "note": "These dates concern later records of excavation, not the eruption itself.",
+          "sourceIndices": [2, 3, 7, 8],
+          "composition": "chronology-ribbon",
+          "purpose": "Later records belong to another timeline. Connect the source or operation with the chapter question."
+        }
+      ]
+    },
+    {
+      "sceneId": "chapter-2",
+      "beats": [
+        {
+          "id": "pompeii-2-0",
+          "type": "place",
+          "title": "The recorder is in the picture.",
+          "passageStart": 0,
+          "passageEnd": 0,
+          "image": "/images/showcase/pompeii/piranesi-house-of-surgeon-1804.jpg",
+          "imageAlt": "An 1804 etching of the excavated House of the Surgeon, with a basin, decorated walls and a draughtsman in the foreground.",
+          "caption": "Francesco Piranesi after G. B. Piranesi · House of the Surgeon · 1804 · Wellcome Collection · public domain",
+          "imageWidth": 3100,
+          "imageHeight": 2256,
+          "imageFit": "contain",
+          "places": [
+            {
+              "id": "recorder",
+              "label": "The draughtsman",
+              "x": 78,
+              "y": 74,
+              "title": "A later observer enters the record.",
+              "body": "The artist in the foreground belongs to the history of recording excavated Pompeii. He is not a Pompeian resident shown in AD 79.",
+              "crop": {
+                "x": 63,
+                "y": 59,
+                "width": 30,
+                "height": 30
+              }
+            },
+            {
+              "id": "basin",
+              "label": "The basin",
+              "x": 56,
+              "y": 66,
+              "title": "A sharply selected detail.",
+              "body": "Compare the basin with the surrounding floor. The etched representation gives a particular arrangement of visible space.",
+              "crop": {
+                "x": 41,
+                "y": 51,
+                "width": 30,
+                "height": 30
+              }
+            },
+            {
+              "id": "decoration",
+              "label": "Wall decoration",
+              "x": 60,
+              "y": 45,
+              "title": "An exposed surface worth comparing.",
+              "body": "Historical records can help investigate decoration and later deterioration. This print alone cannot establish every ancient color or restoration.",
+              "crop": {
+                "x": 45,
+                "y": 30,
+                "width": 30,
+                "height": 30
+              }
+            }
+          ],
+          "sourceIndices": [4, 5, 6, 7, 8],
+          "composition": "detail-study",
+          "purpose": "The recorder is in the picture. Connect the source or operation with the chapter question."
+        },
+        {
+          "id": "pompeii-2-1",
+          "type": "comparison",
+          "title": "Recording the city also changes how it is seen.",
+          "passageStart": 1,
+          "passageEnd": 1,
+          "left": {
+            "image": "/images/showcase/pompeii/piranesi-house-of-surgeon-1804.jpg",
+            "alt": "An 1804 etching of the excavated House of the Surgeon, with a basin, decorated walls and a draughtsman in the foreground.",
+            "label": "Courtyard etching · 1804",
+            "explanation": "A graphic representation with a draughtsman in the foreground."
+          },
+          "right": {
+            "image": "/images/showcase/pompeii/michallon-forum-1819.jpg",
+            "alt": "Michallon’s 1819 painting of exposed reddish masonry and pale columns at the excavated Forum of Pompeii.",
+            "label": "Forum painting · 1819",
+            "explanation": "An oil-on-paper view of exposed ruins and the surrounding landscape."
+          },
+          "note": "Different places, dates and media—not a matched before-and-after comparison.",
+          "sourceIndices": [4, 5, 6, 7, 8],
+          "composition": "source-dialogue",
+          "purpose": "Recording the city also changes how it is seen. Connect the source or operation with the chapter question."
+        },
+        {
+          "id": "pompeii-2-3",
+          "type": "evidence",
+          "title": "New evidence changes a claim, not every unknown.",
+          "passageStart": 2,
+          "passageEnd": 3,
+          "image": "/images/showcase/pompeii/piranesi-house-of-surgeon-1804.jpg",
+          "imageAlt": "An 1804 etching of the excavated House of the Surgeon, with a basin, decorated walls and a draughtsman in the foreground.",
+          "caption": "Francesco Piranesi after G. B. Piranesi · House of the Surgeon · 1804 · Wellcome Collection · public domain",
+          "imageWidth": 3100,
+          "imageHeight": 2256,
+          "imageFit": "contain",
+          "record": {
+            "sourceIndex": 7,
+            "title": "A historical view of an excavated house",
+            "date": "1804",
+            "material": "Etching",
+            "status": "source-record",
+            "interpretation": "The etching records an earlier view of the exposed city. The separate DNA report supports the discussion of biological relationships; this print contains no genetic evidence.",
+            "limitation": "This later view cannot establish ancient identities or validate a particular family story."
+          },
+          "sourceIndices": [4, 5, 6, 7, 8],
+          "composition": "document-desk",
+          "purpose": "New evidence changes a claim, not every unknown. Connect the source or operation with the chapter question.",
+          "reuseReason": "Return to the historical record to distinguish what a picture can show from what laboratory evidence can establish."
+        },
+        {
+          "id": "pompeii-conclusion",
+          "title": "A city is more than its last day.",
+          "type": "journey",
+          "composition": "synthesis-board",
+          "purpose": "Bring work, burial and later research together without repeating the cover image.",
+          "sourceIndices": [4, 5, 6, 7, 8],
+          "passageStart": 4,
+          "passageEnd": 4,
+          "stages": [
+            {
+              "title": "A working city",
+              "date": "Before AD 79",
+              "body": "Millstones, basins and altered buildings reveal organized work and unequal labor."
+            },
+            {
+              "title": "An uneven record",
+              "date": "Burial and excavation",
+              "body": "Deposits preserve some traces while later excavation creates new records and new risks."
+            },
+            {
+              "title": "Revisable explanations",
+              "date": "Research today",
+              "body": "Scientific evidence can revise a relationship without recovering every name or motive."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "models": []
+}

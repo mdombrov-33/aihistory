@@ -1,0 +1,33 @@
+{
+  "file": "sommer-casts-1875.jpg",
+  "title": "[Plaster Casts of Bodies, Pompeii]",
+  "creator": "Giorgio Sommer",
+  "date": "ca. 1875",
+  "institution": "The Metropolitan Museum of Art",
+  "accessionNumber": "2012.111",
+  "sourceUrl": "https://www.metmuseum.org/art/collection/search/299472",
+  "metadataUrl": "https://collectionapi.metmuseum.org/public/collection/v1/objects/299472",
+  "downloadUrl": "https://collectionapi.metmuseum.org/api/collection/v1/iiif/299472/631792/main-image",
+  "license": "Public Domain / CC0",
+  "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "licenseEvidence": "Met object record labels image Public Domain; API isPublicDomain is true. Met image policy applies CC0 to Open Access public-domain images.",
+  "licensePolicyUrl": "https://www.metmuseum.org/policies/image-resources",
+  "credit": "Giorgio Sommer, [Plaster Casts of Bodies, Pompeii], ca. 1875. The Metropolitan Museum of Art, Purchase, Harriett Ames Charitable Trust Gift, 2012. Public Domain / CC0.",
+  "width": 1200,
+  "height": 876,
+  "bytes": 202382,
+  "sha256": "a14abd7ce2ddc53f514c5aa0476c5f27efa8dc73c916445026d3025b436097d7",
+  "verifiedAt": "2026-11-23",
+  "verification": [
+    "Final JPEG magic and format checked with file after replacing HTML challenge from alternate image host",
+    "Dimensions checked with sips",
+    "Opened with view_image",
+    "SHA-256 measured from downloaded file"
+  ],
+  "historicalContext": "Albumen photograph of two plaster casts arranged for nineteenth-century photography. Not bodies turned to stone, not the discovery position, and not a photograph of AD 79.",
+  "contentNote": "Death-related imagery: casts of eruption victims. Avoid invented identities or relationships.",
+  "modifications": "None",
+  "sourceSha256": "3a158c00245d6d56695f36622ecb8a0bb081b6b01ea13ca31e9f50a9d83ad1db",
+  "byteSize": 202695,
+  "transformation": "Origin embedded as JPEG comment; image pixels unchanged"
+}

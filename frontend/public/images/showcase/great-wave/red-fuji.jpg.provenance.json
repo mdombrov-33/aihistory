@@ -1,0 +1,23 @@
+{
+  "source": "https://collectionapi.metmuseum.org/api/collection/v1/iiif/36490/140210/main-image",
+  "record": "https://www.metmuseum.org/art/collection/search/36490",
+  "title": "South Wind, Clear Sky (Gaifū kaisei), also known as Red Fuji, from the series Thirty-six Views of Mount Fuji (Fugaku sanjūrokkei)",
+  "objectNumber": "JP9",
+  "creditLine": "Rogers Fund, 1914",
+  "width": 1200,
+  "height": 827,
+  "scopeCaveat": "One surviving impression of the Red Fuji design; not a photograph, weather record, or proof that all impressions have these colors.",
+  "license": "Public domain / The Met Open Access (CC0)",
+  "licenseURL": "https://www.metmuseum.org/hubs/open-access",
+  "creator": "Katsushika Hokusai",
+  "date": "ca. 1830–32",
+  "medium": "Woodblock print; ink and color on paper",
+  "culture": "Japan",
+  "period": "Edo period (1615–1868)",
+  "downloadedAt": "2026-11-23",
+  "sha256": "b19657758f63fedf1e14d0c060dbd21b6f21bf65db1b7df82a50eaf51d123fa6",
+  "sourceSha256": "47ccd158db21016e32c0412258dadf2e38bd237c3e9a221b93229d7008f762f3",
+  "byteSize": 225869,
+  "transformation": "Source origin embedded as JPEG comment; image pixels unchanged",
+  "review": "JPEG signature checked; file dimensions checked; visually inspected with view_image"
+}

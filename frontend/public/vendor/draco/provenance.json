@@ -1,0 +1,5 @@
+{
+  "source": "three@0.183.2/examples/jsm/libs/draco/gltf",
+  "upstream": "https://github.com/google/draco",
+  "license": "Apache-2.0"
+}

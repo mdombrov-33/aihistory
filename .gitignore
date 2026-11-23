@@ -1,0 +1,69 @@
+# Dependencies and package-manager caches
+node_modules/
+.pnpm-store/
+.pnp.*
+.yarn/*
+!.yarn/patches/
+!.yarn/plugins/
+!.yarn/releases/
+!.yarn/versions/
+
+# Next.js, compiler and build output
+.next/
+out/
+build/
+dist/
+*.tsbuildinfo
+next-env.d.ts
+
+# Test reports and coverage
+coverage/
+playwright-report/
+test-results/
+blob-report/
+
+# Environment files and credentials (safe templates are versioned)
+.env*
+!.env.example
+!.env.*.example
+*.pem
+*.key
+*.p12
+*.pfx
+/.aws/
+
+# Future local runtime data: generated/private media, databases and worker state
+.local/
+.inngest/
+*.sqlite
+*.sqlite3
+*.sqlite-*
+*.sqlite3-*
+*.db
+*.db-journal
+
+# Local hosting/editor/OS state
+.vercel/
+.cache/
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+
+# Runtime logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# Installed agent tools and machine-local integrations; retain AGENTS.md and skills-lock.json
+/.agents/skills/
+/.claude/
+/.codex/
+/.hermes/
+
+# Design-tool runtime output; curated references live in docs/ and design-explorations/
+/.impeccable/*
+!/.impeccable/surfaces/
+/.impeccable/surfaces/design-prototype-*

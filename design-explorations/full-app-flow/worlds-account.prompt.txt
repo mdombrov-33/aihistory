@@ -1,0 +1,11 @@
+Use case: ui-mockup. Render a finished landscape comparison board containing FOUR complete tall mobile web app screens for HISTORY side by side, without physical phone bezels, at least 2048×1200 for highly readable text. Small labels outside screens: “Sign in / create account”, “Create”, “Generation progress”, “My space”. These are complete coherent real product screens, not wireframes.
+
+Screen one: welcoming calm authentication, HISTORY mark, sign-in/create-account tabs, “Continue with Google”, email and password fields, “Forgot password?”, amber Sign in, and “Continue browsing as guest”. Small truthful note: “Verify your email before creating a new story. Public stories need no account.”
+
+Screen two: question “How did paper travel west?”, matching ready stories shown BEFORE creation, “The Silk Roads” and “Ideas on the move” as useful matches. Then a clear creation form: scope “China to the Mediterranean · 8th–13th centuries”, an informative three-part outline, “Your new story is private”, and one amber “Create story” action. No extra mandatory outline approval.
+
+Screen three: “Building your story”, question retained, authentic research/story/visual/sound stages: research complete, story complete, visuals in progress, sound pending. Show useful progress details, restrained animated-progress visual, “You can leave this page. Find your story in My space.” No ETA, fabricated guarantee, price or allowance. Private status remains visible.
+
+Screen four: personal My space with settings access; resume rows for Race to the Moon chapter 3 and Silk Roads chapter 2; exact bookmark “At the crossroads · 03:12”; private creation “How did paper travel west?”; personal questions/trails. Familiar Discover, Explore, Create, My space bottom navigation where appropriate. Small “Concept content” disclosure.
+
+Style laws: deep ink #10151f architecture, antique ivory text, amber actions, restrained plum panels. Contemporary refined sans UI with restrained editorial headings. Small extraordinary historical environment artworks connect the calm account surfaces to an immersive museum world; aligned forms, generous readable hierarchy and familiar buttons carry practical tasks.

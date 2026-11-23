@@ -1,0 +1,448 @@
+{
+  "version": 2,
+  "summary": {
+    "slug": "shape-of-a-signal",
+    "title": "The shape of a signal",
+    "question": "How does a movement of one hand cross an ocean?",
+    "description": "Start with a real telegraph key. Follow the code, people and precarious ocean connection that turned a contact into a network.",
+    "image": "/images/showcase/signals/dudley-cable-night-1866.jpg",
+    "imageAlt": "The shape of a signal — historical collection image",
+    "topic": "Trade & connection",
+    "era": "modern",
+    "period": "1844–1866",
+    "scope": "Washington, Baltimore and the North Atlantic",
+    "minutes": 12,
+    "chapters": [
+      {
+        "title": "A movement becomes a message",
+        "question": "What does a key actually do?"
+      },
+      {
+        "title": "The distance in between",
+        "question": "How does a demonstration become a network?"
+      },
+      {
+        "title": "Keeping the connection",
+        "question": "What makes an invention last?"
+      }
+    ],
+    "sourceLabel": "Historical objects, collection records and institutional research",
+    "sample": true
+  },
+  "assets": [
+    {
+      "src": "/images/showcase/signals/dudley-cable-night-1866.jpg",
+      "width": 1200,
+      "height": 926,
+      "credit": "Robert Charles Dudley · A Night Scene · depicts 18 July 1866 · The Met · CC0",
+      "record": "https://www.metmuseum.org/art/collection/search/364362",
+      "license": "Public domain / CC0",
+      "treatment": "historical-image"
+    },
+    {
+      "src": "/images/showcase/signals/dudley-valentia-1865-66.jpg",
+      "width": 1200,
+      "height": 774,
+      "credit": "Robert Charles Dudley · Valentia · made 1865–66, depicting 1857 · The Met · CC0",
+      "record": "https://www.metmuseum.org/art/collection/search/383807",
+      "license": "Public domain / CC0",
+      "treatment": "historical-image"
+    },
+    {
+      "src": "/images/objects/telegraph.jpg",
+      "width": 1280,
+      "height": 1280,
+      "credit": "Morse–Vail key · Smithsonian 3D collection · CC0",
+      "record": "https://www.americanhistory.si.edu/collections/object/nmah_1096762",
+      "license": "Public domain / CC0",
+      "treatment": "historical-image"
+    }
+  ],
+  "models": [
+    {
+      "id": "morse-vail-key",
+      "title": "Morse–Vail telegraph key",
+      "institution": "Smithsonian · National Museum of American History",
+      "model": "/models/telegraph.glb",
+      "poster": "/images/objects/telegraph.jpg",
+      "record": "https://www.americanhistory.si.edu/collections/object/nmah_1096762",
+      "license": "CC0",
+      "description": "Museum scan of a wooden base, metal contact lever and adjustment screws.",
+      "context": "Vail’s improved transmitter, believed to be from the Washington–Baltimore line. It is an early landline key, not an Atlantic cable instrument.",
+      "views": [
+        {
+          "label": "The hand lever",
+          "yaw": 0,
+          "pitch": 65,
+          "distance": 95,
+          "explanation": "The long lever gives a hand a controllable contact. Pressing and releasing joins and breaks the circuit."
+        },
+        {
+          "label": "Contact and adjustment",
+          "yaw": 100,
+          "pitch": 55,
+          "distance": 80,
+          "explanation": "Turn toward the adjustment screws and contact end. The useful action is the controlled contact, not movement of the whole base."
+        }
+      ]
+    }
+  ],
+  "lesson": {
+    "preview": true,
+    "sources": [
+      {
+        "name": "Smithsonian",
+        "title": "Morse–Vail Telegraph Key",
+        "url": "https://www.americanhistory.si.edu/collections/object/nmah_1096762",
+        "supports": "Vail’s improved transmitter; the key is believed to be from the first Washington–Baltimore line.",
+        "type": "Institutional source / collection record"
+      },
+      {
+        "name": "U.S. Senate",
+        "title": "First Telegraph Message, May 24, 1844",
+        "url": "https://www.senate.gov/about/images/documents/telegraph-message-1844-loc.htm",
+        "supports": "Inaugural message sent from Washington to Vail in Baltimore; facsimile credited to LOC.",
+        "type": "Institutional source / collection record"
+      },
+      {
+        "name": "Library of Congress",
+        "title": "Invention of the Telegraph",
+        "url": "https://www.loc.gov/collections/samuel-morse-papers/articles-and-essays/invention-of-the-telegraph/",
+        "supports": "Gale, Henry and Vail’s contributions, congressional funding, overhead wire and embossed tape.",
+        "type": "Institutional source / collection record"
+      },
+      {
+        "name": "Ingenium",
+        "title": "Telegraph key",
+        "url": "https://ingenium.ca/en/learn/teachers-zone/resources/telegraph-key/",
+        "supports": "Closing and opening a circuit using a key; general explanatory model.",
+        "type": "Institutional source / collection record"
+      },
+      {
+        "name": "The Met",
+        "title": "A Night Scene, July 18th, 1866",
+        "url": "https://www.metmuseum.org/art/collection/search/364362",
+        "supports": "Dudley’s watercolor of cable-laying labor; failed 1858 cable and two connections in 1866.",
+        "type": "Institutional source / collection record"
+      },
+      {
+        "name": "National Park Service",
+        "title": "French Transatlantic Cable",
+        "url": "https://www.nps.gov/caco/learn/historyculture/french-transatlantic-cable.htm",
+        "supports": "Ireland–Newfoundland connection and onward North American networks.",
+        "type": "Institutional source / collection record"
+      },
+      {
+        "name": "The Met",
+        "title": "Valentia, Ireland",
+        "url": "https://www.metmuseum.org/art/collection/search/383807",
+        "supports": "Watercolor made 1865–66 representing the setting during the cable project of 1857.",
+        "type": "Institutional source / collection record"
+      }
+    ],
+    "scenes": [
+      {
+        "id": "chapter-0",
+        "chapter": 0,
+        "title": "A movement becomes a message",
+        "deck": "Begin with a small, physical action.",
+        "text": [
+          "A wooden base, a metal lever and a few screws: this is a surprisingly modest entrance to a communication revolution. The Smithsonian identifies it as an improved transmitter made by Alfred Vail and says it is believed to come from the first Washington–Baltimore telegraph line. Keep that qualification attached to the object. A museum attribution is more useful when its degree of certainty remains visible.",
+          "Turn the key before thinking about a whole continent. Its lever made an electrical contact controllable by a person. It did not contain a sentence, a distant voice or an ocean cable. It belonged to an arrangement of instruments and people that could give a simple physical action a meaning somewhere else.",
+          "Pressing a key completes a circuit; releasing it breaks the circuit. A succession of shorter and longer closures can carry coded distinctions, but electricity alone does not supply their meaning. The sender and receiver need an agreed code, timing that keeps its elements distinguishable, and a way to interpret the result. This diagram explains those dependencies; it is not a measurement of the preserved instrument.",
+          "The earliest receivers in the Library of Congress account embossed marks on paper tape. Reading messages by their sound developed later. So a modern electronic beep would be a teaching convenience, not evidence of what every recipient heard in 1844. The history becomes clearer when the physical contact, its record and the human act of reading remain separate parts of the explanation.",
+          "On 24 May 1844, Morse sent “What hath God wrought” from the U.S. Capitol to Alfred Vail in Baltimore. Those four words are memorable because the demonstration made a relationship visible: the same pattern could be produced here and interpreted at a distance. Calling it the first electrical message ever sent would erase earlier experiments and other inventors. It was the inaugural message of this particular line.",
+          "The surviving records are not interchangeable either. The Smithsonian distinguishes the original message from a confirmation and a souvenir made the next day. A label saying “first message” needs to identify which object it actually accompanies. Here you are reading a short transcription supported by the Senate record; no invented scan has been placed behind it."
+        ],
+        "kind": "storyboard",
+        "sources": [0, 1, 2, 3]
+      },
+      {
+        "id": "chapter-1",
+        "chapter": 1,
+        "title": "The distance in between",
+        "deck": "One route is not the entire network.",
+        "text": [
+          "The ocean cable was a later project, with different equipment and problems from the landline key. Locate Newfoundland and Ireland first. A submarine segment could join these shores, but a message still needed working connections at both ends. Arrival in Newfoundland was not the same as arrival at every North American destination. Onward land lines and other links made the crossing useful.",
+          "The line on this map is schematic. It identifies a relationship between landing regions, not the precise path of a cable on the seabed. A smooth curve can conceal most of the engineering: depth, insulation, electrical behavior, handling on deck and the difficulty of reaching a damaged line. Geography gives the problem a scale; it does not solve it.",
+          "Dudley’s watercolor gives the Irish end a landscape: water, shore, vessels and a place where offshore work meets land. The Met dates the work to 1865–66, while its title places the represented scene in the cable project of 1857. Both dates matter. The year an image was made and the year it depicts answer different historical questions.",
+          "A landing also joins kinds of labor. The cable has to arrive, be handled and be connected to equipment and onward routes. The attractive view should not become a picture of an effortless world shrinking. It is a reminder that a long-distance system still needs particular places where people can bring different parts into working contact.",
+          "Switch between the two connections. Congress funded the American demonstration line in 1843, and difficulties with underground insulation led to overhead wires. Gale, Henry and Vail appear in the Library of Congress account alongside Morse. The visible key is one part of a history of contributions, repairs and changed plans.",
+          "By 1866, carrying a signal across the Atlantic demanded ships, technicians, sailors, investors and institutions on another scale. It was not simply a longer version of the same preserved key. Comparing these connections helps separate a compelling demonstration from an infrastructure that has to be built, financed, joined to other systems and kept working."
+        ],
+        "kind": "storyboard",
+        "sources": [1, 2, 5, 6]
+      },
+      {
+        "id": "chapter-2",
+        "chapter": 2,
+        "title": "Keeping the connection",
+        "deck": "Success must survive beyond its first message.",
+        "text": [
+          "In Dudley’s night scene, the cable is entangled and nearly broken. The Met identifies the depicted incident as 18 July 1866. Darkness, rigging and figures make the line look vulnerable rather than inevitable. This is a watercolor: a historical representation of the work, not a camera frame proving every action on deck.",
+          "The first successful Atlantic connection in 1858 fell silent after only a few weeks. A transmitted message established that a crossing could work for a time; it did not establish that the system would remain dependable. The later achievement involved learning from failure and sustaining an operation beyond the moment that could be celebrated in a headline.",
+          "A picture can organize time as well as illustrate a place. The harbor watercolor represents the period of the 1857 project but was made later. The night scene depicts an incident in July 1866. Putting them together without those labels would collapse years of attempts into one seamless voyage. An attractive visual sequence needs a historically honest sequence underneath it.",
+          "By July and September 1866, two working Atlantic cables had been established. The change was substantial, but it still did not make every person equally connected. Our bounded sources establish the network’s construction and routes; they do not justify a claim that speed, access and benefit became universal. A useful conclusion can be precise without promising to explain every consequence.",
+          "Turn back toward the lever and then toward the contact end. This object makes a small action repeatable; the network gives that action reach. A carefully adjusted instrument still cannot provide its own wire, power, receiver, code or distant operator. Its material simplicity becomes more interesting after the larger system has been made visible.",
+          "The story began with a movement of one hand. It ends with a more demanding explanation: that movement mattered because a system could preserve its distinctions, carry them elsewhere and let another person interpret them. The preserved key, the four-word message, the landing regions and the dated watercolors each reveal a different part of that arrangement. None needs to pretend to be the whole story."
+        ],
+        "kind": "storyboard",
+        "sources": [0, 2, 3, 4, 5, 6]
+      }
+    ]
+  },
+  "programs": [
+    {
+      "sceneId": "chapter-0",
+      "beats": [
+        {
+          "type": "object",
+          "composition": "object-gallery",
+          "title": "A network begins under one hand.",
+          "purpose": "Inspect a surviving key before explaining the abstract signal.",
+          "sourceIndices": [0, 3],
+          "objectId": "morse-vail-key",
+          "id": "shape-of-a-signal-0-0",
+          "passageStart": 0,
+          "passageEnd": 1
+        },
+        {
+          "type": "journey",
+          "composition": "process-workbench",
+          "title": "Contact. Pattern. Meaning.",
+          "purpose": "Distinguish the electrical action from the shared code and its interpretation.",
+          "sourceIndices": [2, 3],
+          "stages": [
+            {
+              "title": "Close a circuit",
+              "body": "A press joins the contact; a release breaks it.",
+              "date": ""
+            },
+            {
+              "title": "Make a pattern",
+              "body": "The duration and spacing of closures distinguish coded elements.",
+              "date": ""
+            },
+            {
+              "title": "Interpret the record",
+              "body": "A receiver and a person turn a pattern into a message.",
+              "date": ""
+            }
+          ],
+          "id": "shape-of-a-signal-0-1",
+          "passageStart": 2,
+          "passageEnd": 3
+        },
+        {
+          "type": "evidence",
+          "composition": "quotation-focus",
+          "title": "Four words, forty miles.",
+          "purpose": "Anchor the inaugural demonstration in a short attributed source.",
+          "sourceIndices": [1, 2],
+          "record": {
+            "sourceIndex": 1,
+            "title": "Washington to Baltimore",
+            "date": "24 May 1844",
+            "material": "Message; Senate facsimile credited to LOC",
+            "status": "source-record",
+            "quote": "What hath God wrought",
+            "interpretation": "Morse sent these words from the U.S. Capitol to Alfred Vail in Baltimore.",
+            "limitation": "The quotation is transcribed text, not a photograph of the original tape. This was the line’s inaugural message, not the first electrical message ever sent."
+          },
+          "id": "shape-of-a-signal-0-2",
+          "passageStart": 4,
+          "passageEnd": 5
+        }
+      ]
+    },
+    {
+      "sceneId": "chapter-1",
+      "beats": [
+        {
+          "type": "atlas",
+          "composition": "map-route",
+          "title": "Put the ocean back in the story.",
+          "purpose": "Locate Atlantic landing regions without claiming an exact cable route.",
+          "sourceIndices": [5, 6],
+          "map": {
+            "note": "Approximate modern locality positions. Lines are schematic connections, not surveyed wire or cable tracks.",
+            "locations": [
+              {
+                "id": "newfoundland",
+                "name": "Newfoundland",
+                "coordinates": [-53.37, 47.87],
+                "description": "Heart’s Content received the lasting 1866 Atlantic connection."
+              },
+              {
+                "id": "valentia",
+                "name": "Valentia",
+                "coordinates": [-10.3, 51.93],
+                "description": "The Irish landing joined the submarine segment to onward European land lines."
+              }
+            ]
+          },
+          "id": "shape-of-a-signal-1-0",
+          "passageStart": 0,
+          "passageEnd": 1
+        },
+        {
+          "type": "photograph",
+          "composition": "image-story",
+          "title": "A coast becomes a connection.",
+          "purpose": "Use a dated historical watercolor as a view of a landing setting, not as an 1844 photograph.",
+          "sourceIndices": [6],
+          "image": "/images/showcase/signals/dudley-valentia-1865-66.jpg",
+          "imageAlt": "Dudley watercolor of ships and the Valentia coastal landscape.",
+          "caption": "Robert Charles Dudley · Valentia · made 1865–66, depicting 1857 · The Met · CC0",
+          "imageFit": "cover",
+          "sourceUrl": "https://www.metmuseum.org/art/collection/search/383807",
+          "observation": "The watercolor was made in 1865–66 and represents the setting at the period of the 1857 project.",
+          "id": "shape-of-a-signal-1-1",
+          "passageStart": 2,
+          "passageEnd": 3
+        },
+        {
+          "type": "atlas",
+          "composition": "map-change",
+          "title": "A larger network is a different problem.",
+          "purpose": "Compare the 1844 landline demonstration with the later Atlantic segment without implying a continuous route.",
+          "sourceIndices": [1, 2, 5],
+          "map": {
+            "note": "Two separate historical connections shown schematically. No direct 1844 Washington–Atlantic cable is implied. Approximate locality positions.",
+            "locations": [
+              {
+                "id": "washington",
+                "name": "Washington",
+                "coordinates": [-77.04, 38.9],
+                "description": "The U.S. Capitol was the sending point of the inaugural 1844 message."
+              },
+              {
+                "id": "baltimore",
+                "name": "Baltimore",
+                "coordinates": [-76.61, 39.29],
+                "description": "Alfred Vail received the message at the Baltimore end of the demonstration."
+              },
+              {
+                "id": "newfoundland",
+                "name": "Newfoundland",
+                "coordinates": [-53.37, 47.87],
+                "description": "Heart’s Content received the lasting 1866 Atlantic connection."
+              },
+              {
+                "id": "valentia",
+                "name": "Valentia",
+                "coordinates": [-10.3, 51.93],
+                "description": "The Irish landing joined the submarine segment to onward European land lines."
+              }
+            ],
+            "states": [
+              {
+                "label": "1844 · a landline",
+                "description": "A funded demonstration connected Washington and Baltimore.",
+                "activeLocations": ["washington", "baltimore"]
+              },
+              {
+                "label": "1866 · an ocean segment",
+                "description": "The lasting submarine link joined Newfoundland and Ireland, then onward networks.",
+                "activeLocations": ["newfoundland", "valentia"]
+              }
+            ]
+          },
+          "id": "shape-of-a-signal-1-2",
+          "passageStart": 4,
+          "passageEnd": 5
+        }
+      ]
+    },
+    {
+      "sceneId": "chapter-2",
+      "beats": [
+        {
+          "type": "photograph",
+          "composition": "cinematic-opening",
+          "title": "The cable nearly breaks.",
+          "purpose": "Enter the labor and fragility of the later expedition through an actual historical artwork.",
+          "sourceIndices": [4],
+          "image": "/images/showcase/signals/dudley-cable-night-1866.jpg",
+          "imageAlt": "Crew, rigging and cable in Dudley’s dark shipboard watercolor.",
+          "caption": "Robert Charles Dudley · A Night Scene · depicts 18 July 1866 · The Met · CC0",
+          "imageFit": "cover",
+          "sourceUrl": "https://www.metmuseum.org/art/collection/search/364362",
+          "observation": "A watercolor depicting danger during the expedition on 18 July 1866; not a photograph.",
+          "id": "shape-of-a-signal-2-0",
+          "passageStart": 0,
+          "passageEnd": 1
+        },
+        {
+          "type": "timeline",
+          "composition": "timeline-gallery",
+          "title": "The images have their own dates.",
+          "purpose": "Distinguish the represented setting from the later expedition shown in the second artwork.",
+          "sourceIndices": [4, 6],
+          "events": [
+            {
+              "date": "1857 setting · painted 1865–66",
+              "title": "Valentia from the harbor",
+              "body": "A later watercolor represents the earlier cable project’s Irish setting.",
+              "image": "/images/showcase/signals/dudley-valentia-1865-66.jpg",
+              "imageAlt": "Ships and shore at Valentia in a Dudley watercolor.",
+              "caption": "Robert Charles Dudley · Valentia · made 1865–66, depicting 1857 · The Met · CC0"
+            },
+            {
+              "date": "18 July 1866 · painted 1865–66",
+              "title": "Danger on deck",
+              "body": "A later expedition is represented through its precarious work aboard ship.",
+              "image": "/images/showcase/signals/dudley-cable-night-1866.jpg",
+              "imageAlt": "Night cable-handling scene by Dudley.",
+              "caption": "Robert Charles Dudley · A Night Scene · depicts 18 July 1866 · The Met · CC0"
+            }
+          ],
+          "note": "Object dates and depicted events are stated separately. These are distinct watercolors, not consecutive photographs.",
+          "reuseReason": "The two paintings return together to compare their dates and what each represents.",
+          "id": "shape-of-a-signal-2-1",
+          "passageStart": 2,
+          "passageEnd": 3
+        },
+        {
+          "type": "object",
+          "composition": "object-guided",
+          "title": "Return to the contact.",
+          "purpose": "Use authored camera views to link the actual object’s form to its limited function.",
+          "sourceIndices": [0, 3],
+          "objectId": "morse-vail-key",
+          "reuseReason": "The key returns for a closer functional inspection after the wider network has been explained.",
+          "id": "shape-of-a-signal-2-2",
+          "passageStart": 4,
+          "passageEnd": 4
+        },
+        {
+          "type": "journey",
+          "composition": "synthesis-board",
+          "title": "An invention has to keep working.",
+          "purpose": "Close with the relationships established by object, sources, maps and dated images.",
+          "sourceIndices": [0, 2, 4, 5],
+          "stages": [
+            {
+              "title": "A controllable action",
+              "body": "The key makes and breaks a circuit; a shared code makes the pattern readable.",
+              "date": ""
+            },
+            {
+              "title": "A joined system",
+              "body": "People, power, instruments and connected routes carry the message beyond one device.",
+              "date": ""
+            },
+            {
+              "title": "A lasting service",
+              "body": "Repairs, funding and maintenance separate a demonstration from dependable infrastructure.",
+              "date": ""
+            }
+          ],
+          "id": "shape-of-a-signal-2-3",
+          "passageStart": 5,
+          "passageEnd": 5
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "source": "https://collectionapi.metmuseum.org/api/collection/v1/iiif/283068/608250/main-image",
+  "record": "https://www.metmuseum.org/art/collection/search/283068",
+  "license": "Public domain / The Met Open Access (CC0)",
+  "licenseURL": "https://www.metmuseum.org/hubs/open-access",
+  "creator": "William Henry Fox Talbot",
+  "title": "The Open Door",
+  "date": "before May 1844",
+  "medium": "Salted paper print from paper negative",
+  "objectNumber": "2005.100.498",
+  "creditLine": "Gilman Collection, Purchase, Joseph M. Cohen and Robert Rosenkranz Gifts, 2005",
+  "width": 1200,
+  "height": 898,
+  "downloadedAt": "2026-11-23",
+  "sha256": "9f83d6ecb42f8a913020784751490e616e5e569c45dbbd3a1cc7bc0992b02da5",
+  "byteSize": 225641,
+  "transformation": "Origin embedded as JPEG comment; image pixels unchanged",
+  "review": "JPEG signature checked; file dimensions checked; visually inspected with view_image",
+  "scopeCaveat": "Conscious artistic composition, used as plate 6 in The Pencil of Nature; not a positive made from the included Oriel Window negative.",
+  "sourceSha256": "2737999bf99c59da91a2892af366528f3c1f0279249a998a94a6d2883859088c"
+}

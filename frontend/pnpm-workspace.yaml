@@ -1,0 +1,5 @@
+# Keep package storage inside the workspace so terminal and agent installs agree.
+storeDir: ../.pnpm-store
+allowBuilds:
+  sharp: true
+  unrs-resolver: false

@@ -1,0 +1,11 @@
+{
+  "source": "https://3d-api.si.edu/content/document/ed99f44d-3c60-4111-b666-e2908e1b64ef/scene-image-medium.jpg",
+  "record": "https://3d.si.edu/object/3d/morse-vail-telegraph-key:ed99f44d-3c60-4111-b666-e2908e1b64ef",
+  "license": "CC0-1.0",
+  "note": "Smithsonian model preview",
+  "downloadedAt": "2026-11-23",
+  "sha256": "20e42473f7f38cd64e85d02e7ae570481fcee4bd720c4f60b7777e3d3b0b55cd",
+  "byteSize": 90840,
+  "sourceSha256": "cfb31859ef9818de0ed0626c0403d9fb37afdc4881918eb373d29c790195bf57",
+  "transformation": "Origin embedded as JPEG comment; image pixels unchanged"
+}

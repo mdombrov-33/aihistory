@@ -1,0 +1,21 @@
+{
+  "source": "https://collectionapi.metmuseum.org/api/collection/v1/iiif/383807/748545/main-image",
+  "record": "https://www.metmuseum.org/art/collection/search/383807",
+  "license": "Public domain / The Met Open Access (CC0)",
+  "licenseURL": "https://www.metmuseum.org/hubs/open-access",
+  "creator": "Robert Charles Dudley",
+  "title": "Valentia, Ireland: From the Harbor, opposite Knight's-town, at the period of laying the Cable of 1857",
+  "date": "1865–66",
+  "medium": "Watercolor over graphite with touches of gouache (bodycolor)",
+  "objectNumber": "92.10.48",
+  "creditLine": "Gift of Cyrus W. Field, 1892",
+  "width": 1200,
+  "height": 774,
+  "downloadedAt": "2026-11-23",
+  "sha256": "bbf0a107396b097efd57a867d4a29fb16a331b5592aab084e2970835305a2b81",
+  "byteSize": 145330,
+  "sourceSha256": "c1beb51977b4135a86dd8786f514e62c0dbd6cc6247897c80ca18182f8248cb0",
+  "transformation": "Source origin embedded with Impeccable; image pixels unchanged",
+  "review": "JPEG signature checked; file dimensions checked; visually inspected with view_image",
+  "scopeCaveat": "Made 1865–66, depicting the 1857 cable setting at Valentia; not contemporary evidence of May 1844 and not a photograph."
+}

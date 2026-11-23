@@ -1,0 +1,21 @@
+{
+  "source": "https://collectionapi.metmuseum.org/api/collection/v1/iiif/283101/632906/main-image",
+  "record": "https://www.metmuseum.org/art/collection/search/283101",
+  "license": "Public domain / The Met Open Access (CC0)",
+  "licenseURL": "https://www.metmuseum.org/hubs/open-access",
+  "creator": "Unknown (French)",
+  "title": "Louis-Jacques-Mand\u00e9 Daguerre",
+  "date": "ca. 1844",
+  "medium": "Daguerreotype",
+  "objectNumber": "2005.100.611",
+  "creditLine": "Gilman Collection, Gift of The Howard Gilman Foundation, 2005",
+  "width": 1031,
+  "height": 1200,
+  "downloadedAt": "2026-11-23",
+  "sha256": "4bc921fb76f25e01a989077a71129928a6342a1a317960609f3f731e94beeb47",
+  "byteSize": 249662,
+  "transformation": "Origin embedded as JPEG comment; image pixels unchanged",
+  "review": "JPEG signature checked; file dimensions checked; visually inspected with view_image",
+  "scopeCaveat": "Portrait depicts Daguerre, but maker is unknown; insufficient evidence supports prior attributions to Richebourg or Daguerre. Preserve plate damage and mount as artifact evidence.",
+  "sourceSha256": "d89668342f476919faad7c727f1839da5b11aeede4ee8c814e4c26b78b72a1ca"
+}

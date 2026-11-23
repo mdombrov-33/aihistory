@@ -2,6 +2,8 @@
 
 Historical concept record. The active frontend is the frontend Next.js app; [status](../status.md), [DESIGN.md](../../DESIGN.md) and [scene contracts](../technical/scenes.md) describe the current implementation. The rejected separate Vite prototype has been removed.
 
+The product has since broadened to interactive learning across subjects. These history-only concepts do not constrain the next homepage or showcase selection; see the [engine exploration](../technical/learning-engine.md).
+
 ## Direction selection
 
 Worlds was selected on 2026-11-22 as the broad visual direction. Atlas remains an unselected comparison. [Open the preserved visual comparison](../../design-explorations/full-app-flow/comparison.html).

@@ -4,7 +4,7 @@ Use for screens, scene renderers, maps, interaction, narration, and sound. Follo
 
 ## Current implementation boundary
 
-The installed frontend and its reusable authoring seam are described in [composed lesson scenes](scenes.md). Next.js/React, Tailwind/shadcn, Lucide, Motion, d3-geo, next-themes, image inspection and native 3D work with prepared content. Server requests, TanStack Query, actual accounts, generated narration and the production playback/data services below remain selected implementation direction rather than completed features.
+The installed frontend and its reusable authoring seam are described in [composed lesson scenes](scenes.md). Next.js/React, Tailwind/shadcn, Lucide, Motion, d3-geo, next-themes, image inspection and native 3D and the [learning workbenches](learning-engine.md) work with prepared content. Server requests, TanStack Query, actual accounts, generated narration and the production playback/data services below remain selected implementation direction rather than completed features.
 
 ## Foundations and scene families
 
@@ -12,7 +12,7 @@ The implemented mixed-form player, schema boundary and prepared demonstration ar
 
 - React/Next.js and TypeScript; Tailwind tokens/styles; selected shadcn/ui controls; Lucide React icons; Motion for React with reduced-motion support.
 - Build custom story renderers. Generation supplies validated data, not executable frontend code.
-- Current families: illustrated image, place, atlas, evidence, comparison, timeline, journey/process, object and photograph. The 18 presets include openings and synthesis. Historical decisions and relationship diagrams remain planned extensions; generation must use only supported capabilities.
+- Current families: illustrated image, place, atlas, evidence, comparison, timeline, journey/process, object, photograph, assembly, experiment, sound and system. The 22 presets include openings and synthesis. Richer decisions and additional domain models remain extensions; generation must use only supported capabilities.
 - The prepared author selects a supported composition, registered artwork/model, framing/focal point and supported interaction data. Themes and typography are app-owned; richer per-story visual/audio direction belongs to future validated contract extensions. Components enforce readability, spacing, contrast, and reachable controls. New interaction mechanics require supported components.
 - Use the same content/IDs on mobile and desktop with renderer-owned responsive arrangements: focused maps/detail panels, document enlargement, suitable vertical timelines, and readable diagram alternatives. Do not shrink desktop mockups into phone layouts.
 - Current narratives render plain-text paragraphs with app-owned typography. Production rich text should support paragraphs, emphasis, lists, quotations and links through restricted react-markdown. Disable embedded HTML; restrict elements/URL protocols. Layout, assets, citations, and interactions remain structured fields. Narration scripts are plain text.

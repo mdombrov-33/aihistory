@@ -4,9 +4,9 @@
 
 Product direction below extends the working prepared frontend. Current local search, detail/player/source routes, device activity and explicit service previews are listed in [status](../status.md); public community services are not connected.
 
-The public library is a discoverable collection, not merely a generation cache. Search and useful topic, time, and place filters help learners find stories; provide Latest and Highest rated views. Ratings and likes can aid discovery but never certify factual accuracy. Avoid dependence on manual curation of every item.
+The public library is a discoverable collection, not merely a generation cache. Search and useful subject, question and duration filters help learners find experiences; time/place filters apply where the subject calls for them. Planned level/prerequisite facets require content-contract support; provide Latest and Highest rated views. Ratings and likes can aid discovery but never certify factual accuracy. Avoid dependence on manual curation of every item.
 
-Offer existing stories before creating a new one. A shared era alone does not make an item a good match. Make it clear when a result is an existing story versus a suggestion that needs a new creation.
+Offer existing stories before creating a new one. Match the learning question, scope and assumed knowledge. A shared topic or era alone does not make an item a good match. Make it clear when a result is an existing story versus a suggestion that needs a new creation.
 
 Each public story has a stable information page. Its content direction includes a cinematic banner, accurate title and scope, chapter headings, approximate length, rating and comments, sources, related stories, and a report action. Mobile order begins with banner and concise premise, followed by Start/Resume; supporting sections follow below. The current frontend uses “story” and `/stories/[slug]`; final naming remains open.
 

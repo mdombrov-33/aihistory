@@ -7,6 +7,8 @@ import "./cinematic.css";
 import "./scenes.css";
 import "./interactions.css";
 import "./scene-frame.css";
+import "@xyflow/react/dist/style.css";
+import "./learning.css";
 const sans = localFont({
   src: "./fonts/source-sans-3-variable.ttf",
   variable: "--font-source-sans",

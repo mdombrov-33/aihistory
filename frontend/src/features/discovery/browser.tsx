@@ -61,14 +61,14 @@ export function StoryBrowser({ initial }: { initial: Filters }) {
         ))}
         <Search aria-hidden="true" />
         <Label htmlFor="explore-query" className="sr-only">
-          Search historical stories
+          Search lessons
         </Label>
         <Input
           id="explore-query"
           name="q"
           value={query}
           onChange={(e) => setQuery(e.target.value)}
-          placeholder="A question, a place, a moment in time…"
+          placeholder="A question, an idea, something you want to understand…"
         />
         {query ? (
           <Button
@@ -108,6 +108,7 @@ export function StoryBrowser({ initial }: { initial: Filters }) {
             </SelectTrigger>
             <SelectContent>
               <SelectItem value="all">All periods</SelectItem>
+              <SelectItem value="timeless">Timeless concepts</SelectItem>
               <SelectItem value="ancient">Ancient</SelectItem>
               <SelectItem value="medieval">Medieval</SelectItem>
               <SelectItem value="early-modern">Early modern</SelectItem>

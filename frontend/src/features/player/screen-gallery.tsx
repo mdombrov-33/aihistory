@@ -70,7 +70,7 @@ export function ScreenGallery({ examples }: { examples: Example[] }) {
       </div>
       <p className="gallery-footnote">
         The examples are authored JSON. Live lesson generation is not connected. A valid composition
-        still needs historical and visual review.
+        still needs subject accuracy, interaction and visual review.
       </p>
     </>
   );

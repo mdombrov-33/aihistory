@@ -9,6 +9,7 @@ Accepted application choices, organized by task. This is the target stack map; i
 | Data | Selected PostgreSQL/pgvector, Drizzle/Drizzle Kit and chapter JSONB; Zod already validates prepared content | [Architecture](architecture.md#persistence-and-content) |
 | Frontend | Working Next.js/React, Tailwind, shadcn/ui, Lucide, Motion, custom player, image inspection and native 3D; TanStack Query planned for service integration | [Frontend](frontend.md) |
 | Maps and text | Working React SVG + d3-geo, Natural Earth and local schematics; plain-text reading now, restricted Markdown planned | [Frontend](frontend.md#geography-and-precise-visuals) |
+| Interactive learning | Three.js/R3F/Drei assemblies, Rapier pendulum, Tone sound and React Flow Boolean networks; more models remain exploratory | [Learning engine](learning-engine.md) |
 | Generation | Mastra + local Inngest; saved stages, detailed prompts, evidence checks | [Generation](generation.md) |
 | Models | Task-specific defaults and configurable supported providers | [Provider defaults](generation.md#provider-defaults) |
 | Access and cost | Better Auth, scoped authorization, automatic moderation, PostgreSQL limits/ledger | [Security and cost](security-and-cost.md) |

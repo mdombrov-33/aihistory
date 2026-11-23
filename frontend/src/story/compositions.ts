@@ -17,6 +17,10 @@ export const compositionIds = [
   "object-gallery",
   "object-guided",
   "synthesis-board",
+  "assembly-explorer",
+  "experiment-bench",
+  "sound-studio",
+  "system-workbench",
 ] as const;
 export type CompositionId = (typeof compositionIds)[number];
 type Definition = {
@@ -28,6 +32,40 @@ type Definition = {
   requirement: string;
 };
 export const compositions: Record<CompositionId, Definition> = {
+  "assembly-explorer": {
+    name: "Take it apart",
+    purpose: "Explore the parts and their relationship to a whole.",
+    families: ["assembly"],
+    layout: "split",
+    framing: "contain",
+    requirement: "Named schematic geometry, separation vectors and an explanation for each part.",
+  },
+  "experiment-bench": {
+    name: "Change and observe",
+    purpose: "Explore a mathematical model by changing its inputs.",
+    families: ["experiment"],
+    layout: "split",
+    framing: "contain",
+    requirement: "A supported model, bounded parameters, sources and explicit assumptions.",
+  },
+  "sound-studio": {
+    name: "Shape a sound",
+    purpose: "Connect a visible waveform with a deliberately activated sound.",
+    families: ["sound"],
+    layout: "split",
+    framing: "contain",
+    requirement:
+      "A fundamental, four bounded harmonics and explained presets; hearing is optional.",
+  },
+  "system-workbench": {
+    name: "Follow the signal",
+    purpose: "Change inputs and inspect a connected logical system.",
+    families: ["system"],
+    layout: "split",
+    framing: "contain",
+    requirement:
+      "A small validated acyclic graph with supported gates, inputs and explanatory nodes.",
+  },
   "cinematic-opening": {
     name: "Cinematic opening",
     purpose: "Enter a setting through one strong image and a focused question.",

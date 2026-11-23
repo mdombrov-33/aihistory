@@ -10,8 +10,8 @@ States describe acceptance of each row's scope. Frontend work was brought forwar
 
 | Scope | State | Evidence / remaining acceptance |
 | --- | --- | --- |
-| Prepared frontend | implemented; review pending | Four v2 storyboards, nine families, 18 presets, discovery/detail/player/sources, guest activity, Settings and explicit service previews. See [scene guide](technical/scenes.md). |
-| [M00 Local baseline](#m00-local-baseline) | in_progress | Root package/lock/runtime/Oxc/TS/Next setup exists. Database, Mailpit, worker and Inngest setup/smoke proof remain. |
+| Prepared frontend | implemented; review pending | Eight v2 lessons, 13 families, 22 presets, discovery/detail/player/sources, guest activity, Settings and explicit service previews. See [scene guide](technical/scenes.md). |
+| [M00 Local baseline](#m00-local-baseline) | in_progress | Frontend package/lock/Oxc/TS/Next setup and repo runtime pin exist. Database, Mailpit, worker and Inngest setup/smoke proof remain. |
 | [M01 Content and persistence](#m01-content-and-persistence) | not_started | Reuse current presentation contracts; add versioned identity, evidence, readiness, storage and authorized database reads. Depends on M00. |
 | [M02 Working chapter and player](#m02-working-chapter-and-player) | not_started | Integrate the existing player with persisted content and real audio. Frontend interactions already exist; production playback acceptance does not. Depends on M01. |
 | [M03 Accounts and saved places](#m03-accounts-and-saved-places) | not_started | Connect current auth/personal-space previews to real identity and synchronized activity. Depends on M02. |
@@ -26,25 +26,37 @@ States describe acceptance of each row's scope. Frontend work was brought forwar
 
 ## Current frontend handoff
 
-Updated 2026-11-23. The active task is frontend review and documentation/repository alignment; backend milestones retain their remaining acceptance gates.
+Updated 2026-11-23. The active task is the cross-subject engine exploration and example review; backend milestones retain their remaining acceptance gates.
 
-- The [v2 bundle and renderer](technical/scenes.md) are the prepared authoring baseline. Four three-chapter stories contain 38 screens. New lessons supply structured data and registered assets, with no topic-specific React or executable generated layout.
+- The [v2 bundle and renderer](technical/scenes.md) are the prepared authoring baseline. Eight prepared lessons contain 62 screens. New lessons supply structured data and registered assets, with no topic-specific React or executable generated layout.
 - Full-height media, local detail feedback, source switching, adaptive map framing and compact 3D controls are implemented. The latest layout review is still pending; presets and examples are editable, not visually approved templates.
 - Guest activity is local and indexed by scene/passage. Production stable IDs, version mappings, account isolation and synchronization still require M01–M03 work.
 - **Desktop fit:** the page frame is bounded, but the reading pane can scroll. Verify the accepted complete-screen reading target against actual content without clipping or shrinking it.
 - **Completion gap:** the current player records completion through the final **Finish & sources** action. Product direction is completion upon reaching the closing recap, with sources optional. Preserve that requirement when changing the player; this cleanup does not alter behavior.
 - Browser speech and synthesized background sound are temporary. Real narration, measured subtitle timing and coordinated media playback remain M02/M06 acceptance work.
-- Next product discussion: missing service flows, personal-guide scope and the [Premium offer](product/account-and-offer.md). Prices, entitlements and production readiness are not established by the showcase UI.
+- Next: review the [learning engine exploration](#interactive-learning-exploration), then explore a broader homepage; missing service flows, personal-guide scope and the [Premium offer](product/account-and-offer.md). Prices, entitlements and production readiness are not established by the showcase UI.
 
 ### Verification evidence
 
-The latest frontend iteration passed `pnpm --dir frontend check`, all 11 browser-independent `pnpm --dir frontend test:scenes` contracts and `pnpm --dir frontend build`. Built-HTML checking passed for 12 pages, 27 image uses, 24 font references and 201 links. The browser suite lists 42 cases across desktop/mobile; listing is not execution. Contracts cover registered content/assets/models, rendering, rejection boundaries, theme contrast, hotspot framing and map projections.
+Before the learning extension, the frontend iteration passed `pnpm --dir frontend check`, all 11 browser-independent `pnpm --dir frontend test:scenes` contracts and `pnpm --dir frontend build`. Built-HTML checking passed for 12 pages, 27 image uses, 24 font references and 201 links. The browser suite lists 42 cases across desktop/mobile; listing is not execution. Contracts cover registered content/assets/models, rendering, rejection boundaries, theme contrast, hotspot framing and map projections.
 
 Rendered browser/audio verification remains unresolved: server binding returned `listen EPERM 127.0.0.1:3000`, and Chromium capture failed to launch. The [latest independent review](references/frontend-review.md) returned `recapture`, requesting current player/gallery, short-window, enlarged-text, theme, selected/error and keyboard-focus evidence. User screenshots remain the actual failure evidence until new renders are checked.
 
 ### Repository cleanup
 
 Removed the rejected Vite prototype and its separate dependencies, unused illustrative spacesuit inspector, retired lesson artwork/Apollo assets, unused duplicate image-dimension index and obsolete design-build gates. Retained current runtime media, source packets and referenced research assets, licenses/provenance, illustrative design references and the latest review. The `frontend/` Next.js package is the only application; README remains empty. About 190 MiB of obsolete files were removed. The Florence image remains because authentication still uses it, and the Pompeii casts photograph remains because the research packet references it. No UI behavior or historical lesson text changed. Cleanup verification passed: `pnpm --dir frontend check`, all 11 scene contracts, `pnpm --dir frontend build`, the built-HTML check and `node scripts/check-docs.mjs` (31 Markdown files, now including PRODUCT/DESIGN). A static scan resolved all 53 local media references. Browser/layout/audio verification was not rerun or claimed by this cleanup.
+
+## Interactive learning exploration
+
+Accepted 2026-11-23: subject scope is interactive learning broadly, with no required history focus or protected historical showcase. The user authorized package installation, engine experimentation and new lessons. Sequence: implement engine/examples, align documentation, then explore the homepage. The history-only homepage comp round was paused; it is not an approved new homepage direction.
+
+The [learning engine](technical/learning-engine.md) is the canonical record of capabilities, library research and ideas still to explore. The first slice adds schema-validated assemblies, thin-lens/pendulum experiments, harmonic sound and fixed Boolean networks. New code is isolated under `frontend/src/features/learning/`, integrated through shared scene contracts. Heavy viewers are lazy; sound/playback is deliberate. Parameters survive local reload, and narrow graphs reflow. No live generation, paid research or generated media is introduced by this slice.
+
+Four new two-chapter lessons provide six screens each: The camera, opened up; A swing in time; Shape a sound; Signals and decisions. Original SVG cover diagrams carry provenance; supporting references and idealizations are explicit. Eight bundles now exercise 13 families, 22 presets and 62 screens. Existing history bundles remain usable regression examples, with no priority over future subjects. Existing routes/storage keys and HISTORY UI branding remain compatible placeholders; final branding and homepage composition are deferred.
+
+Verification: 20 browser-independent contracts pass, including lens edge cases, normalized harmonics, complete gate truth tables, graph rejection, separation bounds, dependency layout and an actual Rapier integration comparison within 3% of the small-angle prediction. The numerical test caught conflicting body constraints before handoff; the revolute joint now owns the pendulum constraints. An independent source review found mobile ancestor clipping and unstable assembly framing. Its follow-up scored both resolved in source, including reprojection with zero clipped assembly vertices across five separation states and four aspect ratios; its rendered disposition remains `recapture`. Final formatting/lint/types and production build passed. Built-HTML validation passed for 16 pages, 47 image uses (including original SVG covers), 32 font references and 293 internal links. Documentation validation passed for 34 Markdown files; README remains empty. Browser discovery lists 64 cases, including seven new learning cases in each device project; listing is not execution.
+
+User review on 2026-11-23 accepted the four examples as fine for now and authorized committing this slice. Further interaction exploration comes next; the homepage stays deferred. Independent rendered verification remains **recapture**. The user started a local server, but this shell could not reach it, and its test runner attempted a blocked localhost bind (`listen EPERM`). CUA reported an unavailable browser host and native Chrome inspection timed out. Browser cases exist for restoration/reset, lens regimes, sound opt-in/stop, logical propagation, pendulum reset and mobile width; they were not executed. User acceptance does not establish automated browser or audio test results.
 
 ## Repository layout and first commit
 
@@ -109,21 +121,22 @@ The working prepared format is version `2`, defined in [prepared-story.ts](../fr
 
 | Contract | Initial fields and rules |
 | --- | --- |
-| `HistoricalTime` | Human label, source calendar, precision, qualifier (`exact`, `circa`, `before`, `after`, `range`), explicit bounds where supported. Year values use positive year + BCE/CE. Internal sortable year maps CE `y` to `y`, BCE `y` to `1-y`; zero is an internal ordering coordinate, never a displayed historical year. Preserve unsupported calendar labels; do not invent a conversion or exact midpoint. |
-| `HistoricalEntity` | ID, person/place/institution/event kind, sourced label, optional time/location and claim refs. Coordinates require latitude/longitude validation and provenance/precision. |
+| `TemporalValue` | Discriminated calendar date or elapsed duration. Durations carry explicit units, not invented calendar eras. Calendar dates retain human label, source calendar, precision, qualifier (`exact`, `circa`, `before`, `after`, `range`), explicit bounds where supported. Year values use positive year + BCE/CE. Internal sortable year maps CE `y` to `y`, BCE `y` to `1-y`; zero is an internal ordering coordinate, never a displayed historical year. Preserve unsupported calendar labels; do not invent a conversion or exact midpoint. |
+| `LearningEntity` | ID, concept/object/process/person/place/event kind, supported label, optional subject-specific time/location/quantity data and claim refs. Coordinates require latitude/longitude validation and provenance/precision. |
 | `Claim` | ID, statement, fact/interpretation/reconstruction/hypothetical classification, evidence refs and uncertainty/dispute note. Facts require supporting references; validity of refs does not prove support. |
 | `EvidencePassage` | ID, source ID, retained text, locator, extraction/content hash, retrieval date; claim/chapter links remain explicit. |
+| `InteractionModel` | Registered model/capability version, parameters with units/ranges, assumptions and supporting claims; learner state is separate from shared content. Existing workbench schemas remain authoritative for the prepared input. |
 | `NarrationPassage` | ID, plain script, claim refs, script revision/hash, narration asset ref once ready. Subtitle text derives from this script. Duration is measured from media, not guessed from text length. |
 | `Scene` | Stable ID, discriminant, structured content, narration passage refs, claim/asset refs, supported presentation choices, sound cues, accessible explanation. No raw HTML or executable code. |
 | `ChapterDocument` | Schema version, stable chapter ID, purpose/title, ordered scenes/passages, cross-reference inventory. Relational readiness is separate from document content. |
-| `PlayerBundle` | Authorized version/chapter content plus referenced historical records, evidence summaries, ready manifest, and resolvable asset IDs. Never exposes local file paths or private job traces. |
+| `PlayerBundle` | Authorized version/chapter content plus referenced subject records, evidence summaries, ready manifest, and resolvable asset IDs. Never exposes local file paths or private job traces. |
 | `PlaybackPosition` | Version/chapter/scene/passage IDs, offset milliseconds, Read/Listen mode, relevant decision selections. Bookmark identity is independent of resume identity. |
 
-Use the implemented nine-family discriminated union and 18-preset registry as the current capability set. The prepared schema supports images/place inspection, maps, evidence, comparisons, timelines, processes, native objects and photographs. It does not support historical-decision options or relationship nodes/edges yet. Generation must receive the actual capability set; unsupported kinds fail validation.
+Use the implemented 13-family discriminated union and 22-preset registry as the current capability set. The prepared schema supports images/place inspection, maps, evidence, comparisons, timelines, processes, native objects, photographs and the four [learning workbench families](technical/learning-engine.md). It does not support general decision options or relationship nodes/edges yet. Generation must receive the actual capability set; unsupported kinds fail validation.
 
 M05 adds grounded decision and relationship mechanics through reviewed schema/component extensions. Decisions need a question, stable option IDs, option-specific explanations and a documented outcome, with hypothetical alternatives labelled. Relationships need sourced nodes/edges and a readable alternative. Existing timeline/comparison/process renderers are reused.
 
-Themes and typography are currently app-owned. The prepared author selects registered media, composition, framing/focal points and supported interactions, never arbitrary CSS, palette or font code. Any additional presentation choices need a validated extension. Production maps/timelines should use shared sourced entities/dates; registered coordinates alone do not establish historical accuracy.
+Themes and typography are currently app-owned. The prepared author selects registered media, composition, framing/focal points and supported interactions, never arbitrary CSS, palette or font code. Any additional presentation choices need a validated extension. Production maps/timelines should use shared sourced entities/dates; registered coordinates alone do not establish subject accuracy.
 
 Validation separates shape, reference existence/ownership, renderer capability, evidence support, and media readiness. Drafts can contain pending media refs; a ready chapter cannot. A complete generated story needs all planned chapters/recap ready; learner completion is triggered by reaching the recap.
 
@@ -136,7 +149,7 @@ Introduce tables incrementally through the relevant milestones:
 | Better Auth tables | Generated from pinned auth config, reviewed into Drizzle's single migration history. Reuse actual user-ID type; do not maintain a competing hand-written auth schema. |
 | `stories`, `story_versions` | Ownership, private/link-shared/public visibility, selected playable version, blueprint and contract versions. New personal stories default private; explicit system-seeded public development content is identified as such. |
 | `chapters` | Key `(story_version_id, chapter_id)`, order, JSONB document, readiness/revision/hash. Delivered content is stable; correction mapping is explicit. |
-| `entities`, `claims`, `sources`, `evidence_passages`, `claim_evidence` | Version-scoped historical IDs and provenance; joins prevent attaching another private version's evidence. |
+| `entities`, `claims`, `sources`, `evidence_passages`, `claim_evidence` | Version-scoped subject IDs and provenance; joins prevent attaching another private version's evidence. |
 | `assets`, `asset_uses` | Content/storage hashes, production-input fingerprint, MIME/size/duration, owner, rights/source metadata, authorized version/scene use. Reuse requires matching scope and inputs. |
 | `progress`, `bookmarks` | Owner + version; progress revision for compare-and-swap updates; many bookmarks with exact positions. |
 | `generation_jobs`, `job_outbox`, `provider_operations` | Typed job kind (`story_creation` or `follow_up`), unique `(actor_id, kind, request_id)` plus input hash; durable event ID; unique logical operation key; accepted workflow/prompt/model/schema versions. |
@@ -184,7 +197,7 @@ Success/error responses use shared Zod envelopes. Errors include stable `code`, 
 
 **Files:** `frontend/src/story/`, `frontend/src/server/db/`, `frontend/src/server/{stories,assets}/`, read routes, `data/fixtures/working-chapter/`, migration/seed/integration checks.
 
-Implement the initial contracts and migrations, generated auth schema ownership, atomic local assets, ready-chapter validation, and authorized reads. Author a narrow development source packet with inspectable evidence and a versioned geometry/asset manifest. Choose the topic during authoring; no era restriction is implied.
+Implement the initial contracts and migrations, generated auth schema ownership, atomic local assets, ready-chapter validation, and authorized reads. Author a narrow development source packet with inspectable evidence and a versioned geometry/asset manifest. Choose the topic during authoring; no subject or era restriction is implied.
 
 Persist a representative chapter from the current prepared bundles, exercising an image, map/inspection interaction and closing recap using supported scene families. Keep the other bundles available; do not introduce a second topic-specific player or require an unsupported decision kind. Include complete reading text and correctly transcribed, licensed/original spoken audio before the listening acceptance check; synthetic tones may test transport but do not substitute for narration acceptance. Record all asset rights/provenance. Existing concept mockups are not verified source material or automatically production assets.
 
@@ -234,7 +247,7 @@ Configure finite workflow/nested-workflow transport retries explicitly (initial 
 
 **Files:** shared capability/production-content contracts, existing scene registry/renderers, decision/relationship extensions, accessible alternatives and prepared fixtures.
 
-Reuse the nine implemented content families and 18 teaching presets. Integrate their persisted evidence/asset identity and capability versioning, and add the accepted historical-decision and relationship mechanics through supported data/components. Do not rebuild timeline/comparison renderers or introduce topic-specific view branches. Validate labels/dates/claims against shared records and preserve mobile inspection and complete reading.
+Reuse the 13 implemented content families and 22 teaching presets. Integrate their persisted evidence/asset identity and capability versioning, and add grounded decisions and richer relationship mechanics through supported data/components. Do not rebuild timeline/comparison renderers or introduce topic-specific view branches. Validate labels/dates/claims against shared records and preserve mobile inspection and complete reading.
 
 **Accept when:** the current families plus supported decision/relationship mechanics render validated persisted content, have readable keyboard/touch alternatives and survive navigation/bookmark resume. Unsupported schema/capability versions fail clearly. Current source inspection, maps, processes and native objects remain working.
 
@@ -260,7 +273,7 @@ Build full-text plus exact-vector retrieval with reciprocal rank fusion, public/
 
 Questions use current scene, outline, relevant authorized evidence, and bounded extra research; answers include resolvable references. Use a follow-up workflow/job kind with the existing outbox/recovery/operation controls and question allowance, not creation slots. Keep provider/research calls outside the short HTTP request; the panel polls the question status while preserving the player position. Out-of-scope inquiry offers a related direction/new story without modifying the current story. Prepared explanations stay guest-accessible; new answers require verification and separate allowance.
 
-**Accept when:** lexical names and related questions find relevant candidates without leaking private/unlisted records; a similar era alone does not force reuse; wrong embedding configurations fail clearly. Answer tests cover missing/disputed evidence, broad scope, injection, exhausted quota, and cross-version/private passages. Source support and answer correctness remain separately assessed. Save query/answer artifacts privately; public suggestions must not expose private prompts.
+**Accept when:** lexical names and related questions find relevant candidates without leaking private/unlisted records; a shared subject or era alone does not force reuse; wrong embedding configurations fail clearly. Answer tests cover missing/disputed evidence, broad scope, injection, exhausted quota, and cross-version/private passages. Source support and answer correctness remain separately assessed. Save query/answer artifacts privately; public suggestions must not expose private prompts.
 
 Prepared tests use explicit fixture vectors/answers and establish filtering, contracts, and recovery only. They do not establish live semantic relevance or answer quality; record those checks separately when M06 is available.
 
@@ -268,7 +281,7 @@ Prepared tests use explicit fixture vectors/answers and establish filtering, con
 
 **Files:** token/publication modules and routes, detail-page community UI, version-scoped ratings/likes/comments/reports, moderation adapters and rate limits.
 
-Implement explicit private/link/public transitions. Store hashes of random sharing tokens; revoke/rotate deliberately and keep link-shared content out of library search. Public listing requires a complete checked version, authorized assets, accurate scope, and moderation. Separate asset credits from historical evidence.
+Implement explicit private/link/public transitions. Store hashes of random sharing tokens; revoke/rotate deliberately and keep link-shared content out of library search. Public listing requires a complete checked version, authorized assets, accurate scope, and moderation. Separate asset credits from support for substantive claims.
 
 Enforce one editable rating and removable like per account/public version, sample counts, and configured provisional category labels. Check new/edited comments before public visibility; deletion remains author-controlled. Moderation handles educational context, bounded ambiguous checks, and explicit failure/revision states without a routine owner approval queue. Reports retain reason, version/chapter/claim/comment anchors and confirm receipt without promising a correction. Report volume alone must not establish factual error.
 
@@ -284,4 +297,4 @@ Review phone usability, sound controls/seek/resume, all scene families, source p
 
 ## Handoff
 
-Current task and evidence live in [Current frontend handoff](#current-frontend-handoff) and the [execution tracker](#execution-tracker). Reuse the implemented frontend package and v2 authoring seam; finish rendered review and the recorded gaps, then resume remaining M00 service setup and M01–M09 production integration. Resume from the actual source and recorded checks rather than the original planning-only state.
+Current task and evidence live in [Current frontend handoff](#current-frontend-handoff) and the [execution tracker](#execution-tracker). Review the cross-subject engine/examples and their rendered gaps before the next homepage exploration. Reuse the implemented frontend package and v2 authoring seam when resuming remaining M00 service setup and M01–M09 production integration. Resume from the actual source and recorded checks rather than the original planning-only state.

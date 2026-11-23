@@ -44,6 +44,7 @@ export function useNarration(
       onMessage("Narration is muted. Raise master and narration volume in sound settings.");
       return;
     }
+    window.dispatchEvent(new Event("learning:stop-audio"));
     const id = ++session.current;
     window.speechSynthesis.cancel();
     if (sound.music > 0 || sound.environment > 0) {

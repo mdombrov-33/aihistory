@@ -1,3 +1,4 @@
+import { stories } from "@/content/catalog";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -9,9 +10,9 @@ export default function AboutPage() {
       <article className="prose-page">
         <h1>A first step into another world.</h1>
         <p>
-          This is a static frontend for an interactive history app. History is a working name. The
-          Worlds direction brings historical images, labelled reconstructions and native 3D together
-          with readable stories, inspectable evidence and meaningful interactions.
+          Explore subjects through visual explanations and experiments. Take apart a schematic
+          camera, investigate light and motion, shape a sound or follow a digital signal. HISTORY is
+          the current placeholder name; the app is growing beyond history.
         </p>
         <h2>What you can try</h2>
         <p>
@@ -21,10 +22,10 @@ export default function AboutPage() {
         </p>
         <h2>What is prepared</h2>
         <p>
-          The collection now contains four storyboards: Pompeii, early photography, the telegraph
-          and the making of the Great Wave. They use historical collection images, a real museum
-          model and explanatory diagrams, with dates and source records attached. Sources explain
-          what supports each story and where interpretation remains uncertain.
+          The collection contains {stories.length} prepared lessons across physics, sound,
+          technology, art and history. They combine sourced material, original diagrams and
+          interactive models. Each lesson identifies its sources and the assumptions behind its
+          simplified models. These are authored examples; live lesson generation is not connected.
         </p>
         <h2>Your data stays here</h2>
         <p>

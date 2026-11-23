@@ -1,23 +1,19 @@
 # Discovery entrance
 
-Mode: Experience / discovery. Preserve the multi-topic hub, search, guest continuation and clear navigation.
+Mode: Experience / discovery. The working app retains the Worlds identity, question entry, guest continuation and shared navigation. Its history-led layout is the incumbent implementation, not a protected next-page composition.
 
 ## Direction contract
 
-THESIS: One continuous cinematic entrance demonstrates the app before offering its worlds. The user rejects detached elements and a weak static library-like opening.
+THESIS: Future discovery demonstrates interactive learning across subjects through compelling examples of the actual engine.
 
-OWN-WORLD: Established ink/ivory/amber Worlds identity, original historical panorama, editorial lettering and restrained functional chrome.
+OWN-WORLD: Current Zilla Slab / Source Sans and semantic themes remain the implementation baseline; a new homepage direction is not selected.
 
-STORY: Ask a historical question, see how a route or a document becomes an interactive explanation, and choose a world. Ready lessons remain immediate and account-free.
+STORY: Ask a question or enter a ready lesson; investigate by changing inputs, inspecting structure and following results.
 
-FIRST VIEWPORT: A panoramic image leads behind the heading and question field; a connected row of historical worlds grounds the scene. The next section contains a working route/evidence/engineering demonstration, not a list of feature icons. Motion reveals the place and connects scene changes without hiding content.
+FIRST VIEWPORT: To be explored after engine/example review. No map/evidence/model triptych or earlier historical hero is required.
 
-FORM: seed: none (pinned). User: “animations, preview how it works, some cool cinematic image too”; “our website looks like detached elements from one another”. Code-led correction within the chosen Worlds identity.
+FORM: seed: none (deferred). User: “first you need to implement new ideas to engine, then we update our docs, and then we do homepage.” Earlier Worlds/Atlas boards are historical design references; the 2026-11-23 history-only comp exploration was paused.
 
-FINISH: unreviewed and undocumented is unfinished; this build ends with the finish review, the verdict, DESIGN.md, and every shipping raster carrying its provenance.
+CURRENT TRUTH: Read docs/status.md and docs/technical/learning-engine.md. Broad subject scope is accepted; HISTORY is a legacy UI placeholder, not a scope restriction. No new homepage is approved or built by the engine slice.
 
-## Final correction against the approved board
-
-The board, not a new hero concept, owns composition: compact illustrated environmental framing around centered heading/search, plum filter controls, a wide featured-or-continue band, then two large and three smaller story windows. The working preview follows the gallery. The full-height hero/world-selector draft was rejected and removed. Approved reference: `design-explorations/full-app-flow/worlds-home.png`.
-
-Visual finish remains open: `recapture`. Source/build checks do not substitute for seeing the page.
+FINISH: Homepage work remains deferred. Current rendered acceptance remains open; source/build checks do not substitute for seeing the page.

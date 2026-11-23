@@ -1,0 +1,332 @@
+{
+  "version": 2,
+  "models": [],
+  "summary": {
+    "slug": "shape-a-sound",
+    "title": "Shape a sound",
+    "question": "Why can the same note have a different character?",
+    "description": "Build a tone from four harmonics, see the resulting waveform and listen deliberately. The same explanation remains available without audio.",
+    "image": "/images/learning/sound.svg",
+    "imageAlt": "Original geometric teaching diagram for Shape a sound",
+    "topic": "Music & sound",
+    "era": "timeless",
+    "period": "An explorable concept",
+    "scope": "Beginner · two chapters · interactive workbenches",
+    "minutes": 8,
+    "chapters": [
+      {
+        "title": "A repeating shape",
+        "question": "What repeats in a tone?"
+      },
+      {
+        "title": "A different mixture",
+        "question": "What can harmonics explain?"
+      }
+    ],
+    "sourceLabel": "Sources and model assumptions included",
+    "sample": true
+  },
+  "lesson": {
+    "preview": true,
+    "sources": [
+      {
+        "name": "UNSW Music Acoustics",
+        "title": "Musical sounds, musical instruments and musical signals",
+        "url": "https://newt.phys.unsw.edu.au/jw/musical-sounds-musical-instruments.html",
+        "type": "University acoustics explanation",
+        "supports": "Periodic signals, harmonic spectra, and the distinction between frequency content, pitch and timbre. Four stationary harmonics do not reproduce all properties of an instrument."
+      }
+    ],
+    "scenes": [
+      {
+        "id": "shape-a-sound-1",
+        "chapter": 0,
+        "title": "Start with one component.",
+        "deck": "Start with one component.",
+        "text": [
+          "The curve shows a simple repeating shape. Play it if you want to connect the picture with a sound; you can also investigate visually. The fundamental control changes the reference repetition rate. The drawing always shows three reference cycles, so a higher frequency does not have to crowd more waves into this particular window.",
+          "Turn sound off before moving on if you prefer silence. Playback belongs to you: changing a control does not grant permission to start audio. The experiment presents a deliberately small set of ingredients so that you can follow which change caused which result, rather than browse a large collection of instrument labels."
+        ],
+        "kind": "sound",
+        "sources": [0]
+      },
+      {
+        "id": "shape-a-sound-2",
+        "chapter": 0,
+        "title": "Separate three questions.",
+        "deck": "Separate three questions.",
+        "text": [
+          "A waveform is a description of variation, not a picture of air travelling from the speaker to your ear. In this workbench it represents a normalized periodic signal. The physical loudspeaker, room and listener are outside the calculation, so the drawing should not be read as a calibrated pressure trace.",
+          "It helps to separate the reference frequency, the mixture of frequency components and the way sound changes over time. This lesson holds many properties steady and examines the mixture. Real instruments introduce attacks, decays, noise and other details that four stationary components cannot fully reproduce."
+        ],
+        "kind": "journey",
+        "sources": [0]
+      },
+      {
+        "id": "shape-a-sound-3",
+        "chapter": 0,
+        "title": "Add a second ingredient.",
+        "deck": "Add a second ingredient.",
+        "text": [
+          "Keep the fundamental fixed and raise the second component. The new component completes two cycles for every reference cycle. Its contribution adds to the first rather than replacing it. Follow a recognizable part of the curve and see how the combined shape changes.",
+          "Compare the preset mixtures, then create your own. Their names describe ingredients, not faithful copies of real instruments. Several mixtures can share a reference rate while sounding different. The controls give you a concrete way to explore that observation, with visible values that make returning to a previous mixture possible."
+        ],
+        "kind": "sound",
+        "sources": [0]
+      },
+      {
+        "id": "shape-a-sound-4",
+        "chapter": 1,
+        "title": "Think in terms of a recipe.",
+        "deck": "Think in terms of a recipe.",
+        "text": [
+          "A harmonic recipe says which integer-related components are present and how strongly they contribute. The combined signal follows from that recipe. This is a model you can manipulate, not a claim that every musical sound must contain only integer-related components or remain periodic.",
+          "Try explaining a preset using its values rather than its name. Doing so makes the explanation transferable: another interface could display the same ingredients differently. It also helps you recognize the difference between a generated label and the actual rules controlling the sound you hear."
+        ],
+        "kind": "journey",
+        "sources": [0]
+      },
+      {
+        "id": "shape-a-sound-5",
+        "chapter": 1,
+        "title": "Remove the first component.",
+        "deck": "Remove the first component.",
+        "text": [
+          "What happens when the first slider reaches zero while higher components remain? Make the change and inspect the curve. A reference frequency can still organize the recipe even when that first component contributes no amplitude. Describing the lowest present component and describing the perceived pitch are different tasks.",
+          "This small experiment does not measure your hearing or guarantee a particular perceptual response. Compare it at a comfortable level, or keep using the visible recipe. If every component is zero the correct result is silence. The model should report that condition directly instead of decorating an empty signal with invented musical meaning."
+        ],
+        "kind": "sound",
+        "sources": [0]
+      },
+      {
+        "id": "shape-a-sound-6",
+        "chapter": 1,
+        "title": "You changed the ingredients.",
+        "deck": "You changed the ingredients.",
+        "text": [
+          "You have moved between a component recipe, a combined waveform and optional sound. The strongest observation is a relationship you can reproduce: changing relative harmonics changes the periodic signal even when the chosen reference frequency stays fixed.",
+          "Keep that result separate from a complete explanation of an instrument. A real note has a beginning, an ending, changing intensity and a physical source. This workbench isolates one part of that larger subject. It can support a sharper next question, such as what happens when a sound’s spectrum changes during its attack."
+        ],
+        "kind": "journey",
+        "sources": [0]
+      }
+    ]
+  },
+  "assets": [
+    {
+      "src": "/images/learning/sound.svg",
+      "width": 1200,
+      "height": 800,
+      "credit": "Original project diagram · schematic, not a photograph",
+      "record": "https://newt.phys.unsw.edu.au/jw/musical-sounds-musical-instruments.html",
+      "license": "Original project asset created for this application",
+      "treatment": "diagram"
+    }
+  ],
+  "programs": [
+    {
+      "sceneId": "shape-a-sound-1",
+      "beats": [
+        {
+          "id": "shape-a-sound-1-beat",
+          "type": "sound",
+          "composition": "sound-studio",
+          "purpose": "Start with one component.",
+          "title": "Start with one component.",
+          "sourceIndices": [0],
+          "passageStart": 0,
+          "passageEnd": 1,
+          "sound": {
+            "fundamental": 220,
+            "harmonics": [1, 0, 0, 0],
+            "presets": [
+              {
+                "label": "Pure tone",
+                "harmonics": [1, 0, 0, 0],
+                "explanation": "One sine component: the simplest periodic shape in this lab. Change the fundamental to alter its repetition rate."
+              },
+              {
+                "label": "Odd harmonics",
+                "harmonics": [1, 0, 0.33, 0],
+                "explanation": "The first and third components create a different shape. This is a finite harmonic mixture, not a complete square wave or a real clarinet."
+              },
+              {
+                "label": "Four-part mixture",
+                "harmonics": [1, 0.5, 0.33, 0.25],
+                "explanation": "Four integer-related components add fine structure within each cycle. This truncated mixture has a different tone color from the pure sine."
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "sceneId": "shape-a-sound-2",
+      "beats": [
+        {
+          "id": "shape-a-sound-2-beat",
+          "type": "journey",
+          "composition": "process-workbench",
+          "purpose": "Separate three questions.",
+          "title": "Separate three questions.",
+          "sourceIndices": [0],
+          "passageStart": 0,
+          "passageEnd": 1,
+          "stages": [
+            {
+              "title": "Reference rate",
+              "body": "The fundamental defines the spacing of the harmonic frequencies.",
+              "date": ""
+            },
+            {
+              "title": "Mixture",
+              "body": "Relative component amplitudes change the repeating shape.",
+              "date": ""
+            },
+            {
+              "title": "Time behavior",
+              "body": "Real sounds also change their character during a note.",
+              "date": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sceneId": "shape-a-sound-3",
+      "beats": [
+        {
+          "id": "shape-a-sound-3-beat",
+          "type": "sound",
+          "composition": "sound-studio",
+          "purpose": "Add a second ingredient.",
+          "title": "Add a second ingredient.",
+          "sourceIndices": [0],
+          "passageStart": 0,
+          "passageEnd": 1,
+          "sound": {
+            "fundamental": 220,
+            "harmonics": [1, 0.5, 0, 0],
+            "presets": [
+              {
+                "label": "Pure tone",
+                "harmonics": [1, 0, 0, 0],
+                "explanation": "One sine component: the simplest periodic shape in this lab. Change the fundamental to alter its repetition rate."
+              },
+              {
+                "label": "Odd harmonics",
+                "harmonics": [1, 0, 0.33, 0],
+                "explanation": "The first and third components create a different shape. This is a finite harmonic mixture, not a complete square wave or a real clarinet."
+              },
+              {
+                "label": "Four-part mixture",
+                "harmonics": [1, 0.5, 0.33, 0.25],
+                "explanation": "Four integer-related components add fine structure within each cycle. This truncated mixture has a different tone color from the pure sine."
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "sceneId": "shape-a-sound-4",
+      "beats": [
+        {
+          "id": "shape-a-sound-4-beat",
+          "type": "journey",
+          "composition": "process-workbench",
+          "purpose": "Think in terms of a recipe.",
+          "title": "Think in terms of a recipe.",
+          "sourceIndices": [0],
+          "passageStart": 0,
+          "passageEnd": 1,
+          "stages": [
+            {
+              "title": "Choose a rate",
+              "body": "Set the fundamental before comparing different mixtures.",
+              "date": ""
+            },
+            {
+              "title": "Set contributions",
+              "body": "Adjust the four relative amplitudes.",
+              "date": ""
+            },
+            {
+              "title": "Compare the result",
+              "body": "Inspect the shape, optionally listen, then change one contribution again.",
+              "date": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sceneId": "shape-a-sound-5",
+      "beats": [
+        {
+          "id": "shape-a-sound-5-beat",
+          "type": "sound",
+          "composition": "sound-studio",
+          "purpose": "Remove the first component.",
+          "title": "Remove the first component.",
+          "sourceIndices": [0],
+          "passageStart": 0,
+          "passageEnd": 1,
+          "sound": {
+            "fundamental": 220,
+            "harmonics": [0, 0.5, 0.33, 0.25],
+            "presets": [
+              {
+                "label": "Pure tone",
+                "harmonics": [1, 0, 0, 0],
+                "explanation": "One sine component: the simplest periodic shape in this lab. Change the fundamental to alter its repetition rate."
+              },
+              {
+                "label": "Odd harmonics",
+                "harmonics": [1, 0, 0.33, 0],
+                "explanation": "The first and third components create a different shape. This is a finite harmonic mixture, not a complete square wave or a real clarinet."
+              },
+              {
+                "label": "Four-part mixture",
+                "harmonics": [1, 0.5, 0.33, 0.25],
+                "explanation": "Four integer-related components add fine structure within each cycle. This truncated mixture has a different tone color from the pure sine."
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "sceneId": "shape-a-sound-6",
+      "beats": [
+        {
+          "id": "shape-a-sound-6-beat",
+          "type": "journey",
+          "composition": "synthesis-board",
+          "purpose": "You changed the ingredients.",
+          "title": "You changed the ingredients.",
+          "sourceIndices": [0],
+          "passageStart": 0,
+          "passageEnd": 1,
+          "stages": [
+            {
+              "title": "A reference",
+              "body": "Frequency provides one way to organize a periodic signal.",
+              "date": ""
+            },
+            {
+              "title": "A mixture",
+              "body": "Harmonic amplitudes change the combined shape and tone character.",
+              "date": ""
+            },
+            {
+              "title": "A boundary",
+              "body": "Four steady components are not a complete instrument or hearing model.",
+              "date": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

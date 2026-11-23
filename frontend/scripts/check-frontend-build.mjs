@@ -41,6 +41,9 @@ for (const file of pages) {
       assert(image?.startsWith("/images/"));
       await exists(path.join(root, "public", image));
       imageUses++;
+    } else if (url.pathname.startsWith("/images/")) {
+      await exists(path.join(root, "public", url.pathname));
+      imageUses++;
     }
   }
   for (const match of html.matchAll(/href="(\/_next\/static\/media\/[^"?]+)(?:[^"\s]*)"/g)) {

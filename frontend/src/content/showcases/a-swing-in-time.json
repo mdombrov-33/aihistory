@@ -1,0 +1,284 @@
+{
+  "version": 2,
+  "models": [],
+  "summary": {
+    "slug": "a-swing-in-time",
+    "title": "A swing in time",
+    "question": "What makes a pendulum return sooner—or later?",
+    "description": "Release a physical pendulum, change its length and gravity, and compare what you observe with the small-angle prediction.",
+    "image": "/images/learning/pendulum.svg",
+    "imageAlt": "Original geometric teaching diagram for A swing in time",
+    "topic": "Physics & space",
+    "era": "timeless",
+    "period": "An explorable concept",
+    "scope": "Beginner · two chapters · interactive workbenches",
+    "minutes": 8,
+    "chapters": [
+      {
+        "title": "One return",
+        "question": "What should we measure?"
+      },
+      {
+        "title": "Changing the conditions",
+        "question": "Which changes matter?"
+      }
+    ],
+    "sourceLabel": "Sources and model assumptions included",
+    "sample": true
+  },
+  "lesson": {
+    "preview": true,
+    "sources": [
+      {
+        "name": "OpenStax",
+        "title": "Pendulums",
+        "url": "https://openstax.org/books/university-physics-volume-1/pages/15-4-pendulums",
+        "type": "Physics textbook",
+        "supports": "Simple and physical pendulums, restoring torque, the small-angle period and the assumptions behind it."
+      }
+    ],
+    "scenes": [
+      {
+        "id": "a-swing-in-time-1",
+        "chapter": 0,
+        "title": "Release it. Watch a complete return.",
+        "deck": "Release it. Watch a complete return.",
+        "text": [
+          "A pendulum gives you a repeatable event. Release the bob and follow it from one side to the other, then back to its starting side. That complete return is one period. It is easy to count only a crossing and call it a swing, so decide what event you are timing before comparing any results.",
+          "The workbench starts paused. Play the simulation when you are ready, then stop it while you think. The large number is a mathematical prediction, not a stopwatch reading from the animation. Keeping those two things separate lets you use a visualization without silently treating it as an independent measurement."
+        ],
+        "kind": "experiment",
+        "sources": [0]
+      },
+      {
+        "id": "a-swing-in-time-2",
+        "chapter": 0,
+        "title": "Follow the restoring action.",
+        "deck": "Follow the restoring action.",
+        "text": [
+          "An oscillation is a changing relationship between position and motion. At a turning point the bob reverses direction; during the next part of the path it moves towards the lower position. The physical simulation implements constraints and gravity, while the accompanying equation makes a narrower small-angle prediction.",
+          "Use the sequence to describe one return in your own words. Do not add energy from an imaginary push each time the bob passes the center. This ideal setup deliberately leaves out damping. A real swing exchanges energy with its surroundings, but that is a different investigation from the relationship we are isolating here."
+        ],
+        "kind": "journey",
+        "sources": [0]
+      },
+      {
+        "id": "a-swing-in-time-3",
+        "chapter": 0,
+        "title": "Double the length. Predict first.",
+        "deck": "Double the length. Predict first.",
+        "text": [
+          "Pause before changing the length. Make a prediction about whether a longer pendulum returns faster or slower, then test a much larger change. Choose a short length and compare it with a length four times as large. Resetting the simulation keeps the starting angle comparable.",
+          "The relationship is not a direct multiplication: length appears inside a square root in the small-angle period formula. Read the numerical predictions for both configurations and compare their ratio. You can investigate a relationship without collecting a score, guessing what an examiner wants or waiting for another explanation to be generated."
+        ],
+        "kind": "experiment",
+        "sources": [0]
+      },
+      {
+        "id": "a-swing-in-time-4",
+        "chapter": 1,
+        "title": "Read the formula as a relationship.",
+        "deck": "Read the formula as a relationship.",
+        "text": [
+          "The expression T = 2π√(L/g) uses a length in metres and gravitational acceleration in metres per second squared. Those choices matter. Entering centimetres as though they were metres would describe a different pendulum even if the displayed drawing looked reasonable.",
+          "Think of the formula as a way to ask controlled questions. Holding gravity fixed isolates the length relationship. Holding length fixed isolates gravity. Changing both together may be interesting later, but it makes a first comparison harder to interpret. A useful experiment gives you a reason for changing each control."
+        ],
+        "kind": "journey",
+        "sources": [0]
+      },
+      {
+        "id": "a-swing-in-time-5",
+        "chapter": 1,
+        "title": "Try the same swing somewhere else.",
+        "deck": "Try the same swing somewhere else.",
+        "text": [
+          "Keep the length fixed and select a different gravity preset. These rounded values create a comparison between ideal conditions; the app is not placing you at a measured geographic site. Notice how the numerical period and the physical simulation respond without changing the dimensions of the pendulum.",
+          "The approximation still has boundaries. A finite bob has rotational inertia, and a ten-degree release is not an infinitesimal angle. Those details can create a small difference from the point-mass prediction. That difference is a reason to examine assumptions rather than assume either a polished animation or a familiar equation must describe everything exactly."
+        ],
+        "kind": "experiment",
+        "sources": [0]
+      },
+      {
+        "id": "a-swing-in-time-6",
+        "chapter": 1,
+        "title": "Carry the relationship with you.",
+        "deck": "Carry the relationship with you.",
+        "text": [
+          "The pendulum has given you a small experiment with a clear question, controllable conditions and a prediction that can be checked. You can now explain why comparing two pictures of swings is weaker than holding one variable fixed and investigating the other.",
+          "When you revisit the workbench, try explaining a result before releasing the bob. The calculation, the physical animation and the source explanation offer different ways to examine the same relationship. None removes the need to state the unit system, define a full period or acknowledge what the model leaves out."
+        ],
+        "kind": "journey",
+        "sources": [0]
+      }
+    ]
+  },
+  "assets": [
+    {
+      "src": "/images/learning/pendulum.svg",
+      "width": 1200,
+      "height": 800,
+      "credit": "Original project diagram · schematic, not a photograph",
+      "record": "https://openstax.org/books/university-physics-volume-1/pages/15-4-pendulums",
+      "license": "Original project asset created for this application",
+      "treatment": "diagram"
+    }
+  ],
+  "programs": [
+    {
+      "sceneId": "a-swing-in-time-1",
+      "beats": [
+        {
+          "id": "a-swing-in-time-1-beat",
+          "type": "experiment",
+          "composition": "experiment-bench",
+          "purpose": "Release it. Watch a complete return.",
+          "title": "Release it. Watch a complete return.",
+          "sourceIndices": [0],
+          "passageStart": 0,
+          "passageEnd": 1,
+          "experiment": {
+            "model": "pendulum",
+            "length": 1,
+            "gravity": 9.81
+          }
+        }
+      ]
+    },
+    {
+      "sceneId": "a-swing-in-time-2",
+      "beats": [
+        {
+          "id": "a-swing-in-time-2-beat",
+          "type": "journey",
+          "composition": "process-workbench",
+          "purpose": "Follow the restoring action.",
+          "title": "Follow the restoring action.",
+          "sourceIndices": [0],
+          "passageStart": 0,
+          "passageEnd": 1,
+          "stages": [
+            {
+              "title": "Displace",
+              "body": "A release begins away from the lowest position.",
+              "date": ""
+            },
+            {
+              "title": "Return",
+              "body": "Gravity produces a restoring effect about the pivot.",
+              "date": ""
+            },
+            {
+              "title": "Repeat",
+              "body": "The system passes through the low point and reaches another turning point.",
+              "date": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sceneId": "a-swing-in-time-3",
+      "beats": [
+        {
+          "id": "a-swing-in-time-3-beat",
+          "type": "experiment",
+          "composition": "experiment-bench",
+          "purpose": "Double the length. Predict first.",
+          "title": "Double the length. Predict first.",
+          "sourceIndices": [0],
+          "passageStart": 0,
+          "passageEnd": 1,
+          "experiment": {
+            "model": "pendulum",
+            "length": 0.5,
+            "gravity": 9.81
+          }
+        }
+      ]
+    },
+    {
+      "sceneId": "a-swing-in-time-4",
+      "beats": [
+        {
+          "id": "a-swing-in-time-4-beat",
+          "type": "journey",
+          "composition": "process-workbench",
+          "purpose": "Read the formula as a relationship.",
+          "title": "Read the formula as a relationship.",
+          "sourceIndices": [0],
+          "passageStart": 0,
+          "passageEnd": 1,
+          "stages": [
+            {
+              "title": "Hold one input fixed",
+              "body": "Choose whether length or gravity is the subject of the comparison.",
+              "date": ""
+            },
+            {
+              "title": "Change the other",
+              "body": "Use a large enough difference to make the predicted effect easy to see.",
+              "date": ""
+            },
+            {
+              "title": "Compare complete periods",
+              "body": "Use one consistent definition of the return event.",
+              "date": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sceneId": "a-swing-in-time-5",
+      "beats": [
+        {
+          "id": "a-swing-in-time-5-beat",
+          "type": "experiment",
+          "composition": "experiment-bench",
+          "purpose": "Try the same swing somewhere else.",
+          "title": "Try the same swing somewhere else.",
+          "sourceIndices": [0],
+          "passageStart": 0,
+          "passageEnd": 1,
+          "experiment": {
+            "model": "pendulum",
+            "length": 1,
+            "gravity": 1.62
+          }
+        }
+      ]
+    },
+    {
+      "sceneId": "a-swing-in-time-6",
+      "beats": [
+        {
+          "id": "a-swing-in-time-6-beat",
+          "type": "journey",
+          "composition": "synthesis-board",
+          "purpose": "Carry the relationship with you.",
+          "title": "Carry the relationship with you.",
+          "sourceIndices": [0],
+          "passageStart": 0,
+          "passageEnd": 1,
+          "stages": [
+            {
+              "title": "Length",
+              "body": "A longer ideal pendulum has a longer period at fixed gravity.",
+              "date": ""
+            },
+            {
+              "title": "Gravity",
+              "body": "Stronger gravity shortens the predicted return at fixed length.",
+              "date": ""
+            },
+            {
+              "title": "Assumptions",
+              "body": "Small-angle and point-mass predictions are approximations to the simulated finite bob.",
+              "date": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

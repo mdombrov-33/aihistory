@@ -1,9 +1,10 @@
+import { topicNames, eras } from "./taxonomy";
 import { z } from "zod";
 import { modelAssetSchema } from "./model-asset";
 import { sceneProgramSchema, validateSceneProgram } from "@/features/player/scene-schema";
 
 const text = z.string().min(1);
-const imagePath = z.string().regex(/^\/images\/[a-zA-Z0-9/_-]+\.(webp|png|jpg)$/);
+const imagePath = z.string().regex(/^\/images\/[a-zA-Z0-9/_-]+\.(webp|png|jpg|svg)$/);
 const sourceUrl = z.url().startsWith("https://");
 
 // A complete prepared story is input data, including composition choices.
@@ -18,13 +19,8 @@ export const preparedStorySchema = z.strictObject({
     description: text.max(800),
     image: imagePath,
     imageAlt: text.max(500),
-    topic: z.enum([
-      "Trade & connection",
-      "Art & ideas",
-      "Science & invention",
-      "People & daily life",
-    ]),
-    era: z.enum(["ancient", "medieval", "early-modern", "modern"]),
+    topic: z.enum(topicNames),
+    era: z.enum(eras),
     period: text.max(120),
     scope: text.max(240),
     minutes: z.number().int().positive().max(120),
@@ -74,7 +70,7 @@ export const preparedStorySchema = z.strictObject({
         credit: text,
         record: sourceUrl,
         license: text,
-        treatment: z.enum(["historical-image", "modern-photograph", "reconstruction"]),
+        treatment: z.enum(["historical-image", "modern-photograph", "reconstruction", "diagram"]),
       }),
     )
     .min(1)

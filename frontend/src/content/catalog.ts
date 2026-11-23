@@ -1,10 +1,7 @@
 import { preparedSummaries } from "./prepared-catalog";
-export type Topic =
-  | "Trade & connection"
-  | "Art & ideas"
-  | "Science & invention"
-  | "People & daily life";
-export type Era = "ancient" | "medieval" | "early-modern" | "modern";
+import { topicNames, eras } from "@/story/taxonomy";
+export type Topic = (typeof topicNames)[number];
+export type Era = (typeof eras)[number];
 export type StorySummary = {
   slug: string;
   title: string;
@@ -25,12 +22,7 @@ export type StorySummary = {
 
 // Prepared catalog fixtures for the static frontend. Counts and availability do not represent a live service.
 export const stories: readonly StorySummary[] = preparedSummaries;
-export const topics: readonly Topic[] = [
-  "Trade & connection",
-  "Art & ideas",
-  "Science & invention",
-  "People & daily life",
-];
+export const topics: readonly Topic[] = topicNames;
 export function getStory(slug: string) {
   return stories.find((story) => story.slug === slug);
 }

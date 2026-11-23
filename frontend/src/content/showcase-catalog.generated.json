@@ -1,5 +1,57 @@
 [
   {
+    "slug": "a-swing-in-time",
+    "title": "A swing in time",
+    "question": "What makes a pendulum return sooner—or later?",
+    "description": "Release a physical pendulum, change its length and gravity, and compare what you observe with the small-angle prediction.",
+    "image": "/images/learning/pendulum.svg",
+    "imageAlt": "Original geometric teaching diagram for A swing in time",
+    "topic": "Physics & space",
+    "era": "timeless",
+    "period": "An explorable concept",
+    "scope": "Beginner · two chapters · interactive workbenches",
+    "minutes": 8,
+    "chapters": [
+      {
+        "title": "One return",
+        "question": "What should we measure?"
+      },
+      {
+        "title": "Changing the conditions",
+        "question": "Which changes matter?"
+      }
+    ],
+    "sourceLabel": "Sources and model assumptions included",
+    "sample": true,
+    "sceneCount": 6
+  },
+  {
+    "slug": "camera-opened-up",
+    "title": "The camera, opened up",
+    "question": "How does scattered light become a focused picture?",
+    "description": "Take apart a schematic camera, follow light through an ideal lens and discover why an image can be real, virtual or impossible to catch on a nearby screen.",
+    "image": "/images/learning/optics.svg",
+    "imageAlt": "Original geometric teaching diagram for The camera, opened up",
+    "topic": "Physics & space",
+    "era": "timeless",
+    "period": "An explorable concept",
+    "scope": "Beginner · two chapters · interactive workbenches",
+    "minutes": 8,
+    "chapters": [
+      {
+        "title": "A route for light",
+        "question": "What does each part contribute?"
+      },
+      {
+        "title": "Finding the image",
+        "question": "Where do the rays meet?"
+      }
+    ],
+    "sourceLabel": "Sources and model assumptions included",
+    "sample": true,
+    "sceneCount": 6
+  },
+  {
     "slug": "great-wave-made-by-hand",
     "title": "The Great Wave, made by hand",
     "question": "How many kinds of work live inside one famous image?",
@@ -90,6 +142,32 @@
     "sceneCount": 3
   },
   {
+    "slug": "shape-a-sound",
+    "title": "Shape a sound",
+    "question": "Why can the same note have a different character?",
+    "description": "Build a tone from four harmonics, see the resulting waveform and listen deliberately. The same explanation remains available without audio.",
+    "image": "/images/learning/sound.svg",
+    "imageAlt": "Original geometric teaching diagram for Shape a sound",
+    "topic": "Music & sound",
+    "era": "timeless",
+    "period": "An explorable concept",
+    "scope": "Beginner · two chapters · interactive workbenches",
+    "minutes": 8,
+    "chapters": [
+      {
+        "title": "A repeating shape",
+        "question": "What repeats in a tone?"
+      },
+      {
+        "title": "A different mixture",
+        "question": "What can harmonics explain?"
+      }
+    ],
+    "sourceLabel": "Sources and model assumptions included",
+    "sample": true,
+    "sceneCount": 6
+  },
+  {
     "slug": "shape-of-a-signal",
     "title": "The shape of a signal",
     "question": "How does a movement of one hand cross an ocean?",
@@ -118,5 +196,31 @@
     "sourceLabel": "Historical objects, collection records and institutional research",
     "sample": true,
     "sceneCount": 3
+  },
+  {
+    "slug": "signals-and-decisions",
+    "title": "Signals and decisions",
+    "question": "How can simple rules produce a useful decision?",
+    "description": "Toggle inputs, trace live connections and compare AND, OR and NOT in small ideal digital systems.",
+    "image": "/images/learning/logic.svg",
+    "imageAlt": "Original geometric teaching diagram for Signals and decisions",
+    "topic": "Technology & computing",
+    "era": "timeless",
+    "period": "An explorable concept",
+    "scope": "Beginner · two chapters · interactive workbenches",
+    "minutes": 8,
+    "chapters": [
+      {
+        "title": "Inputs become an outcome",
+        "question": "What does a gate combine?"
+      },
+      {
+        "title": "Rules work together",
+        "question": "How do different gates compose?"
+      }
+    ],
+    "sourceLabel": "Sources and model assumptions included",
+    "sample": true,
+    "sceneCount": 6
   }
 ]

@@ -1,12 +1,12 @@
-# Story experience
+# Learning experience
 
 ## Intended experience
 
 This document records product direction. [Status](../status.md) identifies implemented behavior and previews; [scene contracts](../technical/scenes.md) describe the current renderer.
 
-The learner asks a historical question or chooses a library item, then follows a guided interactive story explaining what happened, why it mattered, and what evidence supports the account. The story is composed inside the website from supported scene and interaction forms; it is not a standalone generated site or a generic chat/essay.
+The learner asks a question or chooses a library item, then explores a coherent explanation of a subject. They can change inputs, inspect structures, trace processes and connect observed results with an explanation. The story is composed inside the website from supported scene and interaction forms; it is not a standalone generated site or a generic chat/essay.
 
-Aim for a premium, cinematic digital museum: expressive typography, substantial imagery, purposeful motion, and clear interaction. Keep the tone curious, thoughtful, welcoming, and occasionally dramatic, without sounding like a classroom lecture or a constant trailer.
+Aim for an expressive interactive learning experience: expressive typography, substantial imagery, purposeful motion, and clear interaction. Keep the tone curious, thoughtful, welcoming, and occasionally dramatic, without sounding like a classroom lecture or a constant trailer.
 
 ## Journey and pacing
 
@@ -17,19 +17,19 @@ Aim for a premium, cinematic digital museum: expressive typography, substantial 
 5. **Explore:** follow a coherent main path, jump or revisit chapters, and investigate optional details without losing place.
 6. **Close:** recap the answer and main connections. Reaching the closing recap marks the story finished; opening sources is optional.
 
-Target roughly 15–20 minutes for the production main path, commonly 4–6 short chapters. The current three-chapter showcases demonstrate the authoring/rendering system; their duration is not acceptance of the production pacing or audio target. This is an editorial target, not a timer or mandatory length. Keep narrow topics concise; optional exploration can extend a session.
+Target roughly 15–20 minutes for the production main path, commonly 4–6 short chapters. The current prepared showcases demonstrate the authoring/rendering system; their duration is not acceptance of the production pacing or audio target. This is an editorial target, not a timer or mandatory length. Keep narrow topics concise; optional exploration can extend a session.
 
-The main path should build 2–3 clear learning outcomes. A chapter advances one explanatory purpose. Use interaction only when it helps understanding: maps, timelines, document/source comparisons, relationships, before/after views, or historically grounded decisions. Avoid repetitive mandatory quizzes, scores, and XP as the default.
+The main path should build 2–3 clear learning outcomes. A chapter advances one explanatory purpose. Use interaction only when it helps understanding: experiments, explorable assemblies, sound, connected systems, worked examples, maps, timelines or source comparisons. The [learning engine](../technical/learning-engine.md) distinguishes implemented mechanics from proposals. Avoid repetitive mandatory quizzes, scores, and XP as the default.
 
-At meaningful points, pause for the learner to inspect or continue. Do not require a click for every sentence and do not advance while the learner is interacting. Decision scenes reveal the real historical choice and outcome, explain what decision-makers could know, and label invented alternatives as hypothetical.
+At meaningful points, pause for the learner to inspect or continue. Do not require a click for every sentence and do not advance while the learner is interacting. Future decision scenes state their assumptions and distinguish modeled consequences from documented outcomes; historical decisions also explain what people could know at the time.
 
 ## Questions and detours
 
-Answer ordinary follow-up questions in the current story without making the learner wait for a full new creation. Keep a follow-up anchored to the scene, story, and relevant historical context. Offer a short contextual detour or a separate new story when the learner chooses a broader inquiry. Keep the original story intact.
+Answer ordinary follow-up questions in the current story without making the learner wait for a full new creation. Keep a follow-up anchored to the scene, story, and relevant subject context. Offer a short contextual detour or a separate new story when the learner chooses a broader inquiry. Keep the original story intact.
 
 ## Narration and sound
 
-Sound is a substantial part of the intended experience. The default direction is cinematic off-screen narration with concise visible text, coordinated artwork/reveals, and synchronized subtitles. Provide a complete reading view with the same explanation; no essential fact is audio-only. Let learners switch between Listen and Read at the same chapter/beat.
+Sound is a substantial part of the intended experience. Optional off-screen narration should coordinate with concise visible text, visuals and synchronized subtitles. A sound experiment uses deliberate listening; mathematical or technical work need not adopt a cinematic trailer treatment. Provide a complete reading view with the same explanation; no essential fact is audio-only. Let learners switch between Listen and Read at the same chapter/beat.
 
 Provide master mute and separate narration, music, and environment/effects controls, plus pause/replay. Remember preferences. Start sound only after a deliberate action. Keep the scene stable during interaction, and make playback controls reachable without obscuring the artwork. A strong default narrator is expected; voice choice and production details remain open.
 
@@ -37,13 +37,13 @@ Provide master mute and separate narration, music, and environment/effects contr
 
 Art direction may vary substantially between stories while navigation and controls remain recognizable. Visuals should feel composed with the story, not like generic interchangeable cards.
 
-Keep precise historical information trustworthy. Labels, dates, routes, map boundaries, dots, and markers need to match the underlying evidence; attractive artwork cannot compensate for incorrect geography or artifacts. Distinguish documented fact, interpretation, reconstruction, and hypothetical material. The production method is an implementation question.
+Keep subject information trustworthy. Equations, units, parameters, labels, connections, dates and geographic features must match their supporting model or evidence. State the assumptions and scope of simplified simulations. Distinguish documented fact, interpretation, reconstruction, and hypothetical material. The production method is an implementation question.
 
-Concept images in `docs/visuals/` show possible compositions, not final layouts or verified historical illustrations. User-provided screenshots in `visuals/references/` are the design ambition, not source material for historical claims.
+Concept images in `docs/visuals/` show possible compositions, not final layouts or verified subject illustrations. User-provided screenshots in `visuals/references/` are the design ambition, not source material for factual claims.
 
 ## Mobile and access
 
-Accepted on 2026-11-23: ordinary desktop playback should fit a complete scene, its active reading and navigation into the viewport without page scrolling. Compose/paginate content to fit rather than shrinking text, clipping paragraphs or reducing the historical explanation. Small windows, enlarged text and accessibility settings can use natural flow; mobile also permits natural reading flow. The current renderer uses a bounded desktop frame with a scrollable reading pane. Whole-screen reading fit remains an acceptance check; source checks do not establish it. Mobile, short-window and enlarged-text flow are implemented strategies awaiting rendered verification.
+Accepted on 2026-11-23: ordinary desktop playback should fit a complete scene, its active reading and navigation into the viewport without page scrolling. Compose/paginate content to fit rather than shrinking text, clipping paragraphs or reducing the explanation. Small windows, enlarged text and accessibility settings can use natural flow; mobile also permits natural reading flow. The current renderer uses a bounded desktop frame with a scrollable reading pane. Whole-screen reading fit remains an acceptance check; source checks do not establish it. Mobile, short-window and enlarged-text flow are implemented strategies awaiting rendered verification.
 
 Design mobile-first: one focused scene, readable text, touch-friendly controls, and dismissible panels for details, questions, and chapters. Let complex maps/documents open for closer inspection. Wider screens can expand the composition; do not shrink desktop mockups into phone layouts.
 
@@ -51,8 +51,8 @@ First-release accessibility direction: keyboard navigation, screen-reader labels
 
 ## Sources and difficult material
 
-Put readable sources at the end, grouped by chapter or question. Identify author/institution, source type, what each source supports, and a relevant passage/link where available. Mark primary sources and separate asset credits from historical evidence. Keep citations out of the main artwork. Distinguish “generated with sources” from actual human review; sources and ratings alone are not fact-checking.
+Put readable sources at the end, grouped by chapter or question. Identify author/institution, source type, what each source supports, and a relevant passage/link where available. Mark primary sources and separate asset credits from support for substantive claims. Keep citations out of the main artwork. Distinguish “generated with sources” from actual human review; sources and ratings alone are not fact-checking.
 
-Address sensitive, traumatic, and contested histories with relevant context and perspectives. Do not hide a subject or historically important evidence; do not make suffering spectacle. When a story includes distressing material, show a concise context note before playback and offer text/lower-intensity presentation where practical.
+Address sensitive, traumatic or contested subjects with relevant context and perspectives. Do not hide a subject or important evidence; do not make suffering spectacle. When a story includes distressing material, show a concise context note before playback and offer text/lower-intensity presentation where practical.
 
 When a request lacks enough scope or usable evidence, briefly explain the limitation and offer a narrowing question or nearby useful angle. If a section fails to prepare, identify it and offer retry while preserving usable sections and the learner's place; do not present an incomplete story as complete.

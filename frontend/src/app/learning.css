@@ -1,0 +1,314 @@
+/* Shared workbenches: manipulation, controls and feedback stay in the same pane. */
+.learning-lab {
+  height: 100%;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  overflow: auto;
+  overscroll-behavior: contain;
+  color: var(--foreground);
+  background: var(--background);
+  scrollbar-color: var(--input) var(--background);
+}
+.lab-canvas {
+  position: relative;
+  flex: 1 0 260px;
+  min-height: 260px;
+  overflow: hidden;
+}
+.lab-canvas > svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-height: 260px;
+  max-height: 55dvh;
+}
+.assembly-viewport,
+.pendulum-viewport {
+  min-height: 310px;
+}
+.system-viewport {
+  min-height: 330px;
+}
+.lab-canvas svg text {
+  font:
+    15px var(--font-source-sans),
+    sans-serif;
+  fill: var(--muted-foreground);
+}
+.lab-axis {
+  stroke: var(--input);
+  stroke-width: 1.5;
+}
+.lab-accent-fill {
+  fill: var(--primary);
+}
+.optics-lens {
+  fill: var(--primary);
+  fill-opacity: 0.14;
+  stroke: var(--primary);
+  stroke-width: 2;
+}
+.optics-object,
+.optics-image {
+  fill: none;
+  stroke: var(--foreground);
+  stroke-width: 4;
+}
+.optics-image {
+  stroke: var(--primary);
+}
+.optics-ray,
+.optics-extension {
+  fill: none;
+  stroke: var(--primary);
+  stroke-width: 2;
+}
+.optics-ray.second {
+  stroke: var(--foreground);
+}
+.optics-extension {
+  stroke-dasharray: 6 6;
+  opacity: 0.75;
+}
+.sound-wave {
+  fill: none;
+  stroke: var(--primary);
+  stroke-width: 3;
+  stroke-linejoin: round;
+}
+.lab-gesture {
+  position: absolute;
+  bottom: 10px;
+  left: 20px;
+  font-size: 13px;
+  color: var(--muted-foreground);
+  pointer-events: none;
+}
+.lab-controls {
+  display: grid;
+  gap: 16px;
+  padding: 20px 26px;
+  background: var(--muted);
+  border-top: 1px solid var(--line-soft);
+}
+.lab-range {
+  min-width: 0;
+}
+.lab-range label {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  font-size: 15px;
+}
+.lab-range output {
+  font-variant-numeric: tabular-nums;
+  color: var(--primary);
+}
+.lab-range input {
+  display: block;
+  width: 100%;
+  height: 32px;
+  accent-color: var(--primary);
+  cursor: pointer;
+}
+.lab-actions,
+.lab-choices {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+}
+.learning-lab button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 44px;
+  padding: 9px 14px;
+  border: 1px solid var(--input);
+  border-radius: 10px;
+  font-size: 14px;
+  color: var(--foreground);
+  background: var(--background);
+  cursor: pointer;
+}
+.learning-lab button:hover {
+  background: var(--muted);
+}
+.learning-lab button[aria-pressed="true"],
+.learning-lab button.lab-play {
+  color: var(--primary-foreground);
+  background: var(--primary);
+  border-color: var(--primary);
+}
+.learning-lab :is(button, input):focus-visible {
+  outline: 3px solid var(--ring);
+  outline-offset: 3px;
+}
+.lab-feedback {
+  padding: 20px 26px;
+  border-top: 1px solid var(--line-soft);
+}
+.lab-feedback h2 {
+  font-size: 24px;
+  line-height: 1.2;
+  margin: 0 0 8px;
+}
+.lab-feedback p {
+  font-size: 15px;
+  line-height: 1.5;
+  margin: 6px 0 0;
+  max-width: 65ch;
+}
+.lab-assumptions {
+  padding: 0 26px 20px;
+  font-size: 14px;
+  color: var(--muted-foreground);
+}
+.lab-assumptions summary {
+  padding: 12px 0;
+  cursor: pointer;
+  color: var(--foreground);
+}
+.lab-assumptions p,
+.lab-assumptions ul {
+  line-height: 1.55;
+  margin: 0 0 8px;
+}
+.lab-loading,
+.lab-unavailable {
+  display: grid;
+  place-content: center;
+  height: 100%;
+  min-height: 260px;
+  padding: 24px;
+  line-height: 1.6;
+  text-align: center;
+}
+.harmonic-controls {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px 24px;
+}
+.signal-node {
+  padding: 12px 16px;
+  min-width: 105px;
+  border-radius: 12px;
+  border: 2px solid var(--input);
+  background: var(--background);
+  color: var(--foreground);
+  text-align: center;
+}
+.signal-node strong,
+.signal-node span {
+  display: block;
+}
+.signal-node strong {
+  font-size: 16px;
+  font-weight: 600;
+}
+.signal-node span {
+  font-size: 12px;
+  margin-top: 4px;
+}
+.signal-node[data-active="true"] {
+  border-color: var(--primary);
+  background: var(--primary);
+  color: var(--primary-foreground);
+}
+.learning-lab .react-flow {
+  --xy-edge-stroke-default: var(--input);
+  --xy-background-pattern-dots-color-default: var(--input);
+  --xy-controls-button-background-color-default: var(--background);
+}
+.learning-lab .react-flow__edge.signal-active path {
+  stroke: var(--primary);
+}
+.learning-lab .react-flow__handle {
+  background: var(--foreground);
+  border-color: var(--background);
+}
+.lesson-frame[data-family="assembly"],
+.lesson-frame[data-family="experiment"],
+.lesson-frame[data-family="sound"],
+.lesson-frame[data-family="system"] {
+  grid-template-columns: minmax(0, 1.5fr) minmax(330px, 1fr);
+}
+@media (max-width: 760px) {
+  .lesson-frame[data-family="assembly"],
+  .lesson-frame[data-family="experiment"],
+  .lesson-frame[data-family="sound"],
+  .lesson-frame[data-family="system"] {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .learning-lab {
+    height: auto;
+    overflow: visible;
+  }
+  .lab-canvas {
+    flex: none;
+    height: 310px;
+  }
+  .lab-controls,
+  .lab-feedback {
+    padding: 20px;
+  }
+  .lab-assumptions {
+    padding: 0 20px 16px;
+  }
+  .system-viewport {
+    height: 340px;
+  }
+}
+/* Flow layouts must release the visual ancestor as well as the workbench itself. */
+@media (max-width: 760px), (max-height: 650px) {
+  .scene-player
+    .lesson-frame:is(
+      [data-family="assembly"],
+      [data-family="experiment"],
+      [data-family="sound"],
+      [data-family="system"]
+    )
+    .lesson-visual {
+    height: auto;
+    overflow: visible;
+  }
+  .learning-lab {
+    height: auto;
+    overflow: visible;
+  }
+  .lab-canvas {
+    flex: none;
+    height: 310px;
+  }
+}
+.scene-player[data-reading-fit="flow"]
+  .lesson-frame:is(
+    [data-family="assembly"],
+    [data-family="experiment"],
+    [data-family="sound"],
+    [data-family="system"]
+  )
+  .lesson-visual {
+  height: auto;
+  overflow: visible;
+}
+.scene-player[data-reading-fit="flow"] .learning-lab {
+  height: auto;
+  overflow: visible;
+}
+.scene-player[data-reading-fit="flow"] .lab-canvas {
+  flex: none;
+  height: 350px;
+}
+.learning-lab button:disabled {
+  opacity: 0.65;
+  cursor: wait;
+}
+@media (max-width: 760px) {
+  .lab-canvas svg text {
+    font-size: 26px;
+  }
+}

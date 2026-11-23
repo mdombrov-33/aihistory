@@ -1,0 +1,447 @@
+{
+  "version": 2,
+  "models": [],
+  "summary": {
+    "slug": "signals-and-decisions",
+    "title": "Signals and decisions",
+    "question": "How can simple rules produce a useful decision?",
+    "description": "Toggle inputs, trace live connections and compare AND, OR and NOT in small ideal digital systems.",
+    "image": "/images/learning/logic.svg",
+    "imageAlt": "Original geometric teaching diagram for Signals and decisions",
+    "topic": "Technology & computing",
+    "era": "timeless",
+    "period": "An explorable concept",
+    "scope": "Beginner · two chapters · interactive workbenches",
+    "minutes": 8,
+    "chapters": [
+      {
+        "title": "Inputs become an outcome",
+        "question": "What does a gate combine?"
+      },
+      {
+        "title": "Rules work together",
+        "question": "How do different gates compose?"
+      }
+    ],
+    "sourceLabel": "Sources and model assumptions included",
+    "sample": true
+  },
+  "lesson": {
+    "preview": true,
+    "sources": [
+      {
+        "name": "All About Circuits",
+        "title": "Digital Signals and Gates",
+        "url": "https://www.allaboutcircuits.com/textbook/digital/chpt-3/digital-signals-gates/",
+        "type": "Electronics textbook",
+        "supports": "Boolean signal representations and truth tables. Our networks are ideal logical models, not electrical circuit simulations."
+      },
+      {
+        "name": "All About Circuits",
+        "title": "Multiple-input Gates",
+        "url": "https://www.allaboutcircuits.com/textbook/digital/chpt-3/multiple-input-gates/",
+        "type": "Electronics textbook",
+        "supports": "AND, OR and combinations of gates; comparison of possible input states."
+      }
+    ],
+    "scenes": [
+      {
+        "id": "signals-and-decisions-1",
+        "chapter": 0,
+        "title": "Two inputs. One result.",
+        "deck": "Two inputs. One result.",
+        "text": [
+          "Toggle Request and Permission independently. The result of this network depends on both values, not on the order in which you pressed the buttons. ON and OFF are names for Boolean states here. They are not voltage measurements or proof that a real system has checked anyone’s identity.",
+          "Inspect the AND component and follow the connected lines. Each line shows the current value produced by its source. Text labels accompany the visual emphasis so that the explanation does not depend only on color. Try all four possible pairs of input values before deciding what rule the gate implements."
+        ],
+        "kind": "system",
+        "sources": [0, 1]
+      },
+      {
+        "id": "signals-and-decisions-2",
+        "chapter": 0,
+        "title": "Make the rule explicit.",
+        "deck": "Make the rule explicit.",
+        "text": [
+          "A truth table is a complete list of outcomes for a finite set of input combinations. For two Boolean inputs there are four combinations. Describing only the case where both inputs are ON leaves most of the rule unstated, even if that is the case you first expected to matter.",
+          "Use the process panel to organize your investigation, then return to the network when useful. The goal is a rule you can explain and reproduce. Merely watching a highlighted line is not enough if you cannot say which change would make that line switch off."
+        ],
+        "kind": "journey",
+        "sources": [0, 1]
+      },
+      {
+        "id": "signals-and-decisions-3",
+        "chapter": 0,
+        "title": "Change AND into OR.",
+        "deck": "Change AND into OR.",
+        "text": [
+          "This network contains the same two independent inputs and a different combining rule. Turn one input ON while leaving the other OFF, then compare the result with the first network. A change to one gate can change the overall behavior while the visual arrangement stays familiar.",
+          "The OR rule here is inclusive: having both inputs ON does not cancel the result. Words such as either can be ambiguous in everyday conversation, so the workbench gives you exact input combinations to inspect. Distinguish the rule being demonstrated from a story someone tells about what the input labels mean."
+        ],
+        "kind": "system",
+        "sources": [0, 1]
+      },
+      {
+        "id": "signals-and-decisions-4",
+        "chapter": 1,
+        "title": "Reason about a pathway.",
+        "deck": "Reason about a pathway.",
+        "text": [
+          "Connected gates let you work from local rules towards an overall result. You can trace forward from a changed input, or reason backwards from an output condition. The network in this lesson has no feedback loops, so every value can be resolved from earlier values.",
+          "That restriction is part of the model. Real digital systems can have memory and timing, but drawing a loop in this particular workbench would require a definition of those behaviors. A useful lesson engine should reject unsupported structure rather than quietly display an arbitrary answer for it."
+        ],
+        "kind": "journey",
+        "sources": [0, 1]
+      },
+      {
+        "id": "signals-and-decisions-5",
+        "chapter": 1,
+        "title": "Add a condition that must be absent.",
+        "deck": "Add a condition that must be absent.",
+        "text": [
+          "The second input now represents a block. A NOT gate reverses that input before it reaches AND. Try a request with no block, then keep the request ON and introduce the block. The visible connections let you identify the exact place where the change reverses the final outcome.",
+          "This is an illustrative policy, not a real access-control implementation. Its value is the logical structure: Request AND NOT Blocked. You can use the same small vocabulary to express other conditions, provided you define what the values mean and avoid importing real-world guarantees that the diagram does not establish."
+        ],
+        "kind": "system",
+        "sources": [0, 1]
+      },
+      {
+        "id": "signals-and-decisions-6",
+        "chapter": 1,
+        "title": "A decision can be inspected.",
+        "deck": "A decision can be inspected.",
+        "text": [
+          "You have compared three networks without changing the way you operate the workbench. Each network is data: nodes, connections, initial input values and explanations. The renderer and evaluator apply the same supported rules to every example.",
+          "That separation also makes the explanation testable. An invalid connection or a cycle should be caught before a learner sees the lesson. Correct logical evaluation is still only one layer of correctness: the labels and the intended real-world application must also be examined. Keep both layers in mind when following a more complicated system."
+        ],
+        "kind": "journey",
+        "sources": [0, 1]
+      }
+    ]
+  },
+  "assets": [
+    {
+      "src": "/images/learning/logic.svg",
+      "width": 1200,
+      "height": 800,
+      "credit": "Original project diagram · schematic, not a photograph",
+      "record": "https://www.allaboutcircuits.com/textbook/digital/chpt-3/digital-signals-gates/",
+      "license": "Original project asset created for this application",
+      "treatment": "diagram"
+    }
+  ],
+  "programs": [
+    {
+      "sceneId": "signals-and-decisions-1",
+      "beats": [
+        {
+          "id": "signals-and-decisions-1-beat",
+          "type": "system",
+          "composition": "system-workbench",
+          "purpose": "Two inputs. One result.",
+          "title": "Two inputs. One result.",
+          "sourceIndices": [0, 1],
+          "passageStart": 0,
+          "passageEnd": 1,
+          "system": {
+            "nodes": [
+              {
+                "id": "request",
+                "label": "Request",
+                "explanation": "This is one independent input. Toggle it and follow the changed connections. ON represents Boolean true; OFF represents false.",
+                "kind": "input",
+                "initial": false,
+                "x": 10,
+                "y": 28
+              },
+              {
+                "id": "permission",
+                "label": "Permission",
+                "explanation": "This is another independent input. A gate combines its value with the request according to a stated rule.",
+                "kind": "input",
+                "initial": true,
+                "x": 10,
+                "y": 70
+              },
+              {
+                "id": "combine",
+                "label": "AND",
+                "explanation": "AND is ON only when every incoming value is ON. Try each of the four possible input combinations.",
+                "kind": "and",
+                "x": 46,
+                "y": 48
+              },
+              {
+                "id": "result",
+                "label": "Result",
+                "explanation": "The output copies the last gate. It tells you the result of this particular network, not whether a real action is safe or appropriate.",
+                "kind": "output",
+                "x": 87,
+                "y": 48
+              }
+            ],
+            "edges": [
+              {
+                "from": "request",
+                "to": "combine"
+              },
+              {
+                "from": "permission",
+                "to": "combine"
+              },
+              {
+                "from": "combine",
+                "to": "result"
+              }
+            ],
+            "description": "A small ideal Boolean network. Labels are an illustrative access-rule example. Values propagate instantly through a directed acyclic graph; no real authorization, electrical voltage or timing behavior is modeled."
+          }
+        }
+      ]
+    },
+    {
+      "sceneId": "signals-and-decisions-2",
+      "beats": [
+        {
+          "id": "signals-and-decisions-2-beat",
+          "type": "journey",
+          "composition": "process-workbench",
+          "purpose": "Make the rule explicit.",
+          "title": "Make the rule explicit.",
+          "sourceIndices": [0, 1],
+          "passageStart": 0,
+          "passageEnd": 1,
+          "stages": [
+            {
+              "title": "List the inputs",
+              "body": "Identify the independent Boolean values.",
+              "date": ""
+            },
+            {
+              "title": "Try every combination",
+              "body": "Include both OFF, each alone ON and both ON.",
+              "date": ""
+            },
+            {
+              "title": "Describe the rule",
+              "body": "State the conditions under which the output becomes ON.",
+              "date": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sceneId": "signals-and-decisions-3",
+      "beats": [
+        {
+          "id": "signals-and-decisions-3-beat",
+          "type": "system",
+          "composition": "system-workbench",
+          "purpose": "Change AND into OR.",
+          "title": "Change AND into OR.",
+          "sourceIndices": [0, 1],
+          "passageStart": 0,
+          "passageEnd": 1,
+          "system": {
+            "nodes": [
+              {
+                "id": "request",
+                "label": "Request",
+                "explanation": "This is one independent input. Toggle it and follow the changed connections. ON represents Boolean true; OFF represents false.",
+                "kind": "input",
+                "initial": false,
+                "x": 10,
+                "y": 28
+              },
+              {
+                "id": "permission",
+                "label": "Permission",
+                "explanation": "This is another independent input. A gate combines its value with the request according to a stated rule.",
+                "kind": "input",
+                "initial": true,
+                "x": 10,
+                "y": 70
+              },
+              {
+                "id": "combine",
+                "label": "OR",
+                "explanation": "OR is ON when at least one incoming value is ON. Both inputs may be ON together; this is inclusive OR.",
+                "kind": "or",
+                "x": 46,
+                "y": 48
+              },
+              {
+                "id": "result",
+                "label": "Result",
+                "explanation": "The output copies the last gate. It tells you the result of this particular network, not whether a real action is safe or appropriate.",
+                "kind": "output",
+                "x": 87,
+                "y": 48
+              }
+            ],
+            "edges": [
+              {
+                "from": "request",
+                "to": "combine"
+              },
+              {
+                "from": "permission",
+                "to": "combine"
+              },
+              {
+                "from": "combine",
+                "to": "result"
+              }
+            ],
+            "description": "A small ideal Boolean network. Labels are an illustrative access-rule example. Values propagate instantly through a directed acyclic graph; no real authorization, electrical voltage or timing behavior is modeled."
+          }
+        }
+      ]
+    },
+    {
+      "sceneId": "signals-and-decisions-4",
+      "beats": [
+        {
+          "id": "signals-and-decisions-4-beat",
+          "type": "journey",
+          "composition": "process-workbench",
+          "purpose": "Reason about a pathway.",
+          "title": "Reason about a pathway.",
+          "sourceIndices": [0, 1],
+          "passageStart": 0,
+          "passageEnd": 1,
+          "stages": [
+            {
+              "title": "Resolve inputs",
+              "body": "Begin with the independent values.",
+              "date": ""
+            },
+            {
+              "title": "Apply each local rule",
+              "body": "Wait until a gate’s incoming values are known.",
+              "date": ""
+            },
+            {
+              "title": "Inspect the output",
+              "body": "Explain which upstream conditions produced the result.",
+              "date": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sceneId": "signals-and-decisions-5",
+      "beats": [
+        {
+          "id": "signals-and-decisions-5-beat",
+          "type": "system",
+          "composition": "system-workbench",
+          "purpose": "Add a condition that must be absent.",
+          "title": "Add a condition that must be absent.",
+          "sourceIndices": [0, 1],
+          "passageStart": 0,
+          "passageEnd": 1,
+          "system": {
+            "nodes": [
+              {
+                "id": "request",
+                "label": "Request",
+                "explanation": "This is one independent input. Toggle it and follow the changed connections. ON represents Boolean true; OFF represents false.",
+                "kind": "input",
+                "initial": false,
+                "x": 10,
+                "y": 28
+              },
+              {
+                "id": "blocked",
+                "label": "Blocked",
+                "explanation": "ON means an explicit block is present. Notice how the NOT gate reverses this value before it reaches AND.",
+                "kind": "input",
+                "initial": false,
+                "x": 10,
+                "y": 70
+              },
+              {
+                "id": "invert",
+                "label": "NOT",
+                "explanation": "NOT reverses its single input. A missing block becomes permission to continue; a present block removes that permission.",
+                "kind": "not",
+                "x": 40,
+                "y": 70
+              },
+              {
+                "id": "combine",
+                "label": "AND",
+                "explanation": "The request can continue only if Request is ON and the inverted Blocked signal is ON.",
+                "kind": "and",
+                "x": 63,
+                "y": 32
+              },
+              {
+                "id": "result",
+                "label": "Result",
+                "explanation": "The output copies the last gate. It tells you the result of this particular network, not whether a real action is safe or appropriate.",
+                "kind": "output",
+                "x": 87,
+                "y": 48
+              }
+            ],
+            "edges": [
+              {
+                "from": "blocked",
+                "to": "invert"
+              },
+              {
+                "from": "invert",
+                "to": "combine"
+              },
+              {
+                "from": "request",
+                "to": "combine"
+              },
+              {
+                "from": "combine",
+                "to": "result"
+              }
+            ],
+            "description": "A small ideal Boolean network. Labels are an illustrative access-rule example. Values propagate instantly through a directed acyclic graph; no real authorization, electrical voltage or timing behavior is modeled."
+          }
+        }
+      ]
+    },
+    {
+      "sceneId": "signals-and-decisions-6",
+      "beats": [
+        {
+          "id": "signals-and-decisions-6-beat",
+          "type": "journey",
+          "composition": "synthesis-board",
+          "purpose": "A decision can be inspected.",
+          "title": "A decision can be inspected.",
+          "sourceIndices": [0, 1],
+          "passageStart": 0,
+          "passageEnd": 1,
+          "stages": [
+            {
+              "title": "Local rules",
+              "body": "AND, OR and NOT each have a precise meaning.",
+              "date": ""
+            },
+            {
+              "title": "Connected effects",
+              "body": "An input can affect several later components.",
+              "date": ""
+            },
+            {
+              "title": "Explicit limits",
+              "body": "Ideal Boolean behavior does not simulate voltage, delays, memory or real authorization.",
+              "date": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

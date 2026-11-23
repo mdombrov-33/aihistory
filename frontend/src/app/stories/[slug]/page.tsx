@@ -64,7 +64,7 @@ export default async function StoryPage({ params }: { params: Promise<{ slug: st
             </li>
             <li>
               <Check aria-hidden="true" />
-              Inspect the maps, choices and evidence behind the story.
+              Explore the interactions, models and sources behind the explanation.
             </li>
             <li>
               <Check aria-hidden="true" />
@@ -76,8 +76,8 @@ export default async function StoryPage({ params }: { params: Promise<{ slug: st
           <BookOpen aria-hidden="true" />
           <h2>Go back to the evidence.</h2>
           <p>
-            {story.sourceLabel}. Visual reconstructions are identified separately from historical
-            sources.
+            {story.sourceLabel}. Illustrations and model assumptions are identified separately from
+            supporting sources.
           </p>
           <Button asChild variant="outline">
             <Link href={`/stories/${story.slug}/sources`}>

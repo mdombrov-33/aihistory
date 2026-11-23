@@ -18,6 +18,7 @@ import { compositions } from "@/story/compositions";
 import { SceneFrame } from "./scene-frame";
 import { ImageExplorer } from "@/components/media/image-explorer";
 import { MuseumObject } from "@/components/media/museum-object";
+import { LearningStage } from "@/features/learning/learning-stage";
 import type { SceneBeat } from "./scene-schema";
 
 export type SceneAssetSize = { src: string; width: number; height: number; credit?: string };
@@ -584,6 +585,18 @@ export function SceneStage(props: StageProps) {
 }
 function SceneContent(props: StageProps) {
   switch (props.beat.type) {
+    case "assembly":
+    case "experiment":
+    case "sound":
+    case "system":
+      return (
+        <Frame
+          props={props}
+          visual={
+            <LearningStage beat={props.beat} scope={props.slug} onInteract={props.onInspect} />
+          }
+        />
+      );
     case "place":
     case "illustrated":
       return <PictureStage {...props} beat={props.beat} />;

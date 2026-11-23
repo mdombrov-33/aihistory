@@ -25,7 +25,7 @@ test("the collection retires the five legacy adapters and keeps complete indepen
     expect(getStory(slug)).toBeUndefined();
     expect(getLesson(slug)).toBeUndefined();
   }
-  expect(stories.length).toBe(4);
+  expect(stories.length).toBe(8);
   for (const bundle of preparedStories) {
     expect(bundle.version).toBe(2);
     expect(getLesson(bundle.summary.slug)).toEqual(bundle.lesson);
@@ -37,14 +37,14 @@ test("the collection retires the five legacy adapters and keeps complete indepen
         .flatMap((s) => s.text)
         .join(" ")
         .split(/\s+/).length,
-    ).toBeGreaterThan(1000);
+    ).toBeGreaterThan(400);
   }
 });
 test("storyboards cover all reading exactly once with purposeful compositions and registered media", () => {
   const presets = new Set<string>();
   let grouped = 0;
   for (const bundle of preparedStories) {
-    expect(getSceneCount(bundle.summary)).toBe(bundle.lesson.scenes.length);
+    expect(getSceneCount(getStory(bundle.summary.slug)!)).toBe(bundle.lesson.scenes.length);
     for (const [i, scene] of bundle.lesson.scenes.entries()) {
       const program = buildSceneProgram(bundle.summary, bundle.lesson, i);
       expect(
@@ -75,7 +75,7 @@ test("storyboards cover all reading exactly once with purposeful compositions an
   expect([...presets].sort()).toEqual([...compositionIds].sort());
   expect(grouped).toBeGreaterThan(10);
 });
-test("all eighteen compositions render actual content using bundle assets and models", () => {
+test("all registered compositions render actual content using bundle assets and models", () => {
   const rendered = new Set<string>();
   for (const bundle of preparedStories)
     for (const [i, program] of bundle.programs.entries())
@@ -109,10 +109,10 @@ test("all eighteen compositions render actual content using bundle assets and mo
         }
         rendered.add(beat.composition);
       }
-  expect(rendered.size).toBe(18);
+  expect(rendered.size).toBe(compositionIds.length);
 });
 test("strict authoring rejects code, unknown media, broken references and invalid composition contracts", () => {
-  const input = preparedStories[0];
+  const input = preparedStories.find((story) => story.summary.slug === "great-wave-made-by-hand")!;
   const mutate = (change: (copy: Record<string, any>) => void) => {
     const copy = structuredClone(input);
     change(copy);
@@ -166,7 +166,7 @@ test("strict authoring rejects code, unknown media, broken references and invali
   ).toThrow(/unknown locations/);
 });
 test("coverage rejects duplicate, missing and overlapping narrative ranges", () => {
-  const b = preparedStories[0],
+  const b = preparedStories.find((story) => story.summary.slug === "great-wave-made-by-hand")!,
     count = b.lesson.scenes[0].text.length;
   const check = (program: unknown) => validateSceneProgram(program, count, b.lesson.sources.length);
   const duplicate = structuredClone(b.programs[0]);
@@ -205,7 +205,7 @@ test("nested comparison and timeline media resolve dimensions from the incoming 
     const b =
       type === "timeline"
         ? preparedStories.find((s) => s.summary.slug === "shape-of-a-signal")!
-        : preparedStories[0];
+        : preparedStories.find((story) => story.summary.slug === "great-wave-made-by-hand")!;
     const beat = structuredClone(
       b.programs
         .flatMap((p) => p.beats)

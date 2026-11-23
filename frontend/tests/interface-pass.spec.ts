@@ -84,17 +84,22 @@ test("desktop screens bound page scroll; mobile and enlarged text preserve every
 for (const bundle of preparedStories)
   test(`${bundle.summary.slug} advances through its storyboard and finishes`, async ({ page }) => {
     await page.goto(`/stories/${bundle.summary.slug}/play/0`);
-    for (const [chapter, program] of bundle.programs.entries())
+    for (const [sceneIndex, program] of bundle.programs.entries())
       for (const [i, beat] of program.beats.entries()) {
         await expect(page.locator(`[data-composition="${beat.composition}"]`)).toBeVisible();
+        const chapter = bundle.lesson.scenes[sceneIndex].chapter;
+        const chapterScreens = bundle.programs.flatMap((entry, index) =>
+          bundle.lesson.scenes[index].chapter === chapter ? entry.beats : [],
+        );
+        const screen = chapterScreens.findIndex((entry) => entry.id === beat.id);
         await expect(page.locator(".story-position")).toContainText(
-          `Screen ${i + 1} of ${program.beats.length}`,
+          `Screen ${screen + 1} of ${chapterScreens.length}`,
         );
         await expect(page.locator(`#passage-${beat.passageStart}`)).toBeVisible();
         await expect(page.locator(`#passage-${beat.passageEnd}`)).toBeVisible();
         await page.locator('[data-primary-action="true"]').click();
-        if (i === program.beats.length - 1 && chapter < bundle.programs.length - 1)
-          await expect(page).toHaveURL(new RegExp(`/play/${chapter + 1}$`));
+        if (i === program.beats.length - 1 && sceneIndex < bundle.programs.length - 1)
+          await expect(page).toHaveURL(new RegExp(`/play/${sceneIndex + 1}$`));
       }
     await expect(page).toHaveURL(new RegExp(`/stories/${bundle.summary.slug}/sources$`));
     await page.goto("/my-space");
@@ -104,7 +109,7 @@ for (const bundle of preparedStories)
   });
 test("the gallery changes compositions without mounting every heavy viewer", async ({ page }) => {
   await page.goto("/screen-gallery");
-  await expect(page.locator(".gallery-selector button")).toHaveCount(18);
+  await expect(page.locator(".gallery-selector button")).toHaveCount(22);
   await page.getByRole("button", { name: "Object in the round", exact: true }).click();
   await expect(page.locator(".gallery-scene .native-object")).toHaveCount(1);
   await page.getByRole("button", { name: "A source speaks", exact: true }).click();
@@ -153,13 +158,13 @@ test("every annotated screen starts with reachable pins and shows details beside
   page,
 }) => {
   for (const bundle of preparedStories)
-    for (const [chapter, program] of bundle.programs.entries())
+    for (const [sceneIndex, program] of bundle.programs.entries())
       for (const beat of program.beats) {
         const points =
           beat.type === "place" ? beat.places : beat.type === "illustrated" ? beat.annotations : [];
         if (!points.length) continue;
         await page.goto(
-          `/stories/${bundle.summary.slug}/play/${chapter}?passage=${beat.passageStart}`,
+          `/stories/${bundle.summary.slug}/play/${sceneIndex}?passage=${beat.passageStart}`,
         );
         const pins = page.locator(".scene-marker");
         await expect(pins).toHaveCount(points.length);
@@ -194,11 +199,11 @@ test("comparison sources use one large inspectable pane with immediate switching
   page,
 }) => {
   for (const bundle of preparedStories)
-    for (const [chapter, program] of bundle.programs.entries())
+    for (const [sceneIndex, program] of bundle.programs.entries())
       for (const beat of program.beats) {
         if (beat.type !== "comparison") continue;
         await page.goto(
-          `/stories/${bundle.summary.slug}/play/${chapter}?passage=${beat.passageStart}`,
+          `/stories/${bundle.summary.slug}/play/${sceneIndex}?passage=${beat.passageStart}`,
         );
         const exhibit = page.locator(".comparison-exhibit");
         await expect(exhibit.locator(".image-explorer")).toHaveCount(1);

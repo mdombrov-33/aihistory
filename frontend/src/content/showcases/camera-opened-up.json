@@ -1,0 +1,359 @@
+{
+  "version": 2,
+  "models": [],
+  "summary": {
+    "slug": "camera-opened-up",
+    "title": "The camera, opened up",
+    "question": "How does scattered light become a focused picture?",
+    "description": "Take apart a schematic camera, follow light through an ideal lens and discover why an image can be real, virtual or impossible to catch on a nearby screen.",
+    "image": "/images/learning/optics.svg",
+    "imageAlt": "Original geometric teaching diagram for The camera, opened up",
+    "topic": "Physics & space",
+    "era": "timeless",
+    "period": "An explorable concept",
+    "scope": "Beginner · two chapters · interactive workbenches",
+    "minutes": 8,
+    "chapters": [
+      {
+        "title": "A route for light",
+        "question": "What does each part contribute?"
+      },
+      {
+        "title": "Finding the image",
+        "question": "Where do the rays meet?"
+      }
+    ],
+    "sourceLabel": "Sources and model assumptions included",
+    "sample": true
+  },
+  "lesson": {
+    "preview": true,
+    "sources": [
+      {
+        "name": "OpenStax",
+        "title": "Image Formation by Lenses",
+        "url": "https://openstax.org/books/college-physics-2e/pages/25-6-image-formation-by-lenses",
+        "type": "Physics textbook",
+        "supports": "Converging thin-lens model, real and virtual images, focal configurations and magnification; supports the model, not the geometry of a particular camera."
+      },
+      {
+        "name": "OpenStax",
+        "title": "The Camera",
+        "url": "https://openstax.org/books/university-physics-volume-3/pages/2-6-the-camera",
+        "type": "Physics textbook",
+        "supports": "Roles of lenses, aperture, shutter and recording surface in image formation. Our assembly is a schematic abstraction, not a replica."
+      }
+    ],
+    "scenes": [
+      {
+        "id": "camera-opened-up-1",
+        "chapter": 0,
+        "title": "Take the camera apart.",
+        "deck": "Take the camera apart.",
+        "text": [
+          "Start by separating the parts. The arrangement becomes easier to read when the lens, aperture, shutter and recording plane no longer overlap. Select each part to connect its position with its job. You are looking at an original teaching model, not a scan of a particular camera: its distances and shapes simplify a functional relationship.",
+          "Before moving on, trace the route from the lens towards the recording plane. The lens changes directions, the opening limits the bundle, the shutter controls exposure and the final surface records light. Each role answers a different question. A convincing model is useful only if it helps you keep those roles distinct."
+        ],
+        "kind": "assembly",
+        "sources": [0, 1]
+      },
+      {
+        "id": "camera-opened-up-2",
+        "chapter": 0,
+        "title": "A picture needs several operations.",
+        "deck": "A picture needs several operations.",
+        "text": [
+          "Follow the stages without treating the camera as one mysterious box. Light arriving from different directions must be arranged into a pattern at a surface. Recording that pattern is a separate operation from forming it. A camera can have an excellent sensor and still record an unfocused pattern if the geometry is wrong.",
+          "Select the stages and ask what each contributes. This simplified chain does not describe every camera design or its electronics. It gives you a way to organize the next experiment: we will keep the lens ideal and investigate one relationship at a time, rather than change everything together."
+        ],
+        "kind": "journey",
+        "sources": [0, 1]
+      },
+      {
+        "id": "camera-opened-up-3",
+        "chapter": 0,
+        "title": "Move the object. Find its image.",
+        "deck": "Move the object. Find its image.",
+        "text": [
+          "The object arrow is drawn on one side of a converging lens. Two representative rays make the geometry visible. Change object distance while keeping focal length fixed, then compare the position and direction of the image arrow. The diagram draws a few explanatory rays, not every light ray in the scene.",
+          "Try Object at 2F as a reference configuration. Then bring the object towards the focal point. Watch the calculated image distance as well as the drawing: an image can move outside the available canvas. The panel tells you when this happens, so a missing arrow does not have to become a mystery or a rendering trick."
+        ],
+        "kind": "experiment",
+        "sources": [0, 1]
+      },
+      {
+        "id": "camera-opened-up-4",
+        "chapter": 1,
+        "title": "What happens inside the focus?",
+        "deck": "What happens inside the focus?",
+        "text": [
+          "Now put the object closer than one focal length. The emerging rays do not meet on the far side of this lens. Their backward extensions identify a virtual image. The dotted construction is a way of locating the apparent origin of the rays; light is not travelling backwards along those dotted lines.",
+          "Switch between the three configurations and describe what changed before looking for a rule. The numerical sign is meaningful: a positive image distance belongs beyond the lens in this convention, while a negative value identifies the object side. At the exact focus the model has no finite image plane, so the interface reports that state explicitly."
+        ],
+        "kind": "experiment",
+        "sources": [0, 1]
+      },
+      {
+        "id": "camera-opened-up-5",
+        "chapter": 1,
+        "title": "Return to the recording plane.",
+        "deck": "Return to the recording plane.",
+        "text": [
+          "Return to the assembly and select the recording plane. You can now ask a more precise question than whether the camera contains a good lens: does the recording surface coincide with the image formed for this object? Separating parts is an explanatory gesture here; it does not operate a real focusing mechanism.",
+          "Section view clips the supplied geometry so overlapping components are easier to compare. It cannot discover an interior that the model does not contain. This distinction matters whenever an attractive visualization seems to explain a physical object: the represented structure, the calculation and the real device have related but different levels of detail."
+        ],
+        "kind": "assembly",
+        "sources": [0, 1]
+      },
+      {
+        "id": "camera-opened-up-6",
+        "chapter": 1,
+        "title": "An image is a relationship.",
+        "deck": "An image is a relationship.",
+        "text": [
+          "You have connected a visible assembly with an experiment you can change. The purpose of the model was not to memorize the shape of this camera. It was to distinguish component roles and recognize how object position, focal length and recording position work together.",
+          "Keep the idealizations in view when taking this explanation further. Real lenses have thickness, aberrations and other behavior absent from the thin-lens construction. You can return to either workbench, reopen the sources or ask a more specific question. The parts and controls remain tools for reasoning, not evidence that this diagram represents every camera."
+        ],
+        "kind": "journey",
+        "sources": [0, 1]
+      }
+    ]
+  },
+  "assets": [
+    {
+      "src": "/images/learning/optics.svg",
+      "width": 1200,
+      "height": 800,
+      "credit": "Original project diagram · schematic, not a photograph",
+      "record": "https://openstax.org/books/college-physics-2e/pages/25-6-image-formation-by-lenses",
+      "license": "Original project asset created for this application",
+      "treatment": "diagram"
+    }
+  ],
+  "programs": [
+    {
+      "sceneId": "camera-opened-up-1",
+      "beats": [
+        {
+          "id": "camera-opened-up-1-beat",
+          "type": "assembly",
+          "composition": "assembly-explorer",
+          "purpose": "Take the camera apart.",
+          "title": "Take the camera apart.",
+          "sourceIndices": [0, 1],
+          "passageStart": 0,
+          "passageEnd": 1,
+          "assembly": {
+            "description": "Original schematic of a simple camera: a converging lens, aperture, shutter and recording plane. Geometry is intentionally simplified, with arbitrary drawing units, no manufacturer dimensions and no claim that all cameras have this arrangement. Separation is an explanatory view, not a disassembly procedure.",
+            "parts": [
+              {
+                "id": "lens",
+                "label": "Lens",
+                "explanation": "A real lens changes the direction of light. This simplified cylinder marks its position; the next experiment models the focusing action with rays. Its displayed thickness is illustrative.",
+                "shape": "cylinder",
+                "position": [0, 0, 1.05],
+                "separation": [0, 0, 1.6],
+                "size": [0.7, 0.7, 0.24],
+                "color": "teal"
+              },
+              {
+                "id": "aperture",
+                "label": "Aperture",
+                "explanation": "The aperture limits the bundle of light passing through. The open ring represents a stop; this 3D view does not calculate depth of field or diffraction.",
+                "shape": "ring",
+                "position": [0, 0, 0.6],
+                "separation": [0, 0, 0.7],
+                "size": [0.53, 0.15, 0.1],
+                "color": "amber"
+              },
+              {
+                "id": "shutter",
+                "label": "Shutter",
+                "explanation": "The shutter controls when the recording surface is exposed. This plate represents a closed shutter; its operating mechanism is omitted.",
+                "shape": "box",
+                "position": [0, 0, -0.15],
+                "separation": [0, 0, -0.45],
+                "size": [1.6, 1.3, 0.08],
+                "color": "ink"
+              },
+              {
+                "id": "sensor",
+                "label": "Recording plane",
+                "explanation": "Light must form a useful image at the recording plane. A digital sensor measures it; film records it chemically. This plate identifies the plane, not the microscopic sensor structure.",
+                "shape": "box",
+                "position": [0, 0, -0.7],
+                "separation": [0, 0, -1.2],
+                "size": [1.65, 1.35, 0.1],
+                "color": "paper"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "sceneId": "camera-opened-up-2",
+      "beats": [
+        {
+          "id": "camera-opened-up-2-beat",
+          "type": "journey",
+          "composition": "process-workbench",
+          "purpose": "A picture needs several operations.",
+          "title": "A picture needs several operations.",
+          "sourceIndices": [0, 1],
+          "passageStart": 0,
+          "passageEnd": 1,
+          "stages": [
+            {
+              "title": "Redirect",
+              "body": "The lens changes ray directions; the object distance affects where the emerging rays meet.",
+              "date": ""
+            },
+            {
+              "title": "Limit and expose",
+              "body": "The aperture and shutter control the admitted bundle and exposure interval.",
+              "date": ""
+            },
+            {
+              "title": "Record",
+              "body": "Film or a sensor records the pattern at its own physical position.",
+              "date": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sceneId": "camera-opened-up-3",
+      "beats": [
+        {
+          "id": "camera-opened-up-3-beat",
+          "type": "experiment",
+          "composition": "experiment-bench",
+          "purpose": "Move the object. Find its image.",
+          "title": "Move the object. Find its image.",
+          "sourceIndices": [0, 1],
+          "passageStart": 0,
+          "passageEnd": 1,
+          "experiment": {
+            "model": "thin-lens",
+            "focalLength": 10,
+            "objectDistance": 20
+          }
+        }
+      ]
+    },
+    {
+      "sceneId": "camera-opened-up-4",
+      "beats": [
+        {
+          "id": "camera-opened-up-4-beat",
+          "type": "experiment",
+          "composition": "experiment-bench",
+          "purpose": "What happens inside the focus?",
+          "title": "What happens inside the focus?",
+          "sourceIndices": [0, 1],
+          "passageStart": 0,
+          "passageEnd": 1,
+          "experiment": {
+            "model": "thin-lens",
+            "focalLength": 10,
+            "objectDistance": 6
+          }
+        }
+      ]
+    },
+    {
+      "sceneId": "camera-opened-up-5",
+      "beats": [
+        {
+          "id": "camera-opened-up-5-beat",
+          "type": "assembly",
+          "composition": "assembly-explorer",
+          "purpose": "Return to the recording plane.",
+          "title": "Return to the recording plane.",
+          "sourceIndices": [0, 1],
+          "passageStart": 0,
+          "passageEnd": 1,
+          "assembly": {
+            "description": "Original schematic of a simple camera: a converging lens, aperture, shutter and recording plane. Geometry is intentionally simplified, with arbitrary drawing units, no manufacturer dimensions and no claim that all cameras have this arrangement. Separation is an explanatory view, not a disassembly procedure.",
+            "parts": [
+              {
+                "id": "lens",
+                "label": "Lens",
+                "explanation": "A real lens changes the direction of light. This simplified cylinder marks its position; the next experiment models the focusing action with rays. Its displayed thickness is illustrative.",
+                "shape": "cylinder",
+                "position": [0, 0, 1.05],
+                "separation": [0, 0, 1.6],
+                "size": [0.7, 0.7, 0.24],
+                "color": "teal"
+              },
+              {
+                "id": "aperture",
+                "label": "Aperture",
+                "explanation": "The aperture limits the bundle of light passing through. The open ring represents a stop; this 3D view does not calculate depth of field or diffraction.",
+                "shape": "ring",
+                "position": [0, 0, 0.6],
+                "separation": [0, 0, 0.7],
+                "size": [0.53, 0.15, 0.1],
+                "color": "amber"
+              },
+              {
+                "id": "shutter",
+                "label": "Shutter",
+                "explanation": "The shutter controls when the recording surface is exposed. This plate represents a closed shutter; its operating mechanism is omitted.",
+                "shape": "box",
+                "position": [0, 0, -0.15],
+                "separation": [0, 0, -0.45],
+                "size": [1.6, 1.3, 0.08],
+                "color": "ink"
+              },
+              {
+                "id": "sensor",
+                "label": "Recording plane",
+                "explanation": "Light must form a useful image at the recording plane. A digital sensor measures it; film records it chemically. This plate identifies the plane, not the microscopic sensor structure.",
+                "shape": "box",
+                "position": [0, 0, -0.7],
+                "separation": [0, 0, -1.2],
+                "size": [1.65, 1.35, 0.1],
+                "color": "paper"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "sceneId": "camera-opened-up-6",
+      "beats": [
+        {
+          "id": "camera-opened-up-6-beat",
+          "type": "journey",
+          "composition": "synthesis-board",
+          "purpose": "An image is a relationship.",
+          "title": "An image is a relationship.",
+          "sourceIndices": [0, 1],
+          "passageStart": 0,
+          "passageEnd": 1,
+          "stages": [
+            {
+              "title": "Parts have distinct jobs",
+              "body": "Identify the lens, aperture, shutter and recording plane.",
+              "date": ""
+            },
+            {
+              "title": "Geometry determines the image",
+              "body": "Object distance and focal length determine the ideal image position.",
+              "date": ""
+            },
+            {
+              "title": "Models have boundaries",
+              "body": "A schematic assembly and an ideal lens describe selected relationships.",
+              "date": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -28,6 +28,20 @@ const stateSchema = z.object({
   progress: z.record(z.string(), progressSchema),
   bookmarks: z.array(bookmarkSchema),
   saved: z.array(z.string()),
+  labs: z
+    .record(
+      z.string().max(250),
+      z.record(
+        z.string().max(100),
+        z.union([
+          z.number().finite(),
+          z.boolean(),
+          z.string().max(100),
+          z.array(z.number().finite()).max(16),
+        ]),
+      ),
+    )
+    .default({}),
   interactions: z.record(z.string(), z.number().int().min(0).max(20)).default({}),
   creations: z.array(creationSchema),
   sound: z.object({
@@ -47,6 +61,7 @@ const initial: JourneyState = {
   progress: {},
   bookmarks: [],
   saved: [],
+  labs: {},
   interactions: {},
   creations: [],
   sound: { master: 80, narration: 100, music: 0, environment: 0 },

@@ -14,15 +14,15 @@ Only unresolved decisions belong here. Proposals are not commitments. When a dec
 
 - What are the final rating category labels, and how should popularity bias and gaming be limited?
 - What moderation thresholds, contextual-check failure behavior, and report/correction handling fit public submissions and comments? Initial checks are selected in [security and cost](../technical/security-and-cost.md#moderation-and-rate-limits).
-- What final product name and learner-facing noun should replace or retain the current provisional “History” / “story” naming and `/stories/` routes?
+- What final product name and learner-facing noun should replace or retain the legacy “History” branding and current “story” naming and `/stories/` routes?
 - Which refinements to current story detail/status and account grouping are needed after rendered mobile review? Preserve the existing new/in-progress/finished distinction.
 
 ## Experience craft
 
 - What narrator voices and sound palette best fit the product?
-- Which refinements do the current four showcases and [18 teaching presets](../technical/scenes.md) need after rendered review? Nine families are implemented; historical-decision and relationship mechanics remain planned extensions.
-- How should the product handle especially graphic material while preserving useful historical evidence?
-- How should the UI present contested accounts and evidence gaps? Preserve uncertainty and offer narrowing where a confident story cannot be supported.
+- Which refinements do the eight prepared lessons and [22 teaching presets](../technical/scenes.md) need after rendered review? The [engine exploration](../technical/learning-engine.md) separates working mechanics from candidates.
+- How should the product handle especially graphic material while preserving useful evidence?
+- How should the UI present contested accounts, model limitations and evidence gaps? Preserve uncertainty and offer narrowing where a confident story cannot be supported.
 
 ## Deferred by design
 

@@ -4,19 +4,23 @@ Use for agents, prompts, research, composition, provider calls, validation, and 
 
 ## Workflow and shared blueprint
 
-The current frontend uses [18 composition presets across nine data families](scenes.md) and complete version-2 prepared bundles. All four showcases follow this path; legacy slug-specific builders are removed. The [authoring guide](lesson-authoring.md) describes evidence/media-first storyboarding, preset selection and validation. `/screen-gallery` supplies actual examples using the production frontend renderer.
+The current frontend uses [22 composition presets across 13 data families](scenes.md) and complete version-2 prepared bundles. All eight prepared lessons follow this path; legacy slug-specific builders are removed. The [authoring guide](lesson-authoring.md) describes evidence/media-first storyboarding, preset selection and validation. `/screen-gallery` supplies actual examples using the production frontend renderer.
 
 This is a content-ingestion seam, not a working generation service. An agent can author the supported JSON without changing lesson-specific React. Live research, automatic image/model acquisition, claim-linked checking, production versioning, readiness and durable jobs below remain future implementation. Model registration now exists as local bundle data; automatic model finding, rights checks and optimization do not.
 
 Use Mastra with its supported Inngest integration. Mastra defines agents/workflows; Inngest owns durable step results/retry scheduling. Implement and verify the local development integration before hosted plans; no Mastra/Inngest worker currently runs in this repo.
 
 1. **Research:** bounded search/reading, supporting passages, claims, gaps, disagreement.
-2. **Plan:** one shared blueprint containing historical scope, chronology, entities, evidence/uncertainty; learning goals and chapter connections; visual treatment, palette, typography choices, recurring assets, narrator and sound direction.
+2. **Plan:** one shared blueprint containing subject scope, assumed knowledge, learning outcomes, relevant entities, evidence/uncertainty and computational model assumptions; chronology where useful; learning goals and chapter connections; visual treatment, palette, typography choices, recurring assets, narrator and sound direction.
 3. **Compose/check:** scene content and narration grounded in evidence and supported components; check written claims before expensive media.
 4. **Produce media:** explicit image/audio tasks, prioritizing the opening chapter with bounded parallelism and asset reuse.
 5. **Validate/deliver:** release coherent ready chapters progressively; delivered scenes remain stable. A story is generation-complete only when every required chapter passes.
 
 Agents make investigative/creative choices within stages; application code controls progression and budgets. Writing may request more research within budget. Separate roles need not use separate models. The blueprint coordinates chapters without freezing product design.
+
+## Composing interactions
+
+Use the [learning engine capability contracts](learning-engine.md). The agent selects a mechanic and supported model, bounded inputs, meaningful investigations, explanations and sources. Application code evaluates rules consistently; dragging a control does not call an LLM. New equations or runtime behavior need reviewed model code and validation before entering the capability registry. Source quality, model correctness, asset structure and rendered usability are distinct checks. Generated pictures do not replace computed plots, geometry or real datasets.
 
 ## Prompts and inputs
 
@@ -28,9 +32,9 @@ Agents make investigative/creative choices within stages; application code contr
 ## Research and source quality
 
 - Initial tools: Tavily Search + Extract. Choose queries, read actual sources, and investigate gaps under call/time/retry/spend limits.
-- Prefer relevant scholarship, archives, museums, and established references. Contextualize primary sources; age or institution alone does not establish truth.
+- Select sources appropriate to the subject: textbooks and research for scientific models, official documentation for technical systems, scholarship/archives/museums for historical or artistic questions. Contextualize primary sources; age or institution alone does not establish truth.
 - Cross-check central/disputed claims against genuinely independent sources where possible. Preserve uncertainty/disagreement; do not equate a URL count with verification.
-- Treat snippets and generated summaries as leads. Retain supporting source passages through the [evidence records](architecture.md#historical-records-and-evidence).
+- Treat snippets and generated summaries as leads. Retain supporting source passages through the [evidence records](architecture.md#subject-records-and-evidence).
 
 ## Checks and delivery
 
@@ -38,7 +42,7 @@ Agents make investigative/creative choices within stages; application code contr
 - Repair through targeted research/rewriting within fixed attempt/time/spend limits. Qualify unresolved material, remove it only if the explanation remains coherent, or block the chapter.
 - Readiness checks cover supported structures, valid navigation/IDs, resolvable evidence/assets, usable required media, complete interaction data, subtitles, and full reading text.
 - Failed chapters remain preparing/failed while ready chapters stay usable. Generation completion is distinct from the learner reaching the closing recap.
-- Schema validity, citations, model-check approval, and shared facts are not historical guarantees. Use traces and observed failures to improve checks.
+- Schema validity, citations, model-check approval, and shared facts do not establish subject correctness. Use traces and observed failures to improve checks.
 
 ## Recovery and versioning
 

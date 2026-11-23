@@ -26,8 +26,8 @@ export default function GalleryPage() {
       <header className="gallery-intro">
         <h1>A story has more than one shape.</h1>
         <p>
-          Eighteen reusable compositions. Each example below is a real screen from a prepared
-          lesson, using the same renderer you meet inside it.
+          {compositionIds.length} reusable compositions. Each example below is a real screen from a
+          prepared lesson, using the same renderer you meet inside it.
         </p>
       </header>
       <ScreenGallery examples={examples} />

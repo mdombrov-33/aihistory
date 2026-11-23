@@ -1,3 +1,9 @@
+import {
+  assemblySchema,
+  experimentSchema,
+  soundSchema,
+  systemSchema,
+} from "@/features/learning/schema";
 import { z } from "zod";
 import { compositions, compositionIds } from "@/story/compositions";
 const asset = z.string().regex(/^\/images\/[a-zA-Z0-9/_-]+\.(webp|png|jpg)$/);
@@ -55,6 +61,10 @@ const side = z.strictObject({
   explanation: z.string().max(600),
 });
 export const sceneBeatSchema = z.discriminatedUnion("type", [
+  z.strictObject({ ...common, type: z.literal("assembly"), assembly: assemblySchema }),
+  z.strictObject({ ...common, type: z.literal("experiment"), experiment: experimentSchema }),
+  z.strictObject({ ...common, type: z.literal("sound"), sound: soundSchema }),
+  z.strictObject({ ...common, type: z.literal("system"), system: systemSchema }),
   z.strictObject({
     ...common,
     type: z.literal("object"),

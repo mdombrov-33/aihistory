@@ -4,7 +4,7 @@
 
 import { useTheme } from "next-themes";
 import { useSyncExternalStore } from "react";
-import { Check, Info } from "lucide-react";
+import { Check } from "lucide-react";
 import { toast } from "sonner";
 import { themeOptions } from "@/features/settings/theme-options";
 import { useJourney, updateJourney } from "@/state/guest/store";
@@ -34,9 +34,9 @@ export function Preferences() {
   const preferences = useJourney();
 
   return (
-    <div className="settings-layout gap-[65px] grid grid-cols-[210px_minmax(0,_850px)] pb-12.5 max-[1050px]:gap-[35px] max-[1050px]:grid-cols-[160px_1fr] max-[760px]:block max-[760px]:pb-[25px]">
+    <div className="settings-layout grid items-start gap-8 pb-12 lg:grid-cols-[160px_minmax(0,800px)] lg:gap-12">
       <nav
-        className="settings-sections [&_a:hover]:bg-secondary gap-[5px] grid [align-content:start] sticky top-[25px] [align-self:start] max-[760px]:gap-[3px] max-[760px]:overflow-auto max-[760px]:flex max-[760px]:static max-[760px]:mb-7 max-[760px]:[border-bottom:1px_solid_var(--border)] [&_a]:py-3 [&_a]:px-[15px] [&_a]:min-h-11 [&_a]:rounded-[6px] [&_a]:text-[16px] max-[760px]:[&_a]:p-2.5 max-[760px]:[&_a]:text-[14px] max-[760px]:[&_a]:whitespace-nowrap"
+        className="settings-sections flex gap-1 overflow-x-auto border-b border-rule pb-2 lg:sticky lg:top-6 lg:grid lg:border-0 [&_a]:flex [&_a]:min-h-11 [&_a]:shrink-0 [&_a]:items-center [&_a]:rounded-lg [&_a]:px-3 [&_a]:text-sm [&_a:hover]:bg-muted"
         aria-label="Settings sections"
       >
         <a href="#appearance">Appearance</a>
@@ -44,29 +44,23 @@ export function Preferences() {
         <a href="#reading">Reading & motion</a>
         <a href="#device">This device</a>
       </nav>
-      <div className="settings-content gap-12 grid max-[760px]:gap-9.5">
+      <div className="settings-content grid min-w-0 gap-10 [&_h2]:text-2xl [&_section]:scroll-mt-6">
         <section
           id="appearance"
-          className="settings-section [scroll-margin-top:30px] [&_h2]:mb-[13px] [&_>_p]:text-muted-foreground [&_>_p]:mb-6"
+          className="settings-section [&_h2]:mb-2 [&_>_p]:mb-5 [&_>_p]:text-sm [&_>_p]:leading-relaxed [&_>_p]:text-muted-foreground"
         >
-          <h2>A world that feels like yours.</h2>
-          <p>
-            Choose a palette for discovery, controls and reading. Scene artwork keeps its original
-            colours.
-          </p>
-          <div
-            className="theme-options gap-3.5 grid grid-cols-[repeat(2,_minmax(0,_1fr))] max-[760px]:gap-[9px] max-[760px]:grid-cols-[1fr]"
-            aria-label="Colour theme"
-          >
+          <h2>Appearance</h2>
+          <p>Choose a palette. Artwork keeps its original colours.</p>
+          <div className="theme-options grid grid-cols-2 gap-3" aria-label="Colour theme">
             {themeOptions.map((option) => (
               <button
-                className="theme-option [&_strong_svg]:w-[17px] [&_strong_svg]:text-primary p-4.5 gap-3 text-left flex flex-col min-h-[175px] border border-border rounded-[10px] bg-card max-[760px]:p-3 max-[760px]:gap-2.5 max-[760px]:min-h-[150px] max-[400px]:min-h-0 aria-pressed:[outline:2px_solid_var(--primary)] aria-pressed:[outline-offset:2px] [&_strong]:gap-2 [&_strong]:flex [&_strong]:items-center max-[760px]:[&_strong]:text-[14px] max-[400px]:[&_strong]:text-[17px] [&_p]:text-[13px] [&_p]:leading-[1.5] [&_p]:text-muted-foreground max-[760px]:[&_p]:text-[12px] max-[400px]:[&_p]:text-[14px] hover:bg-muted"
+                className="theme-option grid min-w-0 content-start gap-3 rounded-xl border border-border bg-card p-3 text-left hover:bg-muted aria-pressed:border-primary aria-pressed:outline-2 aria-pressed:outline-offset-2 aria-pressed:outline-primary sm:p-4 [&_strong]:flex [&_strong]:items-center [&_strong]:gap-2 [&_strong]:text-sm [&_strong_svg]:size-4 [&_strong_svg]:text-primary [&_p]:text-xs [&_p]:leading-relaxed [&_p]:text-muted-foreground"
                 key={option.value}
                 aria-pressed={selectedTheme === option.value}
                 onClick={() => setTheme(option.value)}
               >
                 <span
-                  className="theme-swatches gap-[5px] flex max-[400px]:max-w-[180px] max-[400px]:w-full [&_span]:h-7.5 [&_span]:flex-1 [&_span]:rounded-[3px] max-[760px]:[&_span]:h-6"
+                  className="theme-swatches flex w-full gap-1 [&_span]:h-8 [&_span]:min-w-0 [&_span]:flex-1 [&_span]:rounded"
                   aria-hidden="true"
                 >
                   {option.swatches.map((color) => (
@@ -84,9 +78,9 @@ export function Preferences() {
         </section>
         <section
           id="sound"
-          className="settings-section [scroll-margin-top:30px] [&_h2]:mb-[13px] [&_>_p]:text-muted-foreground [&_>_p]:mb-6"
+          className="settings-section [&_h2]:mb-2 [&_>_p]:mb-5 [&_>_p]:text-sm [&_>_p]:leading-relaxed [&_>_p]:text-muted-foreground"
         >
-          <h2>Set the atmosphere.</h2>
+          <h2>Sound</h2>
           <p>
             Listen to the story, soften the background, or keep a quiet reading space. Audio starts
             only when you choose Listen.
@@ -95,9 +89,9 @@ export function Preferences() {
         </section>
         <section
           id="reading"
-          className="settings-section [scroll-margin-top:30px] [&_h2]:mb-[13px] [&_>_p]:text-muted-foreground [&_>_p]:mb-6"
+          className="settings-section [&_h2]:mb-2 [&_>_p]:mb-5 [&_>_p]:text-sm [&_>_p]:leading-relaxed [&_>_p]:text-muted-foreground"
         >
-          <h2>Find your own pace.</h2>
+          <h2>Reading & motion</h2>
           <div className="preference-row py-5.5 px-0 gap-7.5 [border-bottom:1px_solid_var(--line-soft)] flex justify-between items-center max-[760px]:gap-[25px] [&_label]:font-semibold [&_p]:text-[15px] [&_p]:text-muted-foreground [&_p]:mt-[7px]">
             <div>
               <label htmlFor="large-text">Larger story text</label>
@@ -126,9 +120,9 @@ export function Preferences() {
         </section>
         <section
           id="device"
-          className="settings-section [scroll-margin-top:30px] [&_h2]:mb-[13px] [&_>_p]:text-muted-foreground [&_>_p]:mb-6"
+          className="settings-section [&_h2]:mb-2 [&_>_p]:mb-5 [&_>_p]:text-sm [&_>_p]:leading-relaxed [&_>_p]:text-muted-foreground"
         >
-          <h2>Your place, on this device.</h2>
+          <h2>This device</h2>
           <p>
             Guest progress, saved stories, bookmarks and preferences stay in this browser. They are
             not yet synced to an account.
@@ -163,13 +157,6 @@ export function Preferences() {
               </DialogFooter>
             </DialogContent>
           </Dialog>
-          <div className="preview-notice my-6 mx-0 py-3.5 px-4.5 gap-3 bg-secondary rounded-[8px] text-[14px] text-muted-foreground flex items-start [&_svg]:w-4.5 [&_svg]:mt-0.5">
-            <Info />
-            <p>
-              History is a working name. Account sync, provider settings and payments will be
-              connected in later implementation stages.
-            </p>
-          </div>
         </section>
       </div>
     </div>

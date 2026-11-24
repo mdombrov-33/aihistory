@@ -37,7 +37,7 @@ These are planned production guards. The current frontend has local guest state 
 - Reserve a user's creation slot at job start; consume only after complete delivery checks. Release failed/incomplete jobs only once definitively stopped; retrying the same job does not consume another slot.
 - Incurred provider cost remains in the monetary ledger even if a user slot is released. Bound failure retries. Cancellation/refund treatment and exact monetary/question limits remain open before enabling the affected live behavior.
 - Matching public stories are discovered through authorized retrieval. Private requests remain separate; cross-user similarity does not grant access or justify silently sharing private work.
-- The earlier total operating budget remains a constraint in [deferred deployment](../deployment/decisions.md#budget); this document does not authorize paid resources or unlimited local API use.
+- The total operating budget is defined in [deferred deployment](../deployment/decisions.md#budget); this document does not authorize paid resources or unlimited local API use.
 
 ## Diagnostics
 

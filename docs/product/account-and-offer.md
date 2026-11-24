@@ -16,6 +16,14 @@ Keep public library browsing and playback free. The current offer hypothesis is 
 
 The product owner cannot absorb uncontrolled generation costs. Show the remaining included creations and renewal date; never silently purchase extra usage or switch to another paid provider. A failed/incomplete story should not consume an allowance. Keep library playback and personal-guide access available if new creation is paused or an allowance is exhausted. Monthly rollover, prices, quantities, and exact package are undecided.
 
+## Premium selection
+
+Provide a discoverable offer page where a learner can compare free access with the Premium proposal, select an option and understand the next step. Keep plan selection distinct from account creation, payment and active entitlement. Preserve the learner's intended destination through authentication.
+
+Explain benefits, included creation/question allowances and renewal/extra-usage terms when those terms are settled. Until then, use explicit provisional presentation rather than invented prices, quotas, savings or guarantees. Public playback and essential accessibility remain available regardless of selection.
+
+A frontend selection preview can demonstrate states without activating a membership or sending a purchase. Billing integration, renewal/cancellation enforcement and paid entitlements require a separate service slice. [Implementation plan](../implementation-plan.md#next-feature-premium-selection) owns the next work; [open offer questions](open-questions.md#premium-and-accounts) own unresolved terms.
+
 ## Model choice in the product
 
 Provide strong defaults and an optional settings area for supported provider/model choices by task. The settings presentation and Premium boundaries remain open; current integrations/defaults live in [generation](../technical/generation.md#provider-defaults). BYOK is not required for ordinary learners and remains a possible advanced option.

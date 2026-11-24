@@ -1,6 +1,6 @@
 # Technical direction
 
-Accepted application choices, organized by task. This is the target stack map; installation/service status is explicit in [status](../status.md). These references replace the chronological workshop log; they preserve the agreed direction without requiring every task to load every decision.
+Read the relevant topic for implementation constraints. [Status](../status.md) distinguishes running services from the target stack; manifests and configuration own installed versions.
 
 | Area | Selected direction | Details |
 | --- | --- | --- |
@@ -18,4 +18,4 @@ Accepted application choices, organized by task. This is the target stack map; i
 
 [Current state](../status.md) distinguishes planned tooling from verified commands. [Open technical questions](open-questions.md) records what is still unspecified. Product behavior lives in the [product map](../design.md).
 
-[Deployment choices and research](../deployment/decisions.md) are parked until the user explicitly resumes deployment. They do not block local implementation.
+[Deployment requirements](../deployment/decisions.md) are parked until the user explicitly resumes deployment. They do not block local implementation.

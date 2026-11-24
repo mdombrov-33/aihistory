@@ -8,8 +8,7 @@ import { ArrowRight, Bookmark, Compass, Trash2 } from "lucide-react";
 import { toast } from "sonner";
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
-import { StoryCard } from "@/components/app/story-card";
-import { ResumeStory } from "@/features/discovery/resume-story";
+import { LessonRow } from "@/components/app/lesson-row";
 import { getStory, getSceneCount, stories } from "@/content/catalog/catalog";
 import { removeBookmark } from "@/state/guest/actions";
 import { useJourney } from "@/state/guest/store";
@@ -24,6 +23,8 @@ export function MySpace({ query }: { query: string }) {
   const visited = Object.entries(journey.progress)
     .filter(([slug]) => getStory(slug))
     .sort((a, b) => b[1].updatedAt - a[1].updatedAt);
+
+  const continuing = visited.find(([, progress]) => !progress.finished);
 
   const storyPage = paginate(visited, params.get("storiesPage"), 4);
 
@@ -55,19 +56,37 @@ export function MySpace({ query }: { query: string }) {
 
   return (
     <>
-      <div className="preview-notice my-6 mx-0 py-3.5 px-4.5 gap-3 bg-secondary rounded-[8px] text-[14px] text-muted-foreground flex items-start [&_svg]:w-4.5 [&_svg]:mt-0.5">
-        <p>
-          You’re exploring as a guest. Your place is saved in this browser.{" "}
-          <Link
-            href="/create-account"
-            className="text-primary underline [text-underline-offset:4px]"
-          >
-            Preview account benefits
-            <ArrowRight className="inline size-3" />
-          </Link>
-        </p>
-      </div>
-      <ResumeStory />
+      <p className="mb-6 flex flex-wrap items-center gap-x-3 gap-y-1 text-sm text-muted-foreground">
+        Guest library · saved on this device.
+        <Link
+          href="/create-account"
+          className="inline-flex min-h-11 items-center gap-1 text-primary underline underline-offset-4"
+        >
+          About accounts
+          <ArrowRight className="size-3" aria-hidden="true" />
+        </Link>
+      </p>
+      {continuing ? (
+        <section
+          className="mb-7 flex flex-wrap items-center justify-between gap-4 rounded-xl bg-card p-5"
+          aria-label="Continue learning"
+        >
+          <div className="min-w-0">
+            <h2 className="text-sm font-sans font-semibold text-muted-foreground">
+              Continue learning
+            </h2>
+            <p className="mt-1 font-heading text-2xl">{getStory(continuing[0])!.title}</p>
+          </div>
+          <Button asChild>
+            <Link
+              href={`/stories/${continuing[0]}/play/${continuing[1].scene}?passage=${continuing[1].passage}`}
+            >
+              Continue
+              <ArrowRight aria-hidden="true" />
+            </Link>
+          </Button>
+        </section>
+      ) : null}
       <Tabs
         value={view}
         onValueChange={(value) => {
@@ -77,30 +96,43 @@ export function MySpace({ query }: { query: string }) {
           router.replace("/my-space?" + next.toString(), { scroll: false });
         }}
       >
-        <TabsList className="space-tabs h-auto flex-wrap mb-7.5">
-          <TabsTrigger value="stories" className="min-h-11 px-4">
-            Your stories
-          </TabsTrigger>
-          <TabsTrigger value="bookmarks" className="min-h-11 px-4">
-            Bookmarks ({availableBookmarks.length})
-          </TabsTrigger>
-          <TabsTrigger value="requests" className="min-h-11 px-4">
-            Your questions
-          </TabsTrigger>
-        </TabsList>
+        <div className="mb-5 overflow-x-auto pb-2">
+          <TabsList
+            variant="line"
+            className="space-tabs group-data-horizontal/tabs:h-auto min-h-12 w-max justify-start gap-1 border-b border-rule px-0"
+          >
+            <TabsTrigger
+              value="stories"
+              className="h-11 min-h-11 flex-none px-3 text-sm data-active:after:bg-primary"
+            >
+              Lessons
+            </TabsTrigger>
+            <TabsTrigger
+              value="bookmarks"
+              className="h-11 min-h-11 flex-none px-3 text-sm data-active:after:bg-primary"
+            >
+              Bookmarks ({availableBookmarks.length})
+            </TabsTrigger>
+            <TabsTrigger
+              value="requests"
+              className="h-11 min-h-11 flex-none px-3 text-sm data-active:after:bg-primary"
+            >
+              Questions
+            </TabsTrigger>
+          </TabsList>
+        </div>
         <TabsContent value="stories">
-          <section className="space-section mx-0 mt-[15px] mb-12 [&_h2]:mb-5.5">
+          <section className="space-section mb-9 [&>h2]:mb-3">
             {visited.length ? (
               <>
-                <h2>Places you’ve been.</h2>
-                <div className="space-story-grid gap-5.5 grid grid-cols-[repeat(3,_minmax(0,_1fr))] max-[760px]:gap-[15px] max-[760px]:grid-cols-[repeat(2,_minmax(0,_1fr))] max-[400px]:grid-cols-[1fr]">
+                <h2 className="text-2xl">Recently opened</h2>
+                <div className="space-story-list">
                   {storyPage.items.map(([slug, progress]) => {
                     const story = getStory(slug)!;
 
                     return (
-                      <div key={slug}>
-                        <StoryCard story={story} />
-                        <div className="space-story-status gap-2.5 flex items-center justify-between mt-[13px] text-[14px] text-muted-foreground max-[760px]:gap-[7px] max-[760px]:text-[12px] [&_a]:gap-[5px] [&_a]:flex [&_a]:items-center [&_a]:min-h-11 [&_svg]:w-[15px]">
+                      <LessonRow key={slug} story={story}>
+                        <div className="space-story-status mt-2 flex flex-wrap items-center gap-x-5 text-sm text-muted-foreground [&_a]:inline-flex [&_a]:min-h-11 [&_a]:items-center [&_a]:gap-2 [&_svg]:size-4">
                           <span>
                             {progress.finished
                               ? "Finished"
@@ -114,7 +146,7 @@ export function MySpace({ query }: { query: string }) {
                             <ArrowRight />
                           </Link>
                         </div>
-                      </div>
+                      </LessonRow>
                     );
                   })}
                 </div>
@@ -129,31 +161,29 @@ export function MySpace({ query }: { query: string }) {
             ) : (
               <div className="empty-state my-7.5 mx-auto py-[55px] px-6 text-center max-w-[650px] [&_>_svg]:mx-auto [&_>_svg]:w-10 [&_>_svg]:h-10 [&_>_svg]:mt-0 [&_>_svg]:mb-5.5 [&_>_svg]:text-primary [&_>_svg]:[stroke-width:1.3] [&_p]:mx-auto [&_p]:mt-4 [&_p]:mb-6 [&_p]:text-muted-foreground [&_[data-slot=button]]:m-[5px]">
                 <Compass />
-                <h2>Your next connection starts here.</h2>
-                <p>
-                  Open a story and your place will appear here automatically. No account needed to
-                  begin.
-                </p>
+                <h2>Start your library.</h2>
+                <p>Open a lesson and your progress will appear here. You can explore as a guest.</p>
                 <Button asChild>
                   <Link href="/explore">
-                    Find a story
+                    Explore lessons
                     <ArrowRight />
                   </Link>
                 </Button>
               </div>
             )}
           </section>
-          <section className="space-section mx-0 mt-[15px] mb-12 [&_h2]:mb-5.5">
-            <h2>Saved for another day.</h2>
+          <section className="space-section mb-9 [&>h2]:mb-3">
+            <h2 className="text-2xl">Saved lessons</h2>
             {savedPage.total ? (
-              <div className="space-story-grid gap-5.5 grid grid-cols-[repeat(3,_minmax(0,_1fr))] max-[760px]:gap-[15px] max-[760px]:grid-cols-[repeat(2,_minmax(0,_1fr))] max-[400px]:grid-cols-[1fr]">
+              <div className="space-story-list">
                 {savedPage.items.map((story) => (
-                  <StoryCard key={story.slug} story={story} />
+                  <LessonRow key={story.slug} story={story} />
                 ))}
               </div>
             ) : (
               <p className="text-muted-foreground">
-                Save a whole story from its overview page. Keep specific passages in Bookmarks.
+                Save a lesson from its overview page to keep it here. Individual passages appear in
+                Bookmarks.
               </p>
             )}
             <CollectionPagination
@@ -166,10 +196,10 @@ export function MySpace({ query }: { query: string }) {
           </section>
         </TabsContent>
         <TabsContent value="bookmarks">
-          <section className="space-section mx-0 mt-[15px] mb-12 [&_h2]:mb-5.5">
+          <section className="space-section mb-9 [&>h2]:mb-3">
             {bookmarked.length ? (
               <>
-                <h2>The pages you kept.</h2>
+                <h2 className="text-2xl">Saved passages</h2>
                 <div className="bookmark-list gap-4.5 grid">
                   {bookmarked.map((story) => (
                     <section
@@ -223,14 +253,14 @@ export function MySpace({ query }: { query: string }) {
             ) : (
               <div className="empty-state my-7.5 mx-auto py-[55px] px-6 text-center max-w-[650px] [&_>_svg]:mx-auto [&_>_svg]:w-10 [&_>_svg]:h-10 [&_>_svg]:mt-0 [&_>_svg]:mb-5.5 [&_>_svg]:text-primary [&_>_svg]:[stroke-width:1.3] [&_p]:mx-auto [&_p]:mt-4 [&_p]:mb-6 [&_p]:text-muted-foreground [&_[data-slot=button]]:m-[5px]">
                 <Bookmark />
-                <h2>Some passages deserve a return.</h2>
+                <h2>Keep a passage worth returning to.</h2>
                 <p>
-                  Keep any passage while you read or listen. Bookmarks are grouped by story and
+                  Keep a passage while you read or listen. Bookmarks are grouped by lesson and
                   return you to the place you chose.
                 </p>
                 <Button asChild variant="outline">
                   <Link href="/explore">
-                    Explore stories
+                    Explore lessons
                     <ArrowRight />
                   </Link>
                 </Button>
@@ -239,8 +269,8 @@ export function MySpace({ query }: { query: string }) {
           </section>
         </TabsContent>
         <TabsContent value="requests">
-          <section className="space-section mx-0 mt-[15px] mb-12 [&_h2]:mb-5.5">
-            <h2>Questions worth following.</h2>
+          <section className="space-section mb-9 [&>h2]:mb-3">
+            <h2 className="text-2xl">Saved questions</h2>
             {journey.creations.length ? (
               <div className="bookmark-list gap-4.5 grid">
                 {requestPage.items.map((creation) => (
@@ -250,9 +280,7 @@ export function MySpace({ query }: { query: string }) {
                     className="bookmark-group p-6 bg-card rounded-[10px] max-[760px]:p-5 [&_>_h3]:mb-2"
                   >
                     <h3>{creation.question}</h3>
-                    <p className="mt-3 text-muted-foreground">
-                      Saved design-preview request · {creation.scope}
-                    </p>
+                    <p className="mt-3 text-muted-foreground">Saved question · {creation.scope}</p>
                   </Link>
                 ))}
               </div>
@@ -260,8 +288,7 @@ export function MySpace({ query }: { query: string }) {
               <div className="empty-state my-7.5 mx-auto py-[55px] px-6 text-center max-w-[650px] [&_>_svg]:mx-auto [&_>_svg]:w-10 [&_>_svg]:h-10 [&_>_svg]:mt-0 [&_>_svg]:mb-5.5 [&_>_svg]:text-primary [&_>_svg]:[stroke-width:1.3] [&_p]:mx-auto [&_p]:mt-4 [&_p]:mb-6 [&_p]:text-muted-foreground [&_[data-slot=button]]:m-[5px]">
                 <h3>What have you always wondered?</h3>
                 <p>
-                  Save a question and explore how creating a new story will feel. Generation is not
-                  connected in this preview.
+                  Save a question to return to later. New lesson generation is not connected yet.
                 </p>
                 <Button asChild>
                   <Link href="/create">

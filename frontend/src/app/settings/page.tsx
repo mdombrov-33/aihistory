@@ -12,8 +12,9 @@ export default function SettingsPage() {
       className="page-width mx-auto w-[min(1360px,_calc(100%_-_80px))] max-[1050px]:w-[calc(100%_-_48px)] max-[760px]:w-[calc(100%_-_36px)]"
     >
       <PageHeading
-        title="Make yourself at home."
-        description="Choose how your stories look, sound and feel."
+        compact
+        title="Settings"
+        description="Choose your appearance, sound and reading preferences."
       />
       <Preferences />
       <PageFooter />

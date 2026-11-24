@@ -24,12 +24,12 @@ export function AuthForm({ mode, next = "/my-space" }: { mode: AuthMode; next?: 
   const content = {
     "sign-in": {
       title: "Welcome back.",
-      description: "Return to the places and questions you kept.",
+      description: "Pick up where your curiosity left off.",
       action: "Sign in",
     },
     "create-account": {
       title: "Keep your curiosity close.",
-      description: "An account will keep your stories, bookmarks and conversations together.",
+      description: "Your lessons, saved passages and questions in one place.",
       action: "Create account",
     },
     "reset-password": {
@@ -45,11 +45,13 @@ export function AuthForm({ mode, next = "/my-space" }: { mode: AuthMode; next?: 
   }[mode];
 
   return (
-    <div className="auth-form p-7.5 w-full max-w-none [background:linear-gradient(_140deg,_color-mix(in_srgb,_var(--card)_98%,_transparent),_color-mix(in_srgb,_var(--background)_98%,_transparent)_)] border border-border rounded-[14px] text-foreground [box-shadow:0_20px_60px_color-mix(in_srgb,_var(--art-ink)_27%,_transparent)] max-[760px]:py-[25px] max-[760px]:px-5.5 max-[760px]:rounded-[12px] [&_h1]:text-[36px] max-[760px]:[&_h1]:text-[32px] [&_>_p]:mx-0 [&_>_p]:text-foreground [&_>_p]:mt-4.5 [&_>_p]:mb-5.5 [&_>_p]:text-[18px] max-[760px]:[&_>_p]:mt-4 max-[760px]:[&_>_p]:text-[16px] max-[760px]:[&_>_p]:leading-[1.5]">
-      <h1>{content.title}</h1>
-      <p>{content.description}</p>
+    <div className="auth-form w-full text-foreground">
+      <h1 className="text-3xl leading-tight sm:text-4xl">{content.title}</h1>
+      <p className="mb-6 mt-3 text-base leading-relaxed text-muted-foreground">
+        {content.description}
+      </p>
       {mode === "verify-email" || submitted ? (
-        <div className="form-stack grid [&>[data-slot=button]]:w-full gap-[17px] [&>p]:text-[17px]">
+        <div className="form-stack grid gap-4 [&>[data-slot=button]]:w-full">
           <Mail size={32} aria-hidden="true" />
           <p>
             {submitted
@@ -73,19 +75,18 @@ export function AuthForm({ mode, next = "/my-space" }: { mode: AuthMode; next?: 
               <Button
                 type="button"
                 variant="outline"
-                className="google-sign-in w-full h-12 text-[16px]! [&_svg]:ml-auto border border-border bg-card text-foreground"
+                className="google-sign-in h-11 w-full border-border bg-background text-sm text-foreground"
                 onClick={() => toast("Google sign-in is not connected in this frontend preview.")}
               >
                 Continue with Google
-                <ArrowRight />
               </Button>
-              <div className="auth-divider mx-0 gap-4 flex items-center before:[content:''] before:h-[1px] before:flex-1 after:[content:''] after:h-[1px] after:flex-1 my-4.5 text-[12px] text-foreground before:bg-card after:bg-card max-[760px]:my-4">
+              <div className="auth-divider my-5 flex items-center gap-3 text-xs text-muted-foreground before:h-px before:flex-1 before:bg-rule after:h-px after:flex-1 after:bg-rule">
                 or continue with email
               </div>
             </>
           ) : null}
           <form
-            className="form-stack grid [&>[data-slot=button]]:w-full gap-[17px] [&>p]:text-[17px]"
+            className="form-stack grid gap-4 [&>[data-slot=button]]:w-full"
             onSubmit={(e) => {
               e.preventDefault();
 
@@ -100,10 +101,10 @@ export function AuthForm({ mode, next = "/my-space" }: { mode: AuthMode; next?: 
             }}
           >
             {mode === "create-account" ? (
-              <div className="form-field gap-[9px] grid">
+              <div className="form-field grid gap-2">
                 <Label htmlFor="display-name">Your name</Label>
                 <Input
-                  className="border-input bg-card text-foreground placeholder:text-foreground"
+                  className="h-11 border-input bg-background text-base text-foreground placeholder:text-muted-foreground"
                   id="display-name"
                   name="name"
                   autoComplete="name"
@@ -113,10 +114,10 @@ export function AuthForm({ mode, next = "/my-space" }: { mode: AuthMode; next?: 
                 />
               </div>
             ) : null}
-            <div className="form-field gap-[9px] grid">
+            <div className="form-field grid gap-2">
               <Label htmlFor="email">Email address</Label>
               <Input
-                className="border-input bg-card text-foreground placeholder:text-foreground"
+                className="h-11 border-input bg-background text-base text-foreground placeholder:text-muted-foreground"
                 id="email"
                 name="email"
                 type="email"
@@ -127,7 +128,7 @@ export function AuthForm({ mode, next = "/my-space" }: { mode: AuthMode; next?: 
               />
             </div>
             {mode !== "reset-password" ? (
-              <div className="form-field gap-[9px] grid">
+              <div className="form-field grid gap-2">
                 <div className="form-row gap-3.5 flex items-center justify-between">
                   <Label htmlFor="password">Password</Label>
                   {mode === "sign-in" ? (
@@ -139,9 +140,9 @@ export function AuthForm({ mode, next = "/my-space" }: { mode: AuthMode; next?: 
                     </Link>
                   ) : null}
                 </div>
-                <div className="password-input relative [&_input]:pr-13 [&_button]:absolute [&_button]:right-0.5 [&_button]:top-0.5">
+                <div className="password-input relative [&_input]:pr-13 [&_button]:absolute [&_button]:right-0.5 [&_button]:top-0">
                   <Input
-                    className="border-input bg-card text-foreground placeholder:text-foreground"
+                    className="h-11 border-input bg-background text-base text-foreground placeholder:text-muted-foreground"
                     id="password"
                     name="password"
                     type={shown ? "text" : "password"}
@@ -173,13 +174,13 @@ export function AuthForm({ mode, next = "/my-space" }: { mode: AuthMode; next?: 
               <ArrowRight />
             </Button>
           </form>
-          <p className="auth-guest mx-0! mt-[21px]! mb-0! text-[15px]! [&_a]:gap-2.5 [&_a]:flex [&_a]:items-center [&_a]:justify-center [&_a]:text-primary [&_a]:min-h-[35px] [&_svg]:w-4">
+          <p className="auth-guest mt-4 text-center text-sm [&_a]:inline-flex [&_a]:min-h-11 [&_a]:items-center [&_a]:gap-2 [&_a]:text-primary [&_svg]:size-4">
             <Link href={destination}>
               Continue as guest
               <ArrowRight />
             </Link>
           </p>
-          <p className="auth-alternative text-center m-0 pt-[13px] text-[14px] text-foreground">
+          <p className="auth-alternative mt-2 text-center text-sm text-muted-foreground">
             {mode === "sign-in" ? (
               <>
                 New here?{" "}
@@ -198,9 +199,9 @@ export function AuthForm({ mode, next = "/my-space" }: { mode: AuthMode; next?: 
           </p>
         </>
       )}
-      <p className="auth-preview-note mx-0 mt-5 mb-0 max-w-[50ch] text-center text-[11px] leading-[1.5] text-muted-foreground max-[760px]:text-[10px]">
-        Account design preview. No account is created, no email is sent, and credentials stay in
-        this form.
+      <p className="auth-preview-note mt-6 border-t border-rule pt-4 text-xs leading-relaxed text-muted-foreground">
+        Account preview · Sign-in and email delivery aren’t connected. Use sample details, or
+        continue as a guest.
       </p>
     </div>
   );

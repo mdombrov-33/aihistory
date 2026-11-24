@@ -8,11 +8,7 @@ This folder contains the Next.js app, its dependencies, public media, tests and 
 - [Authoring a lesson](../docs/technical/lesson-authoring.md)
 - [Implementation plan](../docs/implementation-plan.md)
 
-From the repo root, use `make install`, then `make dev`. Run `make` for all shortcuts, `make format` to format code, `make check` for static/documentation checks, `make test` for browser-independent contracts and `make verify` for those checks plus the production build/HTML validation. `make test-browser` builds and runs browser journeys separately. From this folder, use `make -C .. <target>` or the package scripts directly. The repo `.node-version` pins Node; this package's manifest and lockfile pin its tools/dependencies.
-
-The root [Makefile](../Makefile) delegates to the existing tools. Run documentation validation alone with `make docs-check`.
-
-`make format` runs Oxfmt, then the [syntax-aware blank-line pass](scripts/format-spacing.cjs). It separates module headers/imports, functions, type declarations, multiline declarations and control-flow/return blocks, while keeping related short declarations together. It preserves import order and attached comments and skips UI-library wrappers and declaration files. `make format-check` and `make check` enforce both steps. The helper uses the already installed TypeScript parser; no additional formatter package is required. Oxc editor format-on-save runs Oxfmt alone; `make format` applies the complete project spacing policy.
+Run `make` from the root for commands. [Development](../docs/technical/development.md) owns setup, formatting and verification scopes; manifests/configuration own installed versions.
 
 ## Start here
 
@@ -29,6 +25,10 @@ The reusable lesson engine lives in **[src/features/lesson](src/features/lesson/
 | Change shared mechanic controls | [Button variants and range control](src/features/lesson/shared/controls.tsx), [fixed-stage workbench](src/features/lesson/shared/workbench.tsx), [scoped state](src/features/lesson/shared/session.tsx) |
 | Change image/model inspection | [Media viewers](src/features/lesson/media/) |
 | Edit a prepared lesson | [Lesson JSON and registry](src/content/lessons/); follow the [authoring guide](../docs/technical/lesson-authoring.md) |
+| Change homepage sections | [Home route](src/app/page.tsx), [question entry](src/features/discovery/home-theatre.tsx), [Moon](src/features/discovery/moon-study.tsx), [map](src/features/discovery/journey-map.tsx), [collection](src/features/discovery/home-collection.tsx) |
+| Change catalog or compact lesson rows | [Browser](src/features/discovery/browser.tsx), [LessonRow](src/components/app/lesson-row.tsx) |
+| Change account, Ask or preferences | [Account](src/features/account/), [creation](src/features/creation/), [settings](src/features/settings/) |
+| Add Premium selection | [Offer requirements](../docs/product/account-and-offer.md#premium-selection), [next feature](../docs/implementation-plan.md#next-feature-premium-selection); route/feature not implemented yet |
 | Change discovery metadata | [Catalog queries](src/content/catalog/catalog.ts), [generated summaries](src/content/catalog/showcase-catalog.generated.json), [sync script](scripts/sync-prepared-catalog.mjs) |
 | Change saved progress/preferences | [Guest schema/defaults](src/state/guest/schema.ts), [store](src/state/guest/store.ts), [actions](src/state/guest/actions.ts) |
 
@@ -55,7 +55,7 @@ src/
     discovery/               Homepage source studies, model record and city coordinates
     geography/               Local base-map geometry and provenance
   state/guest/               One guest store with separate schema, persistence and actions
-  components/app/            Shared navigation, providers, cards and page shell
+  components/app/            Shared navigation, compact lesson rows, cards, providers and page shell
   components/ui/             Reusable UI primitives
   styles/                    Tailwind entry, document defaults and shared theme tokens
   lib/                       Small generic helpers: class names and pagination
@@ -71,14 +71,12 @@ Within a mechanic, `*-lab.tsx` owns the visible controls/feedback; `*-canvas.tsx
 
 - Routes compose prepared data and feature entry points. Keep complete lesson bundles server-side; browser discovery uses generated summaries. The registry and summary index are deliberate separate inputs, not duplicate files to merge.
 - Contracts and calculations contain no React/viewer implementation. Component props stay near their component; shared lesson/catalog types derive from the bundle schema. Keep `types/` for external declarations rather than every application type.
+- Preserve the badge/card/checkbox/dropdown-menu/separator wrappers and react-markdown unless the task explicitly changes them.
 - Use direct imports into the owning module. Do not add a root barrel that mixes data/schema modules with client components or heavy viewers.
-- Guest state still uses one store and the existing `history-worlds:journey:v1` envelope. Separating files does not introduce independent stores, a migration or account synchronization. Transient playback remains local to its mechanic.
+- Guest state uses one store and the existing `history-worlds:journey:v1` envelope. Transient playback remains local to its mechanic.
 - Handwritten modules have short purpose comments. Keep them accurate when responsibilities change; generated JSON, vendor code and UI-library wrappers do not need boilerplate headers.
 - Tailwind utilities are the default for component layout, spacing, typography, responsive behavior and interaction states. Use semantic roles such as `bg-card`, `text-muted-foreground` and `border-rule`; [theme.css](src/styles/theme.css) owns the palette and [globals.css](src/styles/globals.css) exposes tokens and document/accessibility defaults. Do not add page layouts or broad `[data-slot]` component overrides to global foundations.
 - Put shared UI defaults and variants in [components/ui](src/components/ui/). [StoryCard](src/components/app/story-card.tsx) has explicit home/collection variants; [lesson controls](src/features/lesson/shared/controls.tsx) own shared action buttons and ranges. Use `cn` to merge conditional utility classes; keep complete class names visible to Tailwind rather than constructing them from fragments. Stable semantic marker classes remain for selectors and browser tests.
 - Retain feature CSS for coordinated scene/viewport rules, viewer/library internals, SVG geometry and artwork composition. These files stay beside their owners: discovery, lesson player, media, scenes and shared interactions. They are imported explicitly by [app/layout.tsx](src/app/layout.tsx) and are still global, not CSS Modules. Their remaining contextual rules intentionally take precedence over ordinary utility defaults; do not add unrelated application controls there. Changes to these relationships need rendered regression verification.
 - Add a lesson to the [registry](src/content/lessons/registry.ts), then run `node scripts/sync-prepared-catalog.mjs`. Never hand-edit the generated summary index. Media paths, provenance, font licenses and local Draco decoding remain part of the content contract.
 - Keep focused browser-independent checks in `tests/contracts/` and actual browser journeys in `tests/browser/`. Both use the existing Playwright runner; `test:scenes` launches no browser. Shared documentation remains outside this package; root README stays empty.
-
-
-Homepage entry: `src/app/page.tsx` arranges the sections. `features/discovery/home-theatre.tsx` owns question entry, `moon-study.tsx` the single 3D showcase, `journey-map.tsx` the flat map selection, and `home-collection.tsx` the prepared lesson list. `features/lesson/media/evidence-study.tsx` shares image inspection and on-image detail feedback with homepage studies; `content/discovery/home-studies.ts` owns their source records. Appearance remains in `features/settings/preferences.tsx`.

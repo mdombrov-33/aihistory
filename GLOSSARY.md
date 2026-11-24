@@ -46,10 +46,10 @@ Retained source text with provenance that can support a claim. This is distinct 
 The shared internal subject, learning, narrative and interaction plan used to compose a story's chapters.
 
 **Content family**:
-The structured data/interaction kind understood by the renderer. Thirteen are implemented: illustrated, place, atlas, evidence, comparison, timeline, journey, object, photograph, assembly, experiment, sound and system. This is distinct from a spatial layout or teaching preset.
+The structured data/interaction kind understood by the renderer. Supported kinds are defined in the [scene contract](frontend/src/features/lesson/contracts/scene.ts). This is distinct from a spatial layout or teaching preset.
 
 **Composition / teaching preset**:
-A named teaching task with supported families, framing and input requirements. The 22 registry entries use a smaller set of shared responsive layouts; they do not authorize generated JSX/CSS.
+A named teaching task with supported families, framing and input requirements. The [composition registry](frontend/src/features/lesson/contracts/compositions.ts) maps teaching tasks to shared responsive layouts; it does not authorize generated JSX/CSS.
 
 **Prepared bundle**:
 The complete version-2 JSON input used by the current frontend: story summary, chapters/narratives, sources, registered assets/models and beat programs. Structural validity does not prove factual accuracy or production readiness. It is distinct from a future persisted story version or prepared workflow execution.

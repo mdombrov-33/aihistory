@@ -1,8 +1,8 @@
 # The Shape of a Signal: source pack
 
-Checked 2026-11-23 for a new prepared showcase about early electrical telegraphy, the Morse–Vail key and the making of communication networks. This is a bounded source and asset handoff. No paid provider calls, generated pictures or model downloads were used.
+Source and asset reference for early telegraphy, the Morse–Vail key and communication networks. Source access checked 2026-11-23.
 
-## Six core institutional sources
+## Core institutional sources
 
 | Source | Supported claims and limits |
 | --- | --- |
@@ -22,11 +22,11 @@ Checked 2026-11-23 for a new prepared showcase about early electrical telegraphy
 
 ## The surviving message is not one interchangeable artifact
 
-The [Smithsonian's message record](https://postalmuseum.si.edu/object/nmah_713485) distinguishes three objects: the 24 May Washington-to-Baltimore original held by LOC; Vail's confirmation held by the Connecticut Historical Society; and the Smithsonian's **25 May 1844 souvenir**. Do not caption the Smithsonian souvenir as the first message itself. The Senate's LOC facsimile is a valid citation for the displayed words, but its JPEG could not be fetched in this environment (HTTP 403), so it has not been added as a local asset. The exact quoted message is four words; punctuation and capitalization can vary between transcriptions.
+The [Smithsonian's message record](https://postalmuseum.si.edu/object/nmah_713485) distinguishes three objects: the 24 May Washington-to-Baltimore original held by LOC; Vail's confirmation held by the Connecticut Historical Society; and the Smithsonian's **25 May 1844 souvenir**. Do not caption the Smithsonian souvenir as the first message itself. The Senate's LOC facsimile is a valid citation for the displayed words, but its JPEG is not a registered local asset. The exact quoted message is four words; punctuation and capitalization can vary between transcriptions.
 
 ## Downloaded historical assets
 
-Both objects' collection pages label their images **Public Domain**. [The Met's Open Access policy](https://www.metmuseum.org/hubs/open-access) releases public-domain collection imagery under CC0. Adjacent `.jpg.provenance.json` files retain exact image URLs, collection records, credit, dimensions, final SHA-256 and original download SHA-256. Source URLs are embedded in JPEG comments without changing image pixels. Both passed JPEG signature/dimension checks and were visually inspected with `view_image`.
+Both objects' collection pages label their images **Public Domain**. [The Met's Open Access policy](https://www.metmuseum.org/hubs/open-access) releases public-domain collection imagery under CC0. Adjacent `.jpg.provenance.json` files retain exact image URLs, collection records, credit, dimensions, final SHA-256 and original download SHA-256. Source URLs are embedded in JPEG comments without changing image pixels.
 
 | Local asset | Record and exact download | Historical scope and suggested use |
 | --- | --- | --- |
@@ -41,6 +41,6 @@ The regional route should identify **Washington, D.C. → Baltimore**, with the 
 
 For the lasting Atlantic connection, identify **Valentia Island, Ireland → Heart's Content, Newfoundland**. [Parks Canada's designation](https://www.pc.gc.ca/apps/dfhd/page_nhs_eng.aspx?id=1950) confirms the 1866 landing at Heart's Content. Its wording should not erase the successful but short-lived 1858 crossing. [The provincial historic-site operator](https://www.seethesites.ca/sites/hearts-content-cable-station/) describes 1866 as the first successful permanent connection and warns that today's cable-station building dates to 1875, with a 1918 extension. The locality names are verified; no surveyed terminal coordinates or detailed cable track were verified for this pack. Any coarse geography in the teaching map must be presented as schematic.
 
-## Verification limits
+## Source limits
 
-Institutional search text and object records were read on the check date. Several LOC, Smithsonian and Senate direct page/image requests returned 403 or 500; the research does not claim that every cited page is reachable by the application. Met API metadata confirmed `isPublicDomain: true` for both downloaded objects. No claim of exact historic cable geometry, exact 1844 code timing, or complete historical coverage is made.
+The source packet establishes neither exact cable geometry nor exact 1844 code timing or complete historical coverage. Remote reference links are not runtime image registrations; only use local assets with recorded rights.

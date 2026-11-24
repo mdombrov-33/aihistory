@@ -1,8 +1,8 @@
 # Photography showcase source pack
 
-Checked 2026-11-23 for the prepared `invention-of-photography` lesson. This is a source and asset handoff, not a complete global history of photography. Only institutional sources below were used; no paid providers or generated images were involved.
+Source and asset reference for the photography lesson. Claims are scoped to the institutional records below, rather than a complete global history. Source access checked 2026-11-23.
 
-## Six core institutional sources
+## Core institutional sources
 
 | Source | Supported claims and limits |
 | --- | --- |
@@ -29,7 +29,7 @@ Move from an individual object to print production and the illustrated book. *Th
 
 ## Downloaded historical assets
 
-All four object pages explicitly mark their images **Public Domain**. [The Met's Open Access policy](https://www.metmuseum.org/hubs/open-access) releases public-domain collection images under CC0. Each adjacent `*.jpg.provenance.json` records the exact image URL, object record, license, collection credit, dimensions, byte count and SHA-256. JPEG bytes are unchanged. All four passed JPEG-signature and `file` checks and were visually inspected through `view_image`.
+All four object pages explicitly mark their images **Public Domain**. [The Met's Open Access policy](https://www.metmuseum.org/hubs/open-access) releases public-domain collection images under CC0. Each adjacent `*.jpg.provenance.json` records the exact image URL, object record, license, collection credit, dimensions, byte count and SHA-256. Image pixels retain the source content.
 
 | Local file | Authoritative record / exact download | Subject, date and visual use |
 | --- | --- | --- |
@@ -42,4 +42,4 @@ Do not substitute a modern enhanced Niépce reproduction or a web copy of *Boule
 
 ## Final asset provenance
 
-Source origins were subsequently embedded as JPEG comments for the frontend. Image pixels and dimensions are unchanged. Sidecars preserve the original download hash as `sourceSha256` and record the final asset hash/byte size separately. The lesson bundle identifies which research assets are actually presented; the Pompeii cast photograph is not displayed in the prepared lesson.
+JPEG comments embed source origins without changing pixels/dimensions. Sidecars distinguish the original download hash (`sourceSha256`) from the final file hash. The bundle identifies displayed assets.

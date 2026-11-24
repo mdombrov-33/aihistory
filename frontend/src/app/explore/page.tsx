@@ -3,7 +3,7 @@
 import { PageFooter, PageHeading } from "@/components/app/shell";
 import { StoryBrowser } from "@/features/discovery/browser";
 
-export const metadata = { title: "Explore stories" };
+export const metadata = { title: "Explore lessons" };
 
 export default async function ExplorePage({
   searchParams,
@@ -18,7 +18,6 @@ export default async function ExplorePage({
   const initial = {
     q: read("q", ""),
     topic: read("topic", "all"),
-    era: read("era", "all"),
     sort: read("sort", "relevance"),
     page: read("page", "1"),
   };
@@ -29,8 +28,9 @@ export default async function ExplorePage({
       className="page-width mx-auto w-[min(1360px,_calc(100%_-_80px))] max-[1050px]:w-[calc(100%_-_48px)] max-[760px]:w-[calc(100%_-_36px)]"
     >
       <PageHeading
-        title="Follow a thread."
-        description="People, places, ideas and turning points. Find a story that opens a door."
+        compact
+        title="Explore lessons"
+        description="Find something you want to understand. Search by question or browse a topic."
       />
       <StoryBrowser key={JSON.stringify(initial)} initial={initial} />
       <PageFooter />

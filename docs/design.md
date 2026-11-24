@@ -1,37 +1,26 @@
-# Product design map
+# Product map
 
-**Working name:** Undecided. Interactive learning describes the product; Learn is a provisional UI wordmark; HISTORY remains in legacy identifiers.
+Interactive learning across subjects, built around a learner's question. Learners can browse an existing lesson or request a new explanation, then inspect sources and manipulate supported models within a coherent guided experience. English first, mobile-first web.
 
-**Status:** Product direction established; the frontend Next.js app is a prepared-content frontend under active iteration. [Current state](status.md) distinguishes working preview capabilities from planned live services. Deployment is on hold.
-
-## Product promise
-
-Understand subjects through interactive experiences built around your questions. A learner can enter through a question or browse a public library, then explore a guided explanation by manipulating models, investigating systems and examining supporting sources.
-
-This is a piece of a larger website: generated stories use supported scene and interaction forms inside the product. They are not standalone websites or generic chat answers.
+Learn is a provisional wordmark; public naming remains open. Existing `story` code/routes are compatible identifiers. [Status](status.md) identifies working behavior; [implementation plan](implementation-plan.md) orders remaining work.
 
 ## Read by task
 
-- **Story flow, scenes, narration, art direction, accessibility:** [`product/experience.md`](product/experience.md)
-- **Reusable learning mechanics, scientific models and current exploration:** [`technical/learning-engine.md`](technical/learning-engine.md)
-- **Library, detail pages, sharing, community, bookmarks, and reporting:** [`product/library.md`](product/library.md)
-- **Accounts, personal learning guide, creation allowance, and monetization direction:** [`product/account-and-offer.md`](product/account-and-offer.md)
-- **Unresolved product decisions:** [`product/open-questions.md`](product/open-questions.md)
-- **Active application stack and task-specific technical references:** [`technical/decisions.md`](technical/decisions.md)
-- **Deferred deployment choices and research, only when resumed:** [`deployment/decisions.md`](deployment/decisions.md)
-- **Terms:** [`../GLOSSARY.md`](../GLOSSARY.md)
-- **Current full-app visual exploration and screen flow:** [`visuals/full-app-flow.md`](visuals/full-app-flow.md)
-- **Compact context for design tooling:** [`../PRODUCT.md`](../PRODUCT.md)
-- **Visual references and earlier concepts:** [`visuals/`](visuals/)
+| Task | Reference |
+| --- | --- |
+| Entry flow, pacing, reading/listening, interaction and accessibility | [Experience](product/experience.md) |
+| Discovery, overview, sharing, community, progress and reporting | [Library](product/library.md) |
+| Account value, Premium selection, allowances and personal guide | [Account and offer](product/account-and-offer.md) |
+| Unresolved product choices | [Product questions](product/open-questions.md) |
+| Visual identity and layout rules | [Visual system](../DESIGN.md) |
+| Compact design-tool context | [PRODUCT.md](../PRODUCT.md) |
+| Implementation constraints | [Technical map](technical/decisions.md) |
+| Shared terminology | [Glossary](../GLOSSARY.md) |
 
-## Current boundaries
+## Boundaries
 
-- Subject scope is broad: science, mathematics, technology, music, nature, art, history and other teachable topics. History has no required priority in the catalog or showcases.
-- The [learning engine exploration](technical/learning-engine.md) defines current mechanics, new examples and ideas still to test. The immersive homepage now demonstrates the established engine without adding new lesson mechanics.
-- The intended learner is a curious adult who may know little about the requested subject. English is the initial language.
-- Public library browsing and playback should work without an account. Accounts add personal and community benefits.
-- Application architecture and provider choices live in the technical guide. Hosting, staging, and cloud operations are deferred and do not block local implementation.
+Subjects and formats serve the explanatory question. A map, timeline, artwork or 3D model is useful when it teaches something; none is compulsory. New simulations require an implemented and validated model.
 
-## Source-of-truth rule
+Public browsing, playback and source inspection are account-free. Accounts add personal and community capabilities; newly generated content requires verification and bounded allowances. Local work remains independent of [deferred deployment](deployment/decisions.md).
 
-The topical documents contain current product direction. Open proposals stay in `product/open-questions.md`; accepted answers are folded into the relevant topical document and removed from the open list. This file remains a short map, not a second specification.
+Each topical document owns its requirements. Resolve open choices there and remove them from the question list. Commands, registered content and installed versions belong to code/config rather than duplicated inventories.

@@ -1,6 +1,6 @@
 # Pompeii showcase source pack
 
-Checked 23 November 2026. Prepared for a three-chapter local showcase. Narrative claims below come from the archaeological authority, a university edition of an ancient source, or institutions discussing their own collections/research. No paid providers or generated images were used.
+Source and asset reference for Pompeii. Claims are scoped to the archaeological authority, a university edition of an ancient source, and institutions discussing their own collections/research. Source access checked 2026-11-23.
 
 ## Chapter 1 — A city that worked
 
@@ -82,7 +82,7 @@ Checked 23 November 2026. Prepared for a three-chapter local showcase. Narrative
 
 ## Downloaded reusable assets
 
-All four files were downloaded from institutional delivery services, checked as JPEGs with `file`, measured with `sips`, hashed with SHA-256 and opened with `view_image`. The first Met image URL returned an HTML challenge despite HTTP success; that file was replaced with the verified JPEG served by the linked collection API. Sidecars hold the final exact download URL, record, rights, creator, dimensions, byte count and hash. No cropping, retouching or generation was applied.
+Adjacent provenance sidecars hold exact institutional image URLs, object records, rights, creators, dimensions, byte counts and hashes. The files retain the source image pixels.
 
 | Local asset | Authoritative record / reuse status | Visible caption and use |
 | --- | --- | --- |
@@ -104,4 +104,4 @@ These files are source records and historical depictions, not reconstructions of
 
 ## Final asset provenance
 
-Source origins were subsequently embedded as JPEG comments for the frontend. Image pixels and dimensions are unchanged. Sidecars preserve the original download hash as `sourceSha256` and record the final asset hash/byte size separately. The lesson bundle identifies which research assets are actually presented; the Pompeii cast photograph is not displayed in the prepared lesson.
+JPEG comments embed source origins without changing pixels/dimensions. Sidecars distinguish the original download hash (`sourceSha256`) from the final file hash. The bundle identifies displayed assets; availability in this packet does not imply use in the player.

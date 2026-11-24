@@ -1,58 +1,42 @@
-# Lesson composition and prepared content
+# Scene contracts and rendering
 
-Use for the working scene protocol and renderer. [Frontend](frontend.md) owns playback/sound direction; [generation](generation.md) owns the future workflow. Visual references remain illustrative. The latest rejected screenshots outrank earlier comps.
+Use for the prepared data protocol, composition and validation. [Frontend](frontend.md) owns playback/sound; [learning engine](learning-engine.md) owns interactive models.
 
 ## Working system
 
-[Composition definitions](../../frontend/src/features/lesson/contracts/compositions.ts) are the single registry of **26 presets**, each with a teaching purpose, supported content family, spatial layout, framing and input requirements. `/screen-gallery` renders an actual lesson example of every preset through the same components used by the player. It mounts only the selected example.
+- [Bundle schema](../../frontend/src/features/lesson/contracts/bundle.ts) defines versioned summaries, narratives, sources, licensed images/models and explicit scene programs.
+- [Scene schema](../../frontend/src/features/lesson/contracts/scene.ts) and [composition registry](../../frontend/src/features/lesson/contracts/compositions.ts) define supported families, teaching purposes, framing and required inputs.
+- [SceneFrame](../../frontend/src/features/lesson/scenes/scene-frame.tsx) selects responsive spatial behavior; [SceneStage](../../frontend/src/features/lesson/scenes/scene-stage.tsx) dispatches family renderers.
+- [Player](../../frontend/src/features/lesson/player/player.tsx) owns navigation, Read/Listen and paragraph bookmarks. A beat covers contiguous narrative paragraphs; a paragraph is not automatically a screen.
+- `/screen-gallery` renders registered examples through the same components, mounting only the selected example.
 
-[SceneFrame](../../frontend/src/features/lesson/scenes/scene-frame.tsx) selects spatial behavior; [SceneStage](../../frontend/src/features/lesson/scenes/scene-stage.tsx) renders 15 content families: illustrated image, place, atlas, evidence, comparison, timeline, process/journey, object, photograph, assembly, experiment, sound, system, traveler and construction. [Player](../../frontend/src/features/lesson/player/player.tsx) owns navigation, Read/Listen and exact paragraph bookmarks. There are no slug-specific lesson layouts or legacy fallback rotations.
+Content selects supported structures, never React, arbitrary CSS or executable strings. Families describe data/interaction; compositions describe teaching tasks over shared layouts. There are no lesson-slug layout branches.
 
-The 26 presets describe teaching tasks, backed by a smaller set of shared spatial layouts. They no longer force eighteen unrelated arrangements. Image-led screens, source comparisons and place inspection use a full-height visual beside the narrative. Portrait assets automatically narrow the visual column. Maps use a dedicated full-height canvas. Image-free quotations, chronology, processes and synthesis retain their own reading structures.
+## Media and layout rules
 
-- Image previews fill their exhibit using cover framing and optional focal points. Whole-source inspection remains available through Fit whole image and enlargement. Document desks can retain contain framing and a paper margin. Registered dimensions determine the real source proportions.
-- Image-relative inspection points constrain initial framing: all 44px targets must fit in the visible window, even if that requires backing off from cover. Compact numbered pins replace oversized labels; a separate legend keeps every detail reachable. Selecting a detail opens an attached panel over the image, with an actual source crop where supplied. Close/Escape restores focus to the trigger. The response is never appended below the narrative.
-- `layer-reveal` keeps the original image unmarked until the reader reveals a registered editorial SVG guide. All guide geometry participates in framing and remains aligned during pan/zoom and enlargement. It does not add hotspots or imply a hidden scan.
-- `assembly-motion` plays one authored schematic cycle with Play/Pause, seek and reset directly beside the exhibit; reduced motion offers still poses. It reuses the assembly family.
-- Comparisons use one large image and source selector, with one inspection toolbar. The selected source explanation stays beside that selector. Timeline galleries use the same principle. Independent sources are not presented as an invented before/after.
-- Map projections fit the measured canvas rather than a fixed-ratio SVG strip. Natural Earth 1:110m is reserved for broad geographic views. Connections spanning less than eight degrees on both axes use a labelled local-position schematic without a false magnified coastline. This is a presentation fallback, not finer geographic evidence. Exact tracks or historical borders still require separate sourced geometry. Coincident/single-point states retain a finite projection.
-- Cinematic openings currently use the safe image/narrative split. Background text overlays are deferred until a supported safe-area contract can protect meaningful artwork; focal points alone cannot establish a safe text area.
-- Processes and chronological sequences can explain something without filler imagery. Their changing explanation stays in the same visual region as its controls. Synthesis uses previously developed conclusions.
-- Local licensed GLB models are registered in the bundle. Native 3D shares the page ground and shows a small drag/zoom hint. Camera tools expand on demand; guided camera choices remain compact, with optional view explanations. Posters, retry, enlargement and collection records remain available.
-- Ordinary desktop uses bounded scenes and a scrollable reading pane. Mobile, short windows and enlarged text allow natural flow; every paragraph assigned to a screen remains visible. Enlarged text is 23px in the reading pane. Narration is optional and interruptible.
-
-The [learning engine](learning-engine.md) owns workbench behavior, model assumptions and future ideas. These families extend the same frames and authoring contract rather than introducing a parallel lesson app.
+- Image-led screens put a full-height visual beside the narrative. Portrait assets narrow the visual column; registered dimensions define source proportions. Cover/focal framing supports previews; whole-source inspection uses contain.
+- All image inspection targets must fit initial framing, even when cover needs to back off. Numbered targets have a reachable legend. Selected detail panels/crops stay at the image; Close/Escape restores trigger focus.
+- Editorial reveal geometry stays aligned through pan/zoom and enlargement and participates in framing. It is identified as a reading aid, never a hidden scan.
+- Comparisons and timeline galleries switch between large images with a shared inspection toolbar; selection feedback stays beside the control. Independent sources are not an invented before/after pair.
+- Geographic projections fit the measured canvas. Generalized Natural Earth data serves broad views; close connections use an identified local schematic when the coastline is unsuitable. Exact tracks, local geography and historical borders need separately sourced geometry. Degenerate point states must remain finite.
+- Openings use an image/narrative split. Artwork text overlays need a supported safe-area contract.
+- Processes/chronologies need no filler image. Changing explanation stays in the same region as controls; synthesis reconnects developed conclusions.
+- Local licensed GLB records supply posters, rights, camera views and retry/enlargement paths. Native 3D shares page ground and exposes compact camera tools on demand.
+- Bounded desktop scenes have a scrollable reading pane. Phones, short windows and larger text use natural flow. Every assigned paragraph remains reachable; narration is optional.
+- [Workbenches](learning-engine.md#authoring-and-runtime-rules) keep manipulation, result and feedback together. Motion starts still and offers reduced-motion poses.
 
 ## Complete prepared stories
 
-[Prepared-story v2](../../frontend/src/features/lesson/contracts/bundle.ts) accepts summary, chapters/narratives, sources, licensed image metadata, model records and explicit scene programs. [Scene schema](../../frontend/src/features/lesson/contracts/scene.ts) restricts data to supported fields; no React, arbitrary CSS or executable strings are accepted as layout. This is a prepared authoring protocol, separate from the future persisted production contract.
+Canonical bundles and executable registration live in [content/lessons](../../frontend/src/content/lessons/). Choose a relevant existing bundle as an example; inspect the registry and `/screen-gallery` rather than maintain a separate inventory here. Follow the [authoring guide](lesson-authoring.md) to add content.
 
-Nine examples, all using the same renderer:
-
-| Bundle | Chapters / screens | Character |
-| --- | --- | --- |
-| [A packet’s journey](../../frontend/src/content/lessons/a-packets-journey.json) | 2 / 4 | Reversible IPv6 Hop Limit traces and route comparisons |
-| [The camera, opened up](../../frontend/src/content/lessons/camera-opened-up.json) | 2 / 6 | Schematic assembly and thin-lens experiments |
-| [A swing in time](../../frontend/src/content/lessons/a-swing-in-time.json) | 2 / 6 | Rapier pendulum and model comparisons |
-| [Shape a sound](../../frontend/src/content/lessons/shape-a-sound.json) | 2 / 6 | Harmonic synthesis and visible signal recipes |
-| [Signals and decisions](../../frontend/src/content/lessons/signals-and-decisions.json) | 3 / 8 | Live Boolean networks plus editable construction and exhaustive tests |
-| [Pompeii](../../frontend/src/content/lessons/pompeii.json) | 3 / 10 | Street inspection, viewpoint map, work, later records and research |
-| [Photography](../../frontend/src/content/lessons/invention-of-photography.json) | 3 / 10 | Portrait, fragile negative, copying process and photographic evidence |
-| [The shape of a signal](../../frontend/src/content/lessons/shape-of-a-signal.json) | 3 / 10 | Actual key in 3D, quotation, network states and historical watercolors |
-| [The Great Wave, made by hand](../../frontend/src/content/lessons/great-wave-made-by-hand.json) | 3 / 8 | Real prints, exact source details, collaborative making and comparison |
-
-The four historical examples each have over 1,000 narrative words; the five newer workbench lessons are shorter, with substantial reading and time for experiments. Screens cover one or more contiguous paragraphs; a paragraph is not automatically a new screen. The original five fixtures, their content/program adapters and the standalone illustrative spacesuit route are retired. Existing guest data is not erased, but retired stories are hidden from the current collection and account lists.
-
-[Authoring guide](lesson-authoring.md) is the agent entry point. Source packets: [Pompeii](../references/pompeii-showcase.md), [photography](../references/photography-showcase.md), [signals](../references/signal-showcase.md), [printmaking](../references/great-wave-showcase.md).
+Source packets retain claim limits and asset rights: [Pompeii](../references/pompeii-showcase.md), [photography](../references/photography-showcase.md), [telegraphy](../references/signal-showcase.md), [printmaking](../references/great-wave-showcase.md). They support those subjects, not a required catalog focus.
 
 ## Enforcement and limits
 
-Validation checks family/preset compatibility, reading coverage, unique IDs, source/chapter indices, registered images, declared dimensions, crop bounds, model references, guided camera requirements and map-state references. Repeating a primary scene image or object requires an editorial `reuseReason`. Nested comparison/timeline uses also need purposeful review; there is no artificial quota forcing 3D, maps or new pictures into every lesson.
+Validation checks family/preset compatibility, reading coverage, unique IDs, source/chapter indices, registered media/dimensions, crop bounds, model/camera references and map states. Reusing a primary image/object needs an editorial `reuseReason`; nested comparisons also need purposeful reuse. No quota forces maps, 3D or new imagery into a lesson.
 
-Images/models stay local. The catalog sync script emits metadata for client discovery; complete narratives remain server content, passed only to the relevant player/gallery route. Import a new bundle in [the registry](../../frontend/src/content/lessons/registry.ts), then run `node frontend/scripts/sync-prepared-catalog.mjs`.
-
-Live research, automatic acquisition/optimization, claim-to-evidence checking, generation jobs, publication/readiness and paid narration remain unimplemented. Schema validity does not establish subject accuracy, usable camera angles or visual quality. Prepared examples establish the authoring seam, not autonomous research-to-publication.
+The catalog sync script derives client metadata from registered bundles. Full narratives remain server content, passed to the relevant player/gallery. Structural validation does not establish subject accuracy, usable camera views or visual quality. [Architecture](architecture.md#prepared-and-persisted-contracts) distinguishes this authoring seam from persisted production content.
 
 ## Verification
 
-`pnpm --dir frontend test:scenes` checks all registered bundles, the 26 compositions, server rendering, local models, rejection boundaries, pagination, theme contrast roles, initial hotspot framing and adaptive map projections. `pnpm --dir frontend check`, `pnpm --dir frontend build`, `node frontend/scripts/check-frontend-build.mjs` and `node scripts/check-docs.mjs` cover their named scopes. Browser journeys cover the new collection but execution remains blocked by `listen EPERM` on localhost; current rendered desktop/mobile and sound checks remain outstanding. Impeccable remains `recapture`.
+Run `make catalog` after registration, then `make verify` for static checks, contracts, build and generated HTML. Contracts cover bundle/registry validity, model behavior, framing, geography, themes and state. Run `make test-browser` for rendered navigation, manipulation, accessibility and recovery. Current execution limits live in [status](../status.md#verification-boundary).

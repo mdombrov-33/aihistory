@@ -1,27 +1,24 @@
 # Open technical details
 
-These are unresolved details, not permission to change accepted direction. Resolve ordinary implementation choices in code; ask the user when behavior, scope, cost, or a substantive tradeoff changes. Product choices stay in [product questions](../product/open-questions.md).
+Resolve ordinary implementation choices in code. Keep questions here only when an unresolved boundary affects scope, behavior, cost or correctness. Product choices live in [product questions](../product/open-questions.md); the [implementation plan](../implementation-plan.md) owns execution order.
 
-The [implementation plan](../implementation-plan.md) records target service interfaces, storage, audio and execution order. Current prepared lesson contracts already exist; [architecture](architecture.md#prepared-and-persisted-contracts) distinguishes them from the remaining production work. Resolve these integration gaps without restarting frontend scaffolding.
+## Persistence and identity
 
-## Before persisted content and account integration
+- Compatible backend/workflow/auth releases and container images; verify peers, exports and a provider-free worker smoke path at integration time.
+- Prepared content and indexed guest positions mapped to stable, versioned persisted IDs; revision conflicts and guest-to-account import UX.
+- Chapter readiness, evidence ownership and authorized asset serving integrated with the existing renderer.
 
-- Compatible backend/workflow/auth package pins and container digests, plus M00 service setup proof. Frontend package/lock/runtime setup already exists.
-- Mapping prepared v2 content and indexed guest positions to versioned persisted records and stable passage IDs; validate date/calendar support, revisions, authorized assets and readiness against the existing renderer.
-- Guest-to-account import/conflict UX; the initial plan keeps namespaces separate and preserves recoverable data.
+## Live services
 
-## Learning capability expansion
+- Provider-operation reconciliation, bounded retries/concurrency/timeouts and workflow-version retirement.
+- Finite monetary caps, separate question/creation quotas, price reconciliation, cancellation and allowance treatment.
+- Retrieval chunk/query limits, ranking evaluation, identity-scoped cache invalidation and sharing-token revocation.
+- Moderation thresholds, failure behavior, report/correction handling and trusted client-address policy.
+- Private trace storage/redaction/retention and a budgeted, calibrated live evaluation path.
+- Actual model access, provider terms, measured creation cost, reusable media rights and narration/sound assets.
 
-- Which [exploration candidates](learning-engine.md#directions-still-to-explore) deserve the next implemented mechanic after reviewing the four new lessons?
-- Named GLB-part acquisition, units, licensing and segmentation for richer assemblies; current procedural primitives do not solve arbitrary model preparation.
-- Domain-model validation, datasets and calibrated numerical error for additional simulations. Broad subject scope is accepted; individual scientific models still need proof.
+## Capability expansion
 
-## Before enabling live generation or public writes
+Named model parts, units, pivots, licensing and datasets for [new mechanics](learning-engine.md#capability-expansion). A viewer alone does not supply a validated simulation or source packet.
 
-- Stage inputs/outputs, provider-operation reconciliation, bounded retries/concurrency/timeouts, workflow-version retirement.
-- Finite monetary caps, question quotas, pricing reconciliation, and operations without reliable cost bounds. User cancellation/allowance treatment remains open.
-- Retrieval chunking/query limits, ranking tuning, cache invalidation, sharing-token/session details, trusted client-address handling, counter cleanup.
-- Moderation thresholds, contextual-check bounds/failure behavior, report handling; trace storage/redaction/retention and a small calibrated live evaluation path.
-- Verify actual model availability, provider terms, measured story cost, media/source reuse rights, and selected narration/sound assets. Voice and visual choices require design iteration.
-
-Deployment questions remain in the [parked deployment record](../deployment/decisions.md). This file is not an implementation plan or backlog.
+[Deployment](../deployment/decisions.md) stays deferred.

@@ -1,8 +1,8 @@
 # Great Wave showcase source pack
 
-Checked 2026-11-23 for **The Great Wave, Made by Hand**. Primary institutional sources and real collection images only. No paid provider calls or generated artwork were used. This is a focused source and asset handoff, not a complete account of ukiyo-e.
+Source and asset reference for The Great Wave and woodblock printmaking. Claims are scoped to the institutional records below, rather than a complete account of ukiyo-e. Source access checked 2026-11-23.
 
-## Six core institutional sources
+## Core institutional sources
 
 | Source | Supported claims and limits |
 | --- | --- |
@@ -27,12 +27,12 @@ The Met object pages explicitly label these images **Public Domain**. [The Met's
 
 | Local asset | Exact object and download | Size and use |
 | --- | --- | --- |
-| `frontend/public/images/archive/great-wave.jpg` (existing) | [JP1847](https://www.metmuseum.org/art/collection/search/45434) · [JPEG](https://collectionapi.metmuseum.org/api/collection/v1/iiif/45434/134438/main-image) | 1200 × 807. Main artwork and inspectable detail. Existing file and provenance were retained. |
+| `frontend/public/images/archive/great-wave.jpg` | [JP1847](https://www.metmuseum.org/art/collection/search/45434) · [JPEG](https://collectionapi.metmuseum.org/api/collection/v1/iiif/45434/134438/main-image) | 1200 × 807. Main artwork and inspectable detail. |
 | `frontend/public/images/showcase/great-wave/red-fuji.jpg` | [JP9](https://www.metmuseum.org/art/collection/search/36490) · [JPEG](https://collectionapi.metmuseum.org/api/collection/v1/iiif/36490/140210/main-image) | 1200 × 827; 225,869 bytes. Broad red mountain, patterned clouds and tiny trees contrast with the wave composition. Credit: Rogers Fund, 1914. |
 | `frontend/public/images/showcase/great-wave/ejiri-suruga.jpg` | [JP2553](https://www.metmuseum.org/art/collection/search/56988) · [JPEG](https://collectionapi.metmuseum.org/api/collection/v1/iiif/56988/140178/main-image) | 1200 × 807; 234,465 bytes. Travelers, bent vegetation and airborne paper offer a second visual account of motion. Credit: The Howard Mansfield Collection, Purchase, Rogers Fund, 1936. |
 
-Both new files passed JPEG-signature, `file` and pixel-dimension checks and were visually inspected with `view_image`. No cropped details, simulated pigment photographs or process photographs have been substituted. If a process diagram is authored, label it an explanatory diagram rather than a reproduction of the lost original blocks.
+Label authored process diagrams as explanations rather than reproductions of the lost original blocks. Source photographs do not establish pigment composition or printing order.
 
 ## Optional block image provenance for future retrieval
 
-The Walters' [published collection media CSV](https://github.com/WaltersArtMuseum/api-thewalters-org/blob/master/media.csv) maps accession 2011.11.1, media 86140, to [the exact front-view JPEG](https://art.thewalters.org/images/raw/PS1_2011.11.1_VwA_DD_AT18-014188-tms.jpg). Both its object page and the museum's [rights policy](https://thewalters.org/about/policies/rights-reproductions/) confirm CC0 for the image. Shell requests returned HTTP 403, so there is no verified local image, dimensions or hash for this optional object. Do not reference a nonexistent local file.
+The Walters' [published collection media CSV](https://github.com/WaltersArtMuseum/api-thewalters-org/blob/master/media.csv) maps accession 2011.11.1, media 86140, to [the exact front-view JPEG](https://art.thewalters.org/images/raw/PS1_2011.11.1_VwA_DD_AT18-014188-tms.jpg). Both its object page and the museum's [rights policy](https://thewalters.org/about/policies/rights-reproductions/) confirm CC0 for the image. This optional object has no registered local image. Acquire and validate it before referencing it in a bundle.

@@ -1,33 +1,4 @@
 /* Discovery context overrides, artwork gradients and source-view composition. */
-.search-composer {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  background: var(--card);
-  padding: 9px 10px 9px 22px;
-  max-width: 850px;
-  border: 1px solid var(--input);
-  border-radius: 12px;
-  margin: 30px auto 20px;
-  box-shadow: 0 12px 38px color-mix(in srgb, var(--art-ink) 13%, transparent);
-}
-.search-composer [data-slot="input"] {
-  background: transparent;
-  border: 0;
-  box-shadow: none;
-  min-width: 0;
-  flex: 1;
-  padding: 8px 0;
-  height: 46px;
-  font-size: 18px;
-}
-.search-composer [data-slot="input"]:focus-visible {
-  outline-offset: 0;
-}
-.search-composer [data-slot="button"] {
-  height: 48px;
-  flex-shrink: 0;
-}
 .detail-actions [data-slot="button"] {
   height: 48px;
 }
@@ -41,24 +12,6 @@
   width: 17px;
 }
 @media (max-width: 760px) {
-  .search-composer {
-    margin: 25px 0 12px;
-    padding: 7px 7px 7px 12px;
-    gap: 8px;
-    border-radius: 9px;
-  }
-  .search-composer [data-slot="input"] {
-    font-size: 16px;
-  }
-  .search-composer [data-slot="button"] {
-    padding-inline: 12px;
-    font-size: 0;
-    min-width: 45px;
-  }
-  .search-composer [data-slot="button"] svg {
-    width: 20px;
-    height: 20px;
-  }
   .resume-card > [data-slot="button"] {
     margin-left: auto;
     min-height: 40px;
@@ -70,34 +23,6 @@
   }
   .related-grid > a:last-child {
     display: none;
-  }
-}
-.filter-controls [data-slot="select-trigger"] {
-  min-width: 180px;
-}
-.result-story .story-meta {
-  color: var(--muted-foreground);
-}
-@media (max-width: 760px) {
-  .filter-controls [data-slot="select-trigger"] {
-    min-width: 0;
-    flex: 1;
-    font-size: 13px;
-    padding-inline: 10px;
-  }
-  .browse-filters > [data-slot="button"] {
-    padding-inline: 10px;
-    font-size: 12px;
-  }
-  .results-bar [data-slot="select-trigger"] {
-    max-width: 150px;
-    font-size: 13px;
-  }
-  .result-story > [data-slot="button"] {
-    display: none;
-  }
-  .result-story .story-meta {
-    font-size: 11px;
   }
 }
 /* Collection pagination is shared with Explore and My space. */

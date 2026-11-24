@@ -1,29 +1,20 @@
 # Open product questions
 
-Only unresolved decisions belong here. Proposals are not commitments. When a decision is accepted, move it to its topical document and remove it from this list.
+Keep unresolved choices here. Fold an answer into its owning topical document and remove the question.
 
-## Offer and personalization
+## Premium and accounts
 
-- What exact benefits and monthly creation allowance make Premium worth buying while keeping daily provider spend affordable?
-- Which account and personal-guide features are free, and which belong in Premium?
-- What prices, usage limits, renewal rules, and optional one-off creation packs are understandable and sustainable?
-- How should model/provider customization appear in settings, and should advanced user-funded credentials be considered later?
-- How should the existing device-local My space and separate whole-story Save grow into synchronized account activity and personal trails? Current saving and exact bookmarks are the baseline.
+- Which benefits belong to free accounts and Premium? What monthly creation/question allowances, price, renewal/rollover rules and optional one-off packs are sustainable?
+- How should the plan-selection page present provisional terms before billing exists? See the [next feature](../implementation-plan.md#next-feature-premium-selection).
+- What personal-guide/trail scope is useful beyond saved activity, and how should guest activity merge into an account?
+- How should supported model/provider choices appear in Settings? Is advanced user-funded access useful later?
 
-## Public library
+## Library and experience
 
-- What are the final rating category labels, and how should popularity bias and gaming be limited?
-- What moderation thresholds, contextual-check failure behavior, and report/correction handling fit public submissions and comments? Initial checks are selected in [security and cost](../technical/security-and-cost.md#moderation-and-rate-limits).
-- What final product name and learner-facing noun should replace or retain the legacy “History” branding and current “story” naming and `/stories/` routes?
-- Which refinements to current story detail/status and account grouping are needed after rendered mobile review? Preserve the existing new/in-progress/finished distinction.
+- Final product name and learner-facing noun; existing routes/storage remain compatible until a migration is deliberate.
+- Final rating categories and protections against gaming/popularity bias.
+- Moderation thresholds, report resolution and factual-correction communication.
+- Narrator voices and sound palette.
+- Presentation of contested accounts, model limitations, evidence gaps and distressing material.
 
-## Experience craft
-
-- What narrator voices and sound palette best fit the product?
-- Which refinements do the nine prepared lessons and [24 teaching presets](../technical/scenes.md) need after rendered review? The [engine exploration](../technical/learning-engine.md) separates working mechanics from candidates.
-- How should the product handle especially graphic material while preserving useful evidence?
-- How should the UI present contested accounts, model limitations and evidence gaps? Preserve uncertainty and offer narrowing where a confident story cannot be supported.
-
-## Deferred by design
-
-Application choices live in the [technical index](../technical/decisions.md); unresolved technical details have their [own list](../technical/open-questions.md). [Deployment](../deployment/decisions.md) is on hold. Exact visual design, narrator voice, and commercial offer remain open for their appropriate rounds.
+Technical integration questions live in [technical questions](../technical/open-questions.md). These choices do not block independent frontend work with honest provisional states.

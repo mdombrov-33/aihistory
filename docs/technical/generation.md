@@ -4,7 +4,7 @@ Use for agents, prompts, research, composition, provider calls, validation, and 
 
 ## Workflow and shared blueprint
 
-The current frontend uses [22 composition presets across 13 data families](scenes.md) and complete version-2 prepared bundles. All eight prepared lessons follow this path; legacy slug-specific builders are removed. The [authoring guide](lesson-authoring.md) describes evidence/media-first storyboarding, preset selection and validation. `/screen-gallery` supplies actual examples using the production frontend renderer.
+The frontend composes versioned prepared bundles through the [scene contracts](scenes.md). The [authoring guide](lesson-authoring.md) describes evidence/media-first storyboarding and validation; `/screen-gallery` renders registered examples.
 
 This is a content-ingestion seam, not a working generation service. An agent can author the supported JSON without changing lesson-specific React. Live research, automatic image/model acquisition, claim-linked checking, production versioning, readiness and durable jobs below remain future implementation. Model registration now exists as local bundle data; automatic model finding, rights checks and optimization do not.
 
@@ -50,6 +50,16 @@ Use the [learning engine capability contracts](learning-engine.md). The agent se
 - Recovery reuses saved results/assets and reconciles uncertain external operations before further paid work. Use provider idempotency/reconciliation where supported; external effects are not automatically exactly-once.
 - Pin workflow, prompt, model configuration, and schema versions on jobs. Stable step IDs preserve compatible work; renaming can repeat effects.
 - For incompatible changes, route new jobs to a new version and retain old execution paths until active jobs finish. Test resumed and fresh runs when workflow code changes. Version labels alone do not preserve old semantics.
+
+## Local workflow integration
+
+Use a separately supervised Mastra worker and local Inngest development server within the existing package. Resolve compatible published releases by checking engines, peer ranges, exports and integration routes, then run a provider-free fixture smoke test. Cached upstream manifests are not verified installation pins. Keep process addresses configurable and inspect the chosen integration's reserved route rules.
+
+Create jobs, request deduplication, allowance reservations and outbox events in one application transaction. A short leased dispatcher delivers committed events with stable identities; it never independently schedules generation stages. The authorized application status API reads canonical database records; diagnostic realtime updates may supplement it.
+
+Operations move through reserved, dispatched and succeeded/known-failed/uncertain states under a unique logical key. Unknown effects retain reservations until reconciled. Configure finite transport retries separately from repair/provider attempts; initial transport target is two retries, subject to actual SDK counting semantics. Keep checkpoints compact rather than storing media blobs. Retry of a stopped job rechecks any released allowance; completed work reuses its result.
+
+Test crash after saved results, during a stage and after a fake external effect before commit. Verify finished chapters stay stable, dispatch deduplicates, spend remains reconciled and workflow versions preserve resumability.
 
 ## Provider defaults
 

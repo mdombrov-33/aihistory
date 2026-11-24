@@ -33,10 +33,24 @@ test("search and filters find the new topics", async ({ page }) => {
   await expect(page.locator(".result-story")).toHaveCount(1);
   await expect(page.getByRole("heading", { name: "The Great Wave, made by hand" })).toBeVisible();
   await page.goto("/explore?q=unmatchableword");
-  await expect(
-    page.getByRole("heading", { name: "No story fits those filters yet." }),
-  ).toBeVisible();
+  await expect(page.getByRole("heading", { name: "No lessons found." })).toBeVisible();
 });
+test("catalog pagination and topic changes keep a useful URL and reset the page", async ({
+  page,
+}) => {
+  await page.goto("/explore");
+  await expect(page.locator(".result-story")).toHaveCount(6);
+  await expect(page.getByRole("combobox", { name: /period/i })).toHaveCount(0);
+  await page.getByRole("link", { name: "Next page of Lessons", exact: true }).click();
+  await expect(page).toHaveURL(/page=2/);
+  await expect(page.locator(".result-story")).toHaveCount(3);
+  await page.getByRole("combobox", { name: "Filter lessons by topic", exact: true }).click();
+  await page.getByRole("option", { name: "Music & sound", exact: true }).click();
+  await expect(page.locator(".result-story")).toHaveCount(1);
+  await expect(page.getByRole("heading", { name: "Shape a sound", exact: true })).toBeVisible();
+  expect(new URL(page.url()).searchParams.has("page")).toBe(false);
+});
+
 test("a bookmark restores an exact paragraph inside a multi-paragraph screen", async ({ page }) => {
   await page.goto("/stories/shape-of-a-signal/play/0?passage=1");
   await page.getByRole("button", { name: "Keep passage 2", exact: true }).click();
@@ -83,10 +97,15 @@ test("themes and reading preferences persist across pages and reload", async ({ 
 
 test("creation saves a local question and does not invent a running job", async ({ page }) => {
   await page.goto("/create");
+  await page.getByRole("button", { name: "Business", exact: true }).click();
+  await expect(page.getByLabel("What would you like to understand?")).toHaveValue(
+    "Why can a growing business run out of cash?",
+  );
+  await expect(page.getByLabel("What would you like to understand?")).toBeFocused();
   await page
     .getByLabel("What would you like to understand?")
     .fill("How did people share news across an ocean?");
-  await page.getByRole("button", { name: "Save question & preview the flow" }).click();
+  await page.getByRole("button", { name: "Save question & preview" }).click();
   await expect(page).toHaveURL(/creations\//);
   await expect(page.getByText("No job is running now.", { exact: false })).toBeVisible();
   await page.reload();
@@ -111,7 +130,9 @@ test("auth UI has valid forms and a usable guest path", async ({ page }) => {
   await page.getByLabel("Email address").fill("guest@example.com");
   await page.getByRole("button", { name: "Preview recovery" }).click();
   await expect(
-    page.getByText("No account is created, no email is sent,", { exact: false }),
+    page.getByText("Account preview · Sign-in and email delivery aren’t connected.", {
+      exact: false,
+    }),
   ).toBeVisible();
 });
 

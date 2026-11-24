@@ -21,7 +21,7 @@ Target roughly 15–20 minutes for the production main path, commonly 4–6 shor
 
 The main path should build 2–3 clear learning outcomes. A chapter advances one explanatory purpose. Use interaction only when it helps understanding: experiments, explorable assemblies, sound, connected systems, worked examples, maps, timelines or source comparisons. The [learning engine](../technical/learning-engine.md) distinguishes implemented mechanics from proposals. Avoid repetitive mandatory quizzes, scores, and XP as the default.
 
-The 2026-11-23 review rejected the case/prediction/arrangement experiment as confusing and puzzle-heavy. Favor visually led discovery with an obvious main action: numbered image details, drag/zoom, layer reveals, guided object motion or a readable process trace. Keep the subject, its response and a concise explanation together. Advanced tasks may serve a particular lesson, but should not become the default interface or require learning a control panel before understanding the subject. Lesson imagery and covers should express the subject; schematic figures are appropriate selectively, not the catalog's default identity.
+Favor visually led discovery with an obvious main action: numbered image details, drag/zoom, layer reveals, guided object motion or a readable process trace. Keep the subject, its response and a concise explanation together. Advanced tasks may serve a particular lesson, but should not become the default interface or require learning a control panel before understanding the subject. Lesson imagery and covers should express the subject; schematic figures are appropriate selectively, not the catalog's default identity.
 
 At meaningful points, pause for the learner to inspect or continue. Do not require a click for every sentence and do not advance while the learner is interacting. Future decision scenes state their assumptions and distinguish modeled consequences from documented outcomes; historical decisions also explain what people could know at the time.
 
@@ -41,11 +41,11 @@ Art direction may vary substantially between stories while navigation and contro
 
 Keep subject information trustworthy. Equations, units, parameters, labels, connections, dates and geographic features must match their supporting model or evidence. State the assumptions and scope of simplified simulations. Distinguish documented fact, interpretation, reconstruction, and hypothetical material. The production method is an implementation question.
 
-Concept images in `docs/visuals/` show possible compositions, not final layouts or verified subject illustrations. User-provided screenshots in `visuals/references/` are the design ambition, not source material for factual claims.
+Design references are illustrative. Runtime source claims and media rights require their own evidence; visual quality does not establish accuracy.
 
 ## Mobile and access
 
-Accepted on 2026-11-23: ordinary desktop playback should fit a complete scene, its active reading and navigation into the viewport without page scrolling. Compose/paginate content to fit rather than shrinking text, clipping paragraphs or reducing the explanation. Small windows, enlarged text and accessibility settings can use natural flow; mobile also permits natural reading flow. The current renderer uses a bounded desktop frame with a scrollable reading pane. Whole-screen reading fit remains an acceptance check; source checks do not establish it. Mobile, short-window and enlarged-text flow are implemented strategies awaiting rendered verification.
+Ordinary desktop playback should fit a complete scene, its active reading and navigation into the viewport without page scrolling. Compose/paginate content to fit rather than shrinking text, clipping paragraphs or reducing the explanation. Small windows, enlarged text and accessibility settings can use natural flow; mobile also permits natural reading flow. The current renderer uses a bounded frame with a scrollable reading pane; verify complete reading fit in actual browser layouts. Current verification limits live in [status](../status.md#verification-boundary).
 
 Design mobile-first: one focused scene, readable text, touch-friendly controls, and dismissible panels for details, questions, and chapters. Let complex maps/documents open for closer inspection. Wider screens can expand the composition; do not shrink desktop mockups into phone layouts.
 

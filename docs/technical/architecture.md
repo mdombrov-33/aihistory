@@ -40,14 +40,15 @@ PostgreSQL/Drizzle persistence is planned. Current lesson shape and validation a
 - PostgreSQL/pgvector is the application database; use Drizzle ORM and reviewed, versioned Drizzle Kit SQL migrations.
 - Use relational records for stories/versions, ownership, assets, evidence, jobs, bookmarks, and application state. Store each chapter's scene/narration/interaction/presentation content in validated JSONB; track readiness separately.
 - Zod validates external requests and generated content; derive shared TypeScript types where appropriate. Validate asset/evidence references independently of document shape.
+- Account progress writes require expected revisions; preserve the local candidate on conflict. Keep guest/account namespaces separate until import UX is defined.
 - Chapters, scenes, and narration passages have stable IDs. Progress/bookmarks reference IDs plus story version, never array positions. Preserve IDs for the same content across wording changes/insertions; material restructuring needs an explicit position mapping or a clear fallback to chapter start.
-- Distinguish schema versions from content revisions. The [implementation plan](../implementation-plan.md#database-and-storage-contracts) specifies first-pass records; migrations, compatibility mappings and acceptance tests remain to be implemented.
+- Distinguish schema versions from content revisions. The [production record requirements](#production-records) define persistence invariants; migrations and revision mappings remain to be implemented.
 
 ## Prepared and persisted contracts
 
 | Concern | Working frontend | Production integration requirement |
 | --- | --- | --- |
-| Presentation | Version-2 bundles, 15 families, 26 presets, registered local images/models and explicit beat programs | Reuse these capability rules; define a versioned persistence envelope and compatibility mapping |
+| Presentation | Versioned bundles, registered scene capabilities, local images/models and explicit beat programs | Reuse these capability rules; define a versioned persistence envelope and compatibility mapping |
 | Position | Authored scene/beat IDs; narrative paragraph ranges; guest progress/bookmarks store scene/passage indices | Version-scoped stable chapter/scene/passage IDs and explicit revision mappings |
 | Evidence | Source lists, credits, provenance and research packets | Structured claims, retained supporting passages, ownership and claim/evidence links |
 | Media | Public bundled assets; browser speech/synth sound preview | Authorized asset IDs, ranges, ready narration and measured timing |
@@ -60,13 +61,13 @@ The prepared format version is not a content revision or proof of production rea
 - Keep lesson-level concepts, entities, relationships, quantities and substantive claims linked to their support. Register computational model IDs, units, assumptions and validated inputs; events and calendar dates apply where relevant. Narration references claims; maps/timelines use the same structured values instead of independently generating repeated facts.
 - Identify fact, interpretation, reconstruction, and hypothetical material. Consistency does not establish correctness; use the [evidence checks](generation.md#checks-and-delivery).
 - Where calendar dates are relevant, support BCE/CE, ranges, approximation, and day/year/century precision. Retain readable labels, structured ordering/filter values, and calendar context where relevant. Timeline layout must not imply unsupported precision.
-- Ordinary app events use timestamps. The plan specifies BCE/CE ordering and qualified date labels; calendar conversion support and implementation verification remain outstanding.
+- Ordinary app events use timestamps. The production record rules specify BCE/CE ordering and qualified date labels; calendar conversion support and implementation verification remain outstanding.
 - Retain supporting passages, source title/author, URL, retrieval date, and claim/chapter/scene links. Preserve the evidence used by each story version for citations, follow-ups, and corrections.
 
 ## Local assets and reuse
 
-- Production-generated images, narration, and larger source extracts will live in an ignored local directory. Current prepared assets and their provenance ship under `frontend/public/`. PostgreSQL holds IDs, ownership, production inputs, and story references.
-- Resolve asset IDs through a small authorized server-side storage module; scenes do not contain machine-specific file paths. Keep physical storage independent of the content format.
+- Production-generated images, narration and larger source extracts use ignored `.local/assets/`, with staging writes under `.local/tmp/`. Apply server-created keys, byte limits, checksum verification and atomic rename before marking references ready. Remove only verified unreferenced/orphan data. Current prepared assets and their provenance ship under `frontend/public/`. PostgreSQL holds IDs, ownership, production inputs, and story references.
+- Resolve asset IDs through an authorized storage module; reject path traversal/invalid ranges and stream bounded allowed content types. Private responses use private/no-store caching. Keep physical storage independent of the content format.
 - Reuse completed assets when prompt/script, references, model, voice/style/settings, and production version match, subject to access, subject/visual context, and license constraints.
 - Regenerate only affected passages/assets when inputs change; layout edits can reuse artwork. Reuse is a lookup, not a guarantee of identical model outputs. Private assets stay within their permitted scope.
 
@@ -85,6 +86,50 @@ Use PostgreSQL full-text search plus pgvector; separate two collections:
 - Similarity yields candidates, not request equivalence or factual support. Match the explanatory question and assumed knowledge; a shared topic or era alone does not justify reuse.
 - Use OpenAI `text-embedding-3-small`, initially 1,536 dimensions. Record model/dimensions; use matching query/index configuration and deliberately reindex changes.
 - Start with exact vector search; add approximate indexes when measured performance warrants it. Follow-up retrieval is scoped to the authorized story version.
+
+## Production records
+
+These contracts are planned integration requirements. Reuse prepared presentation rules within a versioned persistence envelope; schema format and content revision are distinct.
+
+| Record | Required invariant |
+| --- | --- |
+| Story/version/chapter | Ownership and visibility, playable revision, ordered chapter JSONB and separate readiness/hash |
+| Entity/claim/evidence | Version-scoped IDs; fact/interpretation/reconstruction/hypothetical classification; retained source passages, locators and claim links |
+| Model/scene | Registered capability version, bounded parameters/units, assumptions, source/asset refs and complete accessible reading |
+| Narration | Stable passage ID, plain script and revision/hash, matching subtitle text, ready audio ref and measured duration |
+| Asset/use | Owner, MIME/size/duration, source/rights, content hash, production-input fingerprint and authorized version/scene use |
+| Progress/bookmark | Owner/version and stable chapter/scene/passage position; resume revision for compare-and-swap, separate bookmark identity |
+| Job/outbox/operation | Job kind, unique actor/kind/request ID with input hash, durable event identity and unique logical operation key |
+| Reservation/rate bucket | Separate money and creation/question allowances, integer USD micro-units, atomic state transitions, bounded windows/cleanup |
+| Discovery/evidence index | Distinct content scopes, source hash, embedding model/dimensions and authorized version |
+| Share/community | Hashed revocable tokens, version-scoped unique ratings/likes, bounded writes and moderation state |
+
+Generate Better Auth tables from the pinned configuration into Drizzle's migration history. Keep Mastra-owned runtime storage in its own schema with adapter-owned, restart-safe initialization. Application services own authorization and business rules; call Drizzle inside those modules rather than adding generic per-table repositories.
+
+Use UUIDs for application content/job/asset records and the actual opaque Better Auth user-ID type. A player bundle contains only authorized ready content, evidence summaries and resolvable asset IDs, without private traces or machine paths.
+
+Calendar values retain source label/calendar, precision, qualifier and supported bounds. Durations have explicit units. Sort CE year `y` as `y` and BCE year `y` as `1-y`; zero is internal ordering, never a displayed year. Preserve unsupported calendars without inventing conversions or midpoint precision.
+
+## Planned HTTP surface
+
+Routes are provisional internal interfaces, not existing endpoints. Authenticate from session/share context, never a submitted owner ID.
+
+| Operation | Result / boundary |
+| --- | --- |
+| Story detail and version/chapter GET | Authorized ready content; pending chapters report readiness |
+| Asset GET/HEAD | Authorize version use first; bounded streaming and single byte ranges |
+| Progress GET/PUT | Account-owned position; PUT requires expected revision |
+| Bookmark list/add/delete | Account ownership and position validation against the referenced version |
+| Creation POST/status/retry | Verified actor, allowance/budget and request identity; return/reconnect to the same job |
+| Discovery/related GET | Authorized retrieval with bounded query/result sizes |
+| Contextual question POST/status | Separate allowance and durable answer job; owner-only answer/evidence |
+| Sharing/publication/community writes | Ownership, readiness, token policy, moderation and operation-specific limits |
+
+Shared Zod envelopes carry success or stable error `code`, `safeMessage`, optional job/stage, `recoveryAction` and retry time. Use meaningful HTTP status codes; inaccessible private records must not disclose existence. Cookie-authenticated writes need origin/session/CSRF protection. Paid mutations never auto-retry blindly.
+
+## Planned service boundaries
+
+`src/server/` owns validated configuration, database, content/asset reads, progress, creation/usage and retrieval. `src/generation/` owns workflow/task/prompt implementations and outbox dispatch. Next-only session/header helpers stay web-facing; shared worker modules must run independently of Next's request runtime. Enforce browser import restrictions and share pure contracts across web/worker.
 
 ## Primary references
 

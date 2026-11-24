@@ -18,8 +18,9 @@ export default async function CreatePage({
       className="page-width mx-auto w-[min(1360px,_calc(100%_-_80px))] max-[1050px]:w-[calc(100%_-_48px)] max-[760px]:w-[calc(100%_-_36px)]"
     >
       <PageHeading
-        title="What opens a world for you?"
-        description="A question is a good place to begin."
+        compact
+        title="What would you like to learn?"
+        description="Start with a question. Keep it here, or explore a related lesson."
       />
       <CreateStory initialQuestion={typeof q === "string" ? q : ""} />
       <PageFooter />

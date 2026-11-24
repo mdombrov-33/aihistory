@@ -1,80 +1,54 @@
 # Interactive learning engine
 
-The product now targets learning across subjects. History is one possible subject, not a required starting point or showcase. This document records the current exploration, reusable mechanics and remaining ideas; the [implementation plan](../implementation-plan.md#interactive-learning-exploration) owns task status. The user accepted both exploration slices for now. Further research concerns reusable mechanics across subjects; suggested lesson topics do not constrain the engine. The homepage remains deferred.
+Use for model behavior, runtime constraints and capability expansion. [Scenes](scenes.md) owns composition and bundle validation; [frontend navigation](../../frontend/DEVELOPMENT.md#start-here) maps controls and implementation.
 
-## Working capabilities
+## Supported mechanics
 
-All examples use the existing prepared-bundle seam and shared player. No lesson slug chooses a renderer. The first two exploration slices add six families; the visual slice extends image and assembly families with two presets: **15 families and 26 presets** in total. Schema version 2 remains a prepared format; consumers must use the updated capability registry. This is an additive local extension, not a persisted-content migration or a live generation service.
+The [scene contract](../../frontend/src/features/lesson/contracts/scene.ts), [composition registry](../../frontend/src/features/lesson/contracts/compositions.ts) and [interaction dispatcher](../../frontend/src/features/lesson/interactions/interaction-stage.tsx) are authoritative. Select supported structured data; lesson slugs never choose renderers.
 
-| Family / composition | Working behavior | Boundary |
+| Mechanic | Behavior | Model boundary |
 | --- | --- | --- |
-| `illustrated` / `layer-reveal` | Reveal an editorial composition guide over an existing image; hide it again, pan/zoom and enlarge | Registered SVG geometry only; not a hidden scan or automatic analysis |
-| `assembly` / `assembly-motion` | Play, pause, scrub and reset one authored named-part movement; discrete still poses under reduced motion | Bounded transform keyframes on supplied schematic primitives, not simulated mechanics or arbitrary GLB animation |
-| `traveler` / `process-traveler` | Rewind a packet trace, compare authored routes and change initial Hop Limit with state rebuilt deterministically | Registered IPv6 forwarding rule only; no live traffic, routing discovery or transport/retry simulation |
-| `construction` / `construction-bench` | Connect supplied Boolean components, inspect incomplete/invalid drafts and test all input combinations | Fixed component inventory, two or three inputs, one output and acyclic ideal Boolean logic |
-| `assembly` / `assembly-explorer` | Select named geometric parts, separate them, rotate/zoom and clip a section through supplied geometry | Original schematic primitives, not automatic segmentation or interior reconstruction of arbitrary GLBs |
-| `experiment` / `experiment-bench` | Thin-lens ray construction with real/virtual/focal states; pendulum length/gravity controls, Rapier playback and a separate small-angle prediction | Two registered mathematical models, not a universal scientific simulator |
-| `sound` / `sound-studio` | Four additive harmonics, frequency control, explained presets, waveform and deliberate audio playback | Stationary harmonic mixtures, not faithful instrument synthesis or a hearing test |
-| `system` / `system-workbench` | Toggle inputs and trace AND/OR/NOT networks, with live output and component explanations | Ideal acyclic Boolean logic; no electrical solver, propagation delay or memory |
+| Image inspection/reveal | Numbered details, source crops, pan/zoom and editorial SVG guides | Registered image coordinates; no inferred hidden scan |
+| Assembly | Select/separate parts, rotate/zoom, clip supplied geometry and play bounded transform tracks | Supplied schematic primitives; no automatic GLB segmentation or mechanical solver |
+| Thin lens / pendulum | Ray construction and real/virtual/focal states; Rapier pendulum with small-angle comparison | Registered equations, units, ranges and assumptions; not a general simulator |
+| Harmonic sound | Additive harmonics, frequency, waveform, explained presets and deliberate listening | Stationary mixture; not faithful instrument synthesis |
+| Boolean systems/construction | Trace fixed networks or wire supplied components and test all input combinations | Ideal acyclic logic; no voltages, memory or propagation delay |
+| Process travel | Reversible packet events, authored route comparison and initial Hop Limit changes | Registered IPv6 forwarding rule; no live routing or transport simulation |
 
-Implementation starts at the [scene contract](../../frontend/src/features/lesson/contracts/scene.ts) and [interaction dispatcher](../../frontend/src/features/lesson/interactions/interaction-stage.tsx). Each named folder under [interactions](../../frontend/src/features/lesson/interactions/) groups its views, controls, schema and pure calculations. Shared range/workbench/session/recovery behavior lives in [lesson/shared](../../frontend/src/features/lesson/shared/). The [frontend navigation guide](../../frontend/DEVELOPMENT.md#start-here) identifies the entry points. Scientific constants, equations and semantic models remain application code; lesson data selects supported capabilities and parameters.
-
-## Examples to open
-
-| Lesson | Start | What to investigate |
-| --- | --- | --- |
-| [The Great Wave, made by hand](../../frontend/src/content/lessons/great-wave-made-by-hand.json) | `/stories/great-wave-made-by-hand/play/0` | Original artwork with an optional editorial composition guide |
-| [A packet’s journey](../../frontend/src/content/lessons/a-packets-journey.json) | `/stories/a-packets-journey/play/0` | Receive/forward events, route comparisons and the zero-limit destination case |
-| [The camera, opened up](../../frontend/src/content/lessons/camera-opened-up.json) | `/stories/camera-opened-up/play/0` | Disassembly, a moving shutter schematic at `/stories/camera-opened-up/play/1`, thin-lens focusing and virtual images |
-| [A swing in time](../../frontend/src/content/lessons/a-swing-in-time.json) | `/stories/a-swing-in-time/play/0` | A physical pendulum versus its small-angle prediction |
-| [Shape a sound](../../frontend/src/content/lessons/shape-a-sound.json) | `/stories/shape-a-sound/play/0` | Relative harmonics, waveform and optional listening |
-| [Signals and decisions](../../frontend/src/content/lessons/signals-and-decisions.json) | `/stories/signals-and-decisions/play/0` | Input combinations and connected gates; construction starts at `/stories/signals-and-decisions/play/6` |
-
-The first four workbench lessons started with two chapters and six screens each. The packet lesson adds two chapters/four screens, and the logic lesson now has a third chapter/two construction screens. They are concise prepared experiments, with original geometric cover diagrams, supporting sources and explicit model assumptions. They join the collection rather than delete usable history examples. Existing examples have no priority in future showcase selection. All nine bundles use the same player; their 68 screens are not evidence of autonomous lesson generation or approved visual quality.
+Each named mechanic under [interactions](../../frontend/src/features/lesson/interactions/) owns its schema, calculation and visible controls. Heavy viewers load lazily. [Shared infrastructure](../../frontend/src/features/lesson/shared/) owns range/button controls, fixed-stage workbenches, scoped state and recovery. Installed package versions live in the manifest/lockfile; rendering uses Three.js/R3F/Drei, Rapier, Tone and React Flow where applicable.
 
 ## Authoring and runtime rules
 
-1. Define what the learner should understand, what they can change and which observable result supports the explanation.
-2. Select a supported family/preset and registered model. Supply its data, source indices and complete reading through the [authoring guide](lesson-authoring.md). An agent can compose supported data; a new scientific rule needs a reviewed implementation and tests before the agent can use it.
-3. Validate ranges, units, unique IDs, graph arity/references/cycles and capability compatibility before rendering. Unsupported code, arbitrary expressions, shader strings and unknown fields are rejected. Equation validation and factual review are separate from schema validity.
-4. Keep manipulation and its explanation together. Traveler and construction share a fixed-stage workbench with an independently scrolling control deck: wide panes place it beside the stage, narrow panes below. The entire exhibit must not scroll away while changing a parameter. Builder nodes stay at 1:1 scale with 44px connection targets; the drawing can scroll, rather than shrink labels. Short panes retain full feedback prose in its own scroll region. Connection/focus autopanning is disabled because the outer diagram scroller owns navigation. Preserve keyboard-operable controls and textual output when canvas/audio is unavailable. Narrow graph panes reflow by dependency depth; they do not just shrink the desktop graph.
-5. Load heavy viewers only for the active mechanic. The sound engine loads on deliberate Play. A single lesson renders only its active beat. Model/source descriptions identify idealizations, finite geometry and off-canvas results.
-6. Reveal amount and object-motion progress are transient scene state. Both start still/unmarked; reset restores the authored start. The motion explanation stays fixed through playback and seeking; only its short phase label changes, without live phase announcements during playback. Motion stops when the tab hides or the scene unmounts; reduced-motion preferences replace playback with selectable poses. The full motion envelope frames the camera once, so seeking does not refit it.
-7. Construction drafts use a separate typed/versioned `constructions` state entry with bounded edges and Boolean inputs, rather than unchecked nested strings in the flat lab store. Unknown saved component/input IDs fall back to authored defaults. Test results are transient and clear after a wiring edit or scene change. Store parameters and input selections in device-local, version-scoped learning state. Never persist active audio or simulation playback. Reset restores authored parameters. Audio stops on scene unmount, tab hiding, page exit or narration start; master mute applies. Pendulum playback begins paused and parameter changes pause/reset it.
+1. Start from a learning question and the visible effect the learner should understand. Put the subject, one obvious gesture and nearby explanation first.
+2. Select a registered model and supported composition. Supply bounded inputs, units, source references and complete reading through the [authoring contract](lesson-authoring.md). New runtime behavior needs implemented code and meaningful validation.
+3. Validate ranges, IDs, references, graph arity/cycles and capability compatibility before rendering. Lesson data contains no executable equations, shader strings or arbitrary layout code.
+4. Keep simulation rules, observations, assumptions and interpretation distinguishable. Schema validity alone cannot establish subject correctness.
+5. Keep the visible stage available while controls/feedback scroll. Reflow graphs for narrow panes; readable labels and connection targets take priority over fitting a desktop diagram into a phone.
+6. Persist parameters and input selections in device-local version-scoped learning state. Boolean construction uses its own typed/versioned draft, separate from flat lab parameters. Invalid saved IDs fall back to authored defaults. Results clear after edits; active audio/simulation playback is transient.
+7. Reset restores authored parameters. Start simulations/audio deliberately. Stop audio on unmount, tab hiding, page exit or narration start; honor master mute. Pendulum parameter changes pause/reset it.
+8. Motion starts still, frames its full envelope and stops on hide/unmount. Reduced motion uses discrete poses. Keep explanations readable throughout a cycle; an illustrative cycle is not a measured physical duration.
 
-The libraries do not supply subject correctness. A cutaway cannot reveal absent geometry, a logic gate is not an electrical circuit, and a rigid-body engine is not a fluid or biological solver. The next additions should make those capabilities explicit rather than accept arbitrary generated code.
+A cutaway needs actual geometry; a rendering library supplies no domain correctness. Preserve explicit idealizations and source support.
 
-## Library choices and research
+## Capability expansion
 
-The manifest and lockfile are authoritative for installed versions. This slice uses Three.js with React Three Fiber/Drei for assemblies, React Three Rapier for the pendulum, Tone.js for opt-in synthesis and React Flow for system views. The underlying Rapier package is a development dependency for independent numerical verification. These packages were installed after user authorization; no live media/research provider is invoked by lesson playback.
+Add a viewer only when a concrete asset/model and teaching task need it. Candidates remain proposals:
 
-No new dependencies were needed for packet travel, construction, image reveal or schematic part motion.
+| Need | Candidate / prerequisite |
+| --- | --- |
+| High-resolution source/specimen inspection | OpenSeadragon; licensed detailed original, tiles/manifest, region coordinates and calibrated scale if claimed |
+| Molecular structure | Mol* / MolViewSpec; curated scientific structure data and reviewed annotations |
+| Place exploration | Photo Sphere Viewer; licensed panoramas, meaningful viewpoints, phone/fallback navigation |
+| Rich object motion | Named model nodes, correct pivots/units, licensed geometry and animation clips |
+| Aligned image comparison | Source registration and meaningful relationship; an editorial guide must be identified as such |
+| Geometry, reactive illustration or coding | Mafs/JSXGraph, Rive or Pyodide only for a supported model/task; authored assets or execution isolation as applicable |
 
-Primary documentation: [R3F React compatibility](https://r3f.docs.pmnd.rs/getting-started/installation), [pointer events](https://r3f.docs.pmnd.rs/api/events), [Three.js clipping](https://threejs.org/examples/webgl_clipping_stencil.html), [Rapier joints](https://rapier.rs/docs/user_guides/javascript/joints/), [React integration](https://github.com/pmndrs/react-three-rapier), [Tone.js](https://tonejs.github.io/), [React Flow computation](https://reactflow.dev/examples/interaction/computing-flows).
+Use installed components first. Any new dependency needs compatibility, license, loading and input/accessibility review. Notify the user when installation is needed. Scientific/educational content licenses are separate from library licenses; PhET commercial use needs its own licensing check.
 
-## Directions still to explore
+## Verification
 
-The latest case-explorer/prediction/arrangement experiment was rejected and removed, including its three example lessons and covers. The accepted baseline above is retained. The [general interaction engine research](../references/general-interaction-engine.md) remains background evidence, not the active build order: its first implementation exposed too much abstract machinery and displaced the subject. The first two recommendations from current [visual exploration research](../references/visual-exploration.md) now have small prepared examples: an editorial reveal in the Great Wave and a moving shutter schematic in the camera. Further exploration prioritizes simple reveals, aligned comparisons, meaningful object motion and asset-backed place/detail exploration. No new capability or dependency is implied by these proposals. Follow the [experience direction](../product/experience.md#journey-and-pacing) and select useful assets before adding a viewer.
+Test model behavior at meaningful boundaries: lens focal states, normalized harmonic output, complete Boolean truth tables, invalid drafts, deterministic packet rewind and pendulum comparison against the stated approximation. Rendering contracts cover prepared inputs and framing. Browser checks cover manipulation, restoration/reset, independent scrolling, keyboard/touch operation, loading/retry and deliberate audio. [Development](development.md#verification) defines commands; [status](../status.md#verification-boundary) records current execution limits.
 
-These ideas are retained proposals, not implemented features or commitments to install every library. The [next-interaction research](../references/next-interactions.md) checks the next candidates against official documentation and the current code. Its first two recommendations are now implemented for review, using installed dependencies; deep-zoom and molecular viewers need curated data before integration. Notify the user when a new dependency is needed.
+## Primary references
 
-| Direction | Example | Candidate / missing work |
-| --- | --- | --- |
-| Richer 3D assemblies | Linked mechanisms or isolation within a sourced model | Primitive transform motion now works; named GLB parts, pivots, baked clips and licensed assets still need a separate pipeline |
-| Follow other processes | Travel with a photon or trace an algorithm | Packet travel now supplies the first registered model; each additional domain needs its own reviewed transitions and source packet |
-| Scale travel | Leaf → cell → internal structures | Explicit scale relationships, datasets and semantic transitions; more zoom alone does not add information |
-| Molecular exploration | Protein structures, binding sites, supplied trajectories | [Mol*](https://molstar.org/) and its declarative MolViewSpec; scientific data acquisition and review |
-| Virtual microscope | Investigate a high-resolution specimen | [OpenSeadragon](https://openseadragon.github.io/), tiled image preparation and annotations |
-| Virtual field trips | An observatory, ecosystem or laboratory | [Photo Sphere Viewer](https://photo-sphere-viewer.js.org/plugins/virtual-tour.html), licensed panoramas and meaningful viewpoints |
-| Mathematical construction | Drag geometry, explore vectors or a graphical proof | [Mafs](https://mafs.dev/guides/interaction/movable-points) or [JSXGraph](https://www.jsxgraph.org/share/); integrate only when a specific model needs them |
-| Interactive worked examples | Step through an algorithm or calculation; reveal a useful hint | A data/state contract and explanatory progression; a coding runtime is a separate capability |
-| Build in more domains | Connect an electrical circuit or construct a mechanism | Boolean construction now works; voltages, memory, mechanisms and editable component inventories remain separate extensions |
-| Prediction and decisions | Predict an effect, test it and explain the difference | Reusable local feedback and transparent assumptions; no required quiz/score layer |
-| Reactive illustration | A visual responds to variables or stages | [Rive](https://rive.app/docs/runtimes/react/data-binding); requires authored animation assets |
-| Coding experiments | Run a small Python example | [Pyodide](https://pyodide.org/en/stable/usage/webworker.html); execution isolation, resource limits and package loading need separate design |
-
-[PhET](https://phet.colorado.edu/en/licensing/) is a useful interaction reference. Its current commercial-use terms require a commercial license, so it is not silently embedded as a free product dependency.
-
-## Verification boundary
-
-The contract suite exercises numerical lens cases, harmonic behavior, complete Boolean truth tables, graph rejection, prepared integration and the existing player contracts. Browser tests cover state restoration, controls, audio opt-in/stop, simulation reset and mobile width. Run the actual commands in [development](development.md); authored browser cases are not executed evidence. Current results and environment limits belong in the [implementation tracker](../implementation-plan.md#interactive-learning-exploration).
+[R3F](https://r3f.docs.pmnd.rs/getting-started/installation), [pointer events](https://r3f.docs.pmnd.rs/api/events), [Rapier joints](https://rapier.rs/docs/user_guides/javascript/joints/), [React integration](https://github.com/pmndrs/react-three-rapier), [Tone](https://tonejs.github.io/), [React Flow](https://reactflow.dev/examples/interaction/computing-flows), [OpenSeadragon](https://openseadragon.github.io/), [Mol*](https://molstar.org/), [panorama tours](https://photo-sphere-viewer.js.org/plugins/virtual-tour.html), [PhET licensing](https://phet.colorado.edu/en/licensing/).

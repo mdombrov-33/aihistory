@@ -24,8 +24,9 @@ export default async function MySpacePage({
       className="page-width mx-auto w-[min(1360px,_calc(100%_-_80px))] max-[1050px]:w-[calc(100%_-_48px)] max-[760px]:w-[calc(100%_-_36px)]"
     >
       <PageHeading
-        title="Your corner of history."
-        description="The stories you open. The passages you keep. The questions still on your mind."
+        compact
+        title="My space"
+        description="Continue learning, revisit a lesson or return to a passage you saved."
       >
         <Button asChild variant="outline">
           <Link href="/settings">

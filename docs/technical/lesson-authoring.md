@@ -1,6 +1,6 @@
 # Authoring a lesson storyboard
 
-Use for an agent or person adding a prepared lesson without topic-specific frontend code. Start with [the composition registry](../../frontend/src/features/lesson/contracts/compositions.ts), [the v2 bundle schema](../../frontend/src/features/lesson/contracts/bundle.ts) and one relevant [example bundle](scenes.md#complete-prepared-stories). `/screen-gallery` shows how the same inputs are rendered. Do not read every legacy design discussion.
+Use for an agent or person adding a prepared lesson without topic-specific frontend code. Start with [the composition registry](../../frontend/src/features/lesson/contracts/compositions.ts), [the v2 bundle schema](../../frontend/src/features/lesson/contracts/bundle.ts) and one relevant [example bundle](scenes.md#complete-prepared-stories). `/screen-gallery` shows how the same inputs are rendered.
 
 ## From a question to screens
 
@@ -22,7 +22,7 @@ The system separates content families from spatial compositions: two screens can
 
 ## Authoring a workbench
 
-For `assembly`, `experiment`, `sound`, `system`, `traveler` and `construction`, follow the [learning engine](learning-engine.md#authoring-and-runtime-rules) and its schema. New cross-subject examples are listed there. Pair an input change with an observable result and a specific explanatory task. Provide model assumptions and supporting sources. Schematics may use original code-native geometric diagrams; mark their treatment `diagram` and retain provenance. A source image is not required inside a workbench.
+For `assembly`, `experiment`, `sound`, `system`, `traveler` and `construction`, follow the [learning engine](learning-engine.md#authoring-and-runtime-rules) and its schema. Pair an input change with an observable result and a specific explanatory task. Provide model assumptions and supporting sources. Schematics may use original code-native geometric diagrams; mark their treatment `diagram` and retain provenance. A source image is not required inside a workbench.
 
 Use a registered computational model and validated parameters rather than emitting an executable formula. Assembly primitives describe supplied geometry, not an automatic reconstruction of hidden parts. A Boolean graph is not an electrical solver. Listening and simulation playback start deliberately; every task must retain useful text/numeric feedback. Timeless concepts use the `timeless` era facet rather than an invented historical period. Subject choices come from the shared taxonomy; extend it deliberately when needed.
 
@@ -30,7 +30,7 @@ Use a registered computational model and validated parameters rather than emitti
 
 Use `illustrated` / `layer-reveal` with a `reveal` object: a control label, an explicit editorial description and at most five named polylines/polygons in source-image percentage coordinates. Closed shapes need three points. Geometry must trace actual visible features; it is a reading aid, not evidence of an underlying scan. Leave `annotations` empty so two selection systems do not compete. The first view is unmarked.
 
-Use `assembly` / `assembly-motion` with `assembly.motion`: a two-to-twelve-second duration, bounded position/rotation tracks referencing named parts, and ordered explanatory cues. Each channel has one track with increasing keys from zero to one. Transforms are offsets from the supplied primitive pose. Author and disclose a schematic movement rather than claiming that a sliding plate reproduces every real shutter. Playback starts paused; scrub/reset and useful stage text remain available if WebGL fails. Arbitrary code, formulas and animation scripts are rejected. These controls are a small extension to the same two-column player, not another workbench.
+Use `assembly` / `assembly-motion` with `assembly.motion`: a two-to-twelve-second duration, bounded position/rotation tracks referencing named parts, and ordered explanatory cues. Each channel has one track with increasing keys from zero to one. Transforms are offsets from the supplied primitive pose. Author and disclose a schematic movement rather than claiming that a sliding plate reproduces every real shutter. Playback starts paused; scrub/reset and useful stage text remain available if WebGL fails. Arbitrary code, formulas and animation scripts are rejected. These controls use the shared player layout.
 
 ## Prompt structure for future integration
 
@@ -52,12 +52,9 @@ For `traveler`, supply a registered IPv6 Hop Limit model, valid finite scenario 
 Run these from the repository root. App scripts execute in `frontend/`; the documentation checker remains shared.
 
 ```sh
-node frontend/scripts/sync-prepared-catalog.mjs
-pnpm --dir frontend check
-pnpm --dir frontend test:scenes
-pnpm --dir frontend build
-node frontend/scripts/check-frontend-build.mjs
-pnpm --dir frontend test:browser
+make catalog
+make verify
+make test-browser
 ```
 
-Run a source-aware review and view the real rendered output after these checks. Browser tests require a working local server and browser; a denied bind is an unresolved check, not a pass. Keep task evidence in the [implementation tracker](../implementation-plan.md#execution-tracker).
+Run a source-aware review and view the real rendered output after these checks. Browser tests require a working local server and browser; unexecuted checks remain unresolved. Keep task evidence in the [implementation tracker](../implementation-plan.md#execution-tracker).

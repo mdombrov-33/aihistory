@@ -3,6 +3,7 @@
 // Fixed Boolean network whose values and explanations follow the selected inputs.
 
 import { useEffect, useId, useRef, useState } from "react";
+import { LabButton } from "../../shared/controls";
 import {
   ReactFlow,
   Handle,
@@ -24,7 +25,10 @@ type SignalNode = Node<
 
 function Signal({ data }: NodeProps<SignalNode>) {
   return (
-    <div className="signal-node" data-active={data.active}>
+    <div
+      className="signal-node [&_strong]:block [&_strong]:text-[16px] [&_strong]:font-semibold [&_span]:block [&_span]:text-[12px] [&_span]:mt-1"
+      data-active={data.active}
+    >
       {data.kind !== "input" ? (
         <Handle type="target" position={data.vertical ? Position.Top : Position.Left} />
       ) : null}
@@ -87,7 +91,7 @@ export function SystemLab({ system, onInteract }: { system: LogicSystem; onInter
     <section className="learning-lab" aria-label="Connected system">
       <div
         ref={viewport}
-        className="lab-canvas system-viewport"
+        className="lab-canvas system-viewport min-h-[330px] max-[760px]:h-[340px] [&_>_svg]:block [&_>_svg]:w-full [&_>_svg]:h-full [&_>_svg]:min-h-[260px] [&_>_svg]:max-h-[55dvh]"
         style={{ minHeight: layout.height }}
       >
         <ReactFlow
@@ -115,12 +119,12 @@ export function SystemLab({ system, onInteract }: { system: LogicSystem; onInter
           <Background variant={BackgroundVariant.Dots} gap={28} size={1} />
         </ReactFlow>
       </div>
-      <div className="lab-controls">
-        <div className="lab-choices" aria-label="System inputs">
+      <div className="lab-controls py-5 px-6.5 gap-4 grid bg-muted [border-top:1px_solid_var(--line-soft)] max-[760px]:px-5">
+        <div className="lab-choices gap-2 flex flex-wrap items-center" aria-label="System inputs">
           {system.nodes
             .filter((n) => n.kind === "input")
             .map((n) => (
-              <button
+              <LabButton
                 key={n.id}
                 aria-pressed={values[n.id]}
                 onClick={() => {
@@ -130,9 +134,9 @@ export function SystemLab({ system, onInteract }: { system: LogicSystem; onInter
                 }}
               >
                 {n.label}: {values[n.id] ? "ON" : "OFF"}
-              </button>
+              </LabButton>
             ))}
-          <button
+          <LabButton
             onClick={() => {
               onInteract();
               change(
@@ -145,13 +149,16 @@ export function SystemLab({ system, onInteract }: { system: LogicSystem; onInter
             }}
           >
             Reset inputs
-          </button>
+          </LabButton>
         </div>
-        <div className="lab-choices" aria-label="Inspect system components">
+        <div
+          className="lab-choices gap-2 flex flex-wrap items-center"
+          aria-label="Inspect system components"
+        >
           {system.nodes
             .filter((n) => n.kind !== "input")
             .map((n) => (
-              <button
+              <LabButton
                 key={n.id}
                 aria-pressed={selected === n.id}
                 onClick={() => {
@@ -160,11 +167,14 @@ export function SystemLab({ system, onInteract }: { system: LogicSystem; onInter
                 }}
               >
                 {n.label}
-              </button>
+              </LabButton>
             ))}
         </div>
       </div>
-      <div className="lab-feedback" aria-live="polite">
+      <div
+        className="lab-feedback py-5 px-6.5 [border-top:1px_solid_var(--line-soft)] max-[760px]:px-5 [&_h2]:mx-0 [&_h2]:text-[24px] [&_h2]:leading-[1.2] [&_h2]:mt-0 [&_h2]:mb-2 [&_p]:mx-0 [&_p]:text-[15px] [&_p]:leading-[1.5] [&_p]:mt-1.5 [&_p]:mb-0 [&_p]:max-w-[65ch]"
+        aria-live="polite"
+      >
         <h2>
           {current.label} · {values[current.id] ? "ON" : "OFF"}
         </h2>
@@ -176,7 +186,7 @@ export function SystemLab({ system, onInteract }: { system: LogicSystem; onInter
             .join(" · ")}
         </p>
       </div>
-      <details className="lab-assumptions">
+      <details className="lab-assumptions px-6.5 pt-0 pb-5 text-[14px] text-muted-foreground max-[760px]:px-5 max-[760px]:pb-4 [&_summary]:py-3 [&_summary]:px-0 [&_summary]:cursor-pointer [&_summary]:text-foreground [&_p]:mx-0 [&_p]:leading-[1.55] [&_p]:mt-0 [&_p]:mb-2 [&_ul]:mx-0 [&_ul]:leading-[1.55] [&_ul]:mt-0 [&_ul]:mb-2">
         <summary>How this system works</summary>
         <p>{system.description}</p>
         <p>

@@ -20,7 +20,10 @@ export function SoundControls() {
   return (
     <div>
       {controls.map(({ key, label, icon: Icon }) => (
-        <div className="volume-control" key={key}>
+        <div
+          className="volume-control my-5 mx-0 gap-1 grid [&_>_div]:gap-2.5 [&_>_div]:flex [&_>_div]:items-center [&_output]:ml-auto [&_output]:text-muted-foreground [&_output]:tabular-nums [&_output]:text-[14px]"
+          key={key}
+        >
           <div>
             <Icon size={17} aria-hidden="true" />
             <label id={`volume-${key}`}>{label}</label>
@@ -37,7 +40,7 @@ export function SoundControls() {
           />
         </div>
       ))}
-      <p className="form-note">
+      <p className="form-note mt-4 text-[14px] leading-[1.5] text-muted-foreground [&_a]:text-primary [&_a]:underline [&_a]:[text-underline-offset:4px]">
         This preview uses your browser’s voice and quiet synthesized background sounds. Final voices
         and the soundtrack will be designed separately. Changes apply when you next press Listen.
       </p>

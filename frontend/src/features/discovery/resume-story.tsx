@@ -23,16 +23,19 @@ export function ResumeStory({ featured = false }: { featured?: boolean }) {
     const story = stories[0];
 
     return (
-      <section className="resume-card" aria-label="A place to begin">
-        <div className="resume-image">
+      <section
+        className="resume-card mx-0 p-[15px] gap-5.5 flex items-center mt-0 mb-7 bg-secondary rounded-[12px] max-[760px]:p-3 max-[760px]:gap-[13px] max-[760px]:mb-[23px] max-[760px]:flex-wrap"
+        aria-label="A place to begin"
+      >
+        <div className="resume-image overflow-hidden h-19 [aspect-ratio:1.4] relative rounded-[6px] shrink-0 max-[760px]:h-15.5 [&_>_svg]:absolute [&_>_svg]:left-[50%] [&_>_svg]:top-[50%] [&_>_svg]:[transform:translate(-50%,_-50%)] [&_>_svg]:fill-[#fff] [&_>_svg]:text-foreground [&_>_svg]:[filter:drop-shadow(0_2px_8px_var(--foreground))]">
           <Image src={story.image} alt="" fill sizes="200px" />
         </div>
-        <div className="resume-description">
+        <div className="resume-description flex-1 [&_>_span]:text-[12px] [&_>_span]:text-muted-foreground max-[760px]:[&_>_span]:text-[11px] [&_h2]:my-0.5 [&_h2]:mx-0 [&_h2]:text-[23px] max-[760px]:[&_h2]:text-[20px] [&_p]:text-[14px] [&_p]:text-muted-foreground max-[760px]:[&_p]:text-[12px]">
           <span>A place to begin</span>
           <h2>{story.title}</h2>
           <p>{story.question}</p>
         </div>
-        <div className="featured-length">
+        <div className="featured-length text-[14px] text-foreground whitespace-nowrap max-[760px]:hidden">
           {story.chapters.length} chapters · ≈ {story.minutes} min
         </div>
         <Button asChild>
@@ -52,12 +55,15 @@ export function ResumeStory({ featured = false }: { featured?: boolean }) {
   const position = entry[1];
 
   return (
-    <section className="resume-card" aria-label="Continue your last story">
-      <div className="resume-image">
+    <section
+      className="resume-card mx-0 p-[15px] gap-5.5 flex items-center mt-0 mb-7 bg-secondary rounded-[12px] max-[760px]:p-3 max-[760px]:gap-[13px] max-[760px]:mb-[23px] max-[760px]:flex-wrap"
+      aria-label="Continue your last story"
+    >
+      <div className="resume-image overflow-hidden h-19 [aspect-ratio:1.4] relative rounded-[6px] shrink-0 max-[760px]:h-15.5 [&_>_svg]:absolute [&_>_svg]:left-[50%] [&_>_svg]:top-[50%] [&_>_svg]:[transform:translate(-50%,_-50%)] [&_>_svg]:fill-[#fff] [&_>_svg]:text-foreground [&_>_svg]:[filter:drop-shadow(0_2px_8px_var(--foreground))]">
         <Image src={story.image} alt="" fill sizes="150px" />
         <Play aria-hidden="true" />
       </div>
-      <div className="resume-description">
+      <div className="resume-description flex-1 [&_>_span]:text-[12px] [&_>_span]:text-muted-foreground max-[760px]:[&_>_span]:text-[11px] [&_h2]:my-0.5 [&_h2]:mx-0 [&_h2]:text-[23px] max-[760px]:[&_h2]:text-[20px] [&_p]:text-[14px] [&_p]:text-muted-foreground max-[760px]:[&_p]:text-[12px]">
         <span>{position.finished ? "Open again, see something new" : "Your last open page"}</span>
         <h2>{story.title}</h2>
         <p>
@@ -66,7 +72,7 @@ export function ResumeStory({ featured = false }: { featured?: boolean }) {
             : `Scene ${position.scene + 1} · Pick up where you left off`}
         </p>
       </div>
-      <div className="resume-progress">
+      <div className="resume-progress w-25 max-[760px]:hidden">
         <Progress
           value={
             position.finished

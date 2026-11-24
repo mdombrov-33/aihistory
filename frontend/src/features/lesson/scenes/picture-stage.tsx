@@ -56,13 +56,13 @@ export function PictureStage(
     <Frame
       props={props}
       visual={
-        <div className="looking-exhibit">
-          <div className="looking-art">
+        <div className="looking-exhibit h-full min-h-0 grid grid-rows-[minmax(0,_1fr)_auto]">
+          <div className="looking-art relative min-h-0">
             <Art beat={beat} framing="cover" inspectionPoints={points} onInspect={props.onInspect}>
               {points.map((p, i) => (
                 <button
                   key={p.id}
-                  className="scene-marker image-hotspot"
+                  className="scene-marker image-hotspot p-0 absolute grid place-items-center [transform:translate(-50%,_-50%)_scale(var(--image-counter-scale,_1))] [transform-origin:center] w-11 h-11 border-0 rounded-[50%] bg-transparent text-on-art text-[13px]"
                   aria-label={"Inspect " + p.label}
                   aria-expanded={selected === p.id}
                   aria-controls={beat.id + "-detail"}
@@ -93,7 +93,11 @@ export function PictureStage(
                   <h2>{detail.title}</h2>
                   <p>{detail.body}</p>
                 </div>
-                <button className="detail-close" aria-label="Close detail" onClick={close}>
+                <button
+                  className="detail-close absolute right-1 top-1 w-11 h-11 grid place-items-center text-primary [&_svg]:w-5"
+                  aria-label="Close detail"
+                  onClick={close}
+                >
                   <X />
                 </button>
               </section>
@@ -102,7 +106,10 @@ export function PictureStage(
             )}
           </div>
           {points.length ? (
-            <div className="scene-selections detail-selections" aria-label="Image details">
+            <div
+              className="scene-selections detail-selections py-2 px-3 gap-1 flex flex-wrap bg-background [border-top:1px_solid_var(--line-soft)] [&_button]:py-2 [&_button]:px-3 [&_button]:gap-2 [&_button]:flex [&_button]:items-center [&_button]:justify-center [&_button]:min-h-11 [&_button]:rounded-[6px] [&_button]:text-foreground [&_button]:text-[14px] [&_button]:text-left [&_button]:max-w-full [&_button]:[overflow-wrap:anywhere]"
+              aria-label="Image details"
+            >
               {points.map((p, i) => (
                 <button
                   key={p.id}

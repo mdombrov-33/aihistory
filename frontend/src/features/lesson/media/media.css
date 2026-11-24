@@ -1,0 +1,77 @@
+/* Viewer integration: pan/zoom wrappers, expanded surfaces and model-viewer internals. */
+.image-explorer-window {
+  width: 100% !important;
+  height: 100% !important;
+}
+.image-explorer-content {
+  width: auto;
+  height: auto;
+}
+.image-explorer[data-exploring="true"] .image-explorer-window {
+  cursor: grab;
+}
+.image-explorer[data-exploring="true"] .image-explorer-window:active {
+  cursor: grabbing;
+}
+.image-explorer .image-hotspot {
+  pointer-events: auto;
+}
+.image-tools button:hover,
+.image-tools button[aria-pressed="true"] {
+  background: color-mix(in srgb, var(--art-text) 16%, transparent);
+}
+.image-tools button:disabled {
+  opacity: 0.4;
+}
+.image-inspection-dialog[data-slot="dialog-content"] {
+  width: min(94vw, 1600px);
+  max-width: none;
+  height: 92svh;
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr);
+  background: var(--background);
+  padding: 24px;
+}
+.image-inspection-dialog [data-slot="dialog-header"] {
+  padding-right: 35px;
+}
+.image-inspection-dialog .image-explorer {
+  min-height: 0;
+  border-radius: 8px;
+}
+@media (max-width: 760px) {
+  .image-explorer-caption > span:last-child {
+    display: none;
+  }
+  .image-inspection-dialog[data-slot="dialog-content"] {
+    padding: 18px;
+    height: 92svh;
+  }
+}
+.museum-dialog[data-slot="dialog-content"] {
+  width: 94vw;
+  max-width: none;
+  height: 92dvh;
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr);
+}
+.discovery-demo-art > .museum-object {
+  height: 100%;
+  min-height: 560px;
+}
+@media (max-width: 760px) {
+  .museum-dialog[data-slot="dialog-content"] {
+    padding: 18px;
+  }
+  .discovery-demo-art > .museum-object {
+    height: 610px;
+    min-height: 0;
+  }
+}
+.native-object-controls button:hover:not(:disabled) {
+  background: var(--secondary);
+}
+.native-object-controls button:disabled {
+  opacity: 0.45;
+  cursor: default;
+}

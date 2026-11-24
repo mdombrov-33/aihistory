@@ -57,13 +57,16 @@ export function ChapterMenu({
             {story.title} · {story.chapters.length} chapters
           </SheetDescription>
         </SheetHeader>
-        <nav className="chapter-menu" aria-label="Story chapters">
+        <nav
+          className="chapter-menu gap-2 grid [&_a]:py-[15px] [&_a]:px-3 [&_a]:gap-3.5 [&_a]:rounded-[7px] [&_a]:flex [&_a]:items-center [&_a]:text-[17px]"
+          aria-label="Story chapters"
+        >
           <Accordion type="single" collapsible defaultValue={"chapter-" + currentChapter}>
             {story.chapters.map((chapter, c) => (
               <AccordionItem
                 value={"chapter-" + c}
                 key={chapter.title}
-                className="chapter-destination"
+                className="chapter-destination py-3 px-0 [border-bottom:1px_solid_var(--line-soft)] [&_ol]:[list-style:none] [&_ol]:pt-2 [&_ol]:pr-0 [&_ol]:pb-0 [&_ol]:pl-[35px]"
               >
                 <AccordionTrigger>
                   {String(c + 1).padStart(2, "0")} {chapter.title}

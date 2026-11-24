@@ -6,7 +6,7 @@ import { Workbench } from "../../shared/workbench";
 import { useId } from "react";
 import { ArrowLeft, ArrowRight, RotateCcw } from "lucide-react";
 import { z } from "zod";
-import { LabRange } from "../../shared/controls";
+import { LabRange, LabButton } from "../../shared/controls";
 import { useLearningState } from "../../shared/session";
 import { packetLayout, packetTrace, type Traveler } from "./packet-model";
 import { useDiagramWidth } from "../../shared/use-diagram-width";
@@ -57,7 +57,10 @@ export function TravelerLab({
       data-reduce-motion={reduceMotion}
       stage={
         <>
-          <div ref={ref} className="packet-diagram">
+          <div
+            ref={ref}
+            className="packet-diagram relative [flex:0_0_auto] min-h-[270px] [&_>_svg]:w-full [&_>_svg]:h-full [&_>_svg]:block"
+          >
             <svg viewBox={`0 0 ${width} ${layout.height}`} role="img" aria-labelledby={titleId}>
               <title
                 id={titleId}
@@ -75,7 +78,7 @@ export function TravelerLab({
             {traveler.locations.map((n) => (
               <div
                 key={n.id}
-                className="packet-station"
+                className="packet-station [&_strong]:block [&_strong]:text-[16px] [&_strong]:leading-[1.2] [&_span]:block [&_span]:text-[13px] [&_span]:mt-[3px] [&_span]:text-muted-foreground"
                 data-current={n.id === current.location}
                 data-on-route={scenario.path.includes(n.id)}
                 style={{ left: layout.positions[n.id].x, top: layout.positions[n.id].y }}
@@ -91,9 +94,13 @@ export function TravelerLab({
               </div>
             ))}
           </div>
-          <div className="lab-feedback" aria-live="polite" aria-atomic="true">
+          <div
+            className="lab-feedback py-5 px-6.5 [border-top:1px_solid_var(--line-soft)] max-[760px]:px-5 [&_h2]:mx-0 [&_h2]:text-[24px] [&_h2]:leading-[1.2] [&_h2]:mt-0 [&_h2]:mb-2 [&_p]:mx-0 [&_p]:text-[15px] [&_p]:leading-[1.5] [&_p]:mt-1.5 [&_p]:mb-0 [&_p]:max-w-[65ch]"
+            aria-live="polite"
+            aria-atomic="true"
+          >
             <h2>{current.title}</h2>
-            <p className="packet-reading">
+            <p className="packet-reading tabular-nums [&_strong]:text-primary">
               Hop Limit <strong>{current.hopLimit}</strong> · Event {checkpoint + 1} of{" "}
               {trace.length}
             </p>
@@ -103,21 +110,21 @@ export function TravelerLab({
       }
       controls={
         <>
-          <div className="lab-actions">
-            <button
+          <div className="lab-actions gap-2 flex flex-wrap items-center">
+            <LabButton
               disabled={checkpoint === 0}
               onClick={() => update({ checkpoint: checkpoint - 1 })}
             >
               <ArrowLeft size={16} />
               Previous event
-            </button>
-            <button
+            </LabButton>
+            <LabButton
               disabled={checkpoint === trace.length - 1}
               onClick={() => update({ checkpoint: checkpoint + 1 })}
             >
               Next event
               <ArrowRight size={16} />
-            </button>
+            </LabButton>
           </div>
           <LabRange
             label="Inspect event"
@@ -127,15 +134,18 @@ export function TravelerLab({
             onChange={(checkpoint) => update({ checkpoint })}
           />
 
-          <div className="lab-choices" aria-label="Route scenarios">
+          <div
+            className="lab-choices gap-2 flex flex-wrap items-center"
+            aria-label="Route scenarios"
+          >
             {traveler.scenarios.map((s) => (
-              <button
+              <LabButton
                 key={s.id}
                 aria-pressed={state.scenario === s.id}
                 onClick={() => update({ scenario: s.id, checkpoint: 0 })}
               >
                 {s.label}
-              </button>
+              </LabButton>
             ))}
           </div>
 
@@ -147,11 +157,11 @@ export function TravelerLab({
             onChange={(hopLimit) => update({ hopLimit, checkpoint: 0 })}
           />
 
-          <button onClick={() => update(defaults)}>
+          <LabButton onClick={() => update(defaults)}>
             <RotateCcw size={16} />
             Reset traveler
-          </button>
-          <details className="lab-assumptions">
+          </LabButton>
+          <details className="lab-assumptions px-6.5 pt-0 pb-5 text-[14px] text-muted-foreground max-[760px]:px-5 max-[760px]:pb-4 [&_summary]:py-3 [&_summary]:px-0 [&_summary]:cursor-pointer [&_summary]:text-foreground [&_p]:mx-0 [&_p]:leading-[1.55] [&_p]:mt-0 [&_p]:mb-2 [&_ul]:mx-0 [&_ul]:leading-[1.55] [&_ul]:mt-0 [&_ul]:mb-2">
             <summary>What this model includes</summary>
             <p>{traveler.description}</p>
             <p>

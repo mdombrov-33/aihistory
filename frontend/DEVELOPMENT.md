@@ -26,7 +26,7 @@ The reusable lesson engine lives in **[src/features/lesson](src/features/lesson/
 | Change Read/Listen or narration | [Reading controls](src/features/lesson/player/reading-controls.tsx), [narration hook](src/features/lesson/player/use-narration.ts) |
 | Change chapters or Back/Next | [Chapter menu](src/features/lesson/player/chapter-menu.tsx), [screen navigation](src/features/lesson/player/screen-navigation.tsx) |
 | Add or change an interactive mechanic | [Interaction dispatcher](src/features/lesson/interactions/interaction-stage.tsx), then its named folder under [interactions](src/features/lesson/interactions/) |
-| Change shared mechanic controls | [Range control](src/features/lesson/shared/controls.tsx), [fixed-stage workbench](src/features/lesson/shared/workbench.tsx), [scoped state](src/features/lesson/shared/session.tsx) |
+| Change shared mechanic controls | [Button variants and range control](src/features/lesson/shared/controls.tsx), [fixed-stage workbench](src/features/lesson/shared/workbench.tsx), [scoped state](src/features/lesson/shared/session.tsx) |
 | Change image/model inspection | [Media viewers](src/features/lesson/media/) |
 | Edit a prepared lesson | [Lesson JSON and registry](src/content/lessons/); follow the [authoring guide](../docs/technical/lesson-authoring.md) |
 | Change discovery metadata | [Catalog queries](src/content/catalog/catalog.ts), [generated summaries](src/content/catalog/showcase-catalog.generated.json), [sync script](scripts/sync-prepared-catalog.mjs) |
@@ -57,7 +57,7 @@ src/
   state/guest/               One guest store with separate schema, persistence and actions
   components/app/            Shared navigation, providers, cards and page shell
   components/ui/             Reusable UI primitives
-  styles/                    Global theme/foundations and shared application base rules
+  styles/                    Tailwind entry, document defaults and shared theme tokens
   lib/                       Small generic helpers: class names and pagination
   types/                     External declarations, currently model-viewer JSX
 tests/
@@ -74,6 +74,8 @@ Within a mechanic, `*-lab.tsx` owns the visible controls/feedback; `*-canvas.tsx
 - Use direct imports into the owning module. Do not add a root barrel that mixes data/schema modules with client components or heavy viewers.
 - Guest state still uses one store and the existing `history-worlds:journey:v1` envelope. Separating files does not introduce independent stores, a migration or account synchronization. Transient playback remains local to its mechanic.
 - Handwritten modules have short purpose comments. Keep them accurate when responsibilities change; generated JSON, vendor code and UI-library wrappers do not need boilerplate headers.
-- Global CSS is imported in explicit order by [app/layout.tsx](src/app/layout.tsx). The existing cascade is preserved: global foundations, application base, player base, shared interaction base, scene layout, discovery exhibit, gallery, visual exploration, vendor graph styles, then mechanic styles. Feature styles have named owners but remain global CSS; moving a file does not scope it. A later CSS Modules conversion or deletion of old selectors requires rendered regression verification.
+- Tailwind utilities are the default for component layout, spacing, typography, responsive behavior and interaction states. Use semantic roles such as `bg-card`, `text-muted-foreground` and `border-rule`; [theme.css](src/styles/theme.css) owns the palette and [globals.css](src/styles/globals.css) exposes tokens and document/accessibility defaults. Do not add page layouts or broad `[data-slot]` component overrides to global foundations.
+- Put shared UI defaults and variants in [components/ui](src/components/ui/). [StoryCard](src/components/app/story-card.tsx) has explicit home/collection variants; [lesson controls](src/features/lesson/shared/controls.tsx) own shared action buttons and ranges. Use `cn` to merge conditional utility classes; keep complete class names visible to Tailwind rather than constructing them from fragments. Stable semantic marker classes remain for selectors and browser tests.
+- Retain feature CSS for coordinated scene/viewport rules, viewer/library internals, SVG geometry and artwork composition. These files stay beside their owners: discovery, lesson player, media, scenes and shared interactions. They are imported explicitly by [app/layout.tsx](src/app/layout.tsx) and are still global, not CSS Modules. Their remaining contextual rules intentionally take precedence over ordinary utility defaults; do not add unrelated application controls there. Changes to these relationships need rendered regression verification.
 - Add a lesson to the [registry](src/content/lessons/registry.ts), then run `node scripts/sync-prepared-catalog.mjs`. Never hand-edit the generated summary index. Media paths, provenance, font licenses and local Draco decoding remain part of the content contract.
 - Keep focused browser-independent checks in `tests/contracts/` and actual browser journeys in `tests/browser/`. Both use the existing Playwright runner; `test:scenes` launches no browser. Shared documentation remains outside this package; root README stays empty.

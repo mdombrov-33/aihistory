@@ -91,7 +91,7 @@ function SceneContent(props: StageProps) {
             />
           }
           details={
-            <details className="photograph-notes">
+            <details className="photograph-notes [&_p]:text-[15px] [&_p]:leading-[1.6] [&_p]:mb-3 [&_a]:gap-2 [&_a]:inline-flex [&_a]:items-center [&_a]:min-h-11 [&_a]:text-[14px] [&_a]:text-primary [&_svg]:w-[17px] [&_svg]:h-[17px] [&_summary]:py-3 [&_summary]:cursor-pointer [&_summary]:text-primary [&_summary]:text-[15px]">
               <summary>About the image</summary>
               <p>{props.beat.observation}</p>
               <a href={props.beat.sourceUrl} target="_blank" rel="noreferrer">

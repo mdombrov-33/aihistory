@@ -15,8 +15,8 @@ export function StoryActions({ slug }: { slug: string }) {
   const progress = journey.progress[slug];
 
   return (
-    <div className="detail-actions">
-      <Button asChild className="start-story">
+    <div className="detail-actions gap-3 flex flex-wrap max-[760px]:gap-2">
+      <Button asChild className="start-story min-w-[190px] max-[760px]:min-w-0">
         <Link
           href={`/stories/${slug}/play/${progress?.scene ?? 0}?passage=${progress?.passage ?? 0}`}
         >
@@ -42,7 +42,7 @@ export function StoryActions({ slug }: { slug: string }) {
       <Button
         variant="ghost"
         size="icon"
-        className="touch-icon"
+        className="touch-icon p-2.5 min-w-11 min-h-11"
         aria-label="Copy story link"
         onClick={async () => {
           try {

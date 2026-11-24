@@ -10,8 +10,11 @@ export const metadata = { title: "About this preview" };
 
 export default function AboutPage() {
   return (
-    <main id="main-content" className="page-width">
-      <article className="prose-page">
+    <main
+      id="main-content"
+      className="page-width mx-auto w-[min(1360px,_calc(100%_-_80px))] max-[1050px]:w-[calc(100%_-_48px)] max-[760px]:w-[calc(100%_-_36px)]"
+    >
+      <article className="prose-page py-[55px] max-w-[800px] max-[760px]:py-[35px] [&_h2]:mt-10 [&_p]:my-5.5 [&_p]:mx-0 [&_p]:text-[19px] [&_p]:leading-[1.75] [&_p]:text-muted-foreground max-[760px]:[&_p]:text-[18px]">
         <h1>A first step into another world.</h1>
         <p>
           Explore subjects through visual explanations and experiments. Take apart a schematic

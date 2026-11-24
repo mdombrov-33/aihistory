@@ -26,7 +26,7 @@ export function Workbench({
       aria-label={label}
       {...state}
     >
-      <div className="workbench-stage">{stage}</div>
+      <div className="workbench-stage overflow-hidden flex flex-col min-w-0 min-h-0">{stage}</div>
       <div className="workbench-controls">{controls}</div>
     </section>
   );

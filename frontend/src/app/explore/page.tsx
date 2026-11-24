@@ -24,7 +24,10 @@ export default async function ExplorePage({
   };
 
   return (
-    <main id="main-content" className="page-width">
+    <main
+      id="main-content"
+      className="page-width mx-auto w-[min(1360px,_calc(100%_-_80px))] max-[1050px]:w-[calc(100%_-_48px)] max-[760px]:w-[calc(100%_-_36px)]"
+    >
       <PageHeading
         title="Follow a thread."
         description="People, places, ideas and turning points. Find a story that opens a door."

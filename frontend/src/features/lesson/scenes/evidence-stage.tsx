@@ -20,7 +20,7 @@ export function EvidenceStage(
       props={props}
       visual={
         beat.composition === "quotation-focus" ? (
-          <figure className="source-quotation">
+          <figure className="source-quotation [&_>_small]:text-[16px] [&_>_small]:text-muted-foreground [&_blockquote]:mx-0 [&_blockquote]:font-heading [&_blockquote]:text-[clamp(40px,_5vw,_76px)] [&_blockquote]:leading-[1.05] [&_blockquote]:mt-7 [&_blockquote]:mb-9 [&_figcaption]:text-[18px] [&_a]:gap-2 [&_a]:inline-flex [&_a]:items-center [&_a]:min-h-11 [&_a]:mt-8 [&_a]:text-primary [&_svg]:w-4.5">
             <small>{record.date}</small>
             <blockquote>“{record.quote}”</blockquote>
             <figcaption>

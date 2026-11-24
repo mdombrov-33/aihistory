@@ -6,7 +6,7 @@ import { useEffect, useRef, useState } from "react";
 import { Play, Square, RotateCcw } from "lucide-react";
 import type { Oscillator, Gain } from "tone";
 import { z } from "zod";
-import { LabRange } from "../../shared/controls";
+import { LabRange, LabButton } from "../../shared/controls";
 import { harmonicSample } from "./model";
 import type { SoundLab as SoundData } from "./schema";
 import { useLearningState } from "../../shared/session";
@@ -159,7 +159,7 @@ export function SoundLab({ sound, onInteract }: { sound: SoundData; onInteract: 
 
   return (
     <section className="learning-lab" aria-label="Sound studio">
-      <div className="lab-canvas sound-viewport">
+      <div className="lab-canvas sound-viewport [&_>_svg]:block [&_>_svg]:w-full [&_>_svg]:h-full [&_>_svg]:min-h-[260px] [&_>_svg]:max-h-[55dvh]">
         <svg
           viewBox="0 0 700 380"
           role="img"
@@ -175,10 +175,11 @@ export function SoundLab({ sound, onInteract }: { sound: SoundData; onInteract: 
           </text>
         </svg>
       </div>
-      <div className="lab-controls">
-        <div className="lab-actions">
-          <button
+      <div className="lab-controls py-5 px-6.5 gap-4 grid bg-muted [border-top:1px_solid_var(--line-soft)] max-[760px]:px-5">
+        <div className="lab-actions gap-2 flex flex-wrap items-center">
+          <LabButton
             className="lab-play"
+            variant="primary"
             disabled={loading}
             aria-busy={loading}
             onClick={() => void start()}
@@ -186,15 +187,15 @@ export function SoundLab({ sound, onInteract }: { sound: SoundData; onInteract: 
           >
             {playing ? <Square size={16} /> : <Play size={16} />}
             {loading ? "Preparing sound…" : playing ? "Stop sound" : "Play sound"}
-          </button>
-          <button
+          </LabButton>
+          <LabButton
             onClick={() => {
               onInteract();
               change({ fundamental: sound.fundamental, harmonics: sound.harmonics });
             }}
           >
             <RotateCcw size={16} /> Reset
-          </button>
+          </LabButton>
         </div>
         <LabRange
           label="Fundamental"
@@ -207,7 +208,7 @@ export function SoundLab({ sound, onInteract }: { sound: SoundData; onInteract: 
             change({ fundamental: n });
           }}
         />
-        <div className="harmonic-controls">
+        <div className="harmonic-controls grid grid-cols-[repeat(2,_minmax(0,_1fr))] gap-y-3 gap-x-6">
           {harmonics.map((amplitude, i) => (
             <LabRange
               key={i}
@@ -223,9 +224,9 @@ export function SoundLab({ sound, onInteract }: { sound: SoundData; onInteract: 
             />
           ))}
         </div>
-        <div className="lab-choices" aria-label="Sound presets">
+        <div className="lab-choices gap-2 flex flex-wrap items-center" aria-label="Sound presets">
           {sound.presets.map((p) => (
-            <button
+            <LabButton
               key={p.label}
               aria-pressed={preset?.label === p.label}
               onClick={() => {
@@ -234,11 +235,14 @@ export function SoundLab({ sound, onInteract }: { sound: SoundData; onInteract: 
               }}
             >
               {p.label}
-            </button>
+            </LabButton>
           ))}
         </div>
       </div>
-      <div className="lab-feedback" aria-live="polite">
+      <div
+        className="lab-feedback py-5 px-6.5 [border-top:1px_solid_var(--line-soft)] max-[760px]:px-5 [&_h2]:mx-0 [&_h2]:text-[24px] [&_h2]:leading-[1.2] [&_h2]:mt-0 [&_h2]:mb-2 [&_p]:mx-0 [&_p]:text-[15px] [&_p]:leading-[1.5] [&_p]:mt-1.5 [&_p]:mb-0 [&_p]:max-w-[65ch]"
+        aria-live="polite"
+      >
         <h2>{silent ? "Silence" : (preset?.label ?? "Your own mixture")}</h2>
         <p>
           {silent
@@ -251,7 +255,7 @@ export function SoundLab({ sound, onInteract }: { sound: SoundData; onInteract: 
         ) : null}
         {error ? <p role="alert">{error}</p> : null}
       </div>
-      <details className="lab-assumptions">
+      <details className="lab-assumptions px-6.5 pt-0 pb-5 text-[14px] text-muted-foreground max-[760px]:px-5 max-[760px]:pb-4 [&_summary]:py-3 [&_summary]:px-0 [&_summary]:cursor-pointer [&_summary]:text-foreground [&_p]:mx-0 [&_p]:leading-[1.55] [&_p]:mt-0 [&_p]:mb-2 [&_ul]:mx-0 [&_ul]:leading-[1.55] [&_ul]:mt-0 [&_ul]:mb-2">
         <summary>About this sound</summary>
         <p>
           Four ideal sine components at integer multiples of the fundamental. The plot is

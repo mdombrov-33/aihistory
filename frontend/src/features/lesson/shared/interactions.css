@@ -16,20 +16,6 @@
   min-height: 260px;
   overflow: hidden;
 }
-.lab-canvas > svg {
-  display: block;
-  width: 100%;
-  height: 100%;
-  min-height: 260px;
-  max-height: 55dvh;
-}
-.assembly-viewport,
-.pendulum-viewport {
-  min-height: 310px;
-}
-.system-viewport {
-  min-height: 330px;
-}
 .lab-canvas svg text {
   font:
     15px var(--font-source-sans),
@@ -77,121 +63,6 @@
   stroke-width: 3;
   stroke-linejoin: round;
 }
-.lab-gesture {
-  position: absolute;
-  bottom: 10px;
-  left: 20px;
-  font-size: 13px;
-  color: var(--muted-foreground);
-  pointer-events: none;
-}
-.lab-controls {
-  display: grid;
-  gap: 16px;
-  padding: 20px 26px;
-  background: var(--muted);
-  border-top: 1px solid var(--line-soft);
-}
-.lab-range {
-  min-width: 0;
-}
-.lab-range label {
-  display: flex;
-  align-items: baseline;
-  justify-content: space-between;
-  gap: 12px;
-  font-size: 15px;
-}
-.lab-range output {
-  font-variant-numeric: tabular-nums;
-  color: var(--primary);
-}
-.lab-range input {
-  display: block;
-  width: 100%;
-  height: 32px;
-  accent-color: var(--primary);
-  cursor: pointer;
-}
-.lab-actions,
-.lab-choices {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  align-items: center;
-}
-.learning-lab button {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  min-height: 44px;
-  padding: 9px 14px;
-  border: 1px solid var(--input);
-  border-radius: 10px;
-  font-size: 14px;
-  color: var(--foreground);
-  background: var(--background);
-  cursor: pointer;
-}
-.learning-lab button:hover {
-  background: var(--muted);
-}
-.learning-lab button[aria-pressed="true"],
-.learning-lab button.lab-play {
-  color: var(--primary-foreground);
-  background: var(--primary);
-  border-color: var(--primary);
-}
-.learning-lab :is(button, input):focus-visible {
-  outline: 3px solid var(--ring);
-  outline-offset: 3px;
-}
-.lab-feedback {
-  padding: 20px 26px;
-  border-top: 1px solid var(--line-soft);
-}
-.lab-feedback h2 {
-  font-size: 24px;
-  line-height: 1.2;
-  margin: 0 0 8px;
-}
-.lab-feedback p {
-  font-size: 15px;
-  line-height: 1.5;
-  margin: 6px 0 0;
-  max-width: 65ch;
-}
-.lab-assumptions {
-  padding: 0 26px 20px;
-  font-size: 14px;
-  color: var(--muted-foreground);
-}
-.lab-assumptions summary {
-  padding: 12px 0;
-  cursor: pointer;
-  color: var(--foreground);
-}
-.lab-assumptions p,
-.lab-assumptions ul {
-  line-height: 1.55;
-  margin: 0 0 8px;
-}
-.lab-loading,
-.lab-unavailable {
-  display: grid;
-  place-content: center;
-  height: 100%;
-  min-height: 260px;
-  padding: 24px;
-  line-height: 1.6;
-  text-align: center;
-}
-.harmonic-controls {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 12px 24px;
-}
 .signal-node {
   padding: 12px 16px;
   min-width: 105px;
@@ -200,18 +71,6 @@
   background: var(--background);
   color: var(--foreground);
   text-align: center;
-}
-.signal-node strong,
-.signal-node span {
-  display: block;
-}
-.signal-node strong {
-  font-size: 16px;
-  font-weight: 600;
-}
-.signal-node span {
-  font-size: 12px;
-  margin-top: 4px;
 }
 .signal-node[data-active="true"] {
   border-color: var(--primary);
@@ -254,16 +113,6 @@
   .lab-canvas {
     flex: none;
     height: 310px;
-  }
-  .lab-controls,
-  .lab-feedback {
-    padding: 20px;
-  }
-  .lab-assumptions {
-    padding: 0 20px 16px;
-  }
-  .system-viewport {
-    height: 340px;
   }
 }
 /* Flow layouts must release the visual ancestor as well as the workbench itself. */
@@ -311,10 +160,6 @@
   flex: none;
   height: 350px;
 }
-.learning-lab button:disabled {
-  opacity: 0.65;
-  cursor: wait;
-}
 @media (max-width: 760px) {
   .lab-canvas svg text {
     font-size: 26px;
@@ -322,16 +167,6 @@
 }
 
 /* Process travel uses readable HTML stations over exact geometric connections. */
-.packet-diagram {
-  position: relative;
-  flex: 0 0 auto;
-  min-height: 270px;
-}
-.packet-diagram > svg {
-  width: 100%;
-  height: 100%;
-  display: block;
-}
 .packet-link {
   stroke: var(--input);
   stroke-width: 2;
@@ -354,46 +189,12 @@
   background: var(--background);
   text-align: center;
 }
-.packet-station strong,
-.packet-station span {
-  display: block;
-}
-.packet-station strong {
-  font-size: 16px;
-  line-height: 1.2;
-}
-.packet-station span {
-  font-size: 13px;
-  margin-top: 4px;
-  color: var(--muted-foreground);
-}
 .packet-station[data-current="true"] {
   border: 2px solid var(--primary);
   background: var(--muted);
 }
 .packet-station[data-on-route="false"] {
   border-style: dashed;
-}
-.packet-reading {
-  font-variant-numeric: tabular-nums;
-}
-.packet-reading strong {
-  color: var(--primary);
-}
-.lab-control-note {
-  margin: 0;
-  font-size: 14px;
-  line-height: 1.5;
-  color: var(--muted-foreground);
-}
-.construction-goal {
-  padding: 18px 26px;
-  border-bottom: 1px solid var(--line-soft);
-}
-.construction-goal p {
-  margin: 0;
-  font-size: 17px;
-  line-height: 1.45;
 }
 .build-node {
   min-width: 118px;
@@ -402,79 +203,14 @@
   width: 12px;
   height: 12px;
 }
-.connection-form {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr);
-  gap: 12px;
-  align-items: end;
-}
-.connection-form > div {
-  min-width: 0;
-}
-.connection-form label {
-  display: block;
-  margin-bottom: 6px;
-  font-size: 14px;
-}
-.connection-form select {
-  display: block;
-  width: 100%;
-  min-height: 44px;
-  border: 1px solid var(--input);
-  border-radius: 8px;
-  padding: 8px;
-  background: var(--background);
-  color: var(--foreground);
-  font: inherit;
-  font-size: 15px;
-}
 .learning-lab select:focus-visible {
   outline: 3px solid var(--ring);
   outline-offset: 3px;
-}
-.connection-form button {
-  grid-column: 1/-1;
-}
-.connection-list {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-.connection-list li {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 12px;
-  padding: 10px 0;
-  border-top: 1px solid var(--line-soft);
-  font-size: 14px;
-}
-.connection-list button {
-  flex-shrink: 0;
-}
-.construction-results {
-  padding: 20px 26px;
-  overflow-x: auto;
-  flex: 0 0 auto;
-}
-.construction-results table {
-  width: 100%;
-  border-collapse: collapse;
-  font-size: 14px;
-  font-variant-numeric: tabular-nums;
-}
-.construction-results caption {
-  text-align: left;
-  margin-bottom: 12px;
-  font-weight: 600;
 }
 .construction-results :is(th, td) {
   text-align: left;
   padding: 10px 6px;
   border-bottom: 1px solid var(--line-soft);
-}
-.learning-lab button:disabled {
-  cursor: not-allowed;
 }
 .traveler-lab[data-reduce-motion="true"] .packet-token {
   transition: none;
@@ -482,18 +218,6 @@
 @media (prefers-reduced-motion: reduce) {
   .packet-token {
     transition: none;
-  }
-}
-@media (max-width: 760px) {
-  .construction-goal,
-  .construction-results {
-    padding: 18px 20px;
-  }
-  .connection-form {
-    grid-template-columns: minmax(0, 1fr);
-  }
-  .construction-viewport {
-    flex: none;
   }
 }
 
@@ -507,13 +231,6 @@
   grid-template-rows: minmax(0, 1.5fr) minmax(180px, 0.75fr);
   overflow: hidden;
   height: 100%;
-}
-.workbench-stage {
-  display: flex;
-  flex-direction: column;
-  min-width: 0;
-  min-height: 0;
-  overflow: hidden;
 }
 .workbench-stage > .packet-diagram {
   flex: 1 1 180px;
@@ -581,17 +298,11 @@
 .packet-station {
   padding: 6px 8px;
 }
-.packet-station span {
-  margin-top: 3px;
-}
 .workbench-stage > .construction-viewport {
   flex: 1 1 180px;
   min-height: 150px;
   height: auto;
   overflow: auto;
-}
-.construction-drawing {
-  position: relative;
 }
 .build-node .react-flow__handle {
   width: 44px;

@@ -13,12 +13,22 @@ import { SoundLab } from "./sound/sound-lab";
 import { AssemblyMotion } from "./assembly/assembly-motion";
 
 const SystemLab = dynamic(() => import("./logic/system-lab").then((module) => module.SystemLab), {
-  loading: () => <output className="lab-loading">Preparing the connected system…</output>,
+  loading: () => (
+    <output className="lab-loading p-6 grid place-content-center h-full min-h-[260px] leading-[1.6] text-center">
+      Preparing the connected system…
+    </output>
+  ),
 });
 
 const ConstructionLab = dynamic(
   () => import("./logic/construction-lab").then((module) => module.ConstructionLab),
-  { loading: () => <output className="lab-loading">Preparing the logic builder…</output> },
+  {
+    loading: () => (
+      <output className="lab-loading p-6 grid place-content-center h-full min-h-[260px] leading-[1.6] text-center">
+        Preparing the logic builder…
+      </output>
+    ),
+  },
 );
 
 export type LearningBeat = Extract<

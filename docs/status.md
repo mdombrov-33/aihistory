@@ -6,7 +6,7 @@ Interactive learning across subjects is the accepted scope; history has no requi
 
 ## Implemented frontend
 
-The Next.js/React package in `frontend/` is the only application. Shared docs, agent guidance and design references stay at the repository root. The [frontend navigation guide](../frontend/DEVELOPMENT.md#start-here) maps the consolidated `features/lesson/` engine, controls, content, guest state and test suites. Installed versions and runnable commands live in [package.json](../frontend/package.json) and [development](technical/development.md). The root [Makefile](../Makefile) provides `make dev`, `make format`, `make check`, `make test` and `make verify` shortcuts over the existing tools. Deployment is deferred.
+The Next.js/React package in `frontend/` is the only application. Shared docs, agent guidance and design references stay at the repository root. The [frontend navigation guide](../frontend/DEVELOPMENT.md#start-here) maps the consolidated `features/lesson/` engine, controls, content, guest state and test suites. Installed versions and runnable commands live in [package.json](../frontend/package.json) and [development](technical/development.md). Styling now defaults to Tailwind utilities and component variants; global styles contain tokens and document/accessibility defaults, with coordinated visual CSS beside its feature. The root [Makefile](../Makefile) provides `make dev`, `make format`, `make check`, `make test` and `make verify` shortcuts over the existing tools. Deployment is deferred.
 
 | Area | Working local behavior | Boundary |
 | --- | --- | --- |

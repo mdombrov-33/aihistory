@@ -112,9 +112,13 @@ export function NativeObject({
   };
 
   return (
-    <div ref={root} className="native-object" data-status={status}>
+    <div
+      ref={root}
+      className="native-object block grid-rows-[minmax(0,_1fr)_auto] h-full min-h-0 text-foreground bg-background relative"
+      data-status={status}
+    >
       <div
-        className="native-object-stage"
+        className="native-object-stage relative min-h-0 isolate h-full [&_model-viewer]:block [&_model-viewer]:w-full [&_model-viewer]:h-full [&_model-viewer]:[--poster-color:transparent]"
         onPointerDownCapture={onInspect}
         onKeyDownCapture={onInspect}
       >
@@ -135,7 +139,7 @@ export function NativeObject({
           />
         ) : null}
         {status !== "ready" ? (
-          <div className="native-object-loading">
+          <div className="native-object-loading absolute top-0 right-0 bottom-0 left-0 pointer-events-none [&_>_img]:object-contain [&_>_output]:py-2.5 [&_>_output]:px-3.5 [&_>_output]:gap-2.5 [&_>_output]:absolute [&_>_output]:left-4 [&_>_output]:right-4 [&_>_output]:bottom-4 [&_>_output]:w-fit [&_>_output]:max-w-[calc(100%_-_32px)] [&_>_output]:flex [&_>_output]:flex-wrap [&_>_output]:items-center [&_>_output]:bg-card [&_>_output]:text-foreground [&_>_output]:text-[13px] [&_>_output]:border [&_>_output]:border-input [&_>_output]:rounded-[8px] [&_svg]:w-5 [&_svg]:h-5 [&_button]:py-2 [&_button]:px-3.5 [&_button]:pointer-events-auto [&_button]:min-h-11 [&_button]:bg-primary [&_button]:text-primary-foreground [&_button]:rounded-[6px]">
             {poster ? (
               <Image src={poster} alt="" fill sizes="(max-width:760px) 100vw,65vw" />
             ) : null}
@@ -159,15 +163,20 @@ export function NativeObject({
           </div>
         ) : null}
       </div>
-      <small className="native-object-hint">Drag to turn · pinch to zoom</small>
+      <small className="native-object-hint absolute left-4 bottom-4 max-w-[45%] text-[12px] leading-[1.4] text-muted-foreground pointer-events-none">
+        Drag to turn · pinch to zoom
+      </small>
       <details
-        className="native-camera-menu"
+        className="native-camera-menu absolute right-3 bottom-2 [&_>_summary]:py-2 [&_>_summary]:px-3 [&_>_summary]:cursor-pointer [&_>_summary]:min-h-11 [&_>_summary]:flex [&_>_summary]:items-center [&_>_summary]:text-[13px] [&_>_summary]:text-foreground [&_>_summary]:bg-background"
         onToggle={(event) => {
           if (event.currentTarget.open) onInspect?.();
         }}
       >
         <summary>Camera controls</summary>
-        <div className="native-object-controls" aria-label="Object controls">
+        <div
+          className="native-object-controls py-1.5 px-3 gap-1 flex items-center flex-wrap bg-card [border-top:1px_solid_var(--line-soft)] [&_>_span]:mr-auto [&_>_span]:text-muted-foreground [&_>_span]:text-[12px] max-[760px]:[&_>_span]:w-full [&_button]:p-2 [&_button]:inline-flex [&_button]:items-center [&_button]:justify-center [&_button]:min-h-11 [&_button]:min-w-11 [&_button]:rounded-[6px] [&_button]:text-[12px] [&_svg]:w-4.5 [&_svg]:h-4.5"
+          aria-label="Object controls"
+        >
           <button
             disabled={status !== "ready"}
             onClick={() => orbit(-45)}

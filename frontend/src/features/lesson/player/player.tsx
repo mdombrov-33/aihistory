@@ -178,8 +178,12 @@ export function Player({
   );
 
   const audio = (
-    <div className="scene-audio scene-evidence-credit">
-      <Link className="scene-source-link" href={sourceLink} onClick={narration.stop}>
+    <div className="scene-audio scene-evidence-credit min-w-0 [&_small]:block [&_small]:text-[11px] [&_small]:leading-[1.5] [&_small]:text-muted-foreground">
+      <Link
+        className="scene-source-link [&_svg]:w-4.5 [&_svg]:h-4.5 hover:text-(--scene-gold)"
+        href={sourceLink}
+        onClick={narration.stop}
+      >
         {source?.name ?? "Chapter sources"}
         <ArrowRight />
       </Link>
@@ -188,7 +192,7 @@ export function Player({
 
   const reading = (
     <section className="scene-reading" aria-label="Chapter narrative">
-      <div className="scene-reading-tools">
+      <div className="scene-reading-tools mx-0 gap-4 flex items-center mt-[-9px] mb-1 min-h-[35px] text-muted-foreground text-[12px] max-[760px]:gap-3 max-[760px]:-mt-2 [&_>_span]:mr-auto [&_>_span]:tabular-nums [&_button]:gap-1.5 [&_button]:inline-flex [&_button]:items-center [&_button]:text-[12px] [&_button]:min-h-9">
         <Sheet>
           <SheetTrigger asChild>
             <button onClick={narration.stop}>
@@ -203,7 +207,7 @@ export function Player({
                 Complete chapter text. Return to any passage without waiting for narration.
               </SheetDescription>
             </SheetHeader>
-            <div className="full-chapter-text">
+            <div className="full-chapter-text gap-[25px] grid [&_p]:text-[19px] [&_p]:leading-[1.8] [&_button]:mt-3">
               {lesson.scenes.flatMap((section, sectionIndex) =>
                 section.chapter === scene.chapter
                   ? section.text.map((text, p) => (
@@ -253,7 +257,7 @@ export function Player({
               <SheetTitle>Follow a question.</SheetTitle>
               <SheetDescription>Prepared contextual answers for this preview.</SheetDescription>
             </SheetHeader>
-            <div className="question-presets">
+            <div className="question-presets my-5 mx-0 gap-2.5 grid [&_button]:py-3 [&_button]:px-[15px] [&_button]:text-left [&_button]:border [&_button]:border-border [&_button]:rounded-[7px] [&_button]:min-h-11">
               {[
                 {
                   question: "What connects this chapter to the story?",
@@ -270,7 +274,10 @@ export function Player({
               ))}
             </div>
             {answer ? (
-              <div className="answer-panel" aria-live="polite">
+              <div
+                className="answer-panel p-5 bg-secondary rounded-[8px] mt-5 [&_p]:text-[17px] [&_p]:leading-[1.65]"
+                aria-live="polite"
+              >
                 <p>{answer}</p>
                 <Link href={sourceLink}>Inspect the sources</Link>
               </div>
@@ -286,10 +293,15 @@ export function Player({
           const p = beat.passageStart + n;
 
           return (
-            <article key={p} id={"passage-" + p} className="passage" data-current={p === passage}>
+            <article
+              key={p}
+              id={"passage-" + p}
+              className="passage py-4.5 px-0 [scroll-margin-top:30px] relative max-[760px]:py-[17px] [&_p]:text-[20px] [&_p]:leading-[1.8] max-[760px]:[&_p]:text-[19px]"
+              data-current={p === passage}
+            >
               <p>{text}</p>
               <button
-                className="scene-passage-bookmark"
+                className="scene-passage-bookmark absolute -right-2.5 top-[-9px] grid place-items-center text-foreground [&_svg]:w-3.5 [&_svg]:h-3.5 aria-pressed:text-(--scene-gold)"
                 aria-label={"Keep passage " + (p + 1)}
                 aria-pressed={marked(p)}
                 onClick={() => bookmark(p)}
@@ -301,7 +313,7 @@ export function Player({
         })}
       </div>
       {finished ? (
-        <output className="scene-finished">
+        <output className="scene-finished block text-[13px] text-(--scene-gold) pt-2.5">
           Story finished. Revisit your bookmarks in My space.
         </output>
       ) : null}
@@ -311,18 +323,18 @@ export function Player({
   return (
     <main
       id="main-content"
-      className="scene-player"
+      className="scene-player [&_button]:[-webkit-tap-highlight-color:transparent] [&_button]:min-w-11 [&_button]:min-h-11 [&_a]:[-webkit-tap-highlight-color:transparent] [&_svg]:shrink-0"
       data-scene-type={beat.type}
       data-reading-fit={journey.largerText ? "flow" : "scene"}
       data-mode={mode}
     >
-      <header className="scene-header">
+      <header className="scene-header py-0 px-6 gap-6 flex items-center [border-bottom:1px_solid_var(--border)] border-rule max-[760px]:px-3 max-[760px]:gap-3">
         <Brand compact />
         <Link className="scene-story-name" href={"/stories/" + story.slug}>
           {story.title}
         </Link>
         {modeControls}
-        <div className="scene-header-tools">
+        <div className="scene-header-tools gap-1 ml-0 flex items-center shrink-0 max-[760px]:gap-0 max-[760px]:[justify-self:end] max-[760px]:col-[2] max-[760px]:row-[1] max-[1100px]:[&_span]:hidden max-[760px]:[&_svg]:w-[19px] max-[760px]:[&_svg]:h-[19px]">
           <ChapterMenu
             story={story}
             navigation={navigation}
@@ -368,7 +380,11 @@ export function Player({
           </Sheet>
         </div>
       </header>
-      <nav ref={chapterStrip} className="story-chapter-strip" aria-label="Chapters">
+      <nav
+        ref={chapterStrip}
+        className="story-chapter-strip py-0 px-6 gap-1 flex items-stretch overflow-x-auto [border-block:1px_solid_var(--line-soft)] bg-muted [scrollbar-width:thin] max-[760px]:px-2 max-[760px]:min-h-11.5 [&_a]:py-2 [&_a]:px-4 [&_a]:gap-[9px] [&_a]:flex [&_a]:items-center [&_a]:shrink-0 [&_a]:text-[13px] [&_a]:text-muted-foreground max-[760px]:[&_a]:px-3 max-[760px]:[&_a]:text-[12px]"
+        aria-label="Chapters"
+      >
         {story.chapters.map((chapter, c) => (
           <Link
             key={chapter.title}

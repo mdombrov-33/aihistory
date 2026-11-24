@@ -6,7 +6,7 @@ export default function Loading() {
   return (
     <main
       id="main-content"
-      className="page-width py-12"
+      className="page-width py-12 mx-auto w-[min(1360px,_calc(100%_-_80px))] max-[1050px]:w-[calc(100%_-_48px)] max-[760px]:w-[calc(100%_-_36px)]"
       aria-busy="true"
       aria-label="Loading stories"
     >

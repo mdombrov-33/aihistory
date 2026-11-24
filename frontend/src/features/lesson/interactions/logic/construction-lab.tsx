@@ -3,6 +3,7 @@
 // Editable Boolean wiring with native controls, diagram feedback and exhaustive checks.
 
 import { Workbench } from "../../shared/workbench";
+import { LabButton } from "../../shared/controls";
 import { useId, useState } from "react";
 import { ReactFlow, Handle, Position, type Node, type NodeProps, Background } from "@xyflow/react";
 import { RotateCcw, Unplug } from "lucide-react";
@@ -32,7 +33,10 @@ function Component({ data }: NodeProps<BuildNode>) {
   const ports = inputPorts(data.kind);
 
   return (
-    <div className="signal-node build-node" data-active={data.signal === true}>
+    <div
+      className="signal-node build-node [&_strong]:block [&_strong]:text-[16px] [&_strong]:font-semibold [&_span]:block [&_span]:text-[12px] [&_span]:mt-1"
+      data-active={data.signal === true}
+    >
       {ports.map((port, i) => (
         <Handle
           key={port}
@@ -148,12 +152,15 @@ export function ConstructionLab({
       data-draft-status={diagnosis.status}
       stage={
         <>
-          <div className="construction-goal">
+          <div className="construction-goal py-4.5 px-6.5 [border-bottom:1px_solid_var(--line-soft)] max-[760px]:px-5 [&_p]:m-0 [&_p]:text-[17px] [&_p]:leading-[1.45]">
             <p>{construction.goal}</p>
           </div>
-          <div ref={ref} className="lab-canvas construction-viewport">
+          <div
+            ref={ref}
+            className="lab-canvas construction-viewport max-[760px]:flex-none [&_>_svg]:block [&_>_svg]:w-full [&_>_svg]:h-full [&_>_svg]:min-h-[260px] [&_>_svg]:max-h-[55dvh]"
+          >
             <div
-              className="construction-drawing"
+              className="construction-drawing relative"
               style={{ width: layout.width, height: layout.height }}
             >
               <ReactFlow
@@ -193,7 +200,11 @@ export function ConstructionLab({
               </ReactFlow>
             </div>
           </div>
-          <div className="lab-feedback" aria-live="polite" aria-atomic="true">
+          <div
+            className="lab-feedback py-5 px-6.5 [border-top:1px_solid_var(--line-soft)] max-[760px]:px-5 [&_h2]:mx-0 [&_h2]:text-[24px] [&_h2]:leading-[1.2] [&_h2]:mt-0 [&_h2]:mb-2 [&_p]:mx-0 [&_p]:text-[15px] [&_p]:leading-[1.5] [&_p]:mt-1.5 [&_p]:mb-0 [&_p]:max-w-[65ch]"
+            aria-live="polite"
+            aria-atomic="true"
+          >
             <h2>
               {tested?.status === "tested"
                 ? tested.passes
@@ -238,9 +249,9 @@ export function ConstructionLab({
       }
       controls={
         <>
-          <div className="lab-controls">
+          <div className="lab-controls py-5 px-6.5 gap-4 grid bg-muted [border-top:1px_solid_var(--line-soft)] max-[760px]:px-5">
             <form
-              className="connection-form"
+              className="connection-form gap-3 grid grid-cols-[minmax(0,_1fr)_minmax(0,_1.4fr)] [align-items:end] max-[760px]:grid-cols-[minmax(0,_1fr)] [&_>_div]:min-w-0 [&_label]:block [&_label]:mb-1.5 [&_label]:text-[14px] [&_select]:p-2 [&_select]:block [&_select]:w-full [&_select]:min-h-11 [&_select]:border [&_select]:border-input [&_select]:rounded-[8px] [&_select]:bg-background [&_select]:text-foreground [&_select]:[font:inherit] [&_select]:text-[15px] [&_button]:col-span-full"
               onSubmit={(event) => {
                 event.preventDefault();
 
@@ -273,13 +284,14 @@ export function ConstructionLab({
                   ))}
                 </select>
               </div>
-              <button type="submit">Add wire</button>
+              <LabButton type="submit">Add wire</LabButton>
             </form>
           </div>
-          <div className="lab-controls">
-            <div className="lab-actions">
-              <button
+          <div className="lab-controls py-5 px-6.5 gap-4 grid bg-muted [border-top:1px_solid_var(--line-soft)] max-[760px]:px-5">
+            <div className="lab-actions gap-2 flex flex-wrap items-center">
+              <LabButton
                 className="lab-play"
+                variant="primary"
                 disabled={diagnosis.status !== "ready"}
                 onClick={() => {
                   onInteract();
@@ -288,8 +300,8 @@ export function ConstructionLab({
                 }}
               >
                 Test all cases
-              </button>
-              <button
+              </LabButton>
+              <LabButton
                 onClick={() => {
                   edit(construction.initialEdges);
                   change({
@@ -301,11 +313,14 @@ export function ConstructionLab({
               >
                 <RotateCcw size={16} />
                 Reset builder
-              </button>
+              </LabButton>
             </div>
-            <div className="lab-choices" aria-label="Builder inputs">
+            <div
+              className="lab-choices gap-2 flex flex-wrap items-center"
+              aria-label="Builder inputs"
+            >
               {inputNodes.map((n) => (
-                <button
+                <LabButton
                   key={n.id}
                   aria-pressed={draft.inputs[n.id] ?? false}
                   onClick={() => {
@@ -314,14 +329,17 @@ export function ConstructionLab({
                   }}
                 >
                   {n.label}: {draft.inputs[n.id] ? "ON" : "OFF"}
-                </button>
+                </LabButton>
               ))}
             </div>
-            <p className="lab-control-note">
+            <p className="lab-control-note m-0 text-[14px] leading-[1.5] text-muted-foreground">
               Drag between ports or use the connection controls. Spare gates can stay unconnected.
             </p>
             {draft.edges.length > 0 && (
-              <ul className="connection-list" aria-label="Current wires">
+              <ul
+                className="connection-list m-0 p-0 [list-style:none] [&_li]:py-2.5 [&_li]:px-0 [&_li]:gap-3 [&_li]:flex [&_li]:justify-between [&_li]:items-center [&_li]:[border-top:1px_solid_var(--line-soft)] [&_li]:text-[14px] [&_button]:shrink-0"
+                aria-label="Current wires"
+              >
                 {draft.edges.map((e) => (
                   <li key={`${e.to}:${e.port}`}>
                     <span>
@@ -329,20 +347,20 @@ export function ConstructionLab({
                       {construction.nodes.find((n) => n.id === e.to)!.label} ·{" "}
                       {e.port.toUpperCase()}
                     </span>
-                    <button
+                    <LabButton
                       aria-label={`Remove wire from ${e.from} to ${e.to} input ${e.port.toUpperCase()}`}
                       onClick={() => edit(draft.edges.filter((edge) => edge !== e))}
                     >
                       <Unplug size={16} />
                       Remove
-                    </button>
+                    </LabButton>
                   </li>
                 ))}
               </ul>
             )}
           </div>
           {tested?.status === "tested" && (
-            <div className="construction-results">
+            <div className="construction-results py-5 px-6.5 overflow-x-auto [flex:0_0_auto] max-[760px]:py-4.5 max-[760px]:px-5 [&_table]:w-full [&_table]:[border-collapse:collapse] [&_table]:text-[14px] [&_table]:tabular-nums [&_caption]:text-left [&_caption]:mb-3 [&_caption]:font-semibold">
               <table>
                 <caption>Every input combination</caption>
                 <thead>
@@ -372,7 +390,7 @@ export function ConstructionLab({
               </table>
             </div>
           )}
-          <details className="lab-assumptions">
+          <details className="lab-assumptions px-6.5 pt-0 pb-5 text-[14px] text-muted-foreground max-[760px]:px-5 max-[760px]:pb-4 [&_summary]:py-3 [&_summary]:px-0 [&_summary]:cursor-pointer [&_summary]:text-foreground [&_p]:mx-0 [&_p]:leading-[1.55] [&_p]:mt-0 [&_p]:mb-2 [&_ul]:mx-0 [&_ul]:leading-[1.55] [&_ul]:mt-0 [&_ul]:mb-2">
             <summary>A hint and the model</summary>
             <p>{construction.hint}</p>
             <p>

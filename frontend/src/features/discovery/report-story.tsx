@@ -43,7 +43,7 @@ export function ReportStory({ title }: { title: string }) {
           </DialogDescription>
         </DialogHeader>
         <form
-          className="form-stack"
+          className="form-stack gap-5.5 grid [&>[data-slot=button]]:w-full"
           onSubmit={(e) => {
             e.preventDefault();
             setOpen(false);

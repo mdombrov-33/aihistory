@@ -8,7 +8,7 @@ The installed frontend and its reusable authoring seam are described in [compose
 
 ## Source organization
 
-The engine lives under `frontend/src/features/lesson/`; [frontend development](../../frontend/DEVELOPMENT.md#start-here) maps its contracts, player/navigation controls, scene-family renderers, individual mechanics and media viewers. Prepared content is separate from device-local state and from generic UI primitives. Global CSS imports retain their explicit cascade order; feature file ownership does not imply CSS scoping.
+The engine lives under `frontend/src/features/lesson/`; [frontend development](../../frontend/DEVELOPMENT.md#start-here) maps its contracts, player/navigation controls, scene-family renderers, individual mechanics and media viewers. Prepared content is separate from device-local state and from generic UI primitives. Tailwind utilities own ordinary component styling; shadcn primitives, lesson buttons and discovery cards expose shared defaults/variants. `styles/globals.css` contains the Tailwind entry, semantic token mappings and document/accessibility defaults; `styles/theme.css` owns palette values. Coordinated scene layouts, viewer internals and visual geometry retain feature-owned CSS, imported by the root layout. Those remaining contextual styles are global and intentionally override utility defaults; file ownership does not imply CSS scoping. See the frontend guide’s styling rules before extending them.
 
 ## Foundations and scene families
 

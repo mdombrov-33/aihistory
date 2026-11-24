@@ -1,13 +1,13 @@
-// Root application shell, local fonts and explicit global stylesheet order.
+// Root shell, local fonts and feature-owned visual integrations.
 
 import type { Metadata, Viewport } from "next";
 import localFont from "next/font/local";
 import { Providers } from "@/components/app/providers";
 import { Navigation } from "@/components/app/navigation";
 import "../styles/globals.css";
-import "../styles/application.css";
+import "../features/discovery/discovery.css";
 import "../features/lesson/player/player.css";
-import "../styles/interaction-base.css";
+import "../features/lesson/media/media.css";
 import "../features/lesson/scenes/layout.css";
 import "../features/discovery/exhibit.css";
 import "../features/lesson/scenes/gallery.css";
@@ -47,7 +47,10 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
     >
       <body>
         <Providers>
-          <a href="#main-content" className="skip-link">
+          <a
+            href="#main-content"
+            className="skip-link py-3 px-5 fixed top-2 left-3 z-100 bg-primary text-primary-foreground [transform:translateY(-150%)] rounded-[6px] focus:[transform:translateY(0)]"
+          >
             Skip to content
           </a>
           <Navigation />

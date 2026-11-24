@@ -123,7 +123,12 @@ function ImageExplorerSurface({
   }, [active, framing, width, height, focalPoint, inspectionPoints]);
 
   return (
-    <div ref={container} className="image-explorer" data-exploring={active} data-framing={framing}>
+    <div
+      ref={container}
+      className="image-explorer overflow-hidden relative h-full w-full bg-surface-deep isolate grid grid-cols-[minmax(0,_1fr)_auto] grid-rows-[minmax(0,_1fr)_auto]"
+      data-exploring={active}
+      data-framing={framing}
+    >
       <span id={instructions} className="sr-only">
         Choose the hand to inspect. Drag or use arrow keys to pan; pinch, wheel or plus and minus to
         zoom. Stop inspection to restore the scene framing.
@@ -154,7 +159,7 @@ function ImageExplorerSurface({
           wrapperProps={{ role: "region", "aria-label": alt, "aria-describedby": instructions }}
         >
           <div
-            className="image-coordinate-plane"
+            className="image-coordinate-plane relative shrink-0 [&_>_img]:block [&_>_img]:w-full [&_>_img]:h-full [&_>_img]:object-contain [&_>_img]:select-none [&_>_img]:pointer-events-none"
             style={{ width, height, "--image-counter-scale": 1 / scale } as CSSProperties}
           >
             {src ? (
@@ -175,7 +180,10 @@ function ImageExplorerSurface({
         </TransformComponent>
       </TransformWrapper>
       {failed ? (
-        <div className="image-load-failure" aria-live="polite">
+        <div
+          className="image-load-failure py-12.5 px-[25px] gap-3 absolute top-0 right-0 bottom-0 left-0 z-2 grid content-center justify-items-center text-center bg-surface-deep text-foreground [&_p]:max-w-[38ch] [&_p]:text-[15px] [&_button]:py-2.5 [&_button]:px-4.5 [&_button]:min-h-11 [&_button]:border [&_button]:border-border [&_button]:rounded-[6px]"
+          aria-live="polite"
+        >
           <p>The image couldn’t load. You can continue reading and open its source record.</p>
           <button
             onClick={() => {
@@ -187,7 +195,10 @@ function ImageExplorerSurface({
           </button>
         </div>
       ) : null}
-      <div className="image-tools" aria-label="Image inspection">
+      <div
+        className="image-tools p-[3px] gap-0.5 absolute right-3.5 top-3.5 flex items-center bg-(--art-scrim) rounded-[8px] z-3 max-[760px]:right-2 max-[760px]:top-2 [&_button]:grid [&_button]:place-items-center [&_button]:w-10 [&_button]:min-w-10 [&_button]:h-11 [&_button]:text-on-art [&_button]:rounded-[5px] max-[760px]:[&_button]:w-11 max-[760px]:[&_button]:min-w-11 [&_svg]:w-[17px] [&_svg]:h-[17px]"
+        aria-label="Image inspection"
+      >
         <button
           aria-label={active ? "Stop image inspection" : "Explore image by dragging"}
           aria-pressed={active}
@@ -264,7 +275,10 @@ function ImageExplorerSurface({
         ) : null}
       </div>
       {showCaption ? (
-        <div className="image-explorer-caption" title={caption}>
+        <div
+          className="image-explorer-caption gap-4.5 absolute bottom-2.5 left-3 right-3 flex justify-between text-on-art pointer-events-none text-[10px] max-[760px]:text-[9px] [&_span]:py-1 [&_span]:px-2 [&_span]:bg-(--art-scrim) [&_span]:rounded-[4px]"
+          title={caption}
+        >
           <span>{caption}</span>
           {active ? (
             <span>Drag to explore · +/− zoom · arrows pan</span>

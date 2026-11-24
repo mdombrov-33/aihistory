@@ -36,7 +36,7 @@ export function ScreenNavigation({
           <span>{previous.label}</span>
         </Button>
       )}
-      <div className="story-position">
+      <div className="story-position text-center text-[12px] text-muted-foreground max-[760px]:hidden [&_strong]:block [&_strong]:text-foreground [&_strong]:font-medium [&_strong]:mb-[3px]">
         <strong>{chapter}</strong>
         <span>
           Screen {screen} of {count}

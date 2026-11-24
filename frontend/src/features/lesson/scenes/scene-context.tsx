@@ -72,7 +72,7 @@ export function Frame({
 
 export function Note({ title, children }: { title: string; children: ReactNode }) {
   return (
-    <section className="scene-context-note">
+    <section className="scene-context-note pt-4 [border-top:1px_solid_var(--line-soft)] [&_h2]:mx-0 [&_h2]:text-[20px] [&_h2]:leading-[1.2] [&_h2]:mt-0 [&_h2]:mb-2 [&_h3]:mx-0 [&_h3]:text-[18px] [&_h3]:mt-4 [&_h3]:mb-2 [&_p]:text-[15px] [&_p]:leading-[1.6] [&_p]:mb-3 [&_blockquote]:text-[15px] [&_blockquote]:leading-[1.6] [&_blockquote]:mb-3 [&_small]:text-muted-foreground [&_small]:text-[14px] [&_small]:leading-[1.5] [&_a]:gap-2 [&_a]:inline-flex [&_a]:items-center [&_a]:min-h-11 [&_a]:text-[14px] [&_a]:text-primary [&_summary]:py-3 [&_summary]:cursor-pointer [&_summary]:text-primary [&_summary]:text-[15px]">
       <h2>{title}</h2>
       {children}
     </section>

@@ -33,7 +33,10 @@ export function CollectionPagination({
     .sort((a, b) => a - b);
 
   return (
-    <nav className="collection-pagination" aria-label={label + " pagination"}>
+    <nav
+      className="collection-pagination py-6 px-0 gap-5 flex items-center justify-between mb-4.5 [border-top:1px_solid_var(--line-soft)] max-[760px]:items-start max-[760px]:flex-col [&_>_p]:text-[13px] [&_>_p]:text-muted-foreground [&_>_div]:gap-1.5 [&_>_div]:flex [&_>_div]:flex-wrap [&_>_div]:items-center"
+      aria-label={label + " pagination"}
+    >
       <p aria-live="polite">
         {start + 1}–{end} of {total}
       </p>
@@ -56,7 +59,10 @@ export function CollectionPagination({
             </Button>
           )}
           {numbers.map((n, i) => (
-            <span key={n} className="pagination-number">
+            <span
+              key={n}
+              className="pagination-number gap-1.5 inline-flex items-center [&_a]:grid [&_a]:place-items-center [&_a]:min-w-11 [&_a]:min-h-11 [&_a]:rounded-[6px]"
+            >
               {i > 0 && n - numbers[i - 1] > 1 ? <span aria-hidden="true">…</span> : null}
               <Link
                 href={paginationHref(path, query, pageKey, n)}

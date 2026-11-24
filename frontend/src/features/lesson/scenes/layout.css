@@ -1,3 +1,48 @@
+.atlas-canvas svg text {
+  fill: #e3d8b7;
+  font-size: 16px;
+  font-family: var(--font-source-sans);
+}
+@media (max-width: 760px) {
+  .atlas-canvas svg text {
+    font-size: 29px;
+  }
+}
+.map-water {
+  fill: #17343c;
+}
+.map-ground {
+  fill: #99815a;
+  stroke: #d2bb8d;
+  stroke-width: 0.7;
+}
+.map-connection {
+  fill: none;
+  stroke: #ffd089;
+  stroke-width: 3;
+  stroke-dasharray: 7 5;
+}
+.map-location.is-selected circle {
+  fill: #f4c376;
+  stroke: #2d1c20;
+  stroke-width: 3;
+}
+.map-water {
+  fill: var(--map-water);
+}
+.map-ground {
+  fill: var(--map-land);
+  stroke: var(--map-edge);
+}
+.map-connection-outline {
+  fill: none;
+  stroke: var(--paper-material);
+  stroke-width: 7px;
+  stroke-dasharray: 7 5;
+}
+.map-connection {
+  stroke: var(--paper-ink);
+}
 /* Presets vary the learning interaction; a few resilient layouts own the space. */
 .scene-player {
   min-height: 0;
@@ -54,75 +99,17 @@
 .lesson-audio:has(> .scene-evidence-credit:only-child) {
   display: none;
 }
-.lesson-audio {
-  padding: 0 24px 16px;
-}
-.scene-context-note {
-  padding-top: 16px;
-  border-top: 1px solid var(--line-soft);
-}
-.scene-context-note h2 {
-  font-size: 20px;
-  line-height: 1.2;
-  margin: 0 0 8px;
-}
-.scene-context-note h3 {
-  font-size: 18px;
-  margin: 16px 0 8px;
-}
-.scene-context-note p,
-.scene-context-note blockquote,
-.photograph-notes p {
-  font-size: 15px;
-  line-height: 1.6;
-  margin-bottom: 12px;
-}
-.scene-context-note small,
-.scene-media-note {
-  color: var(--muted-foreground);
-  font-size: 14px;
-  line-height: 1.5;
-}
-.scene-context-note a,
-.scene-dismiss,
-.photograph-notes a {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  min-height: 44px;
-  font-size: 14px;
-  color: var(--primary);
-}
-.scene-context-note a svg,
-.scene-dismiss svg,
-.photograph-notes svg {
+.scene-context-note a svg {
   width: 17px;
   height: 17px;
 }
-.scene-context-note summary,
-.photograph-notes summary {
-  padding-block: 12px;
-  cursor: pointer;
-  color: var(--primary);
-  font-size: 15px;
-}
 .lesson-visual > .image-explorer,
-.looking-exhibit,
 .looking-art > .image-explorer,
-.atlas-exhibit,
-.sequence-exhibit,
-.comparison-exhibit,
-.museum-exhibit,
-.object-exhibit {
+.atlas-exhibit {
   height: 100%;
   min-height: 0;
 }
 /* The original fills the exhibit; one small source rail stays outside it. */
-.image-explorer {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) auto;
-  grid-template-rows: minmax(0, 1fr) auto;
-}
 .image-explorer > .image-explorer-window {
   grid-row: 1;
   grid-column: 1 / -1;
@@ -179,21 +166,6 @@
   display: none;
 }
 /* Numbered targets never cover the artwork with labels. The legend is always reachable. */
-.scene-marker {
-  position: absolute;
-  display: grid;
-  place-items: center;
-  transform: translate(-50%, -50%) scale(var(--image-counter-scale, 1));
-  transform-origin: center;
-  width: 44px;
-  height: 44px;
-  padding: 0;
-  border: 0;
-  border-radius: 50%;
-  background: transparent;
-  color: var(--art-text);
-  font-size: 13px;
-}
 .scene-marker .marker-number {
   display: grid;
   place-items: center;
@@ -209,28 +181,6 @@
   background: var(--art-text);
   border-color: var(--art-ink);
 }
-.scene-selections {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 4px;
-  padding: 8px 12px;
-  background: var(--background);
-  border-top: 1px solid var(--line-soft);
-}
-.scene-selections button {
-  display: flex;
-  gap: 8px;
-  align-items: center;
-  justify-content: center;
-  padding: 8px 12px;
-  min-height: 44px;
-  border-radius: 6px;
-  color: var(--foreground);
-  font-size: 14px;
-  text-align: left;
-  max-width: 100%;
-  overflow-wrap: anywhere;
-}
 .scene-selections button[aria-pressed="true"] {
   color: var(--primary-foreground);
   background: var(--primary);
@@ -238,14 +188,6 @@
 .detail-selections button > span {
   font-variant-numeric: tabular-nums;
   opacity: 0.75;
-}
-.looking-exhibit {
-  display: grid;
-  grid-template-rows: minmax(0, 1fr) auto;
-}
-.looking-art {
-  position: relative;
-  min-height: 0;
 }
 .image-detail {
   position: absolute;
@@ -277,19 +219,6 @@
   line-height: 1.6;
   margin: 0;
 }
-.detail-close {
-  position: absolute;
-  right: 4px;
-  top: 4px;
-  width: 44px;
-  height: 44px;
-  display: grid;
-  place-items: center;
-  color: var(--primary);
-}
-.detail-close svg {
-  width: 20px;
-}
 /* Portraits keep a narrower column; contain is reserved for explicit whole-source inspection. */
 .lesson-frame[data-layout="portrait"],
 .lesson-frame[data-source-shape="portrait"] {
@@ -298,22 +227,6 @@
 .lesson-frame[data-composition="document-desk"] .lesson-visual {
   padding: 16px;
   background: var(--paper-material);
-}
-.comparison-exhibit {
-  display: grid;
-  grid-template-rows: minmax(0, 1fr) auto auto;
-}
-.selection-explanation {
-  margin: 0;
-  padding: 12px 20px 16px;
-  color: var(--muted-foreground);
-  font-size: 14px;
-  line-height: 1.5;
-  max-height: 112px;
-  overflow: auto;
-}
-.selection-explanation p {
-  margin: 0;
 }
 /* Coastlines are used only at their useful scale; local connections use a labelled schematic. */
 .lesson-frame[data-layout="map"],
@@ -330,16 +243,6 @@
   grid-template-rows: minmax(220px, 1fr) auto;
   min-height: 0;
   overflow: hidden;
-}
-.atlas-canvas {
-  min-height: 0;
-  overflow: hidden;
-  background: var(--surface-deep);
-}
-.atlas-canvas > svg {
-  display: block;
-  width: 100%;
-  height: 100%;
 }
 .atlas-map .map-location text {
   font-size: 16px;
@@ -361,97 +264,17 @@
   max-height: 120px;
   overflow: auto;
 }
-.map-focus h2 {
-  font-size: 23px;
-  line-height: 1.15;
-  margin: 0 0 8px;
-}
-.map-focus p {
-  font-size: 15px;
-  line-height: 1.5;
-  margin: 0;
-}
-.atlas-note {
-  margin: 0;
-  padding: 8px 20px 16px;
-  color: var(--muted-foreground);
-  font-size: 12px;
-  line-height: 1.5;
-  max-height: 120px;
-  overflow: auto;
-}
-.atlas-note summary {
-  min-height: 44px;
-  display: flex;
-  align-items: center;
-  cursor: pointer;
-  color: var(--primary);
-  font-size: 14px;
-}
 .atlas-exhibit > .scene-selections {
   max-height: 112px;
   overflow: auto;
 }
 /* Dated images use the same quiet switcher as source comparisons. */
-.sequence-exhibit {
-  display: grid;
-  grid-template-rows: minmax(0, 1fr) auto auto;
-}
 .sequence-exhibit[data-gallery="false"] {
   grid-template-rows: minmax(0, 1fr) auto;
-}
-.chronology-track {
-  display: flex;
-  min-width: 0;
-  overflow: auto;
-  gap: 0;
-  border-top: 1px solid var(--line-soft);
-}
-.chronology-track li {
-  flex: 1 0 140px;
-}
-.chronology-track button {
-  height: 100%;
-  min-height: 44px;
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-  align-items: flex-start;
-  width: 100%;
-  padding: 12px 16px;
-  text-align: left;
-  background: var(--background);
 }
 .chronology-track button[aria-pressed="true"] {
   background: var(--primary);
   color: var(--primary-foreground);
-}
-.chronology-track small {
-  font-size: 12px;
-}
-.chronology-track strong {
-  font-size: 16px;
-}
-.event-explanation {
-  display: flex;
-  flex-direction: column;
-  justify-content: safe center;
-  padding: clamp(24px, 4vw, 60px);
-  overflow: auto;
-}
-.event-explanation small {
-  color: var(--primary);
-  font-size: 23px;
-}
-.event-explanation h2 {
-  font-size: clamp(32px, 4vw, 58px);
-  line-height: 1.1;
-  margin: 20px 0;
-}
-.event-explanation p {
-  font-size: 19px;
-  line-height: 1.6;
-  max-width: 42ch;
 }
 .source-quotation {
   margin: 0;
@@ -464,35 +287,11 @@
   background: var(--card);
   overflow: auto;
 }
-.source-quotation > small {
-  font-size: 16px;
-  color: var(--muted-foreground);
-}
-.source-quotation blockquote {
-  font-family: var(--font-zilla), serif;
-  font-size: clamp(40px, 5vw, 76px);
-  line-height: 1.05;
-  margin: 28px 0 36px;
-}
-.source-quotation figcaption {
-  font-size: 18px;
-}
 .source-quotation figcaption span {
   display: block;
   color: var(--muted-foreground);
   font-size: 14px;
   margin-top: 8px;
-}
-.source-quotation a {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  min-height: 44px;
-  margin-top: 32px;
-  color: var(--primary);
-}
-.source-quotation svg {
-  width: 18px;
 }
 .process-workbench {
   height: 100%;
@@ -501,23 +300,6 @@
   justify-content: safe center;
   padding: clamp(24px, 4vw, 60px);
   overflow: auto;
-}
-.process-workbench > ol {
-  display: flex;
-  flex-wrap: wrap;
-  margin-bottom: 36px;
-}
-.process-workbench li {
-  flex: 1 1 110px;
-}
-.process-workbench button {
-  display: grid;
-  grid-template-columns: 1fr auto;
-  gap: 12px;
-  width: 100%;
-  text-align: left;
-  padding: 16px 12px;
-  border-bottom: 2px solid var(--border);
 }
 .process-workbench button > span {
   grid-column: 1 / -1;
@@ -532,23 +314,6 @@
 .process-workbench button strong {
   font-size: 16px;
 }
-.process-workbench svg {
-  width: 18px;
-}
-.operation small {
-  font-size: 13px;
-  color: var(--muted-foreground);
-}
-.operation h2 {
-  font-size: clamp(32px, 3.5vw, 50px);
-  line-height: 1.1;
-  margin: 12px 0 20px;
-}
-.operation p {
-  max-width: 44ch;
-  font-size: 20px;
-  line-height: 1.6;
-}
 .synthesis-board {
   padding: clamp(24px, 4vw, 60px);
   display: flex;
@@ -558,35 +323,12 @@
   height: 100%;
   overflow: auto;
 }
-.synthesis-board li {
-  display: grid;
-  grid-template-columns: 40px minmax(0, 1fr);
-  gap: 20px;
-}
 .synthesis-board li > span {
   color: var(--primary);
   font-size: 26px;
   font-variant-numeric: tabular-nums;
 }
-.synthesis-board small {
-  color: var(--muted-foreground);
-  font-size: 13px;
-}
-.synthesis-board h2 {
-  font-size: 28px;
-  line-height: 1.15;
-  margin: 4px 0 12px;
-}
-.synthesis-board p {
-  font-size: 16px;
-  line-height: 1.6;
-  max-width: 44ch;
-}
 /* Native objects share the page ground. Camera tools open on demand over the exhibit. */
-.object-exhibit {
-  display: grid;
-  grid-template-rows: minmax(0, 1fr) auto;
-}
 .object-exhibit > .museum-exhibit {
   min-height: 0;
   display: grid;
@@ -597,39 +339,6 @@
   padding: 4px 14px;
   background: var(--background);
   border-top: 1px solid var(--line-soft);
-}
-.native-object {
-  position: relative;
-  display: block;
-  background: var(--background);
-}
-.native-object-stage {
-  height: 100%;
-}
-.native-object-hint {
-  position: absolute;
-  left: 16px;
-  bottom: 16px;
-  max-width: 45%;
-  font-size: 12px;
-  line-height: 1.4;
-  color: var(--muted-foreground);
-  pointer-events: none;
-}
-.native-camera-menu {
-  position: absolute;
-  right: 12px;
-  bottom: 8px;
-}
-.native-camera-menu > summary {
-  cursor: pointer;
-  min-height: 44px;
-  display: flex;
-  align-items: center;
-  padding: 8px 12px;
-  font-size: 13px;
-  color: var(--foreground);
-  background: var(--background);
 }
 .native-camera-menu .native-object-controls {
   position: absolute;
@@ -642,16 +351,6 @@
 }
 .guided-views .scene-selections {
   padding-inline: 14px;
-}
-.guided-views > details {
-  padding: 0 20px;
-  font-size: 14px;
-}
-.guided-views summary {
-  min-height: 44px;
-  padding-block: 12px;
-  cursor: pointer;
-  color: var(--primary);
 }
 .guided-views details p {
   margin: 0 0 16px;

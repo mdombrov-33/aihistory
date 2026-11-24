@@ -13,7 +13,11 @@ import { VisualBoundary } from "../../shared/visual-boundary";
 
 const MotionCanvas = dynamic(() => import("./assembly-motion-canvas"), {
   ssr: false,
-  loading: () => <output className="lab-loading">Opening the 3D object…</output>,
+  loading: () => (
+    <output className="lab-loading p-6 grid place-content-center h-full min-h-[260px] leading-[1.6] text-center">
+      Opening the 3D object…
+    </output>
+  ),
 });
 
 export function AssemblyMotion({
@@ -101,15 +105,15 @@ function MotionExhibit({
 
   return (
     <section
-      className="moving-exhibit"
+      className="moving-exhibit h-full min-h-0 grid grid-rows-[minmax(220px,_1fr)_auto_auto] text-foreground bg-background"
       aria-label="Object motion demonstration"
       data-playing={playing && !still}
     >
-      <div className="moving-object">
+      <div className="moving-object overflow-hidden relative min-h-0 [&_>_div]:h-full">
         <VisualBoundary
           key={view}
           fallback={
-            <div className="lab-unavailable">
+            <div className="lab-unavailable p-6 grid place-content-center h-full min-h-[260px] leading-[1.6] text-center">
               <p>3D could not open. Use the cycle control to read each stage.</p>
               <button
                 onClick={() => {
@@ -130,9 +134,11 @@ function MotionExhibit({
             onReady={() => setReady(true)}
           />
         </VisualBoundary>
-        <span className="moving-hint">Drag to turn · schematic movement</span>
+        <span className="moving-hint absolute left-4.5 bottom-3 text-[13px] leading-[1.4] text-muted-foreground pointer-events-none">
+          Drag to turn · schematic movement
+        </span>
       </div>
-      <div className="moving-controls">
+      <div className="moving-controls py-2.5 px-4.5 gap-3 grid grid-cols-[auto_minmax(90px,_1fr)_auto] items-center [border-top:1px_solid_var(--line-soft)] max-[760px]:py-2 max-[760px]:px-3 max-[760px]:gap-2.5 [&_button]:py-2 [&_button]:px-3 [&_button]:gap-2 [&_button]:inline-flex [&_button]:justify-center [&_button]:items-center [&_button]:min-h-11 [&_button]:border [&_button]:border-input [&_button]:rounded-[8px] [&_button]:text-[15px] [&_button]:text-foreground max-[760px]:[&_button]:px-2 max-[760px]:[&_button]:text-[14px]">
         <button
           className="moving-play"
           disabled={still || !ready}
@@ -150,7 +156,7 @@ function MotionExhibit({
           {playing ? <Pause size={18} /> : <Play size={18} />}
           {playing ? "Pause" : progress >= 1 ? "Replay" : "Play movement"}
         </button>
-        <div className="moving-range">
+        <div className="moving-range [&_label]:block [&_label]:text-[13px] [&_label]:text-muted-foreground [&_input]:block [&_input]:w-full [&_input]:h-11 [&_input]:[accent-color:var(--primary)]">
           <label htmlFor={controlId}>Movement</label>
           <input
             id={controlId}
@@ -164,7 +170,7 @@ function MotionExhibit({
           />
         </div>
         <button
-          className="moving-reset"
+          className="moving-reset w-11"
           aria-label="Reset movement and camera"
           onClick={() => {
             seek(0);
@@ -175,7 +181,7 @@ function MotionExhibit({
           <RotateCcw size={18} />
         </button>
         {still ? (
-          <div className="moving-poses" aria-label="Still views">
+          <div className="moving-poses gap-2 col-span-full flex flex-wrap" aria-label="Still views">
             {motion.cues.map((c) => (
               <button key={c.at} aria-pressed={progress === c.at} onClick={() => seek(c.at)}>
                 {c.label}
@@ -184,7 +190,7 @@ function MotionExhibit({
           </div>
         ) : null}
       </div>
-      <div className="moving-caption">
+      <div className="moving-caption px-5.5 overflow-auto pt-3.5 pb-4.5 [border-top:1px_solid_var(--line-soft)] max-h-[180px] [scrollbar-color:var(--input)_var(--background)] max-[760px]:px-4.5 max-[760px]:pt-3 max-[760px]:pb-4 [&_h2]:mx-0 [&_h2]:mt-0 [&_h2]:mb-2 [&_h2]:text-[22px] [&_h2]:leading-[1.2] [&_p]:m-0 [&_p]:text-[15px] [&_p]:leading-[1.5] [&_p]:max-w-[65ch]">
         <h2 aria-live={playing ? "off" : "polite"} aria-atomic="true">
           {cue.label}
         </h2>

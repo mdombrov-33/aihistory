@@ -4,7 +4,7 @@ A mobile-first interactive learning app opens into focused explanations across s
 
 ## Visual foundation
 
-Use the semantic Tailwind/shadcn roles in [theme.css](frontend/src/styles/theme.css), the palette source of truth. Four selectable themes ship: Worlds (navy/amber), Parchment (warm light), Forest (deep green/gold) and Mineral (pale stone/slate/cobalt). Components inherit background, foreground, card, primary/primary-foreground, muted-foreground, input and ring roles rather than carrying their own palettes.
+Use the semantic Tailwind/shadcn roles in [theme.css](frontend/src/styles/theme.css), the palette source of truth. Four selectable themes ship: Worlds (navy/amber), Parchment (warm light), Forest (deep green/gold) and Mineral (pale stone/slate/cobalt). Components inherit background, foreground, card, primary/primary-foreground, muted-foreground, input and ring roles rather than carrying their own palettes. Tailwind utilities are the default for ordinary component styling; shared variants own repeated controls/cards. Global CSS holds tokens and document defaults. Keep custom CSS beside the feature when a coordinated viewport, viewer integration or drawing needs it.
 
 Expressive artwork uses its own dark material and ivory annotation roles. Paper documents/drawings pair paper-material with paper-ink, paper-muted, paper-line and paper-accent. These fixed material roles belong on their matching surface. Palette contrast tests cover role pairs; rendered accessibility still needs verification.
 

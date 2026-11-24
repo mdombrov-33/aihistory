@@ -32,7 +32,7 @@ export function SceneFrame({
       <div className="lesson-reading">
         {reading}
         {details ? <div className="lesson-context">{details}</div> : null}
-        <div className="lesson-audio">{audio}</div>
+        <div className="lesson-audio px-6 pt-0 pb-4">{audio}</div>
       </div>
     </div>
   );

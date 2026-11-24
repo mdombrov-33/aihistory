@@ -1,4 +1,5 @@
 import { z } from "zod";
+import { motionSchema } from "./motion-definition";
 
 const label = z.string().min(1).max(100);
 const explanation = z.string().min(10).max(700);
@@ -15,6 +16,7 @@ const size = z.tuple([
 export const assemblySchema = z
   .strictObject({
     description: explanation,
+    motion: motionSchema.optional(),
     parts: z
       .array(
         z.strictObject({
@@ -34,6 +36,8 @@ export const assemblySchema = z
   .superRefine((value, ctx) => {
     if (new Set(value.parts.map((p) => p.id)).size !== value.parts.length)
       ctx.addIssue({ code: "custom", message: "Assembly part IDs must be unique" });
+    if (value.motion?.tracks.some((track) => !value.parts.some((part) => part.id === track.partId)))
+      ctx.addIssue({ code: "custom", message: "Motion references an unknown part" });
   });
 export const experimentSchema = z.discriminatedUnion("model", [
   z.strictObject({

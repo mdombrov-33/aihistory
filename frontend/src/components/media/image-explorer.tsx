@@ -32,6 +32,7 @@ type ImageExplorerProps = {
   framing?: "contain" | "cover";
   focalPoint?: [number, number];
   inspectionPoints?: readonly ImagePoint[];
+  showChildrenInDialog?: boolean;
 };
 export function ImageExplorer(props: ImageExplorerProps) {
   return <ImageExplorerSurface key={props.src ?? "vector"} {...props} />;
@@ -49,6 +50,7 @@ function ImageExplorerSurface({
   framing = "contain",
   focalPoint,
   inspectionPoints,
+  showChildrenInDialog = false,
 }: ImageExplorerProps) {
   const [active, setActive] = useState(false);
   const [scale, setScale] = useState(1);
@@ -237,7 +239,7 @@ function ImageExplorerSurface({
                 height={height}
                 expandable={false}
               >
-                {src ? null : children}
+                {!src || showChildrenInDialog ? children : null}
               </ImageExplorer>
             </DialogContent>
           </Dialog>

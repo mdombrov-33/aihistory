@@ -27,7 +27,7 @@ node scripts/check-docs.mjs
 
 App scripts run in `frontend/`; `cd frontend` followed by `pnpm <script>` is equivalent to the root commands above. The short [frontend development pointer](../../frontend/DEVELOPMENT.md) links back to these shared docs.
 
-Open `/screen-gallery` to inspect the 24 actual composition examples. [Authoring](lesson-authoring.md) describes the v2 story format and new-bundle checks.
+Open `/screen-gallery` to inspect the 26 actual composition examples. [Authoring](lesson-authoring.md) describes the v2 story format and new-bundle checks.
 
 Static checks, production compilation, scene/bundle contracts and the built-HTML link/media check run locally without provider keys. The browser-independent scene suite uses Playwright’s runner without launching a browser; Vitest/RTL and database integration tests remain target tooling for later milestones. Exact commands and current evidence are in the [implementation tracker](../implementation-plan.md#execution-tracker).
 

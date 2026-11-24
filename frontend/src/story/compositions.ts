@@ -1,4 +1,6 @@
 export const compositionIds = [
+  "layer-reveal",
+  "assembly-motion",
   "cinematic-opening",
   "panorama-explore",
   "image-story",
@@ -34,6 +36,24 @@ type Definition = {
   requirement: string;
 };
 export const compositions: Record<CompositionId, Definition> = {
+  "layer-reveal": {
+    name: "Reveal a visual guide",
+    purpose: "Uncover an editorial layer while keeping the original artwork in place.",
+    families: ["illustrated"],
+    layout: "split",
+    framing: "cover",
+    requirement:
+      "A registered source image, bounded source-coordinate guide marks and an explicit editorial description.",
+  },
+  "assembly-motion": {
+    name: "Watch the object work",
+    purpose: "Play or scrub one named-part movement in a supplied schematic.",
+    families: ["assembly"],
+    layout: "split",
+    framing: "contain",
+    requirement:
+      "Named geometry, validated transform tracks, a duration and concise phase descriptions.",
+  },
   "process-traveler": {
     name: "Travel through a process",
     purpose: "Inspect a moving entity and reconstruct each state change.",

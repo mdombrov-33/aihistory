@@ -334,7 +334,16 @@ test("image framing fills unmarked panes and keeps every prepared hotspot inside
     for (const bundle of preparedStories)
       for (const beat of bundle.programs.flatMap((p) => p.beats)) {
         const points =
-          beat.type === "place" ? beat.places : beat.type === "illustrated" ? beat.annotations : [];
+          beat.type === "place"
+            ? beat.places
+            : beat.type === "illustrated"
+              ? [
+                  ...beat.annotations,
+                  ...(beat.reveal?.marks.flatMap((mark) =>
+                    mark.points.map(([x, y]) => ({ x, y })),
+                  ) ?? []),
+                ]
+              : [];
         if (!points.length) continue;
         const asset = bundle.assets.find((a) => a.src === beat.image)!;
         const fit = imageFraming(

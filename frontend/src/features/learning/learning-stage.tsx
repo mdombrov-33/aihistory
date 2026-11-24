@@ -7,6 +7,7 @@ import { AssemblyLab } from "./assembly-lab";
 import { OpticsLab } from "./optics-lab";
 import { PendulumLab } from "./pendulum-lab";
 import { SoundLab } from "./sound-lab";
+import { AssemblyMotion } from "./assembly-motion";
 const SystemLab = dynamic(() => import("./system-lab").then((module) => module.SystemLab), {
   loading: () => <output className="lab-loading">Preparing the connected system…</output>,
 });
@@ -34,7 +35,11 @@ export function LearningStage({
       ) : beat.type === "construction" ? (
         <ConstructionLab construction={beat.construction} onInteract={onInteract} />
       ) : beat.type === "assembly" ? (
-        <AssemblyLab assembly={beat.assembly} onInteract={onInteract} />
+        beat.assembly.motion ? (
+          <AssemblyMotion assembly={beat.assembly} onInteract={onInteract} />
+        ) : (
+          <AssemblyLab assembly={beat.assembly} onInteract={onInteract} />
+        )
       ) : beat.type === "sound" ? (
         <SoundLab sound={beat.sound} onInteract={onInteract} />
       ) : beat.type === "system" ? (

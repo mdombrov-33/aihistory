@@ -20,6 +20,7 @@ import { ImageExplorer } from "@/components/media/image-explorer";
 import { MuseumObject } from "@/components/media/museum-object";
 import { LearningStage } from "@/features/learning/learning-stage";
 import type { SceneBeat } from "./scene-schema";
+import { LayerReveal } from "./layer-reveal";
 
 export type SceneAssetSize = { src: string; width: number; height: number; credit?: string };
 const SceneAssets = createContext<readonly SceneAssetSize[]>([]);
@@ -584,6 +585,7 @@ export function SceneStage(props: StageProps) {
   );
 }
 function SceneContent(props: StageProps) {
+  const assets = useContext(SceneAssets);
   switch (props.beat.type) {
     case "traveler":
     case "construction":
@@ -601,6 +603,25 @@ function SceneContent(props: StageProps) {
       );
     case "place":
     case "illustrated":
+      if (props.beat.type === "illustrated" && props.beat.reveal) {
+        const asset = assets.find((a) => a.src === props.beat.image)!;
+        return (
+          <Frame
+            props={props}
+            visual={
+              <LayerReveal
+                src={props.beat.image}
+                alt={props.beat.imageAlt}
+                caption={props.beat.caption}
+                width={asset.width}
+                height={asset.height}
+                guide={props.beat.reveal}
+                onInspect={props.onInspect}
+              />
+            }
+          />
+        );
+      }
       return <PictureStage {...props} beat={props.beat} />;
     case "atlas":
       return <AtlasStage {...props} beat={props.beat} />;

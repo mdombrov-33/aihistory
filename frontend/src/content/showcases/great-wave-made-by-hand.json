@@ -105,7 +105,7 @@
         "title": "Inside the image",
         "deck": "A familiar picture still has unfamiliar details.",
         "text": [
-          "The curling wave is easy to recognize before you have really looked at the sheet. Stay a little longer. Narrow boats lie beneath the water, their figures bent into the hulls. Mount Fuji is small and distant. Hokusai’s composition gives the wave an enormous visual presence while keeping the mountain that anchors the series in the background. Those relationships are visible; a measured wave height or a list of casualties is not.",
+          "The curling wave is easy to recognize before you have really looked at the sheet. Stay a little longer. Narrow boats lie beneath the water, their figures bent into the hulls. Mount Fuji is small and distant. Hokusai’s composition gives the wave an enormous visual presence while keeping the mountain that anchors the series in the background. Those relationships are visible; a measured wave height or a list of casualties is not. Slide the composition guide over the print to follow these three shapes, then hide it to look again at the untouched image.",
           "The Met identifies this object as a woodblock print, ink and color on paper, made around 1830–32. That description changes the question. You are not looking at a brush painting made directly on this sheet, nor a photograph of a witnessed storm. You are looking at one surviving impression of a reproducible design. The museum’s digital image lets us examine that particular sheet at another distance.",
           "Select the boats, then Fuji. The contrast in scale organizes your attention: a small mountain becomes a stable triangle beyond the curling water, while the boats tie the foreground to human effort. This is an interpretation of a composition. It does not turn the scene into proof of a particular historical storm, a tsunami or a documented shipwreck.",
           "The blue raises a different kind of question. The Met’s research describes indigo mixed with Prussian blue in outlines and layered printing that deepened blue in researched impressions. The local image alone cannot identify a pigment or reveal a microscopic printing sequence. It is useful to put visual observation beside material research while keeping their different kinds of evidence visible."
@@ -153,9 +153,9 @@
       "beats": [
         {
           "type": "illustrated",
-          "composition": "cinematic-opening",
+          "composition": "layer-reveal",
           "title": "First the wave. Then the world inside it.",
-          "purpose": "Open through the artwork before directing attention to its material production.",
+          "purpose": "Reveal an editorial guide to the wave, foreground boats and small distant Fuji without replacing the source.",
           "sourceIndices": [0],
           "image": "/images/archive/great-wave.jpg",
           "imageAlt": "Hokusai’s curling wave above boats with a small Mount Fuji in the distance.",
@@ -164,7 +164,51 @@
           "annotations": [],
           "id": "great-wave-made-by-hand-0-0",
           "passageStart": 0,
-          "passageEnd": 1
+          "passageEnd": 1,
+          "reveal": {
+            "label": "Reveal the composition guide",
+            "description": "An editorial guide traces the wave, the foreground boat and distant Fuji. These lines are our annotations, not marks on the original print.",
+            "marks": [
+              {
+                "id": "wave-curve",
+                "label": "The wave’s rising curve",
+                "closed": false,
+                "points": [
+                  [10, 34],
+                  [17, 24],
+                  [25, 15],
+                  [34, 10],
+                  [40, 11],
+                  [45, 18],
+                  [50, 30],
+                  [52, 40]
+                ]
+              },
+              {
+                "id": "foreground-boat",
+                "label": "The foreground boat",
+                "closed": false,
+                "points": [
+                  [46, 86],
+                  [53, 91],
+                  [61, 95],
+                  [68, 95],
+                  [76, 91],
+                  [83, 86]
+                ]
+              },
+              {
+                "id": "distant-fuji",
+                "label": "The distant triangle of Fuji",
+                "closed": true,
+                "points": [
+                  [55.5, 72.5],
+                  [63.5, 64.5],
+                  [70, 73]
+                ]
+              }
+            ]
+          }
         },
         {
           "type": "illustrated",

@@ -26,6 +26,12 @@ For `assembly`, `experiment`, `sound`, `system`, `traveler` and `construction`, 
 
 Use a registered computational model and validated parameters rather than emitting an executable formula. Assembly primitives describe supplied geometry, not an automatic reconstruction of hidden parts. A Boolean graph is not an electrical solver. Listening and simulation playback start deliberately; every task must retain useful text/numeric feedback. Timeless concepts use the `timeless` era facet rather than an invented historical period. Subject choices come from the shared taxonomy; extend it deliberately when needed.
 
+## Authoring a visual reveal or moving part
+
+Use `illustrated` / `layer-reveal` with a `reveal` object: a control label, an explicit editorial description and at most five named polylines/polygons in source-image percentage coordinates. Closed shapes need three points. Geometry must trace actual visible features; it is a reading aid, not evidence of an underlying scan. Leave `annotations` empty so two selection systems do not compete. The first view is unmarked.
+
+Use `assembly` / `assembly-motion` with `assembly.motion`: a two-to-twelve-second duration, bounded position/rotation tracks referencing named parts, and ordered explanatory cues. Each channel has one track with increasing keys from zero to one. Transforms are offsets from the supplied primitive pose. Author and disclose a schematic movement rather than claiming that a sliding plate reproduces every real shutter. Playback starts paused; scrub/reset and useful stage text remain available if WebGL fails. Arbitrary code, formulas and animation scripts are rejected. These controls are a small extension to the same two-column player, not another workbench.
+
 ## Prompt structure for future integration
 
 Keep trusted instructions separate from untrusted user text, source excerpts and quoted documents. A future composer prompt should explicitly delimit:

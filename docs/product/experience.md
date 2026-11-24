@@ -21,6 +21,8 @@ Target roughly 15–20 minutes for the production main path, commonly 4–6 shor
 
 The main path should build 2–3 clear learning outcomes. A chapter advances one explanatory purpose. Use interaction only when it helps understanding: experiments, explorable assemblies, sound, connected systems, worked examples, maps, timelines or source comparisons. The [learning engine](../technical/learning-engine.md) distinguishes implemented mechanics from proposals. Avoid repetitive mandatory quizzes, scores, and XP as the default.
 
+The 2026-11-23 review rejected the case/prediction/arrangement experiment as confusing and puzzle-heavy. Favor visually led discovery with an obvious main action: numbered image details, drag/zoom, layer reveals, guided object motion or a readable process trace. Keep the subject, its response and a concise explanation together. Advanced tasks may serve a particular lesson, but should not become the default interface or require learning a control panel before understanding the subject. Lesson imagery and covers should express the subject; schematic figures are appropriate selectively, not the catalog's default identity.
+
 At meaningful points, pause for the learner to inspect or continue. Do not require a click for every sentence and do not advance while the learner is interacting. Future decision scenes state their assumptions and distinguish modeled consequences from documented outcomes; historical decisions also explain what people could know at the time.
 
 ## Questions and detours

@@ -15,6 +15,126 @@ import {
 } from "../src/features/learning/schema";
 import { preparedStories } from "../src/content/prepared-stories";
 import { parsePreparedStory } from "../src/story/prepared-story";
+import { assemblyPose, motionEnvelope } from "../src/features/learning/motion-pose";
+import { motionSchema, motionCue } from "../src/features/learning/motion-definition";
+import { revealSchema } from "../src/features/player/reveal-schema";
+
+function movingCamera() {
+  const beat = preparedStories.find((b) => b.summary.slug === "camera-opened-up")!.programs[1]
+    .beats[0];
+  if (beat.type !== "assembly" || !beat.assembly.motion) throw new Error("Missing moving camera");
+  return beat.assembly;
+}
+
+test("moving parts return exactly, keep other parts still and remain in a fixed envelope", () => {
+  const assembly = movingCamera();
+  const motion = assembly.motion!;
+  expect(assemblyPose(assembly, "shutter", 0)).toEqual(assemblyPose(assembly, "shutter", 1));
+  expect(assemblyPose(assembly, "shutter", 0.5).position[0]).toBe(
+    assemblyPose(assembly, "shutter", 0).position[0] + 2,
+  );
+  expect(motionCue(motion, 0).label).toBe("Closed");
+  expect(motionCue(motion, 0.5).label).toBe("Open");
+  expect(motionCue(motion, 1).label).toBe("Closed again");
+  const envelope = motionEnvelope(assembly);
+  for (const part of assembly.parts) {
+    for (let step = 0; step <= 100; step++) {
+      const pose = assemblyPose(assembly, part.id, step / 100);
+      if (part.id !== "shutter") expect(pose).toEqual(assemblyPose(assembly, part.id, 0));
+      // Every primitive fits in this conservative sphere, including during rotation.
+      const radius =
+        part.shape === "box"
+          ? Math.hypot(...part.size.map((n) => n / 2))
+          : part.shape === "sphere"
+            ? part.size[0]
+            : part.shape === "ring"
+              ? part.size[0] + part.size[1]
+              : Math.hypot(Math.max(part.size[0], part.size[1]), part.size[2] / 2);
+      for (let axis = 0; axis < 3; axis++) {
+        expect(pose.position[axis] - radius).toBeGreaterThanOrEqual(
+          envelope.center[axis] - envelope.size[axis] / 2 - 1e-9,
+        );
+        expect(pose.position[axis] + radius).toBeLessThanOrEqual(
+          envelope.center[axis] + envelope.size[axis] / 2 + 1e-9,
+        );
+      }
+    }
+  }
+});
+
+test("motion rejects unsupported parts, ambiguous channels and unordered keys", () => {
+  const assembly = movingCamera();
+  const motion = assembly.motion!;
+  const track = motion.tracks[0];
+  for (const change of [
+    { tracks: [{ ...track, partId: "missing" }] },
+    { tracks: [track, track] },
+    {
+      tracks: [
+        {
+          ...track,
+          keys: [
+            { at: 0, value: 0 },
+            { at: 0, value: 1 },
+            { at: 1, value: 0 },
+          ],
+        },
+      ],
+    },
+    {
+      tracks: [
+        {
+          ...track,
+          keys: [
+            { at: 0.2, value: 0 },
+            { at: 1, value: 0 },
+          ],
+        },
+      ],
+    },
+    { cues: [...motion.cues].reverse() },
+    { script: "eval()" },
+  ])
+    expect(
+      assemblySchema.safeParse({ ...assembly, motion: { ...motion, ...change } }).success,
+    ).toBe(false);
+  expect(motionSchema.safeParse({ ...motion, duration: Infinity }).success).toBe(false);
+});
+
+test("reveal guides stay bounded and cannot compete with interactive hotspots", () => {
+  const bundle = preparedStories.find((b) => b.summary.slug === "great-wave-made-by-hand")!;
+  const beat = bundle.programs[0].beats[0];
+  if (beat.type !== "illustrated" || !beat.reveal) throw new Error("Missing reveal");
+  const reveal = beat.reveal;
+  for (const marks of [
+    [reveal.marks[0], reveal.marks[0]],
+    [
+      {
+        ...reveal.marks[0],
+        points: [
+          [-1, 10],
+          [20, 30],
+        ],
+      },
+    ],
+    [
+      {
+        ...reveal.marks[0],
+        closed: true,
+        points: [
+          [1, 10],
+          [20, 30],
+        ],
+      },
+    ],
+  ])
+    expect(revealSchema.safeParse({ ...reveal, marks }).success).toBe(false);
+  for (const composition of ["annotated-image", "cinematic-opening"]) {
+    const copy = structuredClone(bundle);
+    copy.programs[0].beats[0].composition = composition as typeof beat.composition;
+    expect(() => parsePreparedStory(copy)).toThrow();
+  }
+});
 
 test("thin-lens states preserve sign, scale and the focal singularity", () => {
   expect(thinLens(10, 20)).toEqual({ kind: "real", imageDistance: 20, magnification: -1 });

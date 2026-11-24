@@ -109,7 +109,7 @@ for (const bundle of preparedStories)
   });
 test("the gallery changes compositions without mounting every heavy viewer", async ({ page }) => {
   await page.goto("/screen-gallery");
-  await expect(page.locator(".gallery-selector button")).toHaveCount(24);
+  await expect(page.locator(".gallery-selector button")).toHaveCount(26);
   await page.getByRole("button", { name: "Object in the round", exact: true }).click();
   await expect(page.locator(".gallery-scene .native-object")).toHaveCount(1);
   await page.getByRole("button", { name: "A source speaks", exact: true }).click();

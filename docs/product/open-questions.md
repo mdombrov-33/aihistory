@@ -20,7 +20,7 @@ Only unresolved decisions belong here. Proposals are not commitments. When a dec
 ## Experience craft
 
 - What narrator voices and sound palette best fit the product?
-- Which refinements do the eight prepared lessons and [22 teaching presets](../technical/scenes.md) need after rendered review? The [engine exploration](../technical/learning-engine.md) separates working mechanics from candidates.
+- Which refinements do the nine prepared lessons and [24 teaching presets](../technical/scenes.md) need after rendered review? The [engine exploration](../technical/learning-engine.md) separates working mechanics from candidates.
 - How should the product handle especially graphic material while preserving useful evidence?
 - How should the UI present contested accounts, model limitations and evidence gaps? Preserve uncertainty and offer narrowing where a confident story cannot be supported.
 

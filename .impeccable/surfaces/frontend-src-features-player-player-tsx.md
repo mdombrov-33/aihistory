@@ -12,10 +12,24 @@ STORY: Read a coherent explanation, optionally listen to the same text, inspect 
 
 FIRST VIEWPORT: Strong media and readable narrative are visible together. Desktop uses a bounded frame with a reading pane; mobile, short windows and enlarged text use natural flow. Whole-screen reading fit and all actual layouts still require rendered review.
 
-FORM: Fifteen content families and 24 teaching presets over a smaller set of resilient layouts. Full-height image/narrative, narrower portrait exhibits, image-local selected detail/crop panels, large source switchers, measured maps, native objects, image-free processes/chronologies and synthesis. Initial framing keeps annotation targets reachable. Local connections use labelled schematics when the available coastline is too coarse. Camera tools expand on demand. Text overlays on artwork are deferred until a supported safe-area contract exists.
+FORM: Fifteen content families and 26 teaching presets over a smaller set of resilient layouts. Full-height image/narrative, narrower portrait exhibits, image-local selected detail/crop panels, large source switchers, measured maps, native objects, image-free processes/chronologies and synthesis. Initial framing keeps annotation targets reachable. Local connections use labelled schematics when the available coastline is too coarse. Camera tools expand on demand. Text overlays on artwork are deferred until a supported safe-area contract exists.
 
 REFERENCES: The four images in `design-explorations/player-directions/` and historical boards under `docs/visuals/` are illustrative. They are not approved pixel contracts. The former build state associated with one comp was retired; do not recreate its gates or demand new generated art merely to match it.
 
 CURRENT TRUTH: Read `docs/technical/learning-engine.md`, `docs/status.md`, `docs/technical/scenes.md`, `docs/technical/lesson-authoring.md` and the implementation tracker before editing. Preserve the v2 content boundary and current guest activity. Latest screenshots praised the full-column image/narrative and large image-switcher patterns; weak media arrangements were rejected.
 
 EVIDENCE LIMIT: Static contracts, lint/types, build and source checks have passed. Current rendered desktop/mobile, focus/error/selected states, enlarged text, themes and audio evidence are outstanding because server binding and browser capture failed. The latest review is `docs/references/frontend-review.md`, disposition `recapture`. Old screenshots and source checks do not approve the current render.
+
+## Visual exploration slice
+
+THESIS: Reveal something inside the subject through one immediately understandable gesture.
+
+OWN-WORLD: Preserve existing typography, semantic themes, full-height artwork and quiet tool rails.
+
+STORY: Sweep an editorial guide over the actual Great Wave print; play or scrub one original schematic shutter cycle in the existing camera lesson. No new catalog covers or task panels.
+
+FIRST VIEWPORT: The artwork or moving object owns the visual column. A compact reveal slider or Play control sits directly below it; complete narrative stays beside it. The image begins unmarked and the object begins still.
+
+FORM: Extend illustrated and assembly data with bounded overlays and named-part motion, using the existing player and installed rendering. Seed: none (pinned); the user approved “one visually rich layer-reveal example first, followed by a simple moving object.”
+
+FINISH: unreviewed and undocumented is unfinished; this build ends with the finish review, the verdict, DESIGN.md, and every shipping raster carrying its provenance

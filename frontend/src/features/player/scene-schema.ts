@@ -7,6 +7,7 @@ import {
 import { z } from "zod";
 import { travelerSchema } from "@/features/learning/packet-model";
 import { constructionSchema } from "@/features/learning/construction-model";
+import { revealSchema } from "./reveal-schema";
 import { compositions, compositionIds } from "@/story/compositions";
 const asset = z.string().regex(/^\/images\/[a-zA-Z0-9/_-]+\.(webp|png|jpg)$/);
 const point = z.number().min(0).max(100);
@@ -99,6 +100,7 @@ export const sceneBeatSchema = z.discriminatedUnion("type", [
     ...visual,
     type: z.literal("illustrated"),
     annotations: z.array(annotation).max(5),
+    reveal: revealSchema.optional(),
   }),
   z.strictObject({
     ...common,
@@ -191,6 +193,20 @@ export function validateSceneProgram(
       throw new Error("Scene beats must cover reading passages once, in order");
     if (!compositions[beat.composition].families.includes(beat.type))
       throw new Error("Composition does not support this scene family");
+    if (
+      beat.composition === "layer-reveal" &&
+      (beat.type !== "illustrated" || !beat.reveal || beat.annotations.length)
+    )
+      throw new Error("Layer reveal needs a guide without competing hotspots");
+    if (beat.type === "illustrated" && beat.reveal && beat.composition !== "layer-reveal")
+      throw new Error("Reveal guide needs its registered composition");
+    if (
+      beat.composition === "assembly-motion" &&
+      (beat.type !== "assembly" || !beat.assembly.motion)
+    )
+      throw new Error("Moving assembly needs named-part motion");
+    if (beat.type === "assembly" && beat.assembly.motion && beat.composition !== "assembly-motion")
+      throw new Error("Assembly motion needs its registered composition");
     if (beat.sourceIndices.some((i) => i >= sourceCount))
       throw new Error("Scene references an unknown source");
     if (beat.type === "evidence" && beat.record.sourceIndex >= sourceCount)

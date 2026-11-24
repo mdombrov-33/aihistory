@@ -1,6 +1,9 @@
+// Missing-route presentation and a path back to discovery.
+
 import Link from "next/link";
 import { Compass } from "lucide-react";
 import { Button } from "@/components/ui/button";
+
 export default function NotFound() {
   return (
     <main id="main-content" className="empty-page">

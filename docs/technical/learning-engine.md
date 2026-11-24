@@ -17,18 +17,18 @@ All examples use the existing prepared-bundle seam and shared player. No lesson 
 | `sound` / `sound-studio` | Four additive harmonics, frequency control, explained presets, waveform and deliberate audio playback | Stationary harmonic mixtures, not faithful instrument synthesis or a hearing test |
 | `system` / `system-workbench` | Toggle inputs and trace AND/OR/NOT networks, with live output and component explanations | Ideal acyclic Boolean logic; no electrical solver, propagation delay or memory |
 
-Implementation starts at [schema](../../frontend/src/features/learning/schema.ts), [calculations](../../frontend/src/features/learning/models.ts) and [stage integration](../../frontend/src/features/learning/learning-stage.tsx). These modules live under `frontend/src/features/learning/`; shared scene/presentation contracts stay in their established player/story modules. Controls, local state and visual error handling are shared. Scientific constants, equations and semantic models are application code; lesson data selects supported capabilities and parameters.
+Implementation starts at the [scene contract](../../frontend/src/features/lesson/contracts/scene.ts) and [interaction dispatcher](../../frontend/src/features/lesson/interactions/interaction-stage.tsx). Each named folder under [interactions](../../frontend/src/features/lesson/interactions/) groups its views, controls, schema and pure calculations. Shared range/workbench/session/recovery behavior lives in [lesson/shared](../../frontend/src/features/lesson/shared/). The [frontend navigation guide](../../frontend/DEVELOPMENT.md#start-here) identifies the entry points. Scientific constants, equations and semantic models remain application code; lesson data selects supported capabilities and parameters.
 
 ## Examples to open
 
 | Lesson | Start | What to investigate |
 | --- | --- | --- |
-| [The Great Wave, made by hand](../../frontend/src/content/showcases/great-wave-made-by-hand.json) | `/stories/great-wave-made-by-hand/play/0` | Original artwork with an optional editorial composition guide |
-| [A packet’s journey](../../frontend/src/content/showcases/a-packets-journey.json) | `/stories/a-packets-journey/play/0` | Receive/forward events, route comparisons and the zero-limit destination case |
-| [The camera, opened up](../../frontend/src/content/showcases/camera-opened-up.json) | `/stories/camera-opened-up/play/0` | Disassembly, a moving shutter schematic at `/stories/camera-opened-up/play/1`, thin-lens focusing and virtual images |
-| [A swing in time](../../frontend/src/content/showcases/a-swing-in-time.json) | `/stories/a-swing-in-time/play/0` | A physical pendulum versus its small-angle prediction |
-| [Shape a sound](../../frontend/src/content/showcases/shape-a-sound.json) | `/stories/shape-a-sound/play/0` | Relative harmonics, waveform and optional listening |
-| [Signals and decisions](../../frontend/src/content/showcases/signals-and-decisions.json) | `/stories/signals-and-decisions/play/0` | Input combinations and connected gates; construction starts at `/stories/signals-and-decisions/play/6` |
+| [The Great Wave, made by hand](../../frontend/src/content/lessons/great-wave-made-by-hand.json) | `/stories/great-wave-made-by-hand/play/0` | Original artwork with an optional editorial composition guide |
+| [A packet’s journey](../../frontend/src/content/lessons/a-packets-journey.json) | `/stories/a-packets-journey/play/0` | Receive/forward events, route comparisons and the zero-limit destination case |
+| [The camera, opened up](../../frontend/src/content/lessons/camera-opened-up.json) | `/stories/camera-opened-up/play/0` | Disassembly, a moving shutter schematic at `/stories/camera-opened-up/play/1`, thin-lens focusing and virtual images |
+| [A swing in time](../../frontend/src/content/lessons/a-swing-in-time.json) | `/stories/a-swing-in-time/play/0` | A physical pendulum versus its small-angle prediction |
+| [Shape a sound](../../frontend/src/content/lessons/shape-a-sound.json) | `/stories/shape-a-sound/play/0` | Relative harmonics, waveform and optional listening |
+| [Signals and decisions](../../frontend/src/content/lessons/signals-and-decisions.json) | `/stories/signals-and-decisions/play/0` | Input combinations and connected gates; construction starts at `/stories/signals-and-decisions/play/6` |
 
 The first four workbench lessons started with two chapters and six screens each. The packet lesson adds two chapters/four screens, and the logic lesson now has a third chapter/two construction screens. They are concise prepared experiments, with original geometric cover diagrams, supporting sources and explicit model assumptions. They join the collection rather than delete usable history examples. Existing examples have no priority in future showcase selection. All nine bundles use the same player; their 68 screens are not evidence of autonomous lesson generation or approved visual quality.
 

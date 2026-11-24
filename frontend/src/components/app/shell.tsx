@@ -1,3 +1,5 @@
+// Shared page-width and application-shell presentation helpers.
+
 import Link from "next/link";
 import { Info, ArrowUpRight } from "lucide-react";
 
@@ -17,6 +19,7 @@ export function PageFooter() {
     </footer>
   );
 }
+
 export function PageHeading({
   title,
   description,

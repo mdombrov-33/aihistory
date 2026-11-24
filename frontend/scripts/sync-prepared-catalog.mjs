@@ -2,8 +2,8 @@ import { readFile, readdir, writeFile } from "node:fs/promises";
 import { fileURLToPath } from "node:url";
 import path from "node:path";
 const root = fileURLToPath(new URL("../", import.meta.url));
-const folder = path.join(root, "src/content/showcases");
-const output = path.join(root, "src/content/showcase-catalog.generated.json");
+const folder = path.join(root, "src/content/lessons");
+const output = path.join(root, "src/content/catalog/showcase-catalog.generated.json");
 const files = (await readdir(folder)).filter(file => file.endsWith(".json")).sort();
 const summaries = await Promise.all(files.map(async file => {
   const bundle = JSON.parse(await readFile(path.join(folder, file), "utf8"));

@@ -1,5 +1,7 @@
 "use client";
 
+// Shared application navigation and brand presentation.
+
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Compass, Hourglass, Layers3, Plus, Settings, UserRound } from "lucide-react";
@@ -13,6 +15,7 @@ const items = [
   { href: "/create", label: "Create", icon: Plus },
   { href: "/my-space", label: "My space", icon: UserRound },
 ];
+
 export function Brand({ compact = false }: { compact?: boolean }) {
   return (
     <Link href="/" className={cn("brand", compact && "brand-compact")} aria-label="History, home">
@@ -21,13 +24,17 @@ export function Brand({ compact = false }: { compact?: boolean }) {
     </Link>
   );
 }
+
 export function Navigation() {
   const path = usePathname();
   const player = /^\/stories\/[^/]+\/play/.test(path);
+
   function active(href: string) {
     return href === "/" ? path === "/" : path.startsWith(href);
   }
+
   if (player) return null;
+
   return (
     <>
       <header className="app-header">

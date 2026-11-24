@@ -1,6 +1,10 @@
+// Server route for settings; composes prepared data and feature views.
+
 import { PageHeading, PageFooter } from "@/components/app/shell";
 import { Preferences } from "@/features/settings/preferences";
+
 export const metadata = { title: "Settings" };
+
 export default function SettingsPage() {
   return (
     <main id="main-content" className="page-width">

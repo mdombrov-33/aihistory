@@ -1,4 +1,7 @@
 "use client";
+
+// Device-local saved stories, progress, paragraph bookmarks and prepared questions.
+
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { ArrowRight, Bookmark, Compass, Trash2 } from "lucide-react";
@@ -7,38 +10,49 @@ import { Button } from "@/components/ui/button";
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
 import { StoryCard } from "@/components/app/story-card";
 import { ResumeStory } from "@/features/discovery/resume-story";
-import { getStory, getSceneCount, stories } from "@/content/catalog";
-import { removeBookmark, useJourney } from "@/lib/journey-store";
+import { getStory, getSceneCount, stories } from "@/content/catalog/catalog";
+import { removeBookmark } from "@/state/guest/actions";
+import { useJourney } from "@/state/guest/store";
 import { paginate } from "@/lib/pagination";
 import { CollectionPagination } from "@/components/app/collection-pagination";
+
 export function MySpace({ query }: { query: string }) {
   const router = useRouter();
   const params = new URLSearchParams(query);
   const journey = useJourney();
+
   const visited = Object.entries(journey.progress)
     .filter(([slug]) => getStory(slug))
     .sort((a, b) => b[1].updatedAt - a[1].updatedAt);
+
   const storyPage = paginate(visited, params.get("storiesPage"), 4);
+
   const savedPage = paginate(
     stories.filter((s) => journey.saved.includes(s.slug)),
     params.get("savedPage"),
     4,
   );
+
   const availableBookmarks = journey.bookmarks.filter((b) => getStory(b.story));
+
   const bookmarkPage = paginate(
     [...availableBookmarks].sort((a, b) => b.createdAt - a.createdAt),
     params.get("bookmarksPage"),
     6,
   );
+
   const bookmarked = stories.filter((s) => bookmarkPage.items.some((b) => b.story === s.slug));
+
   const requestPage = paginate(
     [...journey.creations].sort((a, b) => b.createdAt - a.createdAt),
     params.get("questionsPage"),
     6,
   );
+
   const view = ["stories", "bookmarks", "requests"].includes(params.get("view") ?? "")
     ? params.get("view")!
     : "stories";
+
   return (
     <>
       <div className="preview-notice">
@@ -55,6 +69,7 @@ export function MySpace({ query }: { query: string }) {
         value={view}
         onValueChange={(value) => {
           const next = new URLSearchParams(query);
+
           next.set("view", value);
           router.replace("/my-space?" + next.toString(), { scroll: false });
         }}
@@ -78,6 +93,7 @@ export function MySpace({ query }: { query: string }) {
                 <div className="space-story-grid">
                   {storyPage.items.map(([slug, progress]) => {
                     const story = getStory(slug)!;
+
                     return (
                       <div key={slug}>
                         <StoryCard story={story} />

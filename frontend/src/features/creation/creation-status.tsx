@@ -1,11 +1,16 @@
 "use client";
+
+// Displays a locally saved question without inventing a running generation job.
+
 import Link from "next/link";
 import { ArrowRight, Info, Bookmark } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { useJourney } from "@/lib/journey-store";
+import { useJourney } from "@/state/guest/store";
+
 export function CreationStatus({ id }: { id: string }) {
   const { creations } = useJourney();
   const creation = creations.find((c) => c.id === id);
+
   if (!creation)
     return (
       <div className="empty-state">
@@ -23,6 +28,7 @@ export function CreationStatus({ id }: { id: string }) {
         </Button>
       </div>
     );
+
   return (
     <section className="creation-summary">
       <div className="preview-notice">

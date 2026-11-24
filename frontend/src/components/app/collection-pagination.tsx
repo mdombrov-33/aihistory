@@ -1,7 +1,10 @@
+// Accessible pagination controls shared by catalog and personal collections.
+
 import Link from "next/link";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { paginationHref } from "@/lib/pagination";
+
 export function CollectionPagination({
   page,
   pages,
@@ -24,9 +27,11 @@ export function CollectionPagination({
   label?: string;
 }) {
   if (!total) return null;
+
   const numbers = [...new Set([1, page - 1, page, page + 1, pages])]
     .filter((n) => n > 0 && n <= pages)
     .sort((a, b) => a - b);
+
   return (
     <nav className="collection-pagination" aria-label={label + " pagination"}>
       <p aria-live="polite">

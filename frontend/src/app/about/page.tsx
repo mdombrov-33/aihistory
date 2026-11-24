@@ -1,9 +1,13 @@
-import { stories } from "@/content/catalog";
+// Server route for about; composes prepared data and feature views.
+
+import { stories } from "@/content/catalog/catalog";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { PageFooter } from "@/components/app/shell";
+
 export const metadata = { title: "About this preview" };
+
 export default function AboutPage() {
   return (
     <main id="main-content" className="page-width">

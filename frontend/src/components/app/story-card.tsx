@@ -1,7 +1,9 @@
+// Prepared lesson preview for discovery and personal collections.
+
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, BookOpen, Clock3 } from "lucide-react";
-import type { StorySummary } from "@/content/catalog";
+import type { StorySummary } from "@/features/lesson/contracts/catalog";
 import { cn } from "@/lib/utils";
 
 export function StoryCard({

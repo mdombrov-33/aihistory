@@ -1,4 +1,7 @@
 "use client";
+
+// Guest-compatible authentication form preview; no identity service is connected.
+
 import { useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
@@ -7,13 +10,17 @@ import { toast } from "sonner";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+
 export type AuthMode = "sign-in" | "create-account" | "reset-password" | "verify-email";
+
 export function AuthForm({ mode, next = "/my-space" }: { mode: AuthMode; next?: string }) {
   const [shown, setShown] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const router = useRouter();
+
   const destination =
     next.startsWith("/") && !next.startsWith("//") && !next.includes("\\") ? next : "/my-space";
+
   const content = {
     "sign-in": {
       title: "Welcome back.",
@@ -36,6 +43,7 @@ export function AuthForm({ mode, next = "/my-space" }: { mode: AuthMode; next?: 
       action: "Continue as guest",
     },
   }[mode];
+
   return (
     <div className="auth-form">
       <h1>{content.title}</h1>
@@ -78,10 +86,13 @@ export function AuthForm({ mode, next = "/my-space" }: { mode: AuthMode; next?: 
             className="form-stack"
             onSubmit={(e) => {
               e.preventDefault();
+
               if (mode === "reset-password") {
                 setSubmitted(true);
+
                 return;
               }
+
               toast("Account services are not connected. Continuing in guest preview.");
               router.push(mode === "create-account" ? "/verify-email" : destination);
             }}

@@ -1,15 +1,22 @@
 "use client";
+
+// Shared master/narration/background-volume controls used by settings and the player.
+
 import { Volume2, Mic2, Music2, Waves } from "lucide-react";
 import { Slider } from "@/components/ui/slider";
-import { useJourney, updateJourney, type Sound } from "@/lib/journey-store";
+import { useJourney, updateJourney } from "@/state/guest/store";
+import { type Sound } from "@/state/guest/schema";
+
 const controls = [
   { key: "master", label: "Master volume", icon: Volume2 },
   { key: "narration", label: "Narration", icon: Mic2 },
   { key: "music", label: "Music", icon: Music2 },
   { key: "environment", label: "Environment", icon: Waves },
 ] as const;
+
 export function SoundControls() {
   const { sound } = useJourney();
+
   return (
     <div>
       {controls.map(({ key, label, icon: Icon }) => (

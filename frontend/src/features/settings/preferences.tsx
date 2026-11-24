@@ -1,10 +1,14 @@
 "use client";
+
+// Theme, reading, motion and sound preferences backed by device-local guest state.
+
 import { useTheme } from "next-themes";
 import { useSyncExternalStore } from "react";
 import { Check, Info } from "lucide-react";
 import { toast } from "sonner";
-import { themeOptions } from "@/content/theme-options";
-import { useJourney, updateJourney, clearJourney } from "@/lib/journey-store";
+import { themeOptions } from "@/features/settings/theme-options";
+import { useJourney, updateJourney } from "@/state/guest/store";
+import { clearJourney } from "@/state/guest/actions";
 import { Button } from "@/components/ui/button";
 import { Switch } from "@/components/ui/switch";
 import {
@@ -18,14 +22,17 @@ import {
   DialogFooter,
 } from "@/components/ui/dialog";
 import { SoundControls } from "./sound-controls";
+
 const subscribeToMount = () => () => {};
 const clientSnapshot = () => true;
 const serverSnapshot = () => false;
+
 export function Preferences() {
   const { theme, setTheme } = useTheme();
   const mounted = useSyncExternalStore(subscribeToMount, clientSnapshot, serverSnapshot);
   const selectedTheme = mounted ? theme : undefined;
   const preferences = useJourney();
+
   return (
     <div className="settings-layout">
       <nav className="settings-sections" aria-label="Settings sections">

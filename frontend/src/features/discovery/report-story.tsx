@@ -1,4 +1,7 @@
 "use client";
+
+// Report interface preview with no delivery or moderation service connected.
+
 import { useState } from "react";
 import { Flag } from "lucide-react";
 import { toast } from "sonner";
@@ -20,8 +23,10 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+
 export function ReportStory({ title }: { title: string }) {
   const [open, setOpen] = useState(false);
+
   return (
     <Dialog open={open} onOpenChange={setOpen}>
       <DialogTrigger asChild>

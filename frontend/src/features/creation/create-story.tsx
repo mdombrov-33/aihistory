@@ -1,4 +1,7 @@
 "use client";
+
+// Question-entry preview that saves device-local preparation data.
+
 import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
@@ -8,16 +11,19 @@ import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { Input } from "@/components/ui/input";
-import { stories } from "@/content/catalog";
-import { updateJourney } from "@/lib/journey-store";
+import { stories } from "@/content/catalog/catalog";
+import { updateJourney } from "@/state/guest/store";
+
 export function CreateStory({ initialQuestion }: { initialQuestion: string }) {
   const [question, setQuestion] = useState(initialQuestion.slice(0, 600));
   const [scope, setScope] = useState("A focused introduction");
   const router = useRouter();
+
   const terms = question
     .toLowerCase()
     .split(/\W+/)
     .filter((s) => s.length > 3);
+
   const matches = terms.length
     ? stories
         .map((story) => ({
@@ -31,6 +37,7 @@ export function CreateStory({ initialQuestion }: { initialQuestion: string }) {
         .slice(0, 2)
         .map((s) => s.story)
     : stories.slice(0, 2);
+
   return (
     <div className="create-layout">
       <section>
@@ -38,7 +45,9 @@ export function CreateStory({ initialQuestion }: { initialQuestion: string }) {
           className="form-stack"
           onSubmit={(e) => {
             e.preventDefault();
+
             const id = crypto.randomUUID();
+
             updateJourney((s) => ({
               ...s,
               creations: [

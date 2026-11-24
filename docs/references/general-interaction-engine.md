@@ -14,7 +14,7 @@ The ten groups below are our design synthesis, not an established exhaustive tax
 
 ## What the repository already supports
 
-Inspected the [scene schema](../../frontend/src/features/player/scene-schema.ts), [composition registry](../../frontend/src/story/compositions.ts), [learning schemas](../../frontend/src/features/learning/schema.ts), [packet model](../../frontend/src/features/learning/packet-model.ts), [construction model](../../frontend/src/features/learning/construction-model.ts) and [session state](../../frontend/src/features/learning/session.tsx).
+Inspected the [scene schema](../../frontend/src/features/lesson/contracts/scene.ts), [composition registry](../../frontend/src/features/lesson/contracts/compositions.ts), [learning schemas](../../frontend/src/features/lesson/contracts/scene.ts), [packet model](../../frontend/src/features/lesson/interactions/traveler/packet-model.ts), [construction model](../../frontend/src/features/lesson/interactions/logic/construction-model.ts) and [session state](../../frontend/src/features/lesson/shared/session.tsx).
 
 - **Good foundation:** prepared data, strict validation, 15 families/24 presets, local source assets, image details, source switching, maps, chronology and native 3D. New content does not require slug-specific React.
 - **Useful but narrow computational semantics:** experiments accept thin-lens or pendulum models; traveler accepts IPv6 Hop Limit; editable construction accepts ideal Boolean networks. Their boundaries are intentional. Renaming labels does not turn them into a business, biological or narrative model.

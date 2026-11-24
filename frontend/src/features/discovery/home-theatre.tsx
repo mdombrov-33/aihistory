@@ -1,12 +1,15 @@
 "use client";
+
+// Discovery homepage composed from prepared topics, lessons and inspectable media.
+
 import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import Form from "next/form";
 import { motion, useReducedMotion } from "motion/react";
 import { ArrowDown, ArrowRight, Search, Box, Route, FileImage } from "lucide-react";
-import { topics } from "@/content/catalog";
-import { useJourney } from "@/lib/journey-store";
+import { topics } from "@/content/catalog/catalog";
+import { useJourney } from "@/state/guest/store";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -18,14 +21,16 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { RouteStudy } from "./route-study";
-import { MuseumObject } from "@/components/media/museum-object";
-import { EvidenceStudy } from "@/components/media/evidence-study";
-import { greatWaveStudy } from "@/content/evidence-studies";
-import type { SceneBeat } from "@/features/player/scene-schema";
+import { MuseumObject } from "@/features/lesson/media/museum-object";
+import { EvidenceStudy } from "@/features/lesson/media/evidence-study";
+import { greatWaveStudy } from "@/content/discovery/evidence-studies";
+import type { SceneBeat } from "@/features/lesson/contracts/scene";
+
 export function HomeEntrance() {
   const prefersReduced = useReducedMotion();
   const { reduceMotion } = useJourney();
   const still = prefersReduced || reduceMotion;
+
   return (
     <section className="home-entrance">
       <motion.div
@@ -87,8 +92,10 @@ export function HomeEntrance() {
     </section>
   );
 }
+
 export function ExperiencePreview({ map }: { map: Extract<SceneBeat, { type: "atlas" }>["map"] }) {
   const [selected, setSelected] = useState("object");
+
   const examples = [
     {
       id: "route",
@@ -118,7 +125,9 @@ export function ExperiencePreview({ map }: { map: Extract<SceneBeat, { type: "at
       href: "/stories/shape-of-a-signal/play/0",
     },
   ];
+
   const example = examples.find((item) => item.id === selected)!;
+
   return (
     <section
       className="exhibition-preview page-width discovery-studio"
@@ -142,9 +151,12 @@ export function ExperiencePreview({ map }: { map: Extract<SceneBeat, { type: "at
             tabIndex={selected === item.id ? 0 : -1}
             onKeyDown={(event) => {
               const i = examples.indexOf(item);
+
               if (event.key === "ArrowRight" || event.key === "ArrowLeft") {
                 event.preventDefault();
+
                 const next = examples[(i + (event.key === "ArrowRight" ? 1 : 2)) % 3];
+
                 setSelected(next.id);
                 requestAnimationFrame(() => document.getElementById("demo-" + next.id)?.focus());
               }

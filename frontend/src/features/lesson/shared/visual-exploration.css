@@ -1,0 +1,213 @@
+/* Visual exploration uses one subject and one quiet control rail. */
+.layer-reveal {
+  height: 100%;
+  min-height: 0;
+  display: grid;
+  grid-template-rows: minmax(0, 1fr) auto;
+}
+.layer-reveal > .image-explorer {
+  min-height: 0;
+}
+.reveal-overlay {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+.reveal-guide-outline,
+.reveal-guide-line {
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.reveal-guide-outline {
+  stroke: var(--art-ink);
+  stroke-width: 7px;
+}
+.reveal-guide-line {
+  stroke: var(--art-text);
+  stroke-width: 3px;
+}
+.reveal-controls {
+  display: grid;
+  grid-template-columns: auto minmax(90px, 1fr) auto;
+  align-items: center;
+  gap: 4px 16px;
+  padding: 10px 18px 12px;
+  border-top: 1px solid var(--line-soft);
+  background: var(--background);
+}
+.reveal-controls label {
+  font-size: 15px;
+}
+.reveal-controls input {
+  width: 100%;
+  min-width: 0;
+  height: 44px;
+  accent-color: var(--primary);
+  cursor: ew-resize;
+}
+.reveal-controls button {
+  min-height: 44px;
+  padding: 8px 12px;
+  color: var(--primary);
+  font-size: 15px;
+}
+.reveal-controls p {
+  grid-column: 1/-1;
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.45;
+  color: var(--muted-foreground);
+}
+.reveal-controls :is(input, button):focus-visible,
+.moving-exhibit :is(input, button):focus-visible {
+  outline: 3px solid var(--ring);
+  outline-offset: 3px;
+}
+.moving-exhibit {
+  height: 100%;
+  min-height: 0;
+  display: grid;
+  grid-template-rows: minmax(220px, 1fr) auto auto;
+  color: var(--foreground);
+  background: var(--background);
+}
+.moving-object {
+  position: relative;
+  min-height: 0;
+  overflow: hidden;
+}
+.moving-object > div {
+  height: 100%;
+}
+.moving-hint {
+  position: absolute;
+  left: 18px;
+  bottom: 12px;
+  font-size: 13px;
+  line-height: 1.4;
+  color: var(--muted-foreground);
+  pointer-events: none;
+}
+.moving-controls {
+  display: grid;
+  grid-template-columns: auto minmax(90px, 1fr) auto;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 18px;
+  border-top: 1px solid var(--line-soft);
+}
+.moving-controls button {
+  display: inline-flex;
+  gap: 8px;
+  justify-content: center;
+  align-items: center;
+  min-height: 44px;
+  padding: 8px 12px;
+  border: 1px solid var(--input);
+  border-radius: 8px;
+  font-size: 15px;
+  color: var(--foreground);
+}
+.moving-controls .moving-play {
+  color: var(--primary-foreground);
+  background: var(--primary);
+  border-color: var(--primary);
+}
+.moving-controls button:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+}
+.moving-range label {
+  display: block;
+  font-size: 13px;
+  color: var(--muted-foreground);
+}
+.moving-range input {
+  display: block;
+  width: 100%;
+  height: 44px;
+  accent-color: var(--primary);
+}
+.moving-reset {
+  width: 44px;
+}
+.moving-caption {
+  padding: 14px 22px 18px;
+  border-top: 1px solid var(--line-soft);
+  max-height: 180px;
+  overflow: auto;
+  scrollbar-color: var(--input) var(--background);
+}
+.moving-caption h2 {
+  margin: 0 0 8px;
+  font-size: 22px;
+  line-height: 1.2;
+}
+.moving-caption p {
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.5;
+  max-width: 65ch;
+}
+.moving-caption p + p {
+  margin-top: 8px;
+  color: var(--muted-foreground);
+}
+.moving-poses {
+  grid-column: 1/-1;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.moving-poses button[aria-pressed="true"] {
+  color: var(--primary-foreground);
+  background: var(--primary);
+  border-color: var(--primary);
+}
+.scene-player .lesson-frame[data-composition="assembly-motion"] .lesson-visual {
+  height: 100%;
+  overflow: hidden;
+}
+@media (max-width: 760px), (max-height: 650px) {
+  .scene-player .lesson-frame[data-composition="assembly-motion"] .lesson-visual {
+    height: clamp(470px, 76svh, 680px);
+  }
+}
+@media (max-width: 760px) {
+  .reveal-controls {
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 0 12px;
+    padding: 8px 14px 12px;
+  }
+  .reveal-controls label {
+    grid-column: 1;
+  }
+  .reveal-controls input {
+    grid-column: 1;
+    grid-row: 2;
+  }
+  .reveal-controls button {
+    grid-column: 2;
+    grid-row: 1/3;
+  }
+  .moving-controls {
+    padding: 8px 12px;
+    gap: 10px;
+  }
+  .moving-controls button {
+    font-size: 14px;
+    padding: 8px;
+  }
+  .moving-caption {
+    padding: 12px 18px 16px;
+  }
+}
+.scene-player[data-reading-fit="flow"]
+  .lesson-frame[data-composition="assembly-motion"]
+  .lesson-visual {
+  height: clamp(540px, 80svh, 760px);
+  min-height: 0;
+}

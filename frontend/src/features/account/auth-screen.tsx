@@ -1,5 +1,8 @@
+// Shared authentication-preview layout around the selected form.
+
 import Image from "next/image";
 import { AuthForm, type AuthMode } from "./auth-form";
+
 export function AuthScreen({ mode, next }: { mode: AuthMode; next?: string }) {
   return (
     <main id="main-content" className="auth-layout">

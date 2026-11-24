@@ -1,12 +1,17 @@
-import { preparedStories } from "@/content/prepared-stories";
-import { compositionIds } from "@/story/compositions";
-import { ScreenGallery } from "@/features/player/screen-gallery";
+// Server route for screen-gallery; composes prepared data and feature views.
+
+import { preparedStories } from "@/content/lessons/registry";
+import { compositionIds } from "@/features/lesson/contracts/compositions";
+import { ScreenGallery } from "@/features/lesson/scenes/screen-gallery";
+
 export const metadata = { title: "Screen gallery" };
+
 export default function GalleryPage() {
   const examples = compositionIds.map((id) => {
     for (const bundle of preparedStories)
       for (const [index, program] of bundle.programs.entries()) {
         const beat = program.beats.find((b) => b.composition === id);
+
         if (beat)
           return {
             beat,
@@ -19,8 +24,10 @@ export default function GalleryPage() {
             sources: bundle.lesson.sources,
           };
       }
+
     throw new Error("Composition needs an actual example: " + id);
   });
+
   return (
     <main id="main-content" className="screen-gallery page-width">
       <header className="gallery-intro">

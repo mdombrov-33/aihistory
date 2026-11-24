@@ -9,11 +9,16 @@ One application package in `frontend/`. The Next.js frontend exists; the generat
 | Location | Responsibility / implementation state |
 | --- | --- |
 | `frontend/src/app/` | Existing Next.js pages; application HTTP/JSON handlers planned |
-| `frontend/src/features/` | Existing player, learning workbenches, discovery, creation/account previews and Settings |
-| `frontend/src/story/` | Existing prepared bundle/model/composition contracts; persisted records planned |
-| `frontend/src/content/`, `frontend/src/lib/` | Existing local storyboards, summary catalog and guest state |
+| `frontend/src/features/lesson/` | Reusable lesson engine: contracts, player controls, scene renderers, mechanics and media viewers |
+| `frontend/src/features/` (other folders) | Discovery, creation/account previews and Settings |
+| `frontend/src/features/lesson/contracts/` | Existing prepared bundle/model/composition contracts; persisted records planned |
+| `frontend/src/content/` | Canonical lessons/server registry, light summary catalog, discovery data and geography |
+| `frontend/src/state/guest/` | One device-local guest store, with separate schema, persistence and actions |
+| `frontend/src/components/`, `frontend/src/styles/`, `frontend/src/lib/` | Shared app/UI components, global foundations and generic helpers |
 | `frontend/src/generation/` | Planned Mastra agents, tools, prompts and Inngest workflows |
 | `frontend/src/server/` | Planned database, auth, storage and application services |
+
+The [frontend navigation guide](../../frontend/DEVELOPMENT.md#start-here) maps engine entry points, controls, state, data and style ownership. Component types stay with their owner; shared lesson types derive from the validated bundle schema, and `src/types/` holds external declarations.
 
 The table uses repository-relative paths and distinguishes existing code from future service boundaries. Planned worker/server modules retain the selected single-package arrangement; creating them remains later implementation work. Share services and story definitions between web/worker; browser imports must not expose database code or credentials. TypeScript is the initial application language; add Python only for a concrete processing/library need.
 
@@ -30,7 +35,7 @@ These are production integration requirements. Current pages read prepared local
 
 ## Persistence and content
 
-PostgreSQL/Drizzle persistence is planned. Current lesson shape and validation are implemented in [prepared-story v2](../../frontend/src/story/prepared-story.ts), [scene-schema](../../frontend/src/features/player/scene-schema.ts) and [the scene guide](scenes.md).
+PostgreSQL/Drizzle persistence is planned. Current lesson shape and validation are implemented in [prepared-story v2](../../frontend/src/features/lesson/contracts/bundle.ts), [scene-schema](../../frontend/src/features/lesson/contracts/scene.ts) and [the scene guide](scenes.md).
 
 - PostgreSQL/pgvector is the application database; use Drizzle ORM and reviewed, versioned Drizzle Kit SQL migrations.
 - Use relational records for stories/versions, ownership, assets, evidence, jobs, bookmarks, and application state. Store each chapter's scene/narration/interaction/presentation content in validated JSONB; track readiness separately.

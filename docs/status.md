@@ -6,7 +6,7 @@ Interactive learning across subjects is the accepted scope; history has no requi
 
 ## Implemented frontend
 
-The Next.js/React package in `frontend/` is the only application. Shared docs, agent guidance and design references stay at the repository root. Installed versions and runnable commands live in [package.json](../frontend/package.json) and [development](technical/development.md). Deployment is deferred.
+The Next.js/React package in `frontend/` is the only application. Shared docs, agent guidance and design references stay at the repository root. The [frontend navigation guide](../frontend/DEVELOPMENT.md#start-here) maps the consolidated `features/lesson/` engine, controls, content, guest state and test suites. Installed versions and runnable commands live in [package.json](../frontend/package.json) and [development](technical/development.md). The root [Makefile](../Makefile) provides `make dev`, `make format`, `make check`, `make test` and `make verify` shortcuts over the existing tools. Deployment is deferred.
 
 | Area | Working local behavior | Boundary |
 | --- | --- | --- |
@@ -21,7 +21,7 @@ The [scene guide](technical/scenes.md) owns renderer details and the prepared ex
 
 ## Verification boundary
 
-Formatting/lint/types, 28 browser-independent content/rendering/model/contrast/framing contracts, production build and built-HTML checks have passed. Documentation checks include root product/design context, local links/headings/navigation and README emptiness. Concrete cleanup evidence and remaining acceptance gaps live in the [implementation tracker](implementation-plan.md#current-frontend-handoff).
+Formatting/lint/types, 35 browser-independent content/rendering/model/contrast/framing contracts, production build and built-HTML checks have passed. Documentation checks include root product/design context, local links/headings/navigation and README emptiness. Concrete cleanup evidence and remaining acceptance gaps live in the [implementation tracker](implementation-plan.md#current-frontend-handoff).
 
 Browser journeys are authored but execution/capture failed in this environment. Earlier localhost binding returned `listen EPERM`; an existing server later became reachable, but Chromium launch failed with a macOS MachPort permission error and the browser access host remained unavailable. Current desktop/mobile, interactive states, themes, enlarged text and sound remain unverified. The independent source review’s two clipping/framing findings were resolved; its rendered disposition remains `recapture`; source checks do not establish subject completeness or visual approval.
 

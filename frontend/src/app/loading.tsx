@@ -1,4 +1,7 @@
+// Route loading presentation while server content is prepared.
+
 import { Skeleton } from "@/components/ui/skeleton";
+
 export default function Loading() {
   return (
     <main

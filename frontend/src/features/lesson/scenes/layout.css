@@ -1,0 +1,776 @@
+/* Presets vary the learning interaction; a few resilient layouts own the space. */
+.scene-player {
+  min-height: 0;
+  height: 100dvh;
+}
+.lesson-frame {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(340px, 1fr);
+  height: 100%;
+  min-height: 0;
+  min-width: 0;
+  background: var(--background);
+}
+.lesson-visual {
+  min-width: 0;
+  min-height: 0;
+  overflow: hidden;
+  background: var(--background);
+}
+.lesson-reading {
+  position: relative;
+  min-width: 0;
+  min-height: 0;
+  overflow: auto;
+  overscroll-behavior: contain;
+  scrollbar-color: var(--input) var(--background);
+  background: var(--background);
+}
+.scene-player .lesson-reading .scene-reading {
+  padding: clamp(24px, 2.8vw, 44px);
+}
+.scene-player .lesson-reading .scene-reading-tools {
+  justify-content: space-between;
+  gap: 12px;
+  margin: 0 0 24px;
+}
+.scene-player .lesson-reading .scene-reading h1 {
+  font-size: clamp(28px, 2.6vw, 42px);
+  line-height: 1.12;
+  margin: 0 0 28px;
+  text-wrap: balance;
+}
+.scene-player .lesson-reading .scene-passages .passage p {
+  font-size: clamp(17px, 1.2vw, 19px);
+  line-height: 1.65;
+  max-width: 68ch;
+}
+.lesson-context {
+  padding: 0 clamp(24px, 2.8vw, 44px) 24px;
+}
+.lesson-context:empty,
+.lesson-context > div:empty,
+.lesson-audio:has(> .scene-evidence-credit:only-child) {
+  display: none;
+}
+.lesson-audio {
+  padding: 0 24px 16px;
+}
+.scene-context-note {
+  padding-top: 16px;
+  border-top: 1px solid var(--line-soft);
+}
+.scene-context-note h2 {
+  font-size: 20px;
+  line-height: 1.2;
+  margin: 0 0 8px;
+}
+.scene-context-note h3 {
+  font-size: 18px;
+  margin: 16px 0 8px;
+}
+.scene-context-note p,
+.scene-context-note blockquote,
+.photograph-notes p {
+  font-size: 15px;
+  line-height: 1.6;
+  margin-bottom: 12px;
+}
+.scene-context-note small,
+.scene-media-note {
+  color: var(--muted-foreground);
+  font-size: 14px;
+  line-height: 1.5;
+}
+.scene-context-note a,
+.scene-dismiss,
+.photograph-notes a {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 44px;
+  font-size: 14px;
+  color: var(--primary);
+}
+.scene-context-note a svg,
+.scene-dismiss svg,
+.photograph-notes svg {
+  width: 17px;
+  height: 17px;
+}
+.scene-context-note summary,
+.photograph-notes summary {
+  padding-block: 12px;
+  cursor: pointer;
+  color: var(--primary);
+  font-size: 15px;
+}
+.lesson-visual > .image-explorer,
+.looking-exhibit,
+.looking-art > .image-explorer,
+.atlas-exhibit,
+.sequence-exhibit,
+.comparison-exhibit,
+.museum-exhibit,
+.object-exhibit {
+  height: 100%;
+  min-height: 0;
+}
+/* The original fills the exhibit; one small source rail stays outside it. */
+.image-explorer {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  grid-template-rows: minmax(0, 1fr) auto;
+}
+.image-explorer > .image-explorer-window {
+  grid-row: 1;
+  grid-column: 1 / -1;
+  min-height: 0;
+}
+.image-explorer .image-tools {
+  position: relative;
+  inset: auto;
+  grid-row: 2;
+  grid-column: 2;
+  display: flex;
+  gap: 0;
+  border-radius: 0;
+  padding: 2px 4px;
+  color: var(--foreground);
+  background: var(--background);
+}
+.image-explorer .image-tools button {
+  width: 44px;
+  min-width: 44px;
+  color: var(--foreground);
+}
+.image-explorer[data-exploring="false"] > .image-tools > button:nth-child(2),
+.image-explorer[data-exploring="false"] > .image-tools > button:nth-child(3) {
+  display: none;
+}
+.image-explorer .image-tools button:hover,
+.image-explorer .image-tools button[aria-pressed="true"] {
+  background: var(--secondary);
+}
+.image-explorer .image-explorer-caption {
+  position: relative;
+  inset: auto;
+  grid-row: 2;
+  grid-column: 1;
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  padding: 8px 14px;
+  background: var(--background);
+  color: var(--muted-foreground);
+  font-size: 12px;
+  line-height: 1.4;
+}
+.image-explorer .image-explorer-caption span {
+  padding: 0;
+  background: none;
+  border-radius: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.image-explorer .image-explorer-caption > span:last-child:not(:first-child) {
+  display: none;
+}
+/* Numbered targets never cover the artwork with labels. The legend is always reachable. */
+.scene-marker {
+  position: absolute;
+  display: grid;
+  place-items: center;
+  transform: translate(-50%, -50%) scale(var(--image-counter-scale, 1));
+  transform-origin: center;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: transparent;
+  color: var(--art-text);
+  font-size: 13px;
+}
+.scene-marker .marker-number {
+  display: grid;
+  place-items: center;
+  width: 30px;
+  height: 30px;
+  border: 1px solid var(--art-text);
+  border-radius: 50%;
+  background: var(--art-ink);
+  font-variant-numeric: tabular-nums;
+}
+.scene-marker[aria-expanded="true"] .marker-number {
+  color: var(--art-ink);
+  background: var(--art-text);
+  border-color: var(--art-ink);
+}
+.scene-selections {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  padding: 8px 12px;
+  background: var(--background);
+  border-top: 1px solid var(--line-soft);
+}
+.scene-selections button {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 12px;
+  min-height: 44px;
+  border-radius: 6px;
+  color: var(--foreground);
+  font-size: 14px;
+  text-align: left;
+  max-width: 100%;
+  overflow-wrap: anywhere;
+}
+.scene-selections button[aria-pressed="true"] {
+  color: var(--primary-foreground);
+  background: var(--primary);
+}
+.detail-selections button > span {
+  font-variant-numeric: tabular-nums;
+  opacity: 0.75;
+}
+.looking-exhibit {
+  display: grid;
+  grid-template-rows: minmax(0, 1fr) auto;
+}
+.looking-art {
+  position: relative;
+  min-height: 0;
+}
+.image-detail {
+  position: absolute;
+  z-index: 3;
+  inset-inline: 16px;
+  bottom: 64px;
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 20px 52px 20px 20px;
+  max-height: min(52%, 300px);
+  overflow: auto;
+  background: var(--background);
+  color: var(--foreground);
+  box-shadow: 0 8px 28px color-mix(in srgb, var(--art-ink) 22%, transparent);
+}
+.image-detail > svg {
+  width: 112px;
+  height: 112px;
+  flex: none;
+}
+.image-detail h2 {
+  font-size: 23px;
+  line-height: 1.15;
+  margin: 0 0 10px;
+}
+.image-detail p {
+  font-size: 15px;
+  line-height: 1.6;
+  margin: 0;
+}
+.detail-close {
+  position: absolute;
+  right: 4px;
+  top: 4px;
+  width: 44px;
+  height: 44px;
+  display: grid;
+  place-items: center;
+  color: var(--primary);
+}
+.detail-close svg {
+  width: 20px;
+}
+/* Portraits keep a narrower column; contain is reserved for explicit whole-source inspection. */
+.lesson-frame[data-layout="portrait"],
+.lesson-frame[data-source-shape="portrait"] {
+  grid-template-columns: minmax(260px, 0.8fr) minmax(0, 1fr);
+}
+.lesson-frame[data-composition="document-desk"] .lesson-visual {
+  padding: 16px;
+  background: var(--paper-material);
+}
+.comparison-exhibit {
+  display: grid;
+  grid-template-rows: minmax(0, 1fr) auto auto;
+}
+.selection-explanation {
+  margin: 0;
+  padding: 12px 20px 16px;
+  color: var(--muted-foreground);
+  font-size: 14px;
+  line-height: 1.5;
+  max-height: 112px;
+  overflow: auto;
+}
+.selection-explanation p {
+  margin: 0;
+}
+/* Coastlines are used only at their useful scale; local connections use a labelled schematic. */
+.lesson-frame[data-layout="map"],
+.lesson-frame[data-layout="object"] {
+  grid-template-columns: minmax(0, 1.3fr) minmax(340px, 1fr);
+}
+.atlas-exhibit {
+  display: grid;
+  grid-template-rows: minmax(340px, 1fr) auto auto;
+  overflow: auto;
+}
+.atlas-map {
+  display: grid;
+  grid-template-rows: minmax(220px, 1fr) auto;
+  min-height: 0;
+  overflow: hidden;
+}
+.atlas-canvas {
+  min-height: 0;
+  overflow: hidden;
+  background: var(--surface-deep);
+}
+.atlas-canvas > svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.atlas-map .map-location text {
+  font-size: 16px;
+}
+.map-grid {
+  stroke: var(--line-soft);
+  stroke-width: 1;
+  fill: none;
+}
+.map-mode-label {
+  fill: var(--muted-foreground);
+  font:
+    13px var(--font-source-sans),
+    sans-serif;
+}
+.map-focus {
+  padding: 16px 20px;
+  background: var(--background);
+  max-height: 120px;
+  overflow: auto;
+}
+.map-focus h2 {
+  font-size: 23px;
+  line-height: 1.15;
+  margin: 0 0 8px;
+}
+.map-focus p {
+  font-size: 15px;
+  line-height: 1.5;
+  margin: 0;
+}
+.atlas-note {
+  margin: 0;
+  padding: 8px 20px 16px;
+  color: var(--muted-foreground);
+  font-size: 12px;
+  line-height: 1.5;
+  max-height: 120px;
+  overflow: auto;
+}
+.atlas-note summary {
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  color: var(--primary);
+  font-size: 14px;
+}
+.atlas-exhibit > .scene-selections {
+  max-height: 112px;
+  overflow: auto;
+}
+/* Dated images use the same quiet switcher as source comparisons. */
+.sequence-exhibit {
+  display: grid;
+  grid-template-rows: minmax(0, 1fr) auto auto;
+}
+.sequence-exhibit[data-gallery="false"] {
+  grid-template-rows: minmax(0, 1fr) auto;
+}
+.chronology-track {
+  display: flex;
+  min-width: 0;
+  overflow: auto;
+  gap: 0;
+  border-top: 1px solid var(--line-soft);
+}
+.chronology-track li {
+  flex: 1 0 140px;
+}
+.chronology-track button {
+  height: 100%;
+  min-height: 44px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  align-items: flex-start;
+  width: 100%;
+  padding: 12px 16px;
+  text-align: left;
+  background: var(--background);
+}
+.chronology-track button[aria-pressed="true"] {
+  background: var(--primary);
+  color: var(--primary-foreground);
+}
+.chronology-track small {
+  font-size: 12px;
+}
+.chronology-track strong {
+  font-size: 16px;
+}
+.event-explanation {
+  display: flex;
+  flex-direction: column;
+  justify-content: safe center;
+  padding: clamp(24px, 4vw, 60px);
+  overflow: auto;
+}
+.event-explanation small {
+  color: var(--primary);
+  font-size: 23px;
+}
+.event-explanation h2 {
+  font-size: clamp(32px, 4vw, 58px);
+  line-height: 1.1;
+  margin: 20px 0;
+}
+.event-explanation p {
+  font-size: 19px;
+  line-height: 1.6;
+  max-width: 42ch;
+}
+.source-quotation {
+  margin: 0;
+  padding: clamp(28px, 5vw, 72px);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: safe center;
+  color: var(--foreground);
+  background: var(--card);
+  overflow: auto;
+}
+.source-quotation > small {
+  font-size: 16px;
+  color: var(--muted-foreground);
+}
+.source-quotation blockquote {
+  font-family: var(--font-zilla), serif;
+  font-size: clamp(40px, 5vw, 76px);
+  line-height: 1.05;
+  margin: 28px 0 36px;
+}
+.source-quotation figcaption {
+  font-size: 18px;
+}
+.source-quotation figcaption span {
+  display: block;
+  color: var(--muted-foreground);
+  font-size: 14px;
+  margin-top: 8px;
+}
+.source-quotation a {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 44px;
+  margin-top: 32px;
+  color: var(--primary);
+}
+.source-quotation svg {
+  width: 18px;
+}
+.process-workbench {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: safe center;
+  padding: clamp(24px, 4vw, 60px);
+  overflow: auto;
+}
+.process-workbench > ol {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 36px;
+}
+.process-workbench li {
+  flex: 1 1 110px;
+}
+.process-workbench button {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 12px;
+  width: 100%;
+  text-align: left;
+  padding: 16px 12px;
+  border-bottom: 2px solid var(--border);
+}
+.process-workbench button > span {
+  grid-column: 1 / -1;
+  font-size: 30px;
+  color: var(--primary);
+  font-variant-numeric: tabular-nums;
+}
+.process-workbench button[aria-pressed="true"] {
+  background: var(--secondary);
+  border-bottom-color: var(--primary);
+}
+.process-workbench button strong {
+  font-size: 16px;
+}
+.process-workbench svg {
+  width: 18px;
+}
+.operation small {
+  font-size: 13px;
+  color: var(--muted-foreground);
+}
+.operation h2 {
+  font-size: clamp(32px, 3.5vw, 50px);
+  line-height: 1.1;
+  margin: 12px 0 20px;
+}
+.operation p {
+  max-width: 44ch;
+  font-size: 20px;
+  line-height: 1.6;
+}
+.synthesis-board {
+  padding: clamp(24px, 4vw, 60px);
+  display: flex;
+  flex-direction: column;
+  justify-content: safe center;
+  gap: 30px;
+  height: 100%;
+  overflow: auto;
+}
+.synthesis-board li {
+  display: grid;
+  grid-template-columns: 40px minmax(0, 1fr);
+  gap: 20px;
+}
+.synthesis-board li > span {
+  color: var(--primary);
+  font-size: 26px;
+  font-variant-numeric: tabular-nums;
+}
+.synthesis-board small {
+  color: var(--muted-foreground);
+  font-size: 13px;
+}
+.synthesis-board h2 {
+  font-size: 28px;
+  line-height: 1.15;
+  margin: 4px 0 12px;
+}
+.synthesis-board p {
+  font-size: 16px;
+  line-height: 1.6;
+  max-width: 44ch;
+}
+/* Native objects share the page ground. Camera tools open on demand over the exhibit. */
+.object-exhibit {
+  display: grid;
+  grid-template-rows: minmax(0, 1fr) auto;
+}
+.object-exhibit > .museum-exhibit {
+  min-height: 0;
+  display: grid;
+  grid-template-rows: minmax(0, 1fr) auto;
+}
+.object-exhibit .museum-toolbar {
+  font-size: 12px;
+  padding: 4px 14px;
+  background: var(--background);
+  border-top: 1px solid var(--line-soft);
+}
+.native-object {
+  position: relative;
+  display: block;
+  background: var(--background);
+}
+.native-object-stage {
+  height: 100%;
+}
+.native-object-hint {
+  position: absolute;
+  left: 16px;
+  bottom: 16px;
+  max-width: 45%;
+  font-size: 12px;
+  line-height: 1.4;
+  color: var(--muted-foreground);
+  pointer-events: none;
+}
+.native-camera-menu {
+  position: absolute;
+  right: 12px;
+  bottom: 8px;
+}
+.native-camera-menu > summary {
+  cursor: pointer;
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+  padding: 8px 12px;
+  font-size: 13px;
+  color: var(--foreground);
+  background: var(--background);
+}
+.native-camera-menu .native-object-controls {
+  position: absolute;
+  right: 0;
+  bottom: 52px;
+  width: 240px;
+  padding: 8px;
+  border: 1px solid var(--border);
+  background: var(--background);
+}
+.guided-views .scene-selections {
+  padding-inline: 14px;
+}
+.guided-views > details {
+  padding: 0 20px;
+  font-size: 14px;
+}
+.guided-views summary {
+  min-height: 44px;
+  padding-block: 12px;
+  cursor: pointer;
+  color: var(--primary);
+}
+.guided-views details p {
+  margin: 0 0 16px;
+  line-height: 1.5;
+}
+@media (max-width: 1000px) and (min-width: 761px) {
+  .lesson-frame,
+  .lesson-frame[data-layout="map"],
+  .lesson-frame[data-layout="object"] {
+    grid-template-columns: minmax(0, 1fr) minmax(320px, 1fr);
+  }
+  .image-detail > svg {
+    display: none;
+  }
+}
+/* Phones, short windows and enlarged reading use the same content in document flow. */
+@media (max-width: 760px), (max-height: 650px) {
+  .scene-player {
+    height: auto;
+    min-height: 100dvh;
+    display: flex;
+    flex-direction: column;
+    overflow: visible;
+  }
+  .scene-player .scene-stage {
+    min-height: 0;
+    overflow: visible;
+  }
+  .scene-player .lesson-frame {
+    display: flex;
+    flex-direction: column;
+    height: auto;
+  }
+  .lesson-visual {
+    height: clamp(440px, 76svh, 680px);
+    flex: none;
+  }
+  .lesson-reading {
+    overflow: visible;
+  }
+  .scene-player .lesson-frame[data-family="atlas"] .lesson-visual {
+    height: auto;
+  }
+  .atlas-exhibit {
+    height: auto;
+    grid-template-rows: auto auto auto;
+    overflow: visible;
+  }
+  .atlas-map {
+    grid-template-rows: 360px auto;
+  }
+  .scene-player .lesson-reading .scene-reading {
+    padding: 28px 20px;
+  }
+  .lesson-context {
+    padding: 0 20px 24px;
+  }
+  .scene-player .lesson-frame[data-family="journey"] .lesson-visual,
+  .scene-player .lesson-frame[data-composition="quotation-focus"] .lesson-visual {
+    height: auto;
+  }
+  .image-detail {
+    inset-inline: 12px;
+    bottom: 64px;
+    gap: 12px;
+    padding: 16px 48px 16px 16px;
+    max-height: 55%;
+  }
+  .image-detail > svg {
+    width: 72px;
+    height: 72px;
+  }
+  .image-detail h2 {
+    font-size: 20px;
+  }
+  .image-detail p {
+    font-size: 14px;
+  }
+  .process-workbench,
+  .synthesis-board {
+    padding: 32px 20px;
+  }
+  .synthesis-board {
+    gap: 24px;
+  }
+  .source-quotation {
+    padding: 40px 24px;
+  }
+  .scene-player .story-navigation {
+    position: sticky;
+    bottom: 0;
+  }
+}
+.scene-player[data-reading-fit="flow"] {
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  overflow: visible;
+}
+.scene-player[data-reading-fit="flow"] .lesson-frame {
+  height: auto;
+  display: flex;
+  flex-direction: column;
+}
+.scene-player[data-reading-fit="flow"] .lesson-visual {
+  height: 70svh;
+  min-height: 440px;
+}
+.scene-player[data-reading-fit="flow"] .lesson-reading {
+  overflow: visible;
+}
+.scene-player[data-reading-fit="flow"] .lesson-reading .scene-passages .passage p {
+  font-size: 23px;
+}
+.scene-player[data-reading-fit="flow"] .lesson-frame[data-family="journey"] .lesson-visual,
+.scene-player[data-reading-fit="flow"]
+  .lesson-frame[data-composition="quotation-focus"]
+  .lesson-visual {
+  height: auto;
+  min-height: 0;
+  overflow: visible;
+}

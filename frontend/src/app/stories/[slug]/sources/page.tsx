@@ -1,16 +1,22 @@
+// Server route for stories/[slug]/sources; composes prepared data and feature views.
+
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArrowLeft, ArrowRight, ArrowUpRight, Info } from "lucide-react";
-import { getStory } from "@/content/catalog";
-import { getLesson } from "@/content/lessons";
+import { getStory } from "@/content/catalog/catalog";
+import { getLesson } from "@/content/lesson-access";
 import { PageHeading, PageFooter } from "@/components/app/shell";
 import { Button } from "@/components/ui/button";
+
 export const metadata = { title: "Sources & evidence" };
+
 export default async function SourcesPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
   const story = getStory(slug);
   const lesson = getLesson(slug);
+
   if (!story || !lesson) notFound();
+
   return (
     <main id="main-content" className="page-width">
       <div className="breadcrumb">

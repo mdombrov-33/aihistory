@@ -1,10 +1,14 @@
+// Server route for stories/[slug]/play/[scene]; composes prepared data and feature views.
+
 import { notFound } from "next/navigation";
-import { getStory } from "@/content/catalog";
-import { getLesson } from "@/content/lessons";
-import { getPreparedStory } from "@/content/prepared-stories";
-import { Player } from "@/features/player/player";
-import { buildSceneProgram } from "@/features/player/scene-programs";
+import { getStory } from "@/content/catalog/catalog";
+import { getLesson } from "@/content/lesson-access";
+import { getPreparedStory } from "@/content/lessons/registry";
+import { Player } from "@/features/lesson/player/player";
+import { buildSceneProgram } from "@/features/lesson/player/scene-programs";
+
 export const metadata = { title: "Inside the story" };
+
 export default async function PlayPage({
   params,
   searchParams,
@@ -16,13 +20,18 @@ export default async function PlayPage({
   const story = getStory(slug);
   const lesson = getLesson(slug);
   const index = Number(scene);
+
   if (!story || !lesson || !/^\d+$/.test(scene) || !lesson.scenes[index]) notFound();
+
   const requested = Number((await searchParams).passage ?? 0);
+
   const initialPassage =
     Number.isInteger(requested) && requested >= 0 && requested < lesson.scenes[index].text.length
       ? requested
       : 0;
+
   const programs = lesson.scenes.map((_, i) => buildSceneProgram(story, lesson, i));
+
   return (
     <Player
       key={`${slug}-${index}-${initialPassage}`}

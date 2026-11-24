@@ -1,19 +1,27 @@
 "use client";
+
+// Resume link derived from the guest’s saved scene and passage position.
+
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, Play } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Progress } from "@/components/ui/progress";
-import { useJourney } from "@/lib/journey-store";
-import { stories, getStory, getSceneCount } from "@/content/catalog";
+import { useJourney } from "@/state/guest/store";
+import { stories, getStory, getSceneCount } from "@/content/catalog/catalog";
+
 export function ResumeStory({ featured = false }: { featured?: boolean }) {
   const { progress } = useJourney();
+
   const entry = Object.entries(progress)
     .filter(([slug]) => getStory(slug))
     .sort((a, b) => b[1].updatedAt - a[1].updatedAt)[0];
+
   if (!entry) {
     if (!featured) return null;
+
     const story = stories[0];
+
     return (
       <section className="resume-card" aria-label="A place to begin">
         <div className="resume-image">
@@ -36,9 +44,13 @@ export function ResumeStory({ featured = false }: { featured?: boolean }) {
       </section>
     );
   }
+
   const story = getStory(entry[0]);
+
   if (!story) return null;
+
   const position = entry[1];
+
   return (
     <section className="resume-card" aria-label="Continue your last story">
       <div className="resume-image">

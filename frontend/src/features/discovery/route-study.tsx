@@ -1,11 +1,16 @@
 "use client";
+
+// Discovery map demonstration with authored locations and local feedback.
+
 import { useId, useState } from "react";
 import { geoMercator, geoPath, type GeoPermissibleObjects } from "d3-geo";
-import land from "@/content/natural-earth-land.json";
-import type { SceneBeat } from "@/features/player/scene-schema";
+import land from "@/content/geography/natural-earth-land.json";
+import type { SceneBeat } from "@/features/lesson/contracts/scene";
+
 export function RouteStudy({ map }: { map: Extract<SceneBeat, { type: "atlas" }>["map"] }) {
   const [selected, setSelected] = useState(0);
   const captionId = useId();
+
   const projection = geoMercator().fitExtent(
     [
       [90, 80],
@@ -13,10 +18,14 @@ export function RouteStudy({ map }: { map: Extract<SceneBeat, { type: "atlas" }>
     ],
     { type: "LineString", coordinates: map.locations.map((p) => p.coordinates) },
   );
+
   const path = geoPath(projection);
+
   const connection =
     path({ type: "LineString", coordinates: map.locations.map((p) => p.coordinates) }) ?? "";
+
   const point = map.locations[selected];
+
   return (
     <div className="route-study">
       <svg
@@ -31,6 +40,7 @@ export function RouteStudy({ map }: { map: Extract<SceneBeat, { type: "atlas" }>
         <path d={connection} className="map-connection" />
         {map.locations.map((p, i) => {
           const xy = projection(p.coordinates)!;
+
           return (
             <g key={p.id} className={i === selected ? "map-location is-selected" : "map-location"}>
               <circle cx={xy[0]} cy={xy[1]} r={i === selected ? 8 : 5} />

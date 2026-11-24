@@ -1,9 +1,11 @@
-import { chapterScene } from "@/content/lessons";
+// Server route for stories/[slug]; composes prepared data and feature views.
+
+import { chapterScene } from "@/content/lesson-access";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArrowLeft, ArrowRight, BookOpen, Check, Clock3, MessageCircle, Star } from "lucide-react";
-import { stories, getStory } from "@/content/catalog";
+import { stories, getStory } from "@/content/catalog/catalog";
 import { Button } from "@/components/ui/button";
 import {
   Accordion,
@@ -14,16 +16,22 @@ import {
 import { PageFooter } from "@/components/app/shell";
 import { StoryActions } from "@/features/discovery/story-actions";
 import { ReportStory } from "@/features/discovery/report-story";
+
 export function generateStaticParams() {
   return stories.map((s) => ({ slug: s.slug }));
 }
+
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
   const story = getStory((await params).slug);
+
   return { title: story?.title ?? "Story" };
 }
+
 export default async function StoryPage({ params }: { params: Promise<{ slug: string }> }) {
   const story = getStory((await params).slug);
+
   if (!story) notFound();
+
   return (
     <main id="main-content">
       <div className="page-width breadcrumb">

@@ -1,7 +1,11 @@
 "use client";
+
+// Route error recovery that keeps a retry path available.
+
 import Link from "next/link";
 import { useEffect } from "react";
 import { Button } from "@/components/ui/button";
+
 export default function ErrorPage({
   error,
   reset,
@@ -12,6 +16,7 @@ export default function ErrorPage({
   useEffect(() => {
     console.error(error);
   }, [error]);
+
   return (
     <main id="main-content" className="empty-page">
       <h1>This page lost its place.</h1>

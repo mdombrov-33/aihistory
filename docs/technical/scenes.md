@@ -4,9 +4,9 @@ Use for the working scene protocol and renderer. [Frontend](frontend.md) owns pl
 
 ## Working system
 
-[Composition definitions](../../frontend/src/story/compositions.ts) are the single registry of **26 presets**, each with a teaching purpose, supported content family, spatial layout, framing and input requirements. `/screen-gallery` renders an actual lesson example of every preset through the same components used by the player. It mounts only the selected example.
+[Composition definitions](../../frontend/src/features/lesson/contracts/compositions.ts) are the single registry of **26 presets**, each with a teaching purpose, supported content family, spatial layout, framing and input requirements. `/screen-gallery` renders an actual lesson example of every preset through the same components used by the player. It mounts only the selected example.
 
-[SceneFrame](../../frontend/src/features/player/scene-frame.tsx) selects spatial behavior; [SceneStage](../../frontend/src/features/player/scene-stage.tsx) renders 15 content families: illustrated image, place, atlas, evidence, comparison, timeline, process/journey, object, photograph, assembly, experiment, sound, system, traveler and construction. [Player](../../frontend/src/features/player/player.tsx) owns navigation, Read/Listen and exact paragraph bookmarks. There are no slug-specific lesson layouts or legacy fallback rotations.
+[SceneFrame](../../frontend/src/features/lesson/scenes/scene-frame.tsx) selects spatial behavior; [SceneStage](../../frontend/src/features/lesson/scenes/scene-stage.tsx) renders 15 content families: illustrated image, place, atlas, evidence, comparison, timeline, process/journey, object, photograph, assembly, experiment, sound, system, traveler and construction. [Player](../../frontend/src/features/lesson/player/player.tsx) owns navigation, Read/Listen and exact paragraph bookmarks. There are no slug-specific lesson layouts or legacy fallback rotations.
 
 The 26 presets describe teaching tasks, backed by a smaller set of shared spatial layouts. They no longer force eighteen unrelated arrangements. Image-led screens, source comparisons and place inspection use a full-height visual beside the narrative. Portrait assets automatically narrow the visual column. Maps use a dedicated full-height canvas. Image-free quotations, chronology, processes and synthesis retain their own reading structures.
 
@@ -25,21 +25,21 @@ The [learning engine](learning-engine.md) owns workbench behavior, model assumpt
 
 ## Complete prepared stories
 
-[Prepared-story v2](../../frontend/src/story/prepared-story.ts) accepts summary, chapters/narratives, sources, licensed image metadata, model records and explicit scene programs. [Scene schema](../../frontend/src/features/player/scene-schema.ts) restricts data to supported fields; no React, arbitrary CSS or executable strings are accepted as layout. This is a prepared authoring protocol, separate from the future persisted production contract.
+[Prepared-story v2](../../frontend/src/features/lesson/contracts/bundle.ts) accepts summary, chapters/narratives, sources, licensed image metadata, model records and explicit scene programs. [Scene schema](../../frontend/src/features/lesson/contracts/scene.ts) restricts data to supported fields; no React, arbitrary CSS or executable strings are accepted as layout. This is a prepared authoring protocol, separate from the future persisted production contract.
 
 Nine examples, all using the same renderer:
 
 | Bundle | Chapters / screens | Character |
 | --- | --- | --- |
-| [A packet’s journey](../../frontend/src/content/showcases/a-packets-journey.json) | 2 / 4 | Reversible IPv6 Hop Limit traces and route comparisons |
-| [The camera, opened up](../../frontend/src/content/showcases/camera-opened-up.json) | 2 / 6 | Schematic assembly and thin-lens experiments |
-| [A swing in time](../../frontend/src/content/showcases/a-swing-in-time.json) | 2 / 6 | Rapier pendulum and model comparisons |
-| [Shape a sound](../../frontend/src/content/showcases/shape-a-sound.json) | 2 / 6 | Harmonic synthesis and visible signal recipes |
-| [Signals and decisions](../../frontend/src/content/showcases/signals-and-decisions.json) | 3 / 8 | Live Boolean networks plus editable construction and exhaustive tests |
-| [Pompeii](../../frontend/src/content/showcases/pompeii.json) | 3 / 10 | Street inspection, viewpoint map, work, later records and research |
-| [Photography](../../frontend/src/content/showcases/invention-of-photography.json) | 3 / 10 | Portrait, fragile negative, copying process and photographic evidence |
-| [The shape of a signal](../../frontend/src/content/showcases/shape-of-a-signal.json) | 3 / 10 | Actual key in 3D, quotation, network states and historical watercolors |
-| [The Great Wave, made by hand](../../frontend/src/content/showcases/great-wave-made-by-hand.json) | 3 / 8 | Real prints, exact source details, collaborative making and comparison |
+| [A packet’s journey](../../frontend/src/content/lessons/a-packets-journey.json) | 2 / 4 | Reversible IPv6 Hop Limit traces and route comparisons |
+| [The camera, opened up](../../frontend/src/content/lessons/camera-opened-up.json) | 2 / 6 | Schematic assembly and thin-lens experiments |
+| [A swing in time](../../frontend/src/content/lessons/a-swing-in-time.json) | 2 / 6 | Rapier pendulum and model comparisons |
+| [Shape a sound](../../frontend/src/content/lessons/shape-a-sound.json) | 2 / 6 | Harmonic synthesis and visible signal recipes |
+| [Signals and decisions](../../frontend/src/content/lessons/signals-and-decisions.json) | 3 / 8 | Live Boolean networks plus editable construction and exhaustive tests |
+| [Pompeii](../../frontend/src/content/lessons/pompeii.json) | 3 / 10 | Street inspection, viewpoint map, work, later records and research |
+| [Photography](../../frontend/src/content/lessons/invention-of-photography.json) | 3 / 10 | Portrait, fragile negative, copying process and photographic evidence |
+| [The shape of a signal](../../frontend/src/content/lessons/shape-of-a-signal.json) | 3 / 10 | Actual key in 3D, quotation, network states and historical watercolors |
+| [The Great Wave, made by hand](../../frontend/src/content/lessons/great-wave-made-by-hand.json) | 3 / 8 | Real prints, exact source details, collaborative making and comparison |
 
 The four historical examples each have over 1,000 narrative words; the five newer workbench lessons are shorter, with substantial reading and time for experiments. Screens cover one or more contiguous paragraphs; a paragraph is not automatically a new screen. The original five fixtures, their content/program adapters and the standalone illustrative spacesuit route are retired. Existing guest data is not erased, but retired stories are hidden from the current collection and account lists.
 
@@ -49,7 +49,7 @@ The four historical examples each have over 1,000 narrative words; the five newe
 
 Validation checks family/preset compatibility, reading coverage, unique IDs, source/chapter indices, registered images, declared dimensions, crop bounds, model references, guided camera requirements and map-state references. Repeating a primary scene image or object requires an editorial `reuseReason`. Nested comparison/timeline uses also need purposeful review; there is no artificial quota forcing 3D, maps or new pictures into every lesson.
 
-Images/models stay local. The catalog sync script emits metadata for client discovery; complete narratives remain server content, passed only to the relevant player/gallery route. Import a new bundle in [the registry](../../frontend/src/content/prepared-stories.ts), then run `node frontend/scripts/sync-prepared-catalog.mjs`.
+Images/models stay local. The catalog sync script emits metadata for client discovery; complete narratives remain server content, passed only to the relevant player/gallery route. Import a new bundle in [the registry](../../frontend/src/content/lessons/registry.ts), then run `node frontend/scripts/sync-prepared-catalog.mjs`.
 
 Live research, automatic acquisition/optimization, claim-to-evidence checking, generation jobs, publication/readiness and paid narration remain unimplemented. Schema validity does not establish subject accuracy, usable camera angles or visual quality. Prepared examples establish the authoring seam, not autonomous research-to-publication.
 

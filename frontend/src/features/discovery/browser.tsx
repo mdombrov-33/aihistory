@@ -1,11 +1,14 @@
 "use client";
+
+// Searchable/filterable prepared catalog with URL-based pagination.
+
 import { useState, useTransition } from "react";
 import { useRouter } from "next/navigation";
 import Form from "next/form";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, BookOpen, Clock3, Search, SlidersHorizontal, X } from "lucide-react";
-import { stories, topics } from "@/content/catalog";
+import { stories, topics } from "@/content/catalog/catalog";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -20,16 +23,19 @@ import {
 } from "@/components/ui/select";
 
 type Filters = { q: string; topic: string; era: string; sort: string; page: string };
+
 export function StoryBrowser({ initial }: { initial: Filters }) {
   const [query, setQuery] = useState(initial.q);
   const [pending, startTransition] = useTransition();
   const router = useRouter();
   const words = initial.q.toLocaleLowerCase("en").split(/\s+/).filter(Boolean);
+
   const matches = stories.filter(
     (s) =>
       (initial.topic === "all" || s.topic === initial.topic) &&
       (initial.era === "all" || s.era === initial.era),
   );
+
   const scored = matches.map((story) => ({
     story,
     score: words.filter((w) =>
@@ -38,21 +44,29 @@ export function StoryBrowser({ initial }: { initial: Filters }) {
         .includes(w),
     ).length,
   }));
+
   const found = words.length ? scored.filter((s) => s.score > 0) : scored;
+
   found.sort(
     initial.sort === "title"
       ? (a, b) => a.story.title.localeCompare(b.story.title)
       : (a, b) => b.score - a.score,
   );
+
   function filter(key: keyof Filters, value: string) {
     const params = new URLSearchParams({ ...initial, [key]: value, page: "1" });
+
     params.delete("page");
+
     for (const k of [...params.keys()])
       if (!params.get(k) || params.get(k) === "all" || params.get(k) === "relevance")
         params.delete(k);
+
     startTransition(() => router.replace(`/explore?${params.toString()}`, { scroll: false }));
   }
+
   const resultPage = paginate(found, initial.page, 4);
+
   return (
     <>
       <Form action="/explore" className="search-composer">

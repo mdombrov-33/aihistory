@@ -1,13 +1,19 @@
 "use client";
+
+// Whole-story saving and discovery actions kept separate from paragraph bookmarks.
+
 import Link from "next/link";
 import { Bookmark, Check, Play, Share2 } from "lucide-react";
 import { toast } from "sonner";
 import { Button } from "@/components/ui/button";
-import { toggleSaved, useJourney } from "@/lib/journey-store";
+import { toggleSaved } from "@/state/guest/actions";
+import { useJourney } from "@/state/guest/store";
+
 export function StoryActions({ slug }: { slug: string }) {
   const journey = useJourney();
   const saved = journey.saved.includes(slug);
   const progress = journey.progress[slug];
+
   return (
     <div className="detail-actions">
       <Button asChild className="start-story">

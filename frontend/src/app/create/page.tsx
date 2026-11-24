@@ -1,12 +1,17 @@
+// Server route for create; composes prepared data and feature views.
+
 import { PageHeading, PageFooter } from "@/components/app/shell";
 import { CreateStory } from "@/features/creation/create-story";
+
 export const metadata = { title: "Follow a new question" };
+
 export default async function CreatePage({
   searchParams,
 }: {
   searchParams: Promise<{ q?: string }>;
 }) {
   const { q } = await searchParams;
+
   return (
     <main id="main-content" className="page-width">
       <PageHeading

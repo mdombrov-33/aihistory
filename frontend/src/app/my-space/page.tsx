@@ -1,17 +1,23 @@
+// Server route for my-space; composes prepared data and feature views.
+
 import Link from "next/link";
 import { Settings } from "lucide-react";
 import { PageHeading, PageFooter } from "@/components/app/shell";
 import { Button } from "@/components/ui/button";
 import { MySpace } from "@/features/account/my-space";
+
 export const metadata = { title: "My space" };
+
 export default async function MySpacePage({
   searchParams,
 }: {
   searchParams: Promise<Record<string, string | string[] | undefined>>;
 }) {
   const query = new URLSearchParams();
+
   for (const [key, value] of Object.entries(await searchParams))
     if (typeof value === "string") query.set(key, value);
+
   return (
     <main id="main-content" className="page-width">
       <PageHeading

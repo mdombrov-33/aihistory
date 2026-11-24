@@ -50,7 +50,7 @@ Removed the rejected Vite prototype and its separate dependencies, unused illust
 
 Accepted 2026-11-23: subject scope is interactive learning broadly, with no required history focus or protected historical showcase. The user authorized package installation, engine experimentation and new lessons. Sequence: implement engine/examples, align documentation, then explore the homepage. The history-only homepage comp round was paused; it is not an approved new homepage direction.
 
-The [learning engine](technical/learning-engine.md) is the canonical record of capabilities, library research and ideas still to explore. The first slice adds schema-validated assemblies, thin-lens/pendulum experiments, harmonic sound and fixed Boolean networks. New code is isolated under `frontend/src/features/learning/`, integrated through shared scene contracts. Heavy viewers are lazy; sound/playback is deliberate. Parameters survive local reload, and narrow graphs reflow. No live generation, paid research or generated media is introduced by this slice.
+The [learning engine](technical/learning-engine.md) is the canonical record of capabilities, library research and ideas still to explore. The first slice adds schema-validated assemblies, thin-lens/pendulum experiments, harmonic sound and fixed Boolean networks. New code is isolated under `frontend/src/features/lesson/interactions/`, integrated through shared scene contracts. Heavy viewers are lazy; sound/playback is deliberate. Parameters survive local reload, and narrow graphs reflow. No live generation, paid research or generated media is introduced by this slice.
 
 Four new two-chapter lessons provide six screens each: The camera, opened up; A swing in time; Shape a sound; Signals and decisions. Original SVG cover diagrams carry provenance; supporting references and idealizations are explicit. Eight bundles now exercise 13 families, 22 presets and 62 screens. Existing history bundles remain usable regression examples, with no priority over future subjects. Existing routes/storage keys and HISTORY UI branding remain compatible placeholders; final branding and homepage composition are deferred.
 
@@ -94,6 +94,26 @@ Verification: 28 browser-independent contracts pass, covering shutter return/sta
 
 User review on 2026-11-24 found the camera movement generally smooth and Play/Pause useful, but phase captions changed too quickly to read. The explanation now stays identical across the whole cycle and while seeking; only the short phase heading changes. Automatic playback does not announce each phase through a live region. The camera cycle is eight seconds rather than five; this remains an illustrative timing, not an exposure claim. The user found the Great Wave reveal’s educational payoff unclear: retain it as an unproven example, and select a more useful layer/structure relationship before expanding the mechanic. No replacement reveal example is implemented by this correction. Formatting/lint/types, all 28 browser-independent contracts, production build, built-HTML and documentation checks pass. The browser test now asserts a stable explanation during playback and seek; it remains unexecuted. A new capture attempt still failed to launch Chrome/Chromium. Independent source review supports this pacing correction; rendered disposition remains `recapture`.
 
+## Frontend organization
+
+Authorized 2026-11-24 after a read-only import-graph and primary-doc research audit. Preserve badge, card, checkbox, dropdown-menu, separator and react-markdown exactly as requested. Consolidate the lesson engine under `features/lesson/`: contracts, player/control modules, individual scene-family renderers, mechanics with their own calculations/schemas, reusable media and shared interaction infrastructure. Group canonical lesson bundles/server registry, light catalog, discovery data and geography under `content/`. Keep one guest store, separating schema/defaults, persistence/subscription and actions while preserving the existing storage key/envelope.
+
+Extracted existing family renderers from the large dispatcher and Read/Listen, chapter menu and Back/Next controls from the player. Shared narrative/catalog types now derive from the bundle schema. Handwritten source modules have purpose comments; generated data, vendor code and UI primitives are excluded. Styles have explicit owners and their exact rule order is preserved; no CSS Modules conversion or selector purge is implied. Split contract and browser test directories, retain the runner, update tooling and all linked paths, and expand [frontend development](../frontend/DEVELOPMENT.md#start-here) into the entry-point guide. Retain the separate generated summary index, referenced images, model provenance and required Draco decoder. Remove only the orphan Oswald license; the Oswald font no longer ships. No package installation, product redesign or feature removal.
+
+Verification passed: formatting/lint/types; all 30 browser-independent contracts, including legacy guest-envelope defaults, shared-snapshot actions, persistence and denied-storage behavior; production build; built HTML (17 prerendered pages, 52 image uses, 34 font references, 316 internal links); and documentation validation (37 Markdown files, README empty). Compared all seven original CSS rule streams in their original order, all nine canonical lesson JSON bundles, active public media, protected UI primitives and dependency files against `0996753`: they are unchanged apart from file ownership/comments and the separately disclosed orphan license removal. All six extracted calculation bodies and every guest-store/action body match the originals after helper renames. The client import graph still excludes complete lesson bundles/registry. Browser discovery finds the same 82 cases; a targeted Great Wave navigation run could not start its server because binding `127.0.0.1:3000` returned `listen EPERM`. No rendered regression approval is claimed. Changes remain uncommitted.
+
+## Root development commands
+
+Added at the user’s request on 2026-11-24: a root Makefile with self-documenting help, lockfile install, dev/build/start, format/static checks, contract/browser testing, browser installation, catalog sync, documentation/HTML validation and generated-output cleanup. `make verify` runs static/docs checks, browser-independent contracts and production build/HTML validation sequentially; browser journeys remain explicit. `.NOTPARALLEL` protects the shared Next.js generated type files from concurrent Make targets. No package/toolchain change or automatic browser installation. Development guides and bootstrap output point to these shortcuts; README remains empty.
+
+Verification: default help and alternate-directory help work; remaining recipes were dry-run checked. `make format` passed, then `make verify` passed static/docs checks, all 30 contracts, production build and built-HTML validation (17 pages, 52 image uses, 34 font references, 316 internal links). The initial verify correctly rejected formatting in two guest-state files before formatting was applied. Bootstrap shell syntax and diff whitespace checks pass. Installation, dev/start, browser download, browser execution and clean are dry-run only, not executed.
+
+## Automatic blank-line readability
+
+User screenshot on 2026-11-24 showed that Oxfmt alone left consecutive functions and other sections visually cramped. `make format` now runs Oxfmt followed by a syntax-aware blank-line pass using the installed TypeScript parser. It separates module headers/imports, functions/types, multiline declarations and control-flow/return blocks while keeping short related declarations together, preserving comments/import order and skipping UI wrappers/declarations. The normal read-only format check enforces the same policy. Applied to the handwritten frontend and test/config files; no dependencies were added. Oxc editor formatting alone still runs Oxfmt, so `make format` is the complete project command.
+
+Verification: all 35 contracts pass, including five spacing fixtures covering the user’s module/function case, control-flow groups, comment attachment, TSX/string preservation, idempotence and invalid-syntax rejection. `make format` repeats with zero changes. Formatting/spacing checks, type-aware lint, TypeScript, documentation validation and diff whitespace checks pass. Protected UI wrappers and the lockfile are unchanged; package changes only wire the two formatting commands. No browser result or new production build is implied by this source-spacing correction.
+
 ## Repository layout and first commit
 
 The app package lives in `frontend/`: source, public media, tests, app-specific scripts/configuration and its pnpm manifest/lockfile. Repo-level docs, agent/design guidance, the Node pin, design references and shared documentation tooling remain at the root. [Frontend development](../frontend/DEVELOPMENT.md) points back to the shared guides. Use `pnpm --dir frontend <script>` from the root or run `pnpm <script>` inside `frontend/`; no additional workspace orchestrator is introduced.
@@ -130,11 +150,11 @@ Use the existing `frontend/` package, repo `.node-version`, exact `packageManage
 
 ## File and module interfaces
 
-This table describes remaining service interfaces and integration responsibilities. The existing `frontend/src/story/`, `frontend/src/features/` and route modules are reused; `frontend/src/server/` and `frontend/src/generation/` are planned. Prefer small interfaces that own meaningful behavior; call Drizzle directly inside the owning module rather than create a generic repository layer for each table.
+This table describes remaining service interfaces and integration responsibilities. The existing `frontend/src/features/lesson/contracts/`, `frontend/src/features/` and route modules are reused; `frontend/src/server/` and `frontend/src/generation/` are planned. Prefer small interfaces that own meaningful behavior; call Drizzle directly inside the owning module rather than create a generic repository layer for each table.
 
 | Location | Interface and invariants |
 | --- | --- |
-| `frontend/src/story/{schemas,dates,validation}.ts` | Pure Zod schemas/types, date ordering, structural/cross-reference/capability validation. No React, filesystem, credentials, or database imports. |
+| `frontend/src/features/lesson/contracts/{schemas,dates,validation}.ts` | Pure Zod schemas/types, date ordering, structural/cross-reference/capability validation. No React, filesystem, credentials, or database imports. |
 | `frontend/src/server/config.ts` | Validated application configuration; explicit prepared/live modes and missing-config errors. |
 | `frontend/src/server/db/{schema,migrations}/` | Drizzle schema and one reviewed SQL history, including auth schema generated from pinned Better Auth configuration. |
 | `frontend/src/server/stories/` | `getDetail(actor,id)`, `getChapterBundle(actor,versionId,chapterId)`, visibility changes; owns authorization and ready-version reads. |
@@ -146,14 +166,14 @@ This table describes remaining service interfaces and integration responsibiliti
 | `frontend/src/generation/mastra/index.ts` | Registers agents/workflows, local Inngest integration, separate Mastra storage/tracing. |
 | `frontend/src/generation/{workflows,tasks,prompts}/` | Durable stage implementation and detailed prompt builders; prepared/live adapters are actual alternative implementations at this interface. |
 | `frontend/src/generation/dispatch.ts` | Short outbox delivery loop; sends committed events only. It never schedules or runs generation stages independently of Inngest. |
-| `frontend/src/features/player/` | Reducer, scoped contexts, audio controller, renderer registry, transcript, source/chapter panels, progress integration. |
+| `frontend/src/features/lesson/player/` | Reducer, scoped contexts, audio controller, renderer registry, transcript, source/chapter panels, progress integration. |
 | `frontend/src/features/{library,creation,account}/` | Route-specific interactive UI using the typed HTTP client; no worker/database imports. |
 
 Keep Next-only session/header helpers under web-facing modules. Do not blanket-import Next's `server-only` sentinel into shared modules that the independent worker must execute. Enforce browser import restrictions with lint/build checks; share pure contracts, not provider/runtime modules.
 
 ## Content contracts
 
-The working prepared format is version `2`, defined in [prepared-story.ts](../frontend/src/story/prepared-story.ts) and [scene-schema.ts](../frontend/src/features/player/scene-schema.ts). Reuse its presentation/capability rules. The production records below add persistent identity, structured evidence, audio and readiness; they are not a second implemented player schema. Define an explicit persisted envelope/version and migration mapping in M01 rather than silently downgrading prepared bundles or equating a format version with a story revision. Use UUIDs for database content/job/asset IDs and opaque Better Auth user IDs; retain or map authored stable IDs across revisions.
+The working prepared format is version `2`, defined in [prepared-story.ts](../frontend/src/features/lesson/contracts/bundle.ts) and [scene-schema.ts](../frontend/src/features/lesson/contracts/scene.ts). Reuse its presentation/capability rules. The production records below add persistent identity, structured evidence, audio and readiness; they are not a second implemented player schema. Define an explicit persisted envelope/version and migration mapping in M01 rather than silently downgrading prepared bundles or equating a format version with a story revision. Use UUIDs for database content/job/asset IDs and opaque Better Auth user IDs; retain or map authored stable IDs across revisions.
 
 | Contract | Initial fields and rules |
 | --- | --- |
@@ -231,7 +251,7 @@ Success/error responses use shared Zod envelopes. Errors include stable `code`, 
 
 ## M01 Content and persistence
 
-**Files:** `frontend/src/story/`, `frontend/src/server/db/`, `frontend/src/server/{stories,assets}/`, read routes, `data/fixtures/working-chapter/`, migration/seed/integration checks.
+**Files:** `frontend/src/features/lesson/contracts/`, `frontend/src/server/db/`, `frontend/src/server/{stories,assets}/`, read routes, `data/fixtures/working-chapter/`, migration/seed/integration checks.
 
 Implement the initial contracts and migrations, generated auth schema ownership, atomic local assets, ready-chapter validation, and authorized reads. Author a narrow development source packet with inspectable evidence and a versioned geometry/asset manifest. Choose the topic during authoring; no subject or era restriction is implied.
 
@@ -241,7 +261,7 @@ Persist a representative chapter from the current prepared bundles, exercising a
 
 ## M02 Working chapter and player
 
-**Files:** `frontend/src/features/player/`, scene renderers, player/detail routes, reusable typography/controls, playback tests and browser journey.
+**Files:** `frontend/src/features/lesson/player/`, scene renderers, player/detail routes, reusable typography/controls, playback tests and browser journey.
 
 Connect the existing responsive player and scene registry to the persisted bundle. Use the reducer for discrete transitions, refs for audio handles, and small clock subscribers. Start with HTML media elements for narration/music routed through one Web Audio context and gain controls; short effects can use decoded buffers. Create/resume audio through deliberate interaction, handle rejected play promises, and clean up stale callbacks on scene changes/unmount.
 

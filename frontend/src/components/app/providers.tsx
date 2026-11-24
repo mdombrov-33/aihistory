@@ -1,26 +1,32 @@
 "use client";
 
+// Application theme, reduced-motion, tooltip and notification providers.
+
 import { useEffect } from "react";
 import { ThemeProvider, useTheme } from "next-themes";
 import { MotionConfig } from "motion/react";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { Toaster } from "@/components/ui/sonner";
-import { useJourney } from "@/lib/journey-store";
-import { themeOptions } from "@/content/theme-options";
+import { useJourney } from "@/state/guest/store";
+import { themeOptions } from "@/features/settings/theme-options";
 
 const themes = themeOptions.map((option) => option.value);
 
 function ThemeChrome() {
   const { theme } = useTheme();
+
   useEffect(() => {
     const frame = requestAnimationFrame(() => {
       const color = getComputedStyle(document.documentElement)
         .getPropertyValue("--background")
         .trim();
+
       document.querySelector('meta[name="theme-color"]')?.setAttribute("content", color);
     });
+
     return () => cancelAnimationFrame(frame);
   }, [theme]);
+
   return (
     <Toaster
       theme={theme === "parchment" || theme === "mineral" ? "light" : "dark"}
@@ -29,8 +35,10 @@ function ThemeChrome() {
     />
   );
 }
+
 export function Providers({ children }: { children: React.ReactNode }) {
   const preferences = useJourney();
+
   return (
     <ThemeProvider
       key={themes.join(":")}

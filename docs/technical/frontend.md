@@ -6,6 +6,10 @@ Use for screens, scene renderers, maps, interaction, narration, and sound. Follo
 
 The installed frontend and its reusable authoring seam are described in [composed lesson scenes](scenes.md). Next.js/React, Tailwind/shadcn, Lucide, Motion, d3-geo, next-themes, image inspection and native 3D and the [learning workbenches](learning-engine.md) work with prepared content. Server requests, TanStack Query, actual accounts, generated narration and the production playback/data services below remain selected implementation direction rather than completed features.
 
+## Source organization
+
+The engine lives under `frontend/src/features/lesson/`; [frontend development](../../frontend/DEVELOPMENT.md#start-here) maps its contracts, player/navigation controls, scene-family renderers, individual mechanics and media viewers. Prepared content is separate from device-local state and from generic UI primitives. Global CSS imports retain their explicit cascade order; feature file ownership does not imply CSS scoping.
+
 ## Foundations and scene families
 
 The implemented mixed-form player, schema boundary and prepared demonstration are documented in [composed lesson scenes](scenes.md). This is the current player implementation reference.

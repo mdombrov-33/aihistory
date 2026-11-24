@@ -1,6 +1,6 @@
 # Authoring a lesson storyboard
 
-Use for an agent or person adding a prepared lesson without topic-specific frontend code. Start with [the composition registry](../../frontend/src/story/compositions.ts), [the v2 bundle schema](../../frontend/src/story/prepared-story.ts) and one relevant [example bundle](scenes.md#complete-prepared-stories). `/screen-gallery` shows how the same inputs are rendered. Do not read every legacy design discussion.
+Use for an agent or person adding a prepared lesson without topic-specific frontend code. Start with [the composition registry](../../frontend/src/features/lesson/contracts/compositions.ts), [the v2 bundle schema](../../frontend/src/features/lesson/contracts/bundle.ts) and one relevant [example bundle](scenes.md#complete-prepared-stories). `/screen-gallery` shows how the same inputs are rendered. Do not read every legacy design discussion.
 
 ## From a question to screens
 
@@ -10,7 +10,7 @@ Use for an agent or person adding a prepared lesson without topic-specific front
 4. **Match the source to the composition.** A tall portrait belongs in a portrait exhibit; a landscape can fill an image/story spread. Use a document desk for a material source and detail-study for explicit crops; the renderer shows selected details at the image. Comparisons switch between large sources rather than shrinking both into a shallow strip. Quotation-focus needs a short exact attribution. A geographic map needs real coordinates and an honest line description. 3D needs an actual useful artifact, rights, a local optimized model and views that point to visible features. A process can use no image.
 5. **Compose the reading.** Put a coherent unit of explanation on a screen, potentially multiple paragraphs. Give enough specific content to learn from, with a clear connection to what is visible. Do not truncate facts to fit a fixed desktop height; choose a better composition, split at a meaningful turn or allow accessible reading flow. Use a synthesis screen to reconnect the chapter rather than introduce unsupported conclusions.
 6. **Check claims, assets and rhythm.** Is the image evidence of the event, a later representation, or an illustrative reconstruction? Are comparison images actually the same subject/date/process claimed? Do annotations point to real features? Does a return to an image add a new task? Put that reason in `reuseReason`. Choose the medium that explains the subject: a computed diagram, a suitable sourced image, real data or a model. Generate labelled illustration only for a useful explanatory gap, never invented evidence or factual labels.
-7. **Emit data and verify.** Create a complete version-2 JSON file in `frontend/src/content/showcases/`, import it in the prepared registry and synchronize the summary index. Run the checks below. Render at desktop, phone, short-window and enlarged-text sizes; inspect every interactive and failure state. Fix the shared renderer when a composition fails across lessons. A valid JSON file is not a finished lesson.
+7. **Emit data and verify.** Create a complete version-2 JSON file in `frontend/src/content/lessons/`, import it in the prepared registry and synchronize the summary index. Run the checks below. Render at desktop, phone, short-window and enlarged-text sizes; inspect every interactive and failure state. Fix the shared renderer when a composition fails across lessons. A valid JSON file is not a finished lesson.
 
 ## Minimal screen contract
 
@@ -45,7 +45,7 @@ Keep trusted instructions separate from untrusted user text, source excerpts and
 
 Require the agent to identify missing evidence or unsuitable media rather than invent it. Delimiters help organization; source content remains untrusted and cannot authorize tools or provider spend. This guide does not connect a live composer or alter the selected workflow stack.
 
-For `traveler`, supply a registered IPv6 Hop Limit model, valid finite scenario paths and explicit assumptions. For `construction`, supply two or three inputs, one output, bounded components/typed wires and a complete target truth table. Nodes use an app-owned grid. Drafts may be incomplete but must not contain invalid references, ports, multiple drivers or cycles. Equivalent wiring is accepted by its behavior. [Construction contracts](../../frontend/src/features/learning/construction-model.ts) and [packet model](../../frontend/src/features/learning/packet-model.ts) own exact fields and limits.
+For `traveler`, supply a registered IPv6 Hop Limit model, valid finite scenario paths and explicit assumptions. For `construction`, supply two or three inputs, one output, bounded components/typed wires and a complete target truth table. Nodes use an app-owned grid. Drafts may be incomplete but must not contain invalid references, ports, multiple drivers or cycles. Equivalent wiring is accepted by its behavior. [Construction contracts](../../frontend/src/features/lesson/interactions/logic/construction-model.ts) and [packet model](../../frontend/src/features/lesson/interactions/traveler/packet-model.ts) own exact fields and limits.
 
 ## Checks
 

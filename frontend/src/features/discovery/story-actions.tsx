@@ -39,6 +39,9 @@ export function StoryActions({ slug }: { slug: string }) {
         {saved ? <Check /> : <Bookmark />}
         {saved ? "Saved" : "Save"}
       </Button>
+      <Button asChild variant="outline">
+        <Link href={`/guide?add=${encodeURIComponent(slug)}`}>Add to learning trail</Link>
+      </Button>
       <Button
         variant="ghost"
         size="icon"

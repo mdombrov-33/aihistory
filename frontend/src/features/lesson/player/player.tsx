@@ -6,6 +6,7 @@ import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { ArrowRight, Bookmark, BookOpen, Check, MessageCircle, Settings2 } from "lucide-react";
 import { toast } from "sonner";
+import { LessonQuestions } from "./lesson-questions";
 import { ChapterMenu } from "./chapter-menu";
 import { ReadingControls } from "./reading-controls";
 import { ScreenNavigation } from "./screen-navigation";
@@ -54,7 +55,6 @@ export function Player({
   const scene = lesson.scenes[index];
   const [passage, setPassage] = useState(initialPassage);
   const [mode, setMode] = useState<"read" | "listen">("read");
-  const [answer, setAnswer] = useState("");
   const journey = useJourney();
   const heading = useRef<HTMLHeadingElement>(null);
   const stage = useRef<HTMLDivElement>(null);
@@ -255,33 +255,17 @@ export function Player({
           <SheetContent className="player-sheet">
             <SheetHeader>
               <SheetTitle>Follow a question.</SheetTitle>
-              <SheetDescription>Prepared contextual answers for this preview.</SheetDescription>
+              <SheetDescription>
+                Ask freely, explore relevant prepared context, or keep a question for later.
+              </SheetDescription>
             </SheetHeader>
-            <div className="question-presets my-5 mx-0 gap-2.5 grid [&_button]:py-3 [&_button]:px-[15px] [&_button]:text-left [&_button]:border [&_button]:border-border [&_button]:rounded-[7px] [&_button]:min-h-11">
-              {[
-                {
-                  question: "What connects this chapter to the story?",
-                  answer: scene.deck + " " + scene.text[scene.text.length - 1],
-                },
-                {
-                  question: "Where can I examine the evidence?",
-                  answer: lesson.sources.map((s) => s.name + ": " + s.supports).join(" "),
-                },
-              ].map((q) => (
-                <button key={q.question} onClick={() => setAnswer(q.answer)}>
-                  {q.question}
-                </button>
-              ))}
-            </div>
-            {answer ? (
-              <div
-                className="answer-panel p-5 bg-secondary rounded-[8px] mt-5 [&_p]:text-[17px] [&_p]:leading-[1.65]"
-                aria-live="polite"
-              >
-                <p>{answer}</p>
-                <Link href={sourceLink}>Inspect the sources</Link>
-              </div>
-            ) : null}
+            <LessonQuestions
+              key={story.slug + index}
+              identity={story.slug + index}
+              context={[scene.deck, ...scene.text]}
+              sources={lesson.sources}
+              sourceLink={sourceLink}
+            />
           </SheetContent>
         </Sheet>
       </div>

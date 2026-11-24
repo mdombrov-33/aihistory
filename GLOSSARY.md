@@ -31,7 +31,7 @@ A substantive assertion whose support can be inspected. Support may include reta
 The existing code/route term for a guided learning experience. Use “lesson” or “experience” in cross-subject product discussion; final public naming remains open.
 
 **Personal learning guide**:
-The proposed account-based space that connects a learner's chosen interests, bookmarks, stories, and optional trails over time. Exact features and Premium boundaries remain open.
+The space connecting chosen interests, lessons and questions through editable trails and private notes. It works locally; synchronization and commercial boundaries remain service/product details.
 
 **Story version**:
 An identifiable content revision used by evidence records, playback, bookmarks, and progress. It is separate from the schema version that describes the data format.

@@ -5,9 +5,8 @@ Keep unresolved choices here. Fold an answer into its owning topical document an
 ## Premium and accounts
 
 - Which benefits belong to free accounts and Premium? What monthly creation/question allowances, price, renewal/rollover rules and optional one-off packs are sustainable?
-- How should the plan-selection page present provisional terms before billing exists? See the [next feature](../implementation-plan.md#next-feature-premium-selection).
-- What personal-guide/trail scope is useful beyond saved activity, and how should guest activity merge into an account?
-- How should supported model/provider choices appear in Settings? Is advanced user-funded access useful later?
+- How should guest activity merge into a synchronized account?
+- Is advanced user-funded provider access useful later?
 
 ## Library and experience
 

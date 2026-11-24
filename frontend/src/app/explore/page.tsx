@@ -20,6 +20,7 @@ export default async function ExplorePage({
     topic: read("topic", "all"),
     sort: read("sort", "relevance"),
     page: read("page", "1"),
+    duration: read("duration", "all"),
   };
 
   return (

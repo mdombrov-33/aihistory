@@ -105,9 +105,9 @@ test("creation saves a local question and does not invent a running job", async 
   await page
     .getByLabel("What would you like to understand?")
     .fill("How did people share news across an ocean?");
-  await page.getByRole("button", { name: "Save question & preview" }).click();
+  await page.getByRole("button", { name: "Preview lesson outline" }).click();
   await expect(page).toHaveURL(/creations\//);
-  await expect(page.getByText("No job is running now.", { exact: false })).toBeVisible();
+  await expect(page.getByText("No job is running", { exact: false })).toBeVisible();
   await page.reload();
   await expect(
     page.getByRole("heading", { name: "How did people share news across an ocean?" }),
@@ -130,7 +130,7 @@ test("auth UI has valid forms and a usable guest path", async ({ page }) => {
   await page.getByLabel("Email address").fill("guest@example.com");
   await page.getByRole("button", { name: "Preview recovery" }).click();
   await expect(
-    page.getByText("Account preview · Sign-in and email delivery aren’t connected.", {
+    page.getByText("Account preview · profile details stay on this device.", {
       exact: false,
     }),
   ).toBeVisible();
@@ -151,6 +151,13 @@ test("key routes and compositions stay within the viewport with named controls",
     "/create",
     "/my-space",
     "/settings",
+    "/premium",
+    "/premium/review",
+    "/account",
+    "/account/membership",
+    "/guide",
+    "/preview",
+    "/new-password",
   ]) {
     await page.goto(route);
     await expect(page.locator("h1")).toBeVisible();

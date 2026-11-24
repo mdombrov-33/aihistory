@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { Settings } from "lucide-react";
+import { FeatureLinks } from "@/components/app/feature-page";
 import { PageHeading, PageFooter } from "@/components/app/shell";
 import { Button } from "@/components/ui/button";
 import { MySpace } from "@/features/account/my-space";
@@ -35,6 +36,7 @@ export default async function MySpacePage({
           </Link>
         </Button>
       </PageHeading>
+      <FeatureLinks />
       <MySpace query={query.toString()} />
       <PageFooter />
     </main>

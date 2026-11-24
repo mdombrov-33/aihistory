@@ -1,6 +1,7 @@
 // Persisted guest-state envelope, defaults and unchanged local-storage identity.
 
 import { z } from "zod";
+import { productSchema, productInitial } from "./product";
 import { constructionDraftSchema } from "@/features/lesson/interactions/logic/construction-model";
 
 const progressSchema = z.object({
@@ -25,9 +26,13 @@ const creationSchema = z.object({
   scope: z.string().max(200),
   status: z.enum(["preparing", "ready"]),
   createdAt: z.number(),
+  outline: z.array(z.string().max(140)).max(8).default([]),
+  sampleSlug: z.string().optional(),
+  previewStage: z.enum(["outline", "preparing", "opening", "ready", "failed"]).default("outline"),
 });
 
 export const stateSchema = z.object({
+  product: productSchema.default(productInitial).catch(productInitial),
   progress: z.record(z.string(), progressSchema),
   bookmarks: z.array(bookmarkSchema),
   saved: z.array(z.string()),
@@ -67,6 +72,7 @@ export type Bookmark = JourneyState["bookmarks"][number];
 export const storageKey = "history-worlds:journey:v1";
 
 export const initial: JourneyState = {
+  product: productInitial,
   progress: {},
   bookmarks: [],
   saved: [],

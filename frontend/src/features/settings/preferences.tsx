@@ -2,6 +2,8 @@
 
 // Theme, reading, motion and sound preferences backed by device-local guest state.
 
+import Link from "next/link";
+import { ModelPreferences } from "./model-preferences";
 import { useTheme } from "next-themes";
 import { useSyncExternalStore } from "react";
 import { Check } from "lucide-react";
@@ -43,6 +45,9 @@ export function Preferences() {
         <a href="#sound">Sound</a>
         <a href="#reading">Reading & motion</a>
         <a href="#device">This device</a>
+        <a href="#generation-preferences">Generation preferences</a>
+        <Link href="/account">Account</Link>
+        <Link href="/account/membership">Membership & usage</Link>
       </nav>
       <div className="settings-content grid min-w-0 gap-10 [&_h2]:text-2xl [&_section]:scroll-mt-6">
         <section
@@ -158,6 +163,7 @@ export function Preferences() {
             </DialogContent>
           </Dialog>
         </section>
+        <ModelPreferences />
       </div>
     </div>
   );

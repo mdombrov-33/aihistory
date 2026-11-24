@@ -3,14 +3,22 @@
 import Image from "next/image";
 import { AuthForm, type AuthMode } from "./auth-form";
 
-export function AuthScreen({ mode, next }: { mode: AuthMode; next?: string }) {
+export function AuthScreen({
+  mode,
+  next,
+  initialState,
+}: {
+  mode: AuthMode;
+  next?: string;
+  initialState?: string;
+}) {
   return (
     <main
       id="main-content"
       className="auth-layout mx-auto grid min-h-[calc(100svh-60px)] w-full max-w-[1120px] items-center gap-14 px-6 py-10 pb-28 sm:px-10 lg:grid-cols-[minmax(0,400px)_minmax(0,1fr)] lg:gap-20 lg:py-14"
     >
       <section className="auth-form-wrap mx-auto w-full max-w-[400px]">
-        <AuthForm mode={mode} next={next} />
+        <AuthForm mode={mode} next={next} initialState={initialState} />
       </section>
       <aside className="auth-art hidden min-w-0 lg:block" aria-label="A place for curiosity">
         <div className="relative aspect-[4/5] overflow-hidden rounded-2xl bg-card">

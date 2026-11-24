@@ -2,11 +2,11 @@
 
 ## Account value
 
-The product direction is a continuing **personal learning guide**: a private space that helps a learner connect questions and stories over time. It may remember opened/completed public stories, exact bookmarks, and interests the learner explicitly chose. Make remembered context visible, editable, and clearable; do not infer sensitive traits from learning topics.
+The **personal learning guide** is a private space that helps a learner connect questions and stories over time. Its frontend includes learning trails, chosen interests, personal notes and suggested next steps alongside opened/completed lessons and bookmarks. Make remembered context visible, editable, and clearable; do not infer sensitive traits from learning topics.
 
 Learners can start a trail from a question, concept, skill, person, place or public experience. A trail may connect public stories and new personal creations, remain open-ended, and suggest a few explainable next steps. The learner remains in control: no autoplay, interruption, forced curriculum, or hidden rewriting. If shared, a trail includes public stories by default, not private notes or progress.
 
-The device-local My space baseline already groups visited/saved stories, exact bookmarks and saved questions. Account-based personal trails, refinements to that organization and free/Premium boundaries remain unresolved. Essential accessibility remains available to everyone.
+The device-local My space baseline already groups visited/saved stories, exact bookmarks and saved questions. Learning trails and management screens work locally. Cross-device synchronization and free/Premium entitlements remain service/product details. Essential accessibility remains available to everyone.
 
 New story creation and newly generated follow-up answers require a verified account and available allowance. Question allowance is separate from full-story creations. Playback, sources, interactions, and prepared explanations remain account-free. Exact free/Premium quantities are open; implementation guards are in [security and cost](../technical/security-and-cost.md).
 
@@ -22,8 +22,8 @@ Provide a discoverable offer page where a learner can compare free access with t
 
 Explain benefits, included creation/question allowances and renewal/extra-usage terms when those terms are settled. Until then, use explicit provisional presentation rather than invented prices, quotas, savings or guarantees. Public playback and essential accessibility remain available regardless of selection.
 
-A frontend selection preview can demonstrate states without activating a membership or sending a purchase. Billing integration, renewal/cancellation enforcement and paid entitlements require a separate service slice. [Implementation plan](../implementation-plan.md#next-feature-premium-selection) owns the next work; [open offer questions](open-questions.md#premium-and-accounts) own unresolved terms.
+A frontend selection preview can demonstrate states without activating a membership or sending a purchase. Billing integration, renewal/cancellation enforcement and paid entitlements require a separate service slice. [Implementation plan](../implementation-plan.md#premium-selection) tracks integration; [open offer questions](open-questions.md#premium-and-accounts) own unresolved terms.
 
 ## Model choice in the product
 
-Provide strong defaults and an optional settings area for supported provider/model choices by task. The settings presentation and Premium boundaries remain open; current integrations/defaults live in [generation](../technical/generation.md#provider-defaults). BYOK is not required for ordinary learners and remains a possible advanced option.
+Provide strong defaults and an optional settings area for supported provider/model choices by task. Task-specific provider preferences are available locally in Settings; live access and Premium boundaries remain open; current integrations/defaults live in [generation](../technical/generation.md#provider-defaults). BYOK is not required for ordinary learners and remains a possible advanced option.

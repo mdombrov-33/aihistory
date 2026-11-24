@@ -28,7 +28,7 @@ The reusable lesson engine lives in **[src/features/lesson](src/features/lesson/
 | Change homepage sections | [Home route](src/app/page.tsx), [question entry](src/features/discovery/home-theatre.tsx), [Moon](src/features/discovery/moon-study.tsx), [map](src/features/discovery/journey-map.tsx), [collection](src/features/discovery/home-collection.tsx) |
 | Change catalog or compact lesson rows | [Browser](src/features/discovery/browser.tsx), [LessonRow](src/components/app/lesson-row.tsx) |
 | Change account, Ask or preferences | [Account](src/features/account/), [creation](src/features/creation/), [settings](src/features/settings/) |
-| Add Premium selection | [Offer requirements](../docs/product/account-and-offer.md#premium-selection), [next feature](../docs/implementation-plan.md#next-feature-premium-selection); route/feature not implemented yet |
+| Change Premium selection | [Offer requirements](../docs/product/account-and-offer.md#premium-selection), [membership features](src/features/membership/) and [account](src/features/account/account-settings.tsx) |
 | Change discovery metadata | [Catalog queries](src/content/catalog/catalog.ts), [generated summaries](src/content/catalog/showcase-catalog.generated.json), [sync script](scripts/sync-prepared-catalog.mjs) |
 | Change saved progress/preferences | [Guest schema/defaults](src/state/guest/schema.ts), [store](src/state/guest/store.ts), [actions](src/state/guest/actions.ts) |
 
@@ -47,14 +47,16 @@ src/
       shared/                Mechanic controls, scoped state, workbench and viewer recovery
     discovery/               Homepage, catalog browsing and story-level actions
     account/                 Auth previews and device-local My space
-    creation/                Saved-question creation/status previews
-    settings/                Preferences, sound controls and available themes
+    creation/                Question, outline and preparation/recovery previews
+    settings/                Preferences, sound controls and task providers
+    membership/              Offer/review, sample membership and usage
+    guide/                   Interests, learning trails and private notes
   content/
     lessons/                 Complete canonical JSON bundles and server registry
     catalog/                 Lightweight metadata/query layer and generated summary index
     discovery/               Homepage source studies, model record and city coordinates
     geography/               Local base-map geometry and provenance
-  state/guest/               One guest store with separate schema, persistence and actions
+  state/guest/               One store; guest schema, product preview schema, persistence/actions
   components/app/            Shared navigation, compact lesson rows, cards, providers and page shell
   components/ui/             Reusable UI primitives
   styles/                    Tailwind entry, document defaults and shared theme tokens

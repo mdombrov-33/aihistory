@@ -4,7 +4,7 @@ import { chapterScene } from "@/content/lesson-access";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { ArrowLeft, ArrowRight, BookOpen, Check, Clock3, MessageCircle, Star } from "lucide-react";
+import { ArrowLeft, ArrowRight, BookOpen, Check, Clock3 } from "lucide-react";
 import { stories, getStory } from "@/content/catalog/catalog";
 import { Button } from "@/components/ui/button";
 import {
@@ -15,6 +15,7 @@ import {
 } from "@/components/ui/accordion";
 import { PageFooter } from "@/components/app/shell";
 import { StoryActions } from "@/features/discovery/story-actions";
+import { Community } from "@/features/discovery/community";
 import { ReportStory } from "@/features/discovery/report-story";
 
 export function generateStaticParams() {
@@ -122,25 +123,7 @@ export default async function StoryPage({ params }: { params: Promise<{ slug: st
           </Accordion>
         </section>
         <section className="story-community py-7.5 px-0 gap-7 col-span-full flex justify-between [border-block:1px_solid_var(--line-soft)] max-[760px]:py-7 max-[760px]:block [&_p]:my-4 [&_p]:mx-0 [&_p]:text-muted-foreground max-[760px]:[&_>_button]:mt-[25px]">
-          <div>
-            <h2>What stayed with you?</h2>
-            <p>Share what helped you understand the story, or what deserves a closer look.</p>
-            <div
-              className="rating-placeholder mx-0 gap-[5px] flex items-center mt-4.5 mb-6 text-muted-foreground text-[14px] [&_svg]:w-4.5 [&_span]:ml-2"
-              aria-label="No public ratings yet"
-            >
-              {[0, 1, 2, 3, 4].map((n) => (
-                <Star key={n} aria-hidden="true" />
-              ))}
-              <span>No public ratings yet</span>
-            </div>
-            <Button asChild variant="outline">
-              <Link href={`/sign-in?next=${encodeURIComponent(`/stories/${story.slug}`)}`}>
-                <MessageCircle />
-                Sign in to rate or comment
-              </Link>
-            </Button>
-          </div>
+          <Community slug={story.slug} />
           <ReportStory title={story.title} />
         </section>
         <section className="related-stories col-span-full">

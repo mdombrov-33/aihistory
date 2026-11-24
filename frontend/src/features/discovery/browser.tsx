@@ -13,6 +13,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { LessonRow } from "@/components/app/lesson-row";
 import { CollectionPagination } from "@/components/app/collection-pagination";
+import { useJourney } from "@/state/guest/store";
 import { paginate } from "@/lib/pagination";
 import {
   Select,
@@ -22,14 +23,24 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 
-type Filters = { q: string; topic: string; sort: string; page: string };
+type Filters = { q: string; topic: string; sort: string; page: string; duration: string };
 
 export function StoryBrowser({ initial }: { initial: Filters }) {
+  const { product } = useJourney();
   const [query, setQuery] = useState(initial.q);
   const [pending, startTransition] = useTransition();
   const router = useRouter();
   const words = initial.q.toLocaleLowerCase("en").split(/\s+/).filter(Boolean);
-  const matches = stories.filter((s) => initial.topic === "all" || s.topic === initial.topic);
+
+  const matches = stories.filter(
+    (s) =>
+      (initial.topic === "all" || s.topic === initial.topic) &&
+      (initial.duration === "short"
+        ? s.minutes < 10
+        : initial.duration === "long"
+          ? s.minutes >= 10
+          : true),
+  );
 
   const scored = matches.map((story) => ({
     story,
@@ -42,10 +53,20 @@ export function StoryBrowser({ initial }: { initial: Filters }) {
 
   const found = words.length ? scored.filter((s) => s.score > 0) : scored;
 
+  function rating(slug: string) {
+    const values = Object.values(product.reviews[slug]?.ratings ?? {}).filter((v) => v > 0);
+
+    return values.length ? values.reduce((a, b) => a + b, 0) / values.length : 0;
+  }
+
   found.sort(
     initial.sort === "title"
       ? (a, b) => a.story.title.localeCompare(b.story.title)
-      : (a, b) => b.score - a.score,
+      : initial.sort === "rated"
+        ? (a, b) => rating(b.story.slug) - rating(a.story.slug)
+        : initial.sort === "latest"
+          ? (a, b) => stories.indexOf(b.story) - stories.indexOf(a.story)
+          : (a, b) => b.score - a.score,
   );
 
   function filter(key: keyof Filters, value: string) {
@@ -61,7 +82,7 @@ export function StoryBrowser({ initial }: { initial: Filters }) {
   }
 
   const resultPage = paginate(found, initial.page, 6);
-  const filtered = Boolean(initial.q || initial.topic !== "all");
+  const filtered = Boolean(initial.q || initial.topic !== "all" || initial.duration !== "all");
 
   return (
     <div className="pb-8">
@@ -69,7 +90,7 @@ export function StoryBrowser({ initial }: { initial: Filters }) {
         action="/explore"
         className="catalog-search flex w-full max-w-[880px] items-center gap-2 rounded-xl border border-input bg-card p-1.5 pl-3 focus-within:ring-2 focus-within:ring-ring focus-within:ring-offset-2 focus-within:ring-offset-background sm:gap-3 sm:pl-4"
       >
-        {["topic", "sort"].map((key) => (
+        {["topic", "sort", "duration"].map((key) => (
           <input key={key} type="hidden" name={key} value={initial[key as keyof Filters]} />
         ))}
         <Search className="size-5 shrink-0 text-muted-foreground" aria-hidden="true" />
@@ -116,6 +137,16 @@ export function StoryBrowser({ initial }: { initial: Filters }) {
             ))}
           </SelectContent>
         </Select>
+        <Select value={initial.duration} onValueChange={(value) => filter("duration", value)}>
+          <SelectTrigger aria-label="Filter lessons by duration" className="min-h-11 text-sm">
+            <SelectValue />
+          </SelectTrigger>
+          <SelectContent>
+            <SelectItem value="all">Any length</SelectItem>
+            <SelectItem value="short">Under 10 minutes</SelectItem>
+            <SelectItem value="long">10 minutes or more</SelectItem>
+          </SelectContent>
+        </Select>
         {filtered ? (
           <Button variant="ghost" asChild className="px-3 text-sm">
             <Link href="/explore">Clear filters</Link>
@@ -134,9 +165,17 @@ export function StoryBrowser({ initial }: { initial: Filters }) {
           <SelectContent>
             <SelectItem value="relevance">Most relevant</SelectItem>
             <SelectItem value="title">Title A–Z</SelectItem>
+            <SelectItem value="latest">Latest · sample order</SelectItem>
+            <SelectItem value="rated">Highest rated by you</SelectItem>
           </SelectContent>
         </Select>
       </div>
+      {initial.sort === "latest" ? (
+        <p className="mt-3 text-xs text-muted-foreground">
+          Sample publication order for the frontend preview; live publication dates are not
+          connected.
+        </p>
+      ) : null}
       <div className="browse-results" aria-busy={pending}>
         {found.length ? (
           resultPage.items.map(({ story }) => (

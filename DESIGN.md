@@ -15,7 +15,7 @@ The homepage combines panoramic question entry, real local continuation, a Moon 
 
 Task screens use compact headings, direct labels and familiar controls. Explore and My space use small thumbnails beside readable lesson text. Search/topic controls and pagination work together; time/place filters are contextual. My space separates lessons, passage bookmarks and questions. Ask prioritizes the question and optional focus, then related material. Settings uses compact theme swatches and direct section labels. Authentication has a direct form on phones and a separate decorative illustration on desktop.
 
-The lesson overview uses a cinematic banner, clear premise, Start/Resume action and supporting chapters/sources. Premium selection should use the same app identity with clear benefits, availability and selected state. Follow [offer requirements](docs/product/account-and-offer.md); visual polish must not imply working billing or settled entitlements.
+The lesson overview uses a cinematic banner, clear premise, Start/Resume action and supporting chapters/sources. Premium selection uses an accessible plan comparison and separate review; account membership shows sample usage and cancellation. The guide pairs an ordered learning trail with chosen interests and private notes. Creation uses an editable outline and clear preparation/recovery states. Follow [offer requirements](docs/product/account-and-offer.md); visual polish must not imply working billing or settled entitlements.
 
 ## Player and media
 

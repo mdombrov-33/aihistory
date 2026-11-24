@@ -3,6 +3,7 @@
 // Shared application navigation; active states and responsive layout stay with the links.
 
 import Link from "next/link";
+import { useJourney } from "@/state/guest/store";
 import { usePathname } from "next/navigation";
 import { BookOpen, Compass, Layers3, Plus, Settings, UserRound } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -34,6 +35,7 @@ export function Brand({ compact = false }: { compact?: boolean }) {
 
 export function Navigation() {
   const path = usePathname();
+  const { product } = useJourney();
   const player = /^\/stories\/[^/]+\/play/.test(path);
 
   function active(href: string) {
@@ -64,6 +66,12 @@ export function Navigation() {
             ))}
           </nav>
           <div className="header-actions ml-auto flex items-center gap-3 max-[760px]:gap-1">
+            <Link
+              href="/premium"
+              className="hidden min-h-11 items-center text-sm text-primary min-[1100px]:inline-flex"
+            >
+              Premium
+            </Link>
             <Tooltip>
               <TooltipTrigger asChild>
                 <Button asChild variant="ghost" size="icon" className="touch-icon text-foreground">
@@ -79,7 +87,9 @@ export function Navigation() {
               variant="outline"
               className="sign-in-link min-h-10 rounded-[14px] border-border bg-transparent px-5 text-foreground max-[760px]:min-h-[38px] max-[760px]:px-3.5 max-[760px]:text-[13px]"
             >
-              <Link href="/sign-in">Sign in</Link>
+              <Link href={product.profile ? "/account" : "/sign-in"}>
+                {product.profile ? "Account" : "Sign in"}
+              </Link>
             </Button>
           </div>
         </div>

@@ -76,6 +76,9 @@ export function CreateStory({ initialQuestion }: { initialQuestion: string }) {
                   question: trimmed,
                   scope: scope.trim() || "A focused introduction",
                   status: "preparing",
+                  previewStage: "outline",
+                  outline: [],
+                  sampleSlug: matches[0]?.slug,
                   createdAt: Date.now(),
                 },
                 ...s.creations,
@@ -141,7 +144,7 @@ export function CreateStory({ initialQuestion }: { initialQuestion: string }) {
           </div>
           <div className="border-t border-rule pt-5">
             <Button type="submit" className="w-full sm:w-auto">
-              Save question & preview
+              Preview lesson outline
               <ArrowRight />
             </Button>
             <p className="mt-3 max-w-[60ch] text-xs leading-relaxed text-muted-foreground">

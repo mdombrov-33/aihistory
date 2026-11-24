@@ -1,20 +1,20 @@
-// Server route for creations/[id]; composes prepared data and feature views.
+// Saved question, editable outline and preparation/recovery preview.
 
+import { FeaturePage } from "@/components/app/feature-page";
 import { CreationStatus } from "@/features/creation/creation-status";
-import { PageFooter } from "@/components/app/shell";
 
-export const metadata = { title: "Your question" };
+export const metadata = { title: "Your lesson plan" };
 
-export default async function CreationPage({ params }: { params: Promise<{ id: string }> }) {
-  const { id } = await params;
-
+export default async function CreationPage({
+  params,
+  searchParams,
+}: {
+  params: Promise<{ id: string }>;
+  searchParams: Promise<{ share?: string }>;
+}) {
   return (
-    <main
-      id="main-content"
-      className="page-width mx-auto w-[min(1360px,_calc(100%_-_80px))] max-[1050px]:w-[calc(100%_-_48px)] max-[760px]:w-[calc(100%_-_36px)]"
-    >
-      <CreationStatus id={id} />
-      <PageFooter />
-    </main>
+    <FeaturePage title="Your lesson plan">
+      <CreationStatus id={(await params).id} share={(await searchParams).share} />
+    </FeaturePage>
   );
 }

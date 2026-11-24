@@ -20,4 +20,4 @@ A learner asks a question, discovers an existing lesson or requests a new explan
 
 ## Constraints
 
-Public browsing, playback, sources and accessibility remain free. New generation requires verified identity and bounded allowances. The commercial offer is defined in [account and offer](docs/product/account-and-offer.md); unresolved prices and benefits stay explicit. Keep user actions honest about connected services. Source imagery retains attribution and its original colors. Visual rules live in [DESIGN.md](DESIGN.md).
+Public browsing, playback, sources and accessibility remain free. New generation requires verified identity and bounded allowances. The local frontend includes personal learning trails and task-specific provider preferences. The commercial offer is defined in [account and offer](docs/product/account-and-offer.md); unresolved prices and benefits stay explicit. Keep user actions honest about connected services. Source imagery retains attribution and its original colors. Visual rules live in [DESIGN.md](DESIGN.md).

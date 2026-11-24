@@ -1,9 +1,11 @@
-// Server route for create-account; composes prepared data and feature views.
+// Account creation preserves the intended destination through local verification.
 
 import { AuthScreen } from "@/features/account/auth-screen";
 
-export const metadata = { title: "create account" };
+export const metadata = { title: "Create account" };
 
-export default function Page() {
-  return <AuthScreen mode="create-account" />;
+export default async function Page({ searchParams }: { searchParams: Promise<{ next?: string }> }) {
+  const { next } = await searchParams;
+
+  return <AuthScreen mode="create-account" next={typeof next === "string" ? next : undefined} />;
 }

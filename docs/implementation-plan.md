@@ -1,56 +1,44 @@
 # Implementation plan
 
-This is the single remaining-work tracker. [Status](status.md) describes the running app; topical product/technical documents own specifications. Reuse the existing frontend. Work on one scoped feature at a time; update this file in place rather than append a work log.
+This is the single remaining-work tracker. [Status](status.md) owns current service boundaries; topical documents own requirements. Reuse the existing app, select one scoped task and update this file in place.
 
 ## Execution tracker
 
-| Priority | Scope | State | Completion criterion |
-| --- | --- | --- | --- |
-| F01 | [Premium selection](#next-feature-premium-selection) | next | Learners can understand the offer, select an option and see an honest next step |
-| F02 | Membership and usage states | planned | Account surfaces explain access, remaining allowance and exhausted/paused creation without blocking free playback |
-| F03 | Request, outline and creation flow | planned | A question leads through related lessons, a focused outline and coherent preparation/recovery states |
-| F04 | Missing account and library states | planned | Existing previews have complete empty/error/guest paths and preserve the learner's destination |
-| M00–M09 | [Service integration](#service-integration) | planned | Real persistence, identity, generation and public services replace the corresponding previews |
+| Scope | State | Remaining acceptance |
+| --- | --- | --- |
+| Premium, membership and account flows | frontend implemented | Rendered phone/desktop and keyboard review; commercial terms and real services remain separate |
+| Learning guide and task-specific provider preferences | frontend implemented | Rendered trail/edit/reorder, private-note and preference journeys |
+| Request outline, preparation, recovery and sharing | frontend implemented | Rendered connected state/reload/revocation journeys; real jobs/publication remain separate |
+| Contextual inquiry, community drafts and discovery controls | frontend implemented | Rendered inquiry/rating/edit/filter journeys; generated answers and public writes remain separate |
+| M00–M09 service integration | planned | Real persistence, identity, generation and public services |
 
-States: `next`, `in_progress`, `blocked`, `done`. Mark done only after the feature's checks pass; remove completed detail once current behavior is documented. Keep unresolved product choices in [product questions](product/open-questions.md), not a parallel backlog.
+States describe actual scope, not production readiness. Browser-dependent acceptance remains open until exercised. Current source/build checks and contracts pass; browser execution is unavailable in the agent environment.
 
-## Next feature: Premium selection
+## Premium selection
 
-**Goal:** give learners a clear place to compare free access with the proposed Premium offer and choose how to continue.
+Routes `/premium` and `/premium/review` compare the free library and proposed Premium benefits, review a choice and apply a device-local sample membership. `/account/membership` demonstrates usage, exhausted/paused allowances and cancellation. Prices and commercial quotas remain unresolved in [offer questions](product/open-questions.md#premium-and-accounts). No checkout, purchase or paid entitlement exists.
 
-**Start with:** [account and offer](product/account-and-offer.md), [visual system](../DESIGN.md), the shared navigation/account/settings components and current routes. There is no Premium route or payment service yet.
+## Connected frontend flows
 
-**Scope:**
+| Entry | Implemented behavior |
+| --- | --- |
+| `/preview` | Navigation to product flows and state examples |
+| `/account` | Local profile, validation, verification, password recovery and sign-out; no credentials stored |
+| `/guide` | Chosen interests, explainable suggestions, editable/reorderable trails, saved questions, private notes and public reading-list copy |
+| `/create` → `/creations/[id]` | Related lessons, editable outline and deliberate preparation/opening/complete/error preview states; retry retains the plan |
+| Creation sharing panel | Private/link/public intent, local link revocation and readiness-gated submission preview |
+| Lesson overview | Guide entry, personal ratings/likes, editable local comments and report receipts |
+| Player Ask | Free-text search of prepared context, sources, unsupported-question detour and answer recovery/limit examples |
+| Settings | Supported task-specific provider preferences, appearance, sound and reading |
+| Explore | Topic/duration filters, local ratings, labelled sample publication order and URL pagination |
 
-- Add an offer/plan-selection page and discoverable links from appropriate account/settings entry points. Use the current app identity and theme system.
-- Explain what remains free, what Premium is intended to add, and how creation allowances differ from public-library playback.
-- Provide an obvious selected state, keyboard/touch interaction and a usable phone layout. Preserve the intended destination through sign-in or return navigation.
-- Surface unresolved prices/quantities as explicit product decisions. Choose provisional presentation with the user before treating commercial terms as settled.
-- Keep any unconnected purchase/activation action clearly a preview. Selection must not claim a paid membership, reserve a real allowance or open a payment session.
+Learning-guide and model-preference screens are part of the frontend. The [account requirements](product/account-and-offer.md) own their behavior. Sample UI state never authorizes payment, access or provider calls.
 
-**Accept when:** entry/exit links work; selection is visible and accessible across themes; free playback remains available; guest and signed-in-intent states make sense; no fake payment or activation success appears. Run applicable static/build checks and exercise the phone/desktop selection journey in a real browser when available.
+## Frontend review
 
-**Outside this slice:** payment-provider integration, checkout, subscription webhooks, real entitlement enforcement and live generation.
+Exercise plan selection/return paths, usage/cancellation, trail creation/edit/reorder/notes, question/outline/retry/revocation, profile/recovery/verification, community edit/cancel and contextual inquiry. Include reload, keyboard/focus, all themes, enlarged text, narrow/short windows and empty/error states. Use `make verify` and `make test-browser`; [development](technical/development.md#verification) defines their scope.
 
-## Following frontend features
-
-### F02 Membership and usage
-
-Define free/Premium access from the offer decisions. Present current membership, renewal/cancellation intent, separate creation/question allowances and exhausted/paused states. Preserve browsing, reading and saved content when creation is unavailable. Use explicit fixture states until a service exists; do not infer entitlements from device-local UI selection.
-
-Accept when the learner can understand access and recovery from each state, with no silent paid upgrade. Real billing/enforcement depends on the later authenticated service boundary.
-
-### F03 Request to creation
-
-Extend Ask beyond saving a local question: discover related existing lessons, narrow scope when useful, preview an outline, then show chapter readiness and recoverable failures. Keep existing usable chapters and the learner's place. An outline is informative rather than an approval gate.
-
-Accept the frontend slice with deterministic fixture states, honest preview copy, working navigation and error recovery. Real submission, durable jobs, paid effects and status polling depend on service integration.
-
-### F04 Account and library completeness
-
-Audit account entry/verification/recovery, My space, saved items, sharing/reporting and community entry points against [library](product/library.md) and [account requirements](product/account-and-offer.md). Implement concrete missing states rather than redesign accepted screens. Decide guest import and personal-trail scope before presenting them as features.
-
-Accept when the chosen flow has usable empty/loading/error/success states, safe return destinations and no claims of disconnected services. Live identity, sharing and writes remain in their service milestones.
+Source review corrections cover non-submitting Cancel edit, complete recovery destinations and shared profile validation with isolated corrupt-profile recovery. Rendered review remains open; static checks do not approve layouts. No new asset or dependency is required by this frontend pass.
 
 ## Service integration
 
@@ -136,6 +124,4 @@ Depends on M08.
 
 ## Active handoff
 
-Ready for F01 Premium selection. Supporting-screen changes and documentation cleanup remain uncommitted for review. No Premium route, membership activation or billing exists. Documentation validation and diff whitespace checks pass; application files were unchanged during the documentation cleanup. Current rendered verification limits live in [status](status.md#verification-boundary).
-
-Replace this handoff when work resumes with the active behavior, unfinished checks, blocker if any and next action. Retain only information needed to continue.
+Frontend product flows are implemented for user review and remain uncommitted. Open `/preview` to navigate them. Source fixes are reviewed; final static/contract/build checks are the acceptance evidence available here. Browser journeys and rendered review remain pending because server binding and browser launch are unavailable. Continue with rendered review before production service integration.

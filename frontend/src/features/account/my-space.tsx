@@ -57,15 +57,35 @@ export function MySpace({ query }: { query: string }) {
   return (
     <>
       <p className="mb-6 flex flex-wrap items-center gap-x-3 gap-y-1 text-sm text-muted-foreground">
-        Guest library · saved on this device.
+        {journey.product.profile
+          ? "Local account preview · saved on this device."
+          : "Guest library · saved on this device."}
         <Link
-          href="/create-account"
+          href="/account"
           className="inline-flex min-h-11 items-center gap-1 text-primary underline underline-offset-4"
         >
-          About accounts
+          Account settings
           <ArrowRight className="size-3" aria-hidden="true" />
         </Link>
       </p>
+      <section
+        className="mb-6 flex flex-wrap items-center justify-between gap-4 border-y border-rule py-5"
+        aria-label="Personal learning guide"
+      >
+        <div>
+          <h2 className="text-2xl">Your learning guide</h2>
+          <p className="mt-2 text-sm text-muted-foreground">
+            {journey.product.trails[0]?.title ??
+              "Follow a question through a trail of lessons, with your own notes."}
+          </p>
+        </div>
+        <Button asChild variant="outline">
+          <Link href="/guide">
+            Open learning guide
+            <ArrowRight />
+          </Link>
+        </Button>
+      </section>
       {continuing ? (
         <section
           className="mb-7 flex flex-wrap items-center justify-between gap-4 rounded-xl bg-card p-5"
@@ -280,7 +300,16 @@ export function MySpace({ query }: { query: string }) {
                     className="bookmark-group p-6 bg-card rounded-[10px] max-[760px]:p-5 [&_>_h3]:mb-2"
                   >
                     <h3>{creation.question}</h3>
-                    <p className="mt-3 text-muted-foreground">Saved question · {creation.scope}</p>
+                    <p className="mt-3 text-muted-foreground">
+                      {creation.previewStage === "outline"
+                        ? "Outline draft"
+                        : creation.previewStage === "failed"
+                          ? "Needs another try"
+                          : creation.previewStage === "ready"
+                            ? "Delivery preview ready"
+                            : "Preparation preview"}{" "}
+                      · {creation.scope}
+                    </p>
                   </Link>
                 ))}
               </div>

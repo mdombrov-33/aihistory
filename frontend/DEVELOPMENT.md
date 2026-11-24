@@ -52,7 +52,7 @@ src/
   content/
     lessons/                 Complete canonical JSON bundles and server registry
     catalog/                 Lightweight metadata/query layer and generated summary index
-    discovery/               Prepared homepage exhibit/source data
+    discovery/               Homepage source studies, model record and city coordinates
     geography/               Local base-map geometry and provenance
   state/guest/               One guest store with separate schema, persistence and actions
   components/app/            Shared navigation, providers, cards and page shell
@@ -79,3 +79,6 @@ Within a mechanic, `*-lab.tsx` owns the visible controls/feedback; `*-canvas.tsx
 - Retain feature CSS for coordinated scene/viewport rules, viewer/library internals, SVG geometry and artwork composition. These files stay beside their owners: discovery, lesson player, media, scenes and shared interactions. They are imported explicitly by [app/layout.tsx](src/app/layout.tsx) and are still global, not CSS Modules. Their remaining contextual rules intentionally take precedence over ordinary utility defaults; do not add unrelated application controls there. Changes to these relationships need rendered regression verification.
 - Add a lesson to the [registry](src/content/lessons/registry.ts), then run `node scripts/sync-prepared-catalog.mjs`. Never hand-edit the generated summary index. Media paths, provenance, font licenses and local Draco decoding remain part of the content contract.
 - Keep focused browser-independent checks in `tests/contracts/` and actual browser journeys in `tests/browser/`. Both use the existing Playwright runner; `test:scenes` launches no browser. Shared documentation remains outside this package; root README stays empty.
+
+
+Homepage entry: `src/app/page.tsx` arranges the sections. `features/discovery/home-theatre.tsx` owns question entry, `moon-study.tsx` the single 3D showcase, `journey-map.tsx` the flat map selection, and `home-collection.tsx` the prepared lesson list. `features/lesson/media/evidence-study.tsx` shares image inspection and on-image detail feedback with homepage studies; `content/discovery/home-studies.ts` owns their source records. Appearance remains in `features/settings/preferences.tsx`.

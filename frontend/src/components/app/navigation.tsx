@@ -4,7 +4,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Compass, Hourglass, Layers3, Plus, Settings, UserRound } from "lucide-react";
+import { BookOpen, Compass, Layers3, Plus, Settings, UserRound } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip";
 import { cn } from "@/lib/utils";
@@ -12,7 +12,7 @@ import { cn } from "@/lib/utils";
 const items = [
   { href: "/", label: "Discover", icon: Compass },
   { href: "/explore", label: "Explore", icon: Layers3 },
-  { href: "/create", label: "Create", icon: Plus },
+  { href: "/create", label: "Ask", icon: Plus },
   { href: "/my-space", label: "My space", icon: UserRound },
 ];
 
@@ -21,13 +21,13 @@ export function Brand({ compact = false }: { compact?: boolean }) {
     <Link
       href="/"
       className={cn(
-        "brand inline-flex min-h-11 items-center gap-3 font-heading text-[30px] tracking-[0.025em] text-foreground max-[1100px]:text-[25px]",
+        "brand inline-flex min-h-11 items-center gap-3 font-heading text-[30px] tracking-[-0.025em] text-foreground max-[1100px]:text-[25px]",
         compact && "brand-compact",
       )}
-      aria-label="History, home"
+      aria-label="Learn, home"
     >
-      <Hourglass className="h-8.5 w-[29px] stroke-[1.5] text-primary" aria-hidden="true" />
-      <span>HISTORY</span>
+      <BookOpen className="h-8.5 w-[29px] stroke-[1.5] text-primary" aria-hidden="true" />
+      <span>Learn</span>
     </Link>
   );
 }

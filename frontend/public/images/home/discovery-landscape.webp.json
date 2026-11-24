@@ -1,0 +1,12 @@
+{
+  "tool": "image_gen.imagegen",
+  "prompt": "Use case: illustration-story. Asset type: wide panoramic background image for an immersive learning app. A richly detailed mountain valley at blue hour: a winding river below, a distant little city with warm window lights, a long low bridge and snow-capped mountains catching the last soft apricot sunset. View from a hillside with a few dark pines framing the far edges. Cinematic, sophisticated environment painting with natural texture and depth, deep blue/slate with restrained warm light. Main mountain skyline occupies the top third, the bottom half is calm dark blue valley and river suitable behind a question input. Wide panoramic approximately 3:1 composition. Image only, no words, no typography, no symbols, no UI, no star-chart, no dramatic fantasy planets. A fictional landscape, not a documentary view.",
+  "original": "/Users/maximus/.codex/generated_images/01a1f9e9-6d54-7530-815f-e4be609168ad/exec-72a66115-6176-45ba-be1c-001b59f0515d.png",
+  "referenceImage": null,
+  "width": 2172,
+  "height": 724,
+  "purpose": "Original illustrative homepage imagery. Not documentary evidence or an existing game screenshot.",
+  "transformation": "Converted to WebP at quality 91; original generation retained in tool output directory.",
+  "sha256": "7e760cf7d62101f5bfa8f3f38da49f10bb4d7660c954407eb4277e34d8b917f8",
+  "byteSize": 347002
+}

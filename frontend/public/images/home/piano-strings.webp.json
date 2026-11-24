@@ -1,0 +1,12 @@
+{
+  "tool": "image_gen.imagegen",
+  "prompt": "Use case: photorealistic-natural. Asset type: original editorial image for a music lesson card in an interactive learning app. Close view across the open interior of a real grand piano with its taut copper-wound and steel strings, felt hammers and dark wood, a small glimpse of a hand pressing keys along the left edge. Beautiful tactile materials, warm afternoon sidelight and deep soft shadow, inviting atmosphere. Wide 3:2 crop, subject is the physical strings that make a musical sound, not a luxury-product advertisement. No words, no lettering, no logos, no sheet-music text, no UI. Photographic illustration.",
+  "original": "/Users/maximus/.codex/generated_images/01a1f9e9-6d54-7530-815f-e4be609168ad/exec-1f6d8d0c-fabe-493f-b4be-5d599ec4e0d4.png",
+  "referenceImage": null,
+  "width": 1536,
+  "height": 1024,
+  "purpose": "Original illustrative homepage imagery. Not documentary evidence or an existing game screenshot.",
+  "transformation": "Converted to WebP at quality 91; original generation retained in tool output directory.",
+  "sha256": "cfd7159cd63fd6e54448c4f09c7cdff40f64af32f1bf48d597a16de6579d6509",
+  "byteSize": 272586
+}

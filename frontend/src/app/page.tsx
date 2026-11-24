@@ -1,53 +1,107 @@
-// Server route for the discovery homepage; composes prepared data and feature views.
+// Immersive discovery: question entry and real image, model, artwork and geographic exploration.
 
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { StoryCard } from "@/components/app/story-card";
 import { PageFooter } from "@/components/app/shell";
 import { ResumeStory } from "@/features/discovery/resume-story";
-import { HomeEntrance, ExperiencePreview } from "@/features/discovery/home-theatre";
+import { HomeEntrance } from "@/features/discovery/home-theatre";
+import { MoonStudy } from "@/features/discovery/moon-study";
+import { HomeCollection } from "@/features/discovery/home-collection";
+import { JourneyMap } from "@/features/discovery/journey-map";
+import { EvidenceStudy } from "@/features/lesson/media/evidence-study";
+import { redFujiStudy } from "@/content/discovery/home-studies";
 import { stories } from "@/content/catalog/catalog";
-import { getLesson } from "@/content/lesson-access";
-import { buildSceneProgram } from "@/features/lesson/player/scene-programs";
+
+const featuredSlugs = ["shape-a-sound", "great-wave-made-by-hand", "pompeii", "shape-of-a-signal"];
 
 export default function HomePage() {
-  const silk = stories.find((s) => s.slug === "shape-of-a-signal")!;
-  const lesson = getLesson(silk.slug)!;
-  const mapBeat = buildSceneProgram(silk, lesson, 1).beats[0];
-
-  if (mapBeat.type !== "atlas") throw new Error("The discovery route needs geographic data");
+  const collection = featuredSlugs.flatMap((slug) =>
+    stories.filter((story) => story.slug === slug),
+  );
 
   return (
     <main id="main-content" className="home-theatre overflow-clip">
       <HomeEntrance />
-      <div className="page-width home-resume mx-auto w-[min(1360px,_calc(100%_-_80px))] max-[1050px]:w-[calc(100%_-_48px)] max-[760px]:w-[calc(100%_-_36px)]">
-        <ResumeStory featured />
-      </div>
-      <section className="page-width worlds-discovery mx-auto w-[min(1360px,_calc(100%_-_80px))] max-[1050px]:w-[calc(100%_-_48px)] max-[760px]:w-[calc(100%_-_36px)] p-0">
-        <div
-          className="story-grid gap-5.5 grid grid-cols-[repeat(6,_minmax(0,_1fr))] max-[760px]:gap-[17px] max-[760px]:grid-cols-[1fr_1fr] max-[400px]:grid-cols-[1fr]"
-          aria-label="Discover historical stories"
-        >
-          {stories.map((story, i) => (
-            <StoryCard placement="home" key={story.slug} story={story} featured={i < 2} />
-          ))}
+      <div className="mx-auto w-full max-w-[1540px] px-5 sm:px-9 lg:px-14">
+        <div className="pt-6 empty:hidden">
+          <ResumeStory />
         </div>
-      </section>
-      <ExperiencePreview map={mapBeat.map} />
-      <section className="page-width mx-auto w-[min(1360px,_calc(100%_-_80px))] max-[1050px]:w-[calc(100%_-_48px)] max-[760px]:w-[calc(100%_-_36px)]">
-        <div className="home-create-invitation py-[65px] px-0 text-center max-[760px]:py-10.5 [&_p]:mx-auto [&_p]:mt-5 [&_p]:mb-[25px] [&_p]:text-muted-foreground [&_p]:text-[18px] max-[760px]:[&_p]:text-[16px] max-[760px]:[&_h2]:text-[31px]">
-          <h2>Something you’ve always wondered?</h2>
-          <p>Start with your question. Find a ready story—or give a new one its shape.</p>
-          <Button asChild variant="outline">
+        <MoonStudy />
+
+        <section
+          className="grid items-center gap-7 border-t border-rule py-16 sm:gap-12 sm:py-24 lg:grid-cols-[minmax(0,1.65fr)_minmax(0,.85fr)]"
+          id="art-showcase"
+          aria-labelledby="print-title"
+        >
+          <div className="min-w-0 lg:order-1">
+            <h2
+              id="print-title"
+              className="max-w-[16ch] text-[clamp(32px,3.3vw,50px)] leading-[1.1]"
+            >
+              A familiar image. Something you haven’t seen.
+            </h2>
+            <p className="mt-5 max-w-[44ch] text-lg leading-relaxed text-muted-foreground">
+              Slow down with a real woodblock print. Follow a slope, a line of clouds, the tiny
+              marks that become a forest.
+            </p>
+            <p className="mt-4 max-w-[44ch] text-sm leading-relaxed text-muted-foreground">
+              Select a detail to read about it at the image, or open the whole print and move
+              closer.
+            </p>
+            <Button
+              asChild
+              variant="outline"
+              className="mt-6 h-auto min-h-12 whitespace-normal py-3"
+            >
+              <Link href="/stories/great-wave-made-by-hand/play/2">
+                Explore Hokusai’s world <ArrowRight aria-hidden="true" />
+              </Link>
+            </Button>
+          </div>
+          <EvidenceStudy study={redFujiStudy} />
+        </section>
+
+        <section
+          className="border-t border-rule py-16 sm:py-24"
+          id="map-showcase"
+          aria-labelledby="geography-title"
+        >
+          <div className="mb-7 grid items-end gap-5 lg:grid-cols-[1fr_1fr] lg:gap-20">
+            <h2
+              id="geography-title"
+              className="max-w-[19ch] text-[clamp(32px,3.3vw,50px)] leading-[1.1]"
+            >
+              Three oceans. Different connections.
+            </h2>
+            <div>
+              <p className="max-w-[60ch] text-lg leading-relaxed text-muted-foreground">
+                Choose two cities. Follow the connection across land and sea, then compare another
+                part of the world.
+              </p>
+            </div>
+          </div>
+          <JourneyMap />
+        </section>
+
+        <div className="border-t border-rule">
+          <HomeCollection stories={collection} />
+        </div>
+        <section className="flex flex-wrap items-center justify-between gap-6 border-t border-rule py-12 sm:py-16">
+          <div>
+            <h2 className="text-3xl sm:text-4xl">What are you wondering about?</h2>
+            <p className="mt-3 text-base text-muted-foreground sm:text-lg">
+              Find a prepared explanation, or keep a question for what comes next.
+            </p>
+          </div>
+          <Button asChild className="min-h-12 px-6">
             <Link href="/create">
-              Follow your question
-              <ArrowRight />
+              Follow your question <ArrowRight aria-hidden="true" />
             </Link>
           </Button>
-        </div>
+        </section>
         <PageFooter />
-      </section>
+      </div>
     </main>
   );
 }

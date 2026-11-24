@@ -7,7 +7,7 @@ test("discovery opens the new collection without legacy routes or missing artwor
 
   page.on("pageerror", (e) => errors.push(e.message));
   await page.goto("/");
-  await expect(page.locator(".story-card")).toHaveCount(9);
+  await expect(page.locator(".story-card")).toHaveCount(4);
   await expect
     .poll(() =>
       page
@@ -27,7 +27,7 @@ test("discovery opens the new collection without legacy routes or missing artwor
 test("search and filters find the new topics", async ({ page }) => {
   await page.goto("/");
   await page.getByLabel("What would you like to understand?").fill("telegraph");
-  await page.getByRole("button", { name: "Find a story" }).click();
+  await page.getByRole("button", { name: "Explore", exact: true }).click();
   await expect(page.locator(".result-story")).toHaveCount(1);
   await page.goto("/explore?topic=Art%20%26%20ideas");
   await expect(page.locator(".result-story")).toHaveCount(1);

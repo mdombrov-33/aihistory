@@ -9,7 +9,6 @@ import "../features/discovery/discovery.css";
 import "../features/lesson/player/player.css";
 import "../features/lesson/media/media.css";
 import "../features/lesson/scenes/layout.css";
-import "../features/discovery/exhibit.css";
 import "../features/lesson/scenes/gallery.css";
 import "../features/lesson/shared/visual-exploration.css";
 import "@xyflow/react/dist/style.css";
@@ -30,9 +29,9 @@ const serif = localFont({
 });
 
 export const metadata: Metadata = {
-  title: { default: "History — Follow your curiosity", template: "%s · History" },
+  title: { default: "Learn — Follow your curiosity", template: "%s · Learn" },
   description:
-    "Explore history through immersive stories, meaningful interactions and inspectable evidence. A prepared frontend preview.",
+    "Explore your questions through immersive lessons, interactive images, 3D models and inspectable sources. A prepared frontend preview.",
 };
 
 export const viewport: Viewport = { width: "device-width", initialScale: 1, themeColor: "#10151f" };

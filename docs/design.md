@@ -1,6 +1,6 @@
 # Product design map
 
-**Working name:** Undecided. Interactive learning describes the product; HISTORY remains a legacy UI placeholder.
+**Working name:** Undecided. Interactive learning describes the product; Learn is a provisional UI wordmark; HISTORY remains in legacy identifiers.
 
 **Status:** Product direction established; the frontend Next.js app is a prepared-content frontend under active iteration. [Current state](status.md) distinguishes working preview capabilities from planned live services. Deployment is on hold.
 
@@ -27,7 +27,7 @@ This is a piece of a larger website: generated stories use supported scene and i
 ## Current boundaries
 
 - Subject scope is broad: science, mathematics, technology, music, nature, art, history and other teachable topics. History has no required priority in the catalog or showcases.
-- The [learning engine exploration](technical/learning-engine.md) defines current mechanics, new examples and ideas still to test. Engine/examples precede the next homepage redesign.
+- The [learning engine exploration](technical/learning-engine.md) defines current mechanics, new examples and ideas still to test. The immersive homepage now demonstrates the established engine without adding new lesson mechanics.
 - The intended learner is a curious adult who may know little about the requested subject. English is the initial language.
 - Public library browsing and playback should work without an account. Accounts add personal and community benefits.
 - Application architecture and provider choices live in the technical guide. Hosting, staging, and cloud operations are deferred and do not block local implementation.

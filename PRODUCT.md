@@ -12,7 +12,7 @@ The active application is the Next.js/React and TypeScript package in `frontend/
 
 ## Users and purpose
 
-Curious adults, often beginners, learn across subjects through interactive visual explanations. A question may concern science, music, technology, mathematics, nature, history or another teachable subject. English first, mobile-first responsive web. The product name is undecided; the existing HISTORY branding is a legacy placeholder, not a subject constraint.
+Curious adults, often beginners, learn across subjects through interactive visual explanations. A question may concern science, music, technology, mathematics, nature, history or another teachable subject. English first, mobile-first responsive web. The product name is undecided; Learn is a provisional wordmark and HISTORY remains in legacy identifiers, not a subject constraint.
 
 ## Product mechanism
 
@@ -20,7 +20,7 @@ Agents will compose coherent learning experiences from supported mechanics and e
 
 The working prepared renderer supports 15 families and 26 presets, including 3D assemblies, thin-lens and pendulum experiments, harmonic sound, Boolean networks, reversible packet travel and build/test logic. Nine prepared lessons exercise the shared system. [Learning engine](docs/technical/learning-engine.md) records current behavior, limitations and future ideas; [scene contracts](docs/technical/scenes.md) and [authoring](docs/technical/lesson-authoring.md) own the content seam.
 
-Live generation, persisted evidence/readiness, production narration, accounts, personal trails and community services remain planned. Broad subject scope does not mean arbitrary scientific simulations are already supported: a new computational model needs implementation and validation. The current exploration order is engine and examples, documentation alignment, then homepage design. Earlier history-only homepage concepts are not the next homepage brief.
+Live generation, persisted evidence/readiness, production narration, accounts, personal trails and community services remain planned. Broad subject scope does not mean arbitrary scientific simulations are already supported: a new computational model needs implementation and validation. The interactive baseline is established and the immersive homepage is now implemented for user review. Earlier history-only homepage concepts are not the next homepage brief.
 
 ## Confirmed constraints
 

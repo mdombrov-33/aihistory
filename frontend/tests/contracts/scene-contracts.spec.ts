@@ -12,6 +12,8 @@ import { validateSceneProgram } from "../../src/features/lesson/contracts/scene"
 import { SceneStage } from "../../src/features/lesson/scenes/scene-stage";
 import { imageFraming } from "../../src/features/lesson/media/image-framing";
 import { mapFraming } from "../../src/features/lesson/scenes/map-framing";
+import { moonModel } from "../../src/content/discovery/home-studies";
+import { modelAssetSchema } from "../../src/features/lesson/contracts/model-asset";
 import { paginate, paginationHref } from "../../src/lib/pagination";
 
 test("the collection retires the five legacy adapters and keeps complete independent bundles", () => {
@@ -222,22 +224,24 @@ test("coverage rejects duplicate, missing and overlapping narrative ranges", () 
   expect(() => check(reference)).toThrow(/unknown source/);
 });
 test("native models are local self-contained GLBs with fallback posters and multiple camera views", () => {
-  for (const b of preparedStories)
-    for (const object of b.models) {
-      const model = readFileSync("public" + object.model);
+  for (const object of [
+    ...preparedStories.flatMap((b) => b.models),
+    modelAssetSchema.parse(moonModel),
+  ]) {
+    const model = readFileSync("public" + object.model);
 
-      expect(model.toString("ascii", 0, 4)).toBe("glTF");
-      expect(model.readUInt32LE(4)).toBe(2);
-      expect(model.readUInt32LE(8)).toBe(model.byteLength);
+    expect(model.toString("ascii", 0, 4)).toBe("glTF");
+    expect(model.readUInt32LE(4)).toBe(2);
+    expect(model.readUInt32LE(8)).toBe(model.byteLength);
 
-      const gltf = JSON.parse(model.toString("utf8", 20, 20 + model.readUInt32LE(12)));
+    const gltf = JSON.parse(model.toString("utf8", 20, 20 + model.readUInt32LE(12)));
 
-      expect(gltf.buffers.every((buffer: { uri?: string }) => !buffer.uri)).toBe(true);
-      expect(gltf.images.every((image: { uri?: string }) => !image.uri)).toBe(true);
-      expect(existsSync("public" + object.poster)).toBe(true);
-      expect(existsSync("public" + object.model + ".provenance.json")).toBe(true);
-      expect(object.views.length).toBeGreaterThanOrEqual(2);
-    }
+    expect(gltf.buffers.every((buffer: { uri?: string }) => !buffer.uri)).toBe(true);
+    expect(gltf.images.every((image: { uri?: string }) => !image.uri)).toBe(true);
+    expect(existsSync("public" + object.poster)).toBe(true);
+    expect(existsSync("public" + object.model + ".provenance.json")).toBe(true);
+    expect(object.views.length).toBeGreaterThanOrEqual(2);
+  }
 
   for (const name of ["draco_wasm_wrapper.js", "draco_decoder.wasm", "draco_decoder.js", "LICENSE"])
     expect(existsSync("public/vendor/draco/" + name)).toBe(true);

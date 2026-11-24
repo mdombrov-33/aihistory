@@ -1,0 +1,15 @@
+{
+  "source": "https://svs.gsfc.nasa.gov/vis/a010000/a014900/a014959/Moon-Model-Preview-Flat.jpg",
+  "record": "https://svs.gsfc.nasa.gov/14959/",
+  "credit": "NASA\u2019s Goddard Space Flight Center",
+  "title": "Moon 3D Models for Web, AR, and Animation \u2014 color map only",
+  "license": "NASA media usage guidelines; source credit retained; no endorsement implied",
+  "licenseURL": "https://www.nasa.gov/nasa-brand-center/images-and-media/",
+  "downloadedAt": "2026-11-24",
+  "sha256": "5706d513c2163e27a8a027a97d3ffb4eaa54b70a5377e468bc02333f09c4371f",
+  "byteSize": 177493,
+  "scopeCaveat": "LRO color map wrapped on a sphere. This version has no modeled topography; illumination is viewer lighting, not a simulation of current lunar phase.",
+  "width": 1920,
+  "height": 1080,
+  "transformation": "Source origin embedded; image pixels unchanged"
+}

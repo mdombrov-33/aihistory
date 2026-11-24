@@ -1,28 +1,66 @@
 import { test, expect } from "@playwright/test";
 import { preparedStories } from "../../src/content/lessons/registry";
 
-test("homepage examples are actual collection content with native 3D", async ({ page }) => {
+test("homepage studies keep inspection, model viewpoints and map feedback beside their subjects", async ({
+  page,
+}) => {
   await page.goto("/");
 
-  const preview = page.locator("#experience-preview");
+  const moon = page.locator("#moon-showcase");
 
-  await preview.scrollIntoViewIfNeeded();
-  await expect(preview.locator(".native-object")).toHaveAttribute("data-status", "ready");
-  await expect(preview.locator("iframe")).toHaveCount(0);
-  await preview.getByRole("tab", { name: "Follow a route" }).click();
-  await preview.getByRole("button", { name: "Valentia", exact: true }).click();
-  await expect(preview.locator(".route-study-caption strong")).toHaveText("Valentia");
-  await preview.getByRole("tab", { name: "Examine the evidence" }).click();
-  await preview.getByRole("button", { name: "Inspect Mount Fuji", exact: true }).click();
-  await expect(preview.locator(".evidence-study-detail svg")).toHaveAttribute(
-    "viewBox",
-    "600 430 330 220",
-  );
-  await expect(preview.getByRole("link", { name: "Enter the print’s story" })).toHaveAttribute(
+  await moon.scrollIntoViewIfNeeded();
+  await expect(moon.locator(".native-object")).toHaveAttribute("data-status", "ready");
+  await expect(moon.locator("iframe")).toHaveCount(0);
+  await moon.getByRole("button", { name: "Turn it around", exact: true }).click();
+  await expect(moon.locator("model-viewer")).toHaveAttribute("camera-orbit", "180deg 75deg 105%");
+
+  const map = page.locator("#map-showcase");
+
+  await expect(map.locator("canvas, model-viewer")).toHaveCount(0);
+  await map.getByRole("button", { name: "San Francisco — Tokyo", exact: true }).click();
+  await expect(
+    map.getByRole("heading", { name: "One ocean, on both sides of the map." }),
+  ).toBeVisible();
+
+  await map.getByRole("button", { name: "New York — London", exact: true }).click();
+  await expect(
+    map.getByRole("heading", { name: "Across the North Atlantic.", exact: true }),
+  ).toBeVisible();
+
+  const art = page.locator("#art-showcase");
+
+  await art.getByRole("button", { name: "Inspect The clouds", exact: true }).click();
+  await expect(art.getByRole("heading", { name: "A different rhythm in the sky." })).toBeVisible();
+  await expect(art.locator(".evidence-study-detail")).toBeInViewport();
+  await art.getByRole("button", { name: "Close image detail", exact: true }).click();
+  await expect(art.getByRole("button", { name: "Inspect The clouds", exact: true })).toBeFocused();
+
+  await expect(art.getByRole("link", { name: "Explore Hokusai’s world" })).toHaveAttribute(
     "href",
-    "/stories/great-wave-made-by-hand",
+    "/stories/great-wave-made-by-hand/play/2",
   );
 });
+
+test("appearance stays in settings, persists and discovery filters real lessons", async ({
+  page,
+}) => {
+  await page.goto("/");
+  await expect(page.getByRole("combobox", { name: "Appearance", exact: true })).toHaveCount(0);
+  await page.goto("/settings");
+  await page.getByRole("button", { name: /Mineral/ }).click();
+  await expect(page.locator("html")).toHaveClass(/mineral/);
+  await page.goto("/");
+  await expect(page.locator("html")).toHaveClass(/mineral/);
+  await page.getByRole("button", { name: "Music", exact: true }).click();
+  await expect(page.locator(".story-card")).toHaveCount(1);
+  await expect(page.locator(".story-card")).toHaveAttribute("href", "/stories/shape-a-sound");
+  await page.getByRole("button", { name: "All topics", exact: true }).click();
+  await expect(page.locator(".story-card")).toHaveCount(4);
+  expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth + 1)).toBe(
+    true,
+  );
+});
+
 test("the image-story composition fills its column and whole-source inspection stays available", async ({
   page,
 }) => {
@@ -135,43 +173,46 @@ test("the gallery changes compositions without mounting every heavy viewer", asy
 test("an unavailable 3D asset keeps the source and reading available and can retry", async ({
   page,
 }) => {
-  await page.route("**/models/telegraph.glb", (route) => route.abort());
+  await page.route("**/models/moon.glb", (route) => route.abort());
   await page.goto("/");
 
-  const preview = page.locator("#experience-preview");
+  const preview = page.locator("#moon-showcase");
 
   await preview.scrollIntoViewIfNeeded();
   await expect(preview.locator(".native-object")).toHaveAttribute("data-status", "error");
-  await expect(preview.getByRole("link", { name: /Museum record/ })).toBeVisible();
-  await page.unroute("**/models/telegraph.glb");
+  await expect(preview.getByRole("link", { name: /Source record/ })).toBeVisible();
+  await page.unroute("**/models/moon.glb");
   await preview.getByRole("button", { name: "Try again", exact: true }).click();
   await expect(preview.locator(".native-object")).toHaveAttribute("data-status", "ready");
 });
 
-test("the evidence study keeps its source link and recovers from an image failure", async ({
-  page,
-}) => {
+test("the artwork keeps its source and can recover from an image failure", async ({ page }) => {
   const artwork = (url: URL) =>
-    url.pathname.endsWith("/images/archive/great-wave.jpg") ||
+    url.pathname.endsWith("/images/showcase/great-wave/red-fuji.jpg") ||
     (url.pathname === "/_next/image" &&
-      (url.searchParams.get("url") ?? "").startsWith("/images/archive/great-wave.jpg"));
+      (url.searchParams.get("url") ?? "").startsWith("/images/showcase/great-wave/red-fuji.jpg"));
 
   await page.route(artwork, (route) => route.abort());
   await page.goto("/");
 
-  const preview = page.locator("#experience-preview");
+  const preview = page.locator("#art-showcase");
 
-  await preview.getByRole("tab", { name: "Examine the evidence" }).click();
-  await expect(preview.getByText("The museum image couldn’t load.", { exact: true })).toBeVisible();
+  await preview.scrollIntoViewIfNeeded();
+  await expect(
+    preview.getByText(
+      "The image couldn’t load. You can continue reading and open its source record.",
+      { exact: true },
+    ),
+  ).toBeVisible();
   await expect(preview.getByRole("button", { name: /^Inspect / })).toHaveCount(0);
-  await expect(preview.locator(".evidence-study-source figcaption a")).toHaveAttribute(
+  await expect(preview.getByRole("link", { name: /The Met, JP9/ })).toHaveAttribute(
     "href",
     /metmuseum.org/,
   );
   await page.unroute(artwork);
   await preview.getByRole("button", { name: "Try image again", exact: true }).click();
   await expect(
-    preview.getByRole("button", { name: "Inspect Mount Fuji", exact: true }),
+    preview.getByRole("button", { name: "Inspect The clouds", exact: true }),
   ).toBeVisible();
 });
 

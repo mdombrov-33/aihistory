@@ -1,5 +1,7 @@
 # Full-app visual exploration
 
+The two rejected cross-subject redesign rounds were removed on 2026-11-24. The user then approved the [single immersive homepage direction](../../design-explorations/immersive-discovery/home.png) for an interpretive implementation in the Next.js frontend. The [image sidecar](../../design-explorations/immersive-discovery/home.png.json) records the illustrative reference. The current homepage leads with one Moon model, then Red Fuji source-image inspection, a textured flat connection map and prepared lessons. The large Pompeii photograph was removed following user review. Latest user feedback supersedes the comp's generated game setting and any duplicate globe. Worlds, Parchment, Forest and Mineral remain selectable in Settings only; the navbar theme picker was removed. Rendered acceptance is still open.
+
 Historical concept record. The active frontend is the frontend Next.js app; [status](../status.md), [DESIGN.md](../../DESIGN.md) and [scene contracts](../technical/scenes.md) describe the current implementation. The rejected separate Vite prototype has been removed.
 
 The product has since broadened to interactive learning across subjects. These history-only concepts do not constrain the next homepage or showcase selection; see the [engine exploration](../technical/learning-engine.md).

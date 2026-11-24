@@ -1,0 +1,15 @@
+{
+  "source": "https://assets.science.nasa.gov/content/dam/science/esd/eo/images/bmng/bmng-topography-bathymetry/january/world.topo.bathy.200401.3x5400x2700.jpg",
+  "record": "https://science.nasa.gov/earth/earth-observatory/blue-marble-next-generation/base-topography-bathymetry/",
+  "title": "Blue Marble: Next Generation \u2014 January 2004",
+  "credit": "NASA Earth Observatory",
+  "license": "NASA media usage guidelines; credit retained",
+  "licenseURL": "https://www.nasa.gov/nasa-brand-center/images-and-media/",
+  "width": 2048,
+  "height": 1024,
+  "transformation": "Resized 5400x2700 source to 2048x1024 WebP, quality 92. Origin embedded.",
+  "scopeCaveat": "Monthly composite with relief shading, not live weather. Journeys are illustrative shortest spherical connections between approximate city centers, not operational routes.",
+  "downloadedAt": "2026-11-24",
+  "sha256": "d9604605b77a690162bc125ace77ee42146bbc355cccd595c3816797050671dc",
+  "byteSize": 434226
+}

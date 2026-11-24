@@ -30,6 +30,7 @@ type ImageExplorerProps = {
   height?: number;
   children?: ReactNode;
   onInspect?: () => void;
+  onAvailabilityChange?: (available: boolean) => void;
   expandable?: boolean;
   showCaption?: boolean;
   framing?: "contain" | "cover";
@@ -50,6 +51,7 @@ function ImageExplorerSurface({
   height = 1024,
   children,
   onInspect,
+  onAvailabilityChange,
   expandable = true,
   showCaption = true,
   framing = "contain",
@@ -171,7 +173,14 @@ function ImageExplorerSurface({
                 width={width}
                 height={height}
                 draggable={false}
-                onError={() => setFailed(true)}
+                onError={() => {
+                  setFailed(true);
+                  onAvailabilityChange?.(false);
+                }}
+                onLoad={() => {
+                  setFailed(false);
+                  onAvailabilityChange?.(true);
+                }}
                 sizes="(max-width:760px) 100vw,75vw"
               />
             ) : null}

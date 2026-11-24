@@ -53,7 +53,7 @@ export function MuseumObject({
           }}
         >
           <DialogTrigger asChild>
-            <button aria-label="Enlarge museum object">
+            <button aria-label="Enlarge 3D object">
               <Maximize2 />
             </button>
           </DialogTrigger>
@@ -75,7 +75,7 @@ export function MuseumObject({
           </DialogContent>
         </Dialog>
         <a href={object.record} target="_blank" rel="noreferrer">
-          Museum record <ArrowUpRight />
+          Source record <ArrowUpRight />
           <span className="sr-only">opens in a new tab</span>
         </a>
       </div>

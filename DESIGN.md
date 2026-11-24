@@ -1,6 +1,6 @@
 # Worlds frontend
 
-A mobile-first interactive learning app opens into focused explanations across subjects. HISTORY is a legacy placeholder; the final name is open. [Product map](docs/design.md) owns behavior; [status](docs/status.md) records implementation limits. The visual system is an iteration for review, not a final approved design.
+A mobile-first interactive learning app opens into focused explanations across subjects. Learn is the provisional wordmark; HISTORY remains in legacy identifiers and the final name is open. [Product map](docs/design.md) owns behavior; [status](docs/status.md) records implementation limits. The visual system is an iteration for review, not a final approved design.
 
 ## Visual foundation
 
@@ -12,7 +12,7 @@ Self-hosted Source Sans 3 carries UI/body text; Zilla Slab carries headings. Use
 
 ## Hub and supporting screens
 
-The current history-led hub is an implementation record, not the brief for the next homepage. The accepted next sequence is engine/examples, documentation alignment, then a broader homepage exploration. The map/evidence/model row has no protected status.
+The homepage follows the user-approved immersive discovery direction: panoramic question entry, genuine local continuation, one sourced Moon model first, a close reading of Red Fuji with numbered details, a textured flat geography map, and a curated lesson collection. Keep each interaction and its response together. Image explanations open in a closable bottom panel inside the exhibit; explicit exhibit width prevents blank side columns. Geographic comparisons select connections rather than repeating the Moon’s rotation mechanic. Theme selection lives in Settings, not the navbar. Generated game scenery and its hypothetical player claims were rejected and removed. The subsequent full-width Pompeii photograph was also removed: its sepia/document treatment interrupted the homepage, and Red Fuji already demonstrates image inspection. Pompeii remains in its lesson and collection link.
 
 The hub leads with environmental search, a continuation/featured strip and a multi-topic gallery. Its demonstration offers geography, a real artwork study and native 3D. Each demonstration gets a suitable composition: a wide empty canvas is not a universal media frame. The evidence study uses a public-domain Hokusai print with image-relative markers, magnified details, attached credit and full-size inspection.
 

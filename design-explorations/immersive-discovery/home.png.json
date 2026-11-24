@@ -1,0 +1,21 @@
+{
+  "tool": "image_gen.imagegen",
+  "useCase": "ui-mockup",
+  "approved": true,
+  "status": "Single visual direction for user review; not implemented.",
+  "direction": "Immersive discovery",
+  "prompt": "Create ONE polished desktop web-app homepage design comp, edge-to-edge, no browser frame, no device, no collage of screens. A tall 1536x2048-style page showing its full scroll composition. This is an interactive learning app for curious adults, not a marketing site or store. The attached reference supplies only the existing quality bar, rich subject imagery, deep navy and warm amber, expressive slab headings and clear UI text. Replace its history content and composition with fresh broad subjects; do not copy its bazaar, museum, camera, or card grid.\n\nFinished compact navigation: small provisional wordmark Learn, Discover, Explore, My space, Ask a question, a visible appearance selector labeled Worlds, and Sign in. An inviting functional question input reads What would you like to understand? with an amber Explore arrow action. No oversized advertising headline. A modest continuation item shows Where does a city get its water? and Resume.\n\nThe dominant experience is a beautifully rendered original game-world scene: a winding path through a lush mysterious forest toward a warmly lit stone doorway, evocative and richly detailed, no recognizable existing game. Its playable-looking canvas has two discreet numbered inspectable details and a compact local explanation of how light and the path guide attention. Title outside the important imagery: How a game shows you where to go. Show a restrained Open explanation action and an honest small Concept lesson label.\n\nContinue into a varied, art-directed discovery composition with substantial imagery and separate readable titles: Why are coral reefs so colorful? with vivid underwater life; Why does this chord feel unfinished? with musician hands on a piano; Why does a queue keep growing? with airport movement. Subject filters and clear lesson-entry affordances. Rich atmosphere, contemporary spacing, confident hierarchy, meticulously aligned controls, readable text, subtle depth. No prices, testimonials, sales copy, metrics, diagram thumbnails, competing tool panels or enormous empty areas. Footer is quiet application navigation. Design must feel like a compelling product people return to, with immersive visual learning already present.",
+  "referenceImages": [
+    "../full-app-flow/worlds-home.png"
+  ],
+  "referenceRole": "Existing visual quality, palette and type character only; historical content and layout are not requirements.",
+  "original": "/Users/maximus/.codex/generated_images/01a1f9e9-6d54-7530-815f-e4be609168ad/exec-25656608-4f27-4c60-90e5-b323dbe2f977.png",
+  "notes": [
+    "Learn is a placeholder name.",
+    "Subjects, images, durations, continuation and all copy are illustrative.",
+    "Worlds is pictured; Parchment, Forest and Mineral remain required theme choices.",
+    "The diagram-free game scene proposes numbered local image inspection; it is not a playable game.",
+    "Only this homepage comp is proposed. Full flow follows after visual direction review."
+  ],
+  "approvalScope": "User approved immersive visual direction for an interpretive frontend implementation; latest feedback removes navbar theme selection, game forest and duplicate globe. Not a pixel or factual-content contract."
+}

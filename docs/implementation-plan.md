@@ -4,15 +4,14 @@ This is the single remaining-work tracker. [Status](status.md) owns current serv
 
 ## Execution tracker
 
-| Scope | State | Remaining acceptance |
+| Scope | State | Next action |
 | --- | --- | --- |
-| Premium, membership and account flows | frontend implemented | Rendered phone/desktop and keyboard review; commercial terms and real services remain separate |
-| Learning guide and task-specific provider preferences | frontend implemented | Rendered trail/edit/reorder, private-note and preference journeys |
-| Request outline, preparation, recovery and sharing | frontend implemented | Rendered connected state/reload/revocation journeys; real jobs/publication remain separate |
-| Contextual inquiry, community drafts and discovery controls | frontend implemented | Rendered inquiry/rating/edit/filter journeys; generated answers and public writes remain separate |
-| M00–M09 service integration | planned | Real persistence, identity, generation and public services |
+| Frontend screens and local product flows | complete for now | Preserve as the integration baseline; further design work deferred |
+| M00a backend observability | next | Structured logging, request context, boundary errors, operational metrics/traces and local inspection |
+| M00b local backend runtime | planned | Isolated dependencies, configuration and provider-free worker workflow using the observability foundation |
+| M01–M09 service integration | planned | Persist content/activity, connect identity and durable jobs, then retrieval and public services |
 
-States describe actual scope, not production readiness. Browser-dependent acceptance remains open until exercised. Current source/build checks and contracts pass; browser execution is unavailable in the agent environment.
+Frontend completion covers the local preview scope, not production services or a full rendered verification pass. Source/build checks and contracts pass. Carry outstanding browser and audio checks into the relevant integration milestone rather than reopening a standalone design phase.
 
 ## Premium selection
 
@@ -34,11 +33,11 @@ Routes `/premium` and `/premium/review` compare the free library and proposed Pr
 
 Learning-guide and model-preference screens are part of the frontend. The [account requirements](product/account-and-offer.md) own their behavior. Sample UI state never authorizes payment, access or provider calls.
 
-## Frontend review
+## Integration regression coverage
 
 Exercise plan selection/return paths, usage/cancellation, trail creation/edit/reorder/notes, question/outline/retry/revocation, profile/recovery/verification, community edit/cancel and contextual inquiry. Include reload, keyboard/focus, all themes, enlarged text, narrow/short windows and empty/error states. Use `make verify` and `make test-browser`; [development](technical/development.md#verification) defines their scope.
 
-Source review corrections cover non-submitting Cancel edit, complete recovery destinations and shared profile validation with isolated corrupt-profile recovery. Rendered review remains open; static checks do not approve layouts. No new asset or dependency is required by this frontend pass.
+Keep these journeys as regression coverage while replacing local previews with services. Rendered review remains outstanding; static checks do not approve layouts. Preserve local data and recovery destinations during migration.
 
 ## Service integration
 
@@ -46,9 +45,19 @@ The frontend runs independently of these milestones. [Architecture](technical/ar
 
 ### M00 Local baseline
 
-Add isolated Compose PostgreSQL/pgvector and Mailpit, safe local environment configuration, Mastra worker and local Inngest process supervision to the existing app. Resolve compatible stable packages and image pins. Prepared mode needs no provider keys and constructs no live clients.
+Implement in this order; [backend observability](technical/development.md#backend-observability) owns the logging/telemetry contract.
 
-Accept when clean setup/start/stop and a fixture-only workflow survive restart with no provider traffic; database, inbox, worker, lint/types and builds are reachable and checked.
+#### M00a Observability foundation
+
+Initialize application-owned Pino logging and OpenTelemetry before feature services. Add validated log/telemetry configuration, process/build metadata, isolated request context and a shared HTTP/error boundary. Emit one structured completion event per request, correlate logs with traces, and capture request rate/errors/duration plus process health. Provide local inspection of metrics and traces without hosted accounts; keep heavy collectors/viewers in an optional Compose profile. Use a diagnostic route and fake dependency to verify the foundation before a database or AI service is required.
+
+Accept when concurrent requests retain separate IDs, success/4xx/5xx paths produce the expected single completion event, production-format output is valid JSON, secret-bearing inputs/errors are excluded, and a request's slow/failing dependency is visible in its trace. Metrics must use bounded route labels. Verify exporter failure does not fail requests, buffers are bounded and graceful shutdown flushes telemetry. Add reproducible local inspection commands to the Makefile/development guide.
+
+#### M00b Local runtime and worker
+
+Add isolated Compose PostgreSQL/pgvector and Mailpit, safe local environment configuration, Mastra worker and local Inngest process supervision to the existing app. Resolve compatible stable packages and image pins. Prepared mode needs no provider keys and constructs no live clients. Extend M00a diagnostics to database connectivity, worker lifecycle and workflow dispatch/recovery. Reuse Mastra's native execution tracing/logging/metrics with compatible correlation and privacy settings; do not build a parallel AI tracing system.
+
+Accept when clean setup/start/stop and a fixture-only workflow survive restart with no provider traffic; database, inbox, worker, lint/types and builds are reachable and checked. Follow one request/job across web, dispatch and worker diagnostics without logging its private payload.
 
 ### M01 Content and persistence
 
@@ -68,9 +77,9 @@ Depends on M01.
 
 ### M03 Accounts and saved places
 
-Integrate Better Auth, local verification/reset mail and configured Google OAuth. Add account-isolated progress/bookmarks with revision conflicts and cache clearing. Preserve guest data separately while import policy is unresolved.
+Integrate Better Auth, local verification/reset mail and configured Google OAuth. Persist account profile, interests, learning trails, private notes and supported provider preferences alongside account-isolated progress/bookmarks. Add revision conflicts and cache clearing. Preserve guest data separately while import policy is unresolved; never silently upload private local notes or questions.
 
-Accept when independent accounts cannot access each other's content/activity, verification and recovery work, saved positions survive another session and stale writes remain recoverable.
+Accept when independent accounts cannot access each other's content/activity/guide, verification and recovery work, saved positions and guide edits survive another session and stale writes remain recoverable. Provider preferences never expose credentials to the browser.
 
 Depends on M02.
 
@@ -118,10 +127,12 @@ Depends on M03–M04 and M07.
 
 Exercise clean setup, real browser/API/database/audio journeys, permissions, budgets, recovery and diagnostic cleanup. Test prepared mode with keys absent and live mode only within explicit limits. Update setup and current-state docs from actual results.
 
-Accept when integrated behavior has evidence and remaining limitations are explicit. Deployment and unresolved commercial/personal-guide scope remain separate.
+Accept when integrated behavior has evidence and remaining limitations are explicit. Deployment and unresolved commercial terms remain separate; the personal learning guide is included in product scope.
 
 Depends on M08.
 
 ## Active handoff
 
-Frontend product flows are implemented for user review and remain uncommitted. Open `/preview` to navigate them. Source fixes are reviewed; final static/contract/build checks are the acceptance evidence available here. Browser journeys and rendered review remain pending because server binding and browser launch are unavailable. Continue with rendered review before production service integration.
+Start M00a with [backend observability](technical/development.md#backend-observability) and [diagnostic privacy](technical/security-and-cost.md#diagnostics). Inspect the manifests and working tree, verify compatible logging/OpenTelemetry packages and implement the diagnostic request/dependency path. Then continue to M00b [local setup](technical/development.md#planned-backend-environment), [application boundaries](technical/architecture.md#application-boundaries) and the [generation workflow](technical/generation.md). Keep prepared mode usable without credentials or provider traffic; do not provision cloud infrastructure.
+
+The frontend is finished for now. `/preview` provides the screen/state map for integration. Browser and audio checks remain part of milestone acceptance, not a prerequisite for starting M00.

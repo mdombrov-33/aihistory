@@ -41,7 +41,9 @@ These are planned production guards. The current frontend has local guest state 
 
 ## Diagnostics
 
-Use JSON operational logs with request/job IDs, stage, error code, timing, and usage. Exclude passwords, keys, cookies, and full private prompts. Cap size and retain at most seven days initially; this is a maximum, not guaranteed history under volume caps. Keep evidence/content/spending retention independent of log cleanup. Detailed private traces need their own restricted storage/retention policy before live use.
+Use the [backend observability contract](development.md#backend-observability) for structured logs, request context, boundary errors, metrics and operational traces. Exclude passwords, keys, cookies, auth/reset/share tokens, credential-bearing connection strings, private notes/questions/prompts, request/response bodies and SQL parameters. Apply exclusions before export or persistence; framework defaults and error stacks need the same review. Routine diagnostics use safe codes and allowlisted context, not arbitrary provider/driver error objects.
+
+Cap record/queue/disk sizes and retain logs and operational traces at most seven days initially; this is a maximum, not guaranteed history under volume caps. Keep local collectors, dashboards and diagnostic endpoints on localhost or behind explicit access controls. Keep evidence/content/spending retention independent of telemetry cleanup. Detailed private AI traces need their own restricted storage/redaction/retention policy before live use.
 
 ## Primary references
 

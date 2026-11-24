@@ -14,6 +14,7 @@ Read the relevant topic for implementation constraints. [Status](../status.md) d
 | Models | Task-specific defaults and configurable supported providers | [Provider defaults](generation.md#provider-defaults) |
 | Access and cost | Better Auth, scoped authorization, automatic moderation, PostgreSQL limits/ledger | [Security and cost](security-and-cost.md) |
 | Development | pnpm, pinned Node LTS, Docker dependencies, Mailpit, prepared/live modes | [Development](development.md) |
+| Backend observability | Planned first slice: Pino structured logging, request context, RED metrics and OpenTelemetry; reuse native Mastra execution telemetry | [Observability contract](development.md#backend-observability) |
 | Verification | Working Oxc/strict TypeScript and browser-independent Playwright contracts; browser execution pending; Vitest/RTL and PostgreSQL integration tests planned | [Development](development.md#verification) |
 
 [Current state](../status.md) distinguishes planned tooling from verified commands. [Open technical questions](open-questions.md) records what is still unspecified. Product behavior lives in the [product map](../design.md).

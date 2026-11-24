@@ -1,6 +1,6 @@
 # Current state
 
-The Next.js application in `frontend/` is a local-first interactive learning frontend. It runs with bundled content and browser storage, without credentials or backend services. Deployment is deferred.
+The frontend phase is complete for now. The Next.js application in `frontend/` is the working baseline for backend integration, using bundled content and browser storage without credentials or backend services. Deployment is deferred.
 
 ## Available
 
@@ -16,10 +16,10 @@ The Next.js application in `frontend/` is a local-first interactive learning fro
 
 ## Next work
 
-Review the connected frontend and its interactive states, then resume [service integration](implementation-plan.md#service-integration). [The implementation tracker](implementation-plan.md#execution-tracker) records remaining acceptance. Commercial terms, synchronization and real services remain separate.
+Begin backend implementation with [M00a: operational logging and observability](implementation-plan.md#m00a-observability-foundation), then add the local runtime and follow the [service integration milestones](implementation-plan.md#service-integration). Preserve the existing screens, renderer and provider-free prepared mode while connecting real persistence, accounts and durable workflows. Further frontend redesign is deferred; make UI changes when an integrated behavior requires them. Commercial terms remain unresolved.
 
 Use [frontend navigation](../frontend/DEVELOPMENT.md#start-here) to find code, [product navigation](design.md) for behavior and [technical navigation](technical/decisions.md) for implementation constraints. Commands and verification scopes live in [development](technical/development.md).
 
 ## Verification boundary
 
-Static checks, browser-independent contracts, production compilation and generated-HTML checks pass for the current frontend. Browser journeys are authored; current rendered desktop/mobile, interactive and audio verification remains outstanding because browser access is unavailable in the agent environment. Source checks do not establish visual acceptance.
+Static checks, browser-independent contracts, production compilation and generated-HTML checks pass for the frontend baseline. Browser journeys are authored; rendered desktop/mobile, interactive and audio verification remains outstanding because browser access was unavailable. Carry those checks into integration acceptance; they do not block starting the backend. Source checks do not establish visual acceptance.

@@ -10,7 +10,7 @@ One application package in `frontend/`. The Next.js frontend exists; the generat
 | --- | --- |
 | `frontend/src/app/` | Existing Next.js pages; application HTTP/JSON handlers planned |
 | `frontend/src/features/lesson/` | Reusable lesson engine: contracts, player controls, scene renderers, mechanics and media viewers |
-| `frontend/src/features/` (other folders) | Discovery, creation/account previews and Settings |
+| `frontend/src/features/` (other folders) | Discovery, creation, account, membership, learning-guide and Settings flows; device-local service previews |
 | `frontend/src/features/lesson/contracts/` | Existing prepared bundle/model/composition contracts; persisted records planned |
 | `frontend/src/content/` | Canonical lessons/server registry, light summary catalog, discovery data and geography |
 | `frontend/src/state/guest/` | One device-local guest store, with separate schema, persistence and actions |
@@ -99,6 +99,7 @@ These contracts are planned integration requirements. Reuse prepared presentatio
 | Narration | Stable passage ID, plain script and revision/hash, matching subtitle text, ready audio ref and measured duration |
 | Asset/use | Owner, MIME/size/duration, source/rights, content hash, production-input fingerprint and authorized version/scene use |
 | Progress/bookmark | Owner/version and stable chapter/scene/passage position; resume revision for compare-and-swap, separate bookmark identity |
+| Profile/preferences/learning guide | Account ownership, explicit interests and supported provider choices; editable trails with ordered lesson/question references and private notes; revision-aware updates and explicit guest import |
 | Job/outbox/operation | Job kind, unique actor/kind/request ID with input hash, durable event identity and unique logical operation key |
 | Reservation/rate bucket | Separate money and creation/question allowances, integer USD micro-units, atomic state transitions, bounded windows/cleanup |
 | Discovery/evidence index | Distinct content scopes, source hash, embedding model/dimensions and authorized version |

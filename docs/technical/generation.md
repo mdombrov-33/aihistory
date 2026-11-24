@@ -79,8 +79,12 @@ Provide current scene, story outline, and relevant retained passages from the au
 
 ## Tracing
 
-Use Mastra tracing from the first implementation: job/stage, model/prompt versions, source/tool calls, outputs, usage/cost estimate, timings, and failures. Restrict private diagnostic access and exclude credentials. Detailed trace storage, sampling, redaction, retention, and calibrated live evaluation remain [open](open-questions.md); routine logging is defined in [security and cost](security-and-cost.md#diagnostics).
+Reuse Mastra's native tracing, logger and span-derived metrics from worker integration; verify APIs and storage support against the installed release before configuring them. Native capabilities cover agent/workflow/tool/model execution, while [backend observability](development.md#backend-observability) owns HTTP, database, process and dispatch diagnostics. Correlate request/job/stage and trace context without installing competing instrumentation or duplicating token/cost metrics. Mastra's estimated cost does not replace the application spending ledger or provider reconciliation.
+
+Record model/prompt versions, safe source/tool metadata, usage/cost estimate, timings and failures. Inputs/outputs are potentially private: filter before export/storage and keep raw content capture disabled until a restricted policy exists. Detailed trace storage, sampling, redaction, retention and calibrated live evaluation remain [open](open-questions.md); routine diagnostic privacy is defined in [security and cost](security-and-cost.md#diagnostics).
 
 ## Primary references
 
 [Mastra agents](https://mastra.ai/docs/agents/overview), [Inngest integration](https://mastra.ai/integrations/deploy/inngest), [workflow versioning](https://www.inngest.com/docs/durable-execution/guides-and-advanced/versioning), [tracing](https://mastra.ai/docs/observability/overview), [Tavily](https://docs.tavily.com/documentation/api-credits), [text model](https://developers.openai.com/api/docs/models/gpt-6.2-sol), [image model](https://developers.openai.com/api/docs/models/gpt-image-2.6-sunburst), [speech](https://aistudio.google.com/docs/speech-generation).
+
+[Mastra logging/correlation](https://mastra.ai/docs/observability/logging), [execution tracing](https://mastra.ai/docs/observability/tracing/overview), [automatic metrics and storage support](https://mastra.ai/docs/observability/metrics/overview).
